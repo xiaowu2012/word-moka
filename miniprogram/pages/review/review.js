@@ -25,7 +25,7 @@ Page({
       examFrequency: card.examFrequency
     }))
 
-    // Shuffle for review
+    // Shuffle
     for (let i = list.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [list[i], list[j]] = [list[j], list[i]]
@@ -54,20 +54,12 @@ Page({
   },
 
   onGood() {
-    const key = this.data.currentWord.key
-    wx.cloud.callFunction({
-      name: 'updateProgress',
-      data: { field: 'reviewed', key, add: true }
-    }).catch(() => {})
+    app.addProgress('reviewed', this.data.currentWord.key)
     this.nextCard()
   },
 
   onEasy() {
-    const key = this.data.currentWord.key
-    wx.cloud.callFunction({
-      name: 'updateProgress',
-      data: { field: 'mastered', key, add: true }
-    }).catch(() => {})
+    app.addProgress('mastered', this.data.currentWord.key)
     this.nextCard()
   },
 
@@ -83,10 +75,7 @@ Page({
         currentStars: STAR_MAP[nextWord.examFrequency] || '★★★☆☆'
       })
     } else {
-      this.setData({
-        currentIndex: this.data.reviewList.length,
-        progress: 100
-      })
+      this.setData({ currentIndex: this.data.reviewList.length, progress: 100 })
     }
   },
 
