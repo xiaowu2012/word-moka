@@ -94,7 +94,7 @@ Page({
     audioCtx.stop()
     this.setData({ playing: type })
 
-    audioCtx.src = `/audio/${key}_${type}.m4a`
+    audioCtx.src = `/audio/${key}_${type}.mp3`
     audioCtx.play()
 
     audioCtx.onEnded(() => {
