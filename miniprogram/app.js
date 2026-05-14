@@ -49,7 +49,7 @@ App({
   },
 
   initData() {
-    const words = require('./data/words.json')
+    const words = require('./data/words.js')
     this.globalData.words = words
   }
 })
