@@ -1,0 +1,120 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-header {
+  padding: 24rpx 24rpx 16rpx;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.module-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #2C3E50;
+}
+
+.word-count {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 12rpx;
+  padding: 0 24rpx 16rpx;
+}
+
+.filter-tab {
+  padding: 8rpx 24rpx;
+  border-radius: 20rpx;
+  font-size: 26rpx;
+  color: #666;
+  background: #f0f0f0;
+}
+
+.filter-tab.active {
+  background: #5B8DEF;
+  color: #fff;
+}
+
+.filter-tab:active {
+  opacity: 0.8;
+}
+
+.word-scroll {
+  flex: 1;
+  padding: 0 24rpx;
+}
+
+.word-item {
+  background: #fff;
+  border-radius: 14rpx;
+  padding: 24rpx;
+  margin-bottom: 12rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.04);
+}
+
+.word-item:active {
+  transform: scale(0.98);
+  transition: transform 0.1s;
+}
+
+.word-main {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 8rpx;
+}
+
+.word-text {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #2C3E50;
+  margin-right: 12rpx;
+}
+
+.word-phonetic {
+  font-size: 26rpx;
+  color: #aaa;
+}
+
+.word-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.word-cn {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.word-tags {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.stars {
+  color: #F1C40F;
+  font-size: 22rpx;
+}
+
+.tag {
+  font-size: 20rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+}
+
+.tag-green {
+  background: #E8F8E8;
+  color: #27AE60;
+}
+
+.tag-orange {
+  background: #FFF3E8;
+  color: #E67E22;
+}

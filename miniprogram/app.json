@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/wordlist/wordlist",
+    "pages/detail/detail",
+    "pages/review/review"
+  ],
+  "window": {
+    "navigationBarTitleText": "单词魔卡",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#5B8DEF",
+    "backgroundColor": "#F5F7FA"
+  },
+  "usingComponents": {},
+  "cloud": true,
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

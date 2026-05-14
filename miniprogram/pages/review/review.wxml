@@ -1,0 +1,46 @@
+<!-- 复习模式 -->
+<view class="container">
+  <view class="progress-bar">
+    <view class="progress-fill" style="width: {{progress}}%"></view>
+  </view>
+  <text class="progress-text">{{currentIndex + 1}} / {{reviewList.length}}</text>
+
+  <view class="card" wx:if="{{reviewList.length > 0 && currentIndex < reviewList.length}}">
+    <!-- 单词正面 -->
+    <view class="card-inner {{showAnswer ? 'flipped' : ''}}" bindtap="onFlipCard">
+      <view class="card-face front">
+        <text class="review-word">{{currentWord.word}}</text>
+        <text class="review-hint">点击翻看答案</text>
+      </view>
+      <view class="card-face back">
+        <text class="review-word">{{currentWord.word}}</text>
+        <text class="review-phonetic">{{currentWord.phonetic}}</text>
+        <text class="review-mean">{{currentWord.cnMeaning}}</text>
+        <view class="review-stars">
+          <text class="stars">{{currentStars}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="review-actions" wx:if="{{showAnswer}}">
+      <view class="action-btn btn-hard" bindtap="onHard">
+        <text>😓 再想想</text>
+      </view>
+      <view class="action-btn btn-good" bindtap="onGood">
+        <text>😊 记住了</text>
+      </view>
+      <view class="action-btn btn-easy" bindtap="onEasy">
+        <text>🌟 很简单</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 复习完成 -->
+  <view class="completed" wx:elif="{{reviewList.length > 0}}">
+    <text class="completed-icon">🎉</text>
+    <text class="completed-text">复习完成！</text>
+    <text class="completed-sub">今天复习了 {{reviewList.length}} 个单词</text>
+    <view class="btn-primary" bindtap="onGoHome">返回首页</view>
+  </view>
+</view>

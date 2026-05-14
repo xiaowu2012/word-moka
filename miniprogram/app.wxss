@@ -1,0 +1,71 @@
+/* 全局样式 - 单词魔卡 */
+page {
+  background-color: #F5F7FA;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  color: #333;
+  box-sizing: border-box;
+}
+
+/* 卡片容器 */
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+  margin: 0 24rpx;
+  padding: 32rpx;
+}
+
+/* 按钮基础 */
+.btn-primary {
+  background: linear-gradient(135deg, #5B8DEF, #7C6FF7);
+  color: #fff;
+  border-radius: 40rpx;
+  padding: 20rpx 48rpx;
+  font-size: 28rpx;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary:active {
+  opacity: 0.85;
+}
+
+/* 标签 */
+.tag {
+  display: inline-block;
+  padding: 4rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+  margin-right: 8rpx;
+}
+
+.tag-blue {
+  background: #EEF3FF;
+  color: #5B8DEF;
+}
+
+.tag-orange {
+  background: #FFF3E8;
+  color: #E67E22;
+}
+
+.tag-green {
+  background: #E8F8E8;
+  color: #27AE60;
+}
+
+/* 星星评分 */
+.stars {
+  color: #F1C40F;
+  font-size: 24rpx;
+}
+
+/* 标题 */
+.page-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #2C3E50;
+  padding: 32rpx 24rpx 16rpx;
+}

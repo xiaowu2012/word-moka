@@ -1,0 +1,45 @@
+<!-- 单词列表 -->
+<view class="container">
+  <view class="list-header">
+    <text class="module-title">{{moduleTitle}}</text>
+    <text class="word-count">{{wordList.length}}个单词</text>
+  </view>
+
+  <view class="filter-bar">
+    <view 
+      class="filter-tab {{currentFilter === 'all' ? 'active' : ''}}" 
+      bindtap="onFilter" data-filter="all"
+    >全部</view>
+    <view 
+      class="filter-tab {{currentFilter === 'mastered' ? 'active' : ''}}" 
+      bindtap="onFilter" data-filter="mastered"
+    >已掌握</view>
+    <view 
+      class="filter-tab {{currentFilter === 'favorites' ? 'active' : ''}}" 
+      bindtap="onFilter" data-filter="favorites"
+    >收藏</view>
+  </view>
+
+  <scroll-view class="word-scroll" scroll-y>
+    <view 
+      class="word-item" 
+      wx:for="{{filteredList}}" 
+      wx:key="key"
+      bindtap="onTapWord"
+      data-key="{{item.key}}"
+    >
+      <view class="word-main">
+        <text class="word-text">{{item.word}}</text>
+        <text class="word-phonetic">{{item.phonetic}}</text>
+      </view>
+      <view class="word-meta">
+        <text class="word-cn">{{item.cnMeaning}}</text>
+        <view class="word-tags">
+          <text class="stars">{{item.stars}}</text>
+          <text wx:if="{{item.mastered}}" class="tag tag-green">✓掌握</text>
+          <text wx:if="{{item.favorite}}" class="tag tag-orange">❤️收藏</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
