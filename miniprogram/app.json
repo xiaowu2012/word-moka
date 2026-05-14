@@ -12,7 +12,6 @@
     "backgroundColor": "#F5F7FA"
   },
   "usingComponents": {},
-  "cloud": true,
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"
 }
