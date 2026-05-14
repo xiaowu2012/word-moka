@@ -1,4 +1,17 @@
 App({
+  onLaunch() {
+    if (!wx.cloud) {
+      console.error('请使用 2.2.3 或以上的基础库以使用云能力')
+    } else {
+      wx.cloud.init({
+        env: 'cloudbase-d2gs4fpbhca51e19f',
+        traceUser: true
+      })
+    }
+
+    this.initData()
+  },
+
   globalData: {
     words: {},
     modules: [
@@ -31,48 +44,12 @@ App({
         available: false,
         comingSoon: true
       }
-    ]
+    ],
+    userProgress: {}
   },
 
-  onLaunch() {
+  initData() {
     const words = require('./data/words.js')
     this.globalData.words = words
-  },
-
-  // 本地存储工具
-  saveProgress(key, list) {
-    const data = wx.getStorageSync('wordMokaProgress') || {}
-    data[key] = list
-    wx.setStorageSync('wordMokaProgress', data)
-  },
-
-  getProgress(key) {
-    const data = wx.getStorageSync('wordMokaProgress') || {}
-    return data[key] || []
-  },
-
-  addProgress(key, wordKey) {
-    let list = this.getProgress(key)
-    if (!list.includes(wordKey)) {
-      list.push(wordKey)
-      this.saveProgress(key, list)
-    }
-  },
-
-  removeProgress(key, wordKey) {
-    let list = this.getProgress(key)
-    list = list.filter(k => k !== wordKey)
-    this.saveProgress(key, list)
-  },
-
-  toggleProgress(key, wordKey) {
-    let list = this.getProgress(key)
-    if (list.includes(wordKey)) {
-      list = list.filter(k => k !== wordKey)
-    } else {
-      list.push(wordKey)
-    }
-    this.saveProgress(key, list)
-    return list.includes(wordKey)
   }
 })

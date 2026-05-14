@@ -3,21 +3,37 @@ const app = getApp()
 Page({
   data: {
     textbooks: [],
+    totalWords: 10,
     masteredCount: 0,
-    favoriteCount: 0,
-    totalWords: 10
+    favoriteCount: 0
   },
 
   onLoad() {
-    this.setData({ textbooks: app.globalData.textbooks })
+    this.setData({
+      textbooks: app.globalData.textbooks
+    })
+    this.loadProgress()
   },
 
   onShow() {
-    const mastered = app.getProgress('mastered')
-    const favorites = app.getProgress('favorites')
-    this.setData({
-      masteredCount: mastered.length,
-      favoriteCount: favorites.length
+    this.loadProgress()
+  },
+
+  loadProgress() {
+    const db = wx.cloud.database()
+    const userId = wx.getStorageSync('userId') || wx.cloud.CloudID
+    db.collection('user_progress').where({
+      _openid: '{openid}'
+    }).get().then(res => {
+      if (res.data && res.data.length > 0) {
+        const progress = res.data[0]
+        this.setData({
+          masteredCount: progress.mastered?.length || 0,
+          favoriteCount: progress.favorites?.length || 0
+        })
+      }
+    }).catch(() => {
+      // 首次使用，无数据
     })
   },
 
@@ -29,10 +45,14 @@ Page({
   },
 
   onStartReview() {
-    wx.navigateTo({ url: '/pages/review/review' })
+    wx.navigateTo({
+      url: '/pages/review/review'
+    })
   },
 
   onViewFavorites() {
-    wx.navigateTo({ url: '/pages/wordlist/wordlist?favorites=true' })
+    wx.navigateTo({
+      url: '/pages/wordlist/wordlist?favorites=true'
+    })
   }
 })
