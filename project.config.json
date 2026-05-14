@@ -39,7 +39,6 @@
       "outputPath": ""
     }
   },
-  "compileType": "miniprogram",
   "libVersion": "3.7.10",
   "appid": "wxc956a3d71abc8412",
   "projectname": "单词魔卡",
@@ -50,5 +49,5 @@
   },
   "cloudfunctionRoot": "cloudfunctions/",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
-  "miniprogramRoot": "miniprogram/"
+  "miniprogramRoot": "./"
 }
