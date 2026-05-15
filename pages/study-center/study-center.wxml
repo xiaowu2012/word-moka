@@ -36,18 +36,14 @@
   </view>
 
   <!-- 模块选择 -->
-  <view class="module-strip-wrap">
-    <scroll-view class="module-strip" scroll-x enhanced show-scrollbar="{{false}}">
-      <view 
-        class="module-chip {{!selectedModuleId ? 'active' : ''}}"
-        bindtap="onModuleSelect" data-id=""
-      >全部模块</view>
-      <view 
-        class="module-chip {{selectedModuleId === item.id ? 'active' : ''}}"
-        wx:for="{{modules}}" wx:key="id"
-        bindtap="onModuleSelect" data-id="{{item.id}}"
-      >{{item.icon}} {{item.name}}</view>
-    </scroll-view>
+  <view class="module-picker-row">
+    <picker mode="selector" range="{{moduleOptions}}" bindchange="onModuleChange">
+      <view class="module-picker">
+        <text class="picker-label">📚 模块</text>
+        <text class="picker-value">{{selectedModuleName}}</text>
+        <text class="picker-arrow">▾</text>
+      </view>
+    </picker>
   </view>
 
   <!-- 操作区 -->

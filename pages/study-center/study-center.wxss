@@ -199,39 +199,41 @@
   color: #E74C3C;
 }
 
-/* 模块选择条 */
-.module-strip-wrap {
+/* 模块下拉框 */
+.module-picker-row {
   padding: 0 24rpx 16rpx;
 }
 
-.module-strip {
+.module-picker {
   display: flex;
-  flex-direction: row;
-  white-space: nowrap;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.module-chip {
-  display: inline-flex;
   align-items: center;
-  padding: 12rpx 24rpx;
-  margin-right: 12rpx;
-  border-radius: 32rpx;
-  font-size: 26rpx;
-  color: #666;
-  background: #f0f0f0;
-  flex-shrink: 0;
+  background: #fff;
+  border-radius: 14rpx;
+  padding: 20rpx 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
 }
 
-.module-chip:active {
+.module-picker:active {
   opacity: 0.7;
 }
 
-.module-chip.active {
-  background: #5B8DEF;
-  color: #fff;
+.picker-label {
+  font-size: 26rpx;
+  color: #999;
+  margin-right: 12rpx;
+}
+
+.picker-value {
+  flex: 1;
+  font-size: 28rpx;
   font-weight: 600;
+  color: #2C3E50;
+}
+
+.picker-arrow {
+  font-size: 24rpx;
+  color: #ccc;
+  margin-left: 8rpx;
 }
 
 /* 目标选择浮层 */
