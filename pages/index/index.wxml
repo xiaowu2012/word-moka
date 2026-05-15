@@ -2,12 +2,7 @@
 
   <!-- 课本选择 -->
   <view wx:if="{{!showUnits}}">
-    <view class="header">
-      <view class="header-content">
-        <text class="app-name">单词魔卡</text>
-        <text class="app-desc">初中英语课本同步</text>
-      </view>
-    </view>
+    <image class="header-img" src="/images/home-banner.jpg" mode="widthFix"></image>
     <view class="section-title">选择课本</view>
     <view class="book-list">
       <view class="book-card" wx:for="{{textbooks}}" wx:key="id"
