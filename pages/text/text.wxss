@@ -1,16 +1,16 @@
-.container {
+.page-wrap {
   display: flex;
   flex-direction: column;
   height: 100vh;
   background: #F5F7FA;
 }
 
-/* 顶部 */
+/* 固定顶部 */
 .header {
-  display: flex;
-  align-items: center;
+  display: flex; align-items: center;
   background: linear-gradient(135deg, #5B8DEF, #7C6FF7);
   padding: 24rpx 24rpx 20rpx;
+  flex-shrink: 0;
 }
 .back-btn { font-size: 48rpx; color: #fff; margin-right: 16rpx; }
 .header-info { flex: 1; }
@@ -18,8 +18,7 @@
 .header-unit { font-size: 22rpx; color: rgba(255,255,255,0.7); display: block; }
 .play-all-btn {
   font-size: 26rpx; color: #fff; background: rgba(255,255,255,0.2);
-  padding: 10rpx 20rpx; border-radius: 24rpx;
-  flex-shrink: 0;
+  padding: 10rpx 20rpx; border-radius: 24rpx; flex-shrink: 0;
 }
 
 /* 课文滚动区 */
@@ -29,135 +28,72 @@
 }
 
 .paragraph {
-  background: #fff;
-  border-radius: 20rpx;
-  padding: 28rpx;
-  margin-bottom: 20rpx;
+  background: #fff; border-radius: 20rpx;
+  padding: 28rpx; margin-bottom: 20rpx;
   box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.04);
 }
 
 .sentence-row {
-  display: flex;
-  align-items: flex-start;
-  padding: 8rpx 0;
-  transition: background 0.2s;
-  border-radius: 8rpx;
+  display: flex; align-items: flex-start;
+  padding: 8rpx 0; border-radius: 8rpx;
+  transition: all 0.2s;
 }
 
 .sentence-row.playing {
-  background: #EEF3FF;
+  background: #FFF3E8;
 }
 
 .sentence-row.playing .sentence-en {
   font-weight: 700;
-}
-
-.play-icon {
-  font-size: 24rpx;
-  color: #5B8DEF;
-  margin-right: 12rpx;
-  margin-top: 4rpx;
-  flex-shrink: 0;
-}
-
-.sentence-en {
-  font-size: 30rpx;
-  line-height: 1.7;
   color: #2C3E50;
 }
 
+.play-icon {
+  font-size: 24rpx; color: #E67E22;
+  margin-right: 12rpx; margin-top: 4rpx; flex-shrink: 0;
+}
+
+.sentence-en {
+  font-size: 30rpx; line-height: 1.7; color: #333;
+}
+
 .sentence-cn {
-  display: block;
-  font-size: 26rpx;
-  color: #999;
-  line-height: 1.6;
-  margin: 4rpx 0 12rpx 40rpx;
+  display: block; font-size: 26rpx; color: #999;
+  line-height: 1.6; margin: 4rpx 0 12rpx 40rpx;
 }
 
-/* 重点词 */
 .vocab-word {
-  color: #5B8DEF;
-  font-weight: 600;
-  border-bottom: 3rpx solid #5B8DEF;
-  padding-bottom: 2rpx;
+  color: #5B8DEF; font-weight: 600;
+  border-bottom: 3rpx solid #5B8DEF; padding-bottom: 2rpx;
 }
 
-/* 重点词弹窗 */
+/* 操作按钮 */
 .action-bar {
   display: flex; gap: 16rpx;
   margin: 12rpx 0 16rpx 40rpx;
 }
-
 .action-btn {
-  font-size: 24rpx;
-  padding: 12rpx 24rpx;
-  border-radius: 20rpx;
-  background: #F0F4FF;
-  color: #5B8DEF;
+  font-size: 24rpx; padding: 12rpx 24rpx; border-radius: 20rpx;
+  background: #F0F4FF; color: #5B8DEF;
 }
-
 .action-btn.primary {
-  background: linear-gradient(135deg, #5B8DEF, #7C6FF7);
-  color: #fff;
+  background: linear-gradient(135deg, #5B8DEF, #7C6FF7); color: #fff;
 }
-
 .action-btn:active { opacity: 0.7; }
 
+/* 重点词弹窗 */
 .word-mask {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.4);
-  z-index: 99;
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4); z-index: 99;
 }
-
 .word-card {
-  position: fixed;
-  left: 50%; top: 50%;
+  position: fixed; left: 50%; top: 50%;
   transform: translate(-50%, -50%);
-  background: #fff;
-  border-radius: 24rpx;
-  padding: 40rpx;
-  width: 520rpx;
-  z-index: 100;
-  text-align: center;
+  background: #fff; border-radius: 24rpx; padding: 40rpx;
+  width: 520rpx; z-index: 100; text-align: center;
   box-shadow: 0 8rpx 40rpx rgba(0,0,0,0.15);
 }
-
-.wc-word {
-  font-size: 44rpx;
-  font-weight: 700;
-  color: #2C3E50;
-  display: block;
-  margin-bottom: 8rpx;
-}
-
-.wc-phonetic {
-  font-size: 26rpx;
-  color: #aaa;
-  display: block;
-  margin-bottom: 20rpx;
-}
-
-.wc-meaning {
-  font-size: 32rpx;
-  color: #E67E22;
-  display: block;
-  margin-bottom: 28rpx;
-}
-
-.wc-action {
-  display: block;
-  background: linear-gradient(135deg, #5B8DEF, #7C6FF7);
-  color: #fff;
-  padding: 18rpx 0;
-  border-radius: 36rpx;
-  font-size: 28rpx;
-  margin-bottom: 16rpx;
-}
-
-.wc-close {
-  display: block;
-  font-size: 26rpx;
-  color: #999;
-  padding: 10rpx 0;
-}
+.wc-word { font-size: 44rpx; font-weight: 700; color: #2C3E50; display: block; margin-bottom: 8rpx; }
+.wc-phonetic { font-size: 26rpx; color: #aaa; display: block; margin-bottom: 20rpx; }
+.wc-meaning { font-size: 32rpx; color: #E67E22; display: block; margin-bottom: 28rpx; }
+.wc-close { display: block; font-size: 26rpx; color: #999; padding: 10rpx 0; }

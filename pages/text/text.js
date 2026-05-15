@@ -75,9 +75,20 @@ Page({
     return tokens
   },
 
-  onPlayAll() {
-    this.setData({ playAllMode: true, showActions: false })
-    this.playSentence(0)
+  onTogglePlayAll() {
+    if (this.data.playAllMode && this.data.playingIdx !== null) {
+      // 正在播放 → 停止
+      if (this._audioCtx) {
+        this._audioCtx.stop()
+        this._audioCtx.destroy()
+        this._audioCtx = null
+      }
+      this.setData({ playAllMode: false, playingIdx: null })
+    } else {
+      // 未播放 → 开始全文
+      this.setData({ playAllMode: true, showActions: false })
+      this.playSentence(0)
+    }
   },
 
   onPlaySentence(e) {

@@ -1,14 +1,18 @@
 <!-- 课文阅读页 -->
-<view class="container">
+<view class="page-wrap">
+  <!-- 固定顶部 -->
   <view class="header">
     <text class="back-btn" bindtap="onBack">‹</text>
     <view class="header-info">
       <text class="header-title">{{title}}</text>
       <text class="header-unit">{{unitId}}</text>
     </view>
-    <text class="play-all-btn" bindtap="onPlayAll">{{playAllMode ? '🔊' : '▶'}} 全文</text>
+    <text class="play-all-btn" bindtap="onTogglePlayAll">
+      {{playAllMode ? '■ 停止' : '▶ 全文'}}
+    </text>
   </view>
 
+  <!-- 滚动课文区 -->
   <scroll-view class="passage-scroll" scroll-y>
     <view class="passage">
       <view class="paragraph" wx:for="{{paragraphs}}" wx:for-index="pidx" wx:key="pidx">
@@ -25,7 +29,6 @@
             </text>
           </view>
           <text class="sentence-cn">{{item.cn}}</text>
-          <!-- 操作按钮：仅单句播放后显示 -->
           <view class="action-bar" wx:if="{{showActions && actionSentenceIdx === item.gidx}}">
             <text class="action-btn" bindtap="onReplay">🔁 再读一遍</text>
             <text class="action-btn primary" bindtap="onContinueReading">➡ 往后跟读</text>
@@ -35,6 +38,7 @@
     </view>
   </scroll-view>
 
+  <!-- 重点词弹窗 -->
   <view class="word-mask" wx:if="{{showWordCard}}" bindtap="onCloseWordCard"></view>
   <view class="word-card" wx:if="{{showWordCard}}">
     <text class="wc-word">{{selectedWord.word}}</text>
