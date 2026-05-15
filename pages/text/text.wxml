@@ -6,6 +6,7 @@
       <text class="header-title">{{title}}</text>
       <text class="header-unit">{{unitId}}</text>
     </view>
+    <text class="play-all-btn" bindtap="onPlayAll">{{playAllMode ? '🔊' : '▶'}} 全文</text>
   </view>
 
   <scroll-view class="passage-scroll" scroll-y>

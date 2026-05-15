@@ -53,7 +53,9 @@ Page({
     words: {},
     selectedWord: null,
     showWordCard: false,
-    playingIdx: null
+    playingIdx: null,
+    playAllMode: false,
+    totalSentences: 0
   },
 
   onLoad(options) {
@@ -76,11 +78,13 @@ Page({
       }))
     }))
 
+    const totalSentences = paragraphs.reduce((sum, p) => sum + p.sentences.length, 0)
     this.setData({
       unitId,
       title: textData.title,
       paragraphs,
-      words: allWords
+      words: allWords,
+      totalSentences
     })
   },
 
@@ -98,8 +102,23 @@ Page({
     return tokens
   },
 
+  onPlayAll() {
+    this.setData({ playAllMode: true })
+    this.playSentence(0)
+  },
+
   onPlaySentence(e) {
-    const idx = e.currentTarget.dataset.idx
+    const idx = parseInt(e.currentTarget.dataset.idx)
+    this.setData({ playAllMode: true })
+    this.playSentence(idx)
+  },
+
+  playSentence(idx) {
+    if (idx >= this.data.totalSentences) {
+      this.setData({ playAllMode: false, playingIdx: null })
+      return
+    }
+
     this.setData({ playingIdx: idx })
 
     const audioCtx = wx.createInnerAudioContext()
@@ -107,12 +126,21 @@ Page({
     audioCtx.play()
 
     audioCtx.onEnded(() => {
-      this.setData({ playingIdx: null })
       audioCtx.destroy()
+      if (this.data.playAllMode) {
+        // 全文朗读模式：自动播下一句
+        this.playSentence(idx + 1)
+      } else {
+        this.setData({ playingIdx: null })
+      }
     })
     audioCtx.onError(() => {
-      this.setData({ playingIdx: null })
       audioCtx.destroy()
+      if (this.data.playAllMode) {
+        this.playSentence(idx + 1)
+      } else {
+        this.setData({ playingIdx: null })
+      }
     })
   },
 
