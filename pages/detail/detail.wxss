@@ -115,7 +115,7 @@
   color: #E67E22;
   font-weight: 500;
   display: block;
-  margin-bottom: 4rpx;
+  margin-bottom: 10rpx;
 }
 
 .en-mean {

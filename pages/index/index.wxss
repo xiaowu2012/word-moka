@@ -64,7 +64,7 @@
   font-size: 30rpx;
   font-weight: 600;
   color: #2C3E50;
-  margin-bottom: 4rpx;
+  margin-bottom: 10rpx;
 }
 
 .textbook-count {
@@ -229,7 +229,7 @@
   font-size: 28rpx;
   font-weight: 600;
   color: #2C3E50;
-  margin-bottom: 4rpx;
+  margin-bottom: 10rpx;
   display: block;
 }
 
