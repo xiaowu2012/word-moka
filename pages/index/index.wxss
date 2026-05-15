@@ -3,16 +3,12 @@
 }
 
 .header {
-  display: flex;
-  justify-content: center;
-  padding: 60rpx 0;
+  width: 100%;
 }
 
 .header-img {
-  width: 55%;
+  width: 100%;
   display: block;
-  border-radius: 24rpx;
-  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.08);
 }
 
 .section-title {
