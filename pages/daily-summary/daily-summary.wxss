@@ -1,0 +1,138 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #EEF3FF 0%, #F5F7FA 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 32rpx 80rpx;
+}
+
+/* 庆祝区域 */
+.celebrate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 48rpx;
+}
+
+.celebrate-icon {
+  font-size: 100rpx;
+  margin-bottom: 16rpx;
+}
+
+.celebrate-title {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #2C3E50;
+  margin-bottom: 8rpx;
+}
+
+.celebrate-sub {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 16rpx;
+}
+
+.streak-tag {
+  background: #FFF8E8;
+  border-radius: 40rpx;
+  padding: 12rpx 32rpx;
+  font-size: 28rpx;
+  color: #E67E22;
+  font-weight: 600;
+}
+
+/* 单词列表 */
+.word-list {
+  width: 100%;
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  margin-bottom: 40rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.04);
+}
+
+.list-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.word-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #f5f5f5;
+}
+
+.word-item:last-child {
+  border-bottom: none;
+}
+
+.word-item:active {
+  opacity: 0.6;
+}
+
+.word-text {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #5B8DEF;
+  min-width: 160rpx;
+}
+
+.word-cn {
+  font-size: 28rpx;
+  color: #999;
+  flex: 1;
+  margin-left: 16rpx;
+}
+
+.word-arrow {
+  font-size: 32rpx;
+  color: #ccc;
+}
+
+.word-empty {
+  padding: 40rpx 0;
+  text-align: center;
+  font-size: 26rpx;
+  color: #ccc;
+}
+
+/* 按钮 */
+.actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #5B8DEF, #7C6FF7);
+  color: #fff;
+  border-radius: 40rpx;
+  padding: 26rpx 0;
+  font-size: 30rpx;
+  font-weight: 600;
+  text-align: center;
+}
+
+.btn-primary:active {
+  opacity: 0.85;
+}
+
+.btn-secondary {
+  background: #fff;
+  color: #666;
+  border-radius: 40rpx;
+  padding: 26rpx 0;
+  font-size: 28rpx;
+  text-align: center;
+  border: 2rpx solid #e8e8e8;
+}
+
+.btn-secondary:active {
+  background: #f5f5f5;
+}

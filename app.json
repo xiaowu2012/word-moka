@@ -4,7 +4,8 @@
     "pages/wordlist/wordlist",
     "pages/detail/detail",
     "pages/review/review",
-    "pages/study-center/study-center"
+    "pages/study-center/study-center",
+    "pages/daily-summary/daily-summary"
   ],
   "window": {
     "navigationBarTitleText": "单词魔卡",

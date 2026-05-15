@@ -71,10 +71,7 @@ Page({
   onContinueLearning() {
     const { todayLearned, dailyGoal } = this.data
     if (todayLearned >= dailyGoal) {
-      wx.showToast({ title: '今日目标完成，去复习吧 🎉', icon: 'none' })
-      setTimeout(() => {
-        wx.navigateTo({ url: '/pages/review/review' })
-      }, 800)
+      wx.navigateTo({ url: '/pages/daily-summary/daily-summary' })
       return
     }
 
@@ -116,7 +113,28 @@ Page({
   },
 
   onStartReview() {
-    wx.navigateTo({ url: '/pages/review/review' })
+    // 先加载进度判断是否有待复习单词
+    wx.cloud.callFunction({
+      name: 'getProgress'
+    }).then(res => {
+      const p = res.result || {}
+      const mastered = p.mastered || []
+      const schedule = p.schedule || {}
+      const today = new Date().toISOString().slice(0, 10)
+      let dueCount = 0
+      for (const [key, s] of Object.entries(schedule)) {
+        if (!mastered.includes(key) && s.dueDate <= today && s.stage >= 1) {
+          dueCount++
+        }
+      }
+      if (dueCount === 0) {
+        wx.navigateTo({ url: '/pages/daily-summary/daily-summary' })
+      } else {
+        wx.navigateTo({ url: '/pages/review/review' })
+      }
+    }).catch(() => {
+      wx.navigateTo({ url: '/pages/review/review' })
+    })
   },
 
   onViewWordList() {
