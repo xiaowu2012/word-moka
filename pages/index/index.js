@@ -42,7 +42,21 @@ Page({
         }
       })
       this.setData({ units })
-    }).catch(() => {})
+    }).catch(() => {
+      // 云函数失败时，显示默认的 unit 列表（无进度）
+      const words = app.globalData.words
+      const unitDefs = app.globalData.units
+      const fallback = selectedTextbook.units.map(id => {
+        const def = unitDefs.find(u => u.id === id)
+        const unitWords = Object.values(words).filter(w => w.module === id)
+        return {
+          id, learned: 0, total: unitWords.length,
+          name: def ? def.name : id,
+          icon: def ? def.icon : '📖'
+        }
+      })
+      this.setData({ units: fallback })
+    })
   },
 
   onTapBook(e) {
