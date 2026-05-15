@@ -25,9 +25,44 @@
         </view>
       </view>
       <view class="textbook-status">
-        <text wx:if="{{item.available}}" class="status-tag status-ready">已就绪</text>
-        <text wx:elif="{{item.comingSoon}}" class="status-tag status-coming">即将上线</text>
+        <text wx:if="{{!item.available && item.comingSoon}}" class="status-tag status-coming">即将上线</text>
+        <text wx:elif="{{item.free || unlockedSet.has(item.id)}}" class="status-tag status-ready">已就绪</text>
+        <text wx:else class="status-tag status-locked">🔒 解锁</text>
       </view>
     </view>
+  </view>
+
+  <!-- 解锁弹窗 -->
+  <view class="unlock-mask" wx:if="{{showUnlock}}" bindtap="onCloseUnlock"></view>
+  <view class="unlock-panel" wx:if="{{showUnlock}}">
+    <text class="unlock-title">🔓 解锁教材</text>
+    <text class="unlock-desc">输入邀请码或付费解锁</text>
+
+    <view class="code-section">
+      <input class="code-input" placeholder="输入邀请码" 
+        maxlength="8" value="{{inviteCode}}" 
+        bindinput="onCodeInput" />
+      <text class="error-text" wx:if="{{errorMsg}}">{{errorMsg}}</text>
+      <button class="btn-code" bindtap="onSubmitCode" disabled="{{loading}}">
+        {{loading ? '验证中...' : '验证邀请码'}}
+      </button>
+    </view>
+
+    <view class="divider">
+      <text class="divider-line"></text>
+      <text class="divider-text">或</text>
+      <text class="divider-line"></text>
+    </view>
+
+    <view class="pay-section" bindtap="onPayUnlock">
+      <text class="pay-icon">💳</text>
+      <view class="pay-info">
+        <text class="pay-title">付费解锁</text>
+        <text class="pay-desc">即将开放，敬请期待</text>
+      </view>
+      <text class="pay-arrow">›</text>
+    </view>
+
+    <text class="close-btn" bindtap="onCloseUnlock">取消</text>
   </view>
 </view>

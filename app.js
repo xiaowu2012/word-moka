@@ -33,7 +33,8 @@ App({
         cover: '📘',
         modules: ['Module1', 'Module2', 'Module3', 'Module4', 'Module5', 'Module6', 'Module7', 'Module8', 'Module9', 'Module10'],
         wordCount: 87,
-        available: true
+        available: true,
+        free: true
       },
       {
         id: 'renjiao8b',

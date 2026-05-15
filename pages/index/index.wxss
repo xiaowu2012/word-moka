@@ -103,3 +103,166 @@
   background: #FFF3E8;
   color: #E67E22;
 }
+
+.status-locked {
+  background: #FFF0F0;
+  color: #E74C3C;
+}
+
+/* 解锁弹窗 */
+.unlock-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 99;
+}
+
+.unlock-panel {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 28rpx;
+  padding: 40rpx;
+  width: 580rpx;
+  z-index: 100;
+  box-shadow: 0 12rpx 48rpx rgba(0, 0, 0, 0.2);
+}
+
+.unlock-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #2C3E50;
+  display: block;
+  text-align: center;
+  margin-bottom: 8rpx;
+}
+
+.unlock-desc {
+  font-size: 26rpx;
+  color: #999;
+  display: block;
+  text-align: center;
+  margin-bottom: 32rpx;
+}
+
+.code-section {
+  margin-bottom: 24rpx;
+}
+
+.code-input {
+  display: block;
+  width: 100%;
+  height: 88rpx;
+  background: #F5F7FA;
+  border-radius: 16rpx;
+  padding: 0 24rpx;
+  font-size: 36rpx;
+  font-weight: 700;
+  letter-spacing: 8rpx;
+  text-align: center;
+  color: #2C3E50;
+  box-sizing: border-box;
+}
+
+.error-text {
+  font-size: 24rpx;
+  color: #E74C3C;
+  display: block;
+  text-align: center;
+  margin-top: 12rpx;
+}
+
+.btn-code {
+  width: 100%;
+  margin-top: 16rpx;
+  background: linear-gradient(135deg, #5B8DEF, #7C6FF7);
+  color: #fff;
+  border-radius: 40rpx;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  border: none;
+}
+
+.btn-code:active {
+  opacity: 0.85;
+}
+
+.btn-code[disabled] {
+  opacity: 0.6;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 24rpx 0;
+}
+
+.divider-line {
+  flex: 1;
+  height: 2rpx;
+  background: #e8e8e8;
+}
+
+.divider-text {
+  padding: 0 20rpx;
+  font-size: 24rpx;
+  color: #ccc;
+}
+
+.pay-section {
+  display: flex;
+  align-items: center;
+  background: #FFF8F0;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.pay-section:active {
+  opacity: 0.7;
+}
+
+.pay-icon {
+  font-size: 36rpx;
+  margin-right: 16rpx;
+}
+
+.pay-info {
+  flex: 1;
+}
+
+.pay-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #2C3E50;
+  margin-bottom: 4rpx;
+  display: block;
+}
+
+.pay-desc {
+  font-size: 24rpx;
+  color: #999;
+  display: block;
+}
+
+.pay-arrow {
+  font-size: 40rpx;
+  color: #ccc;
+}
+
+.close-btn {
+  display: block;
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+  padding: 16rpx 0;
+}
+
+.close-btn:active {
+  opacity: 0.6;
+}

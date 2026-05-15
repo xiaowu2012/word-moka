@@ -20,6 +20,7 @@ exports.main = async () => {
         favorites: progress.favorites || [],
         reviewed: progress.reviewed || [],
         schedule: progress.schedule || {},
+        unlocked: progress.unlocked || [],
         lastStudyDate: progress.lastStudyDate || ''
       }
     }
@@ -29,6 +30,7 @@ exports.main = async () => {
       favorites: [],
       reviewed: [],
       schedule: {},
+      unlocked: [],
       lastStudyDate: ''
     }
   } catch (err) {
@@ -37,6 +39,7 @@ exports.main = async () => {
       favorites: [],
       reviewed: [],
       schedule: {},
+      unlocked: [],
       lastStudyDate: '',
       error: err.message
     }
