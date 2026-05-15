@@ -1,6 +1,6 @@
 const TEXT_DATA = {
   "Unit1": {
-    "title": "Art in safe hands",
+    "title": "Unit 1 · Art in safe hands",
     "paragraphs": [
       {"sentences": [
         {"en": "Good evening, ladies and gentlemen. I'm Zhan Haojing, a high school student.", "cn": "晚上好，女士们先生们。我是詹昊晶，一名高中生。", "vocab": ["gentleman"]},
