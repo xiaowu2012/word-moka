@@ -59,14 +59,21 @@
 /* 单元列表 */
 .unit-list { padding: 20rpx 24rpx; }
 .unit-card {
-  display: flex; align-items: center;
+  display: flex; align-items: center; justify-content: space-between;
   background: #fff; border-radius: 14rpx;
   padding: 22rpx 24rpx; margin-bottom: 12rpx;
   box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.04);
 }
 .unit-card:active { transform: scale(0.98); }
+.unit-left { display: flex; align-items: center; flex: 1; }
 .unit-icon { font-size: 36rpx; margin-right: 16rpx; }
 .unit-info { flex: 1; }
+.unit-actions { display: flex; align-items: center; gap: 12rpx; }
+.unit-read-btn {
+  font-size: 24rpx; color: #5B8DEF;
+  background: #EEF3FF; padding: 8rpx 16rpx;
+  border-radius: 12rpx;
+}
 .unit-name { font-size: 28rpx; font-weight: 600; color: #2C3E50; display: block; }
 .unit-progress { font-size: 24rpx; color: #5B8DEF; display: block; margin-top: 4rpx; }
 .unit-arrow { font-size: 36rpx; color: #ccc; }

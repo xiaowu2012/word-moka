@@ -1,0 +1,43 @@
+<!-- 课文阅读页 -->
+<view class="container">
+  <view class="header">
+    <text class="back-btn" bindtap="onBack">‹</text>
+    <view class="header-info">
+      <text class="header-title">{{title}}</text>
+      <text class="header-unit">{{unitId}}</text>
+    </view>
+  </view>
+
+  <scroll-view class="passage-scroll" scroll-y>
+    <view class="passage">
+      <view class="paragraph" wx:for="{{paragraphs}}" wx:key="*this">
+        <view wx:for="{{item.sentences}}" wx:key="*this" wx:for-index="idx">
+          <!-- 英文 + 播放 -->
+          <view class="sentence-row {{playingIdx === globalIdx ? 'playing' : ''}}"
+                bindtap="onPlaySentence" data-globalidx="{{globalIdx}}">
+            <text class="play-icon">{{playingIdx === globalIdx ? '🔊' : '▶'}}</text>
+            <text class="sentence-en">
+              <text wx:for="{{item.tokens}}" wx:key="*this">
+                <text wx:if="{{item.isVocab}}" class="vocab-word" 
+                      bindtap="onTapWord" data-word="{{item.wordKey}}">{{item.text}} </text>
+                <text wx:else>{{item.text}} </text>
+              </text>
+            </text>
+          </view>
+          <!-- 中文翻译 -->
+          <text class="sentence-cn">{{item.cn}}</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 重点词弹窗 -->
+  <view class="word-mask" wx:if="{{showWordCard}}" bindtap="onCloseWordCard"></view>
+  <view class="word-card" wx:if="{{showWordCard}}">
+    <text class="wc-word">{{selectedWord.word}}</text>
+    <text class="wc-phonetic">{{selectedWord.phonetic}}</text>
+    <text class="wc-meaning">{{selectedWord.cnMeaning}}</text>
+    <text class="wc-action" bindtap="onAddSchedule">加入学习计划</text>
+    <text class="wc-close" bindtap="onCloseWordCard">关闭</text>
+  </view>
+</view>

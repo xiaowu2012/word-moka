@@ -42,17 +42,18 @@
     </view>
 
     <view class="unit-list">
-      <view 
-        class="unit-card" 
-        wx:for="{{units}}" wx:key="id"
-        bindtap="onTapUnit" data-id="{{item.id}}"
-      >
-        <text class="unit-icon">{{item.icon}}</text>
-        <view class="unit-info">
-          <text class="unit-name">{{item.name}}</text>
-          <text class="unit-progress">{{item.learned}}/{{item.total}} 词</text>
+      <view class="unit-card">
+        <view class="unit-left" bindtap="onTapUnit" data-id="{{item.id}}">
+          <text class="unit-icon">{{item.icon}}</text>
+          <view class="unit-info">
+            <text class="unit-name">{{item.name}}</text>
+            <text class="unit-progress">{{item.learned}}/{{item.total}} 词</text>
+          </view>
         </view>
-        <text class="unit-arrow">›</text>
+        <view class="unit-actions">
+          <text class="unit-read-btn" bindtap="onReadText" data-id="{{item.id}}">📖 阅读</text>
+          <text class="unit-arrow">›</text>
+        </view>
       </view>
     </view>
   </view>

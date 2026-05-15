@@ -67,6 +67,11 @@ Page({
     wx.navigateTo({ url: `/pages/wordlist/wordlist?module=${id}` })
   },
 
+  onReadText(e) {
+    const id = e.currentTarget.dataset.id
+    wx.navigateTo({ url: `/pages/text/text?unit=${id}` })
+  },
+
   onReview() {
     wx.navigateTo({ url: '/pages/review/review' })
   }

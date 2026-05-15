@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/wordlist/wordlist",
     "pages/detail/detail",
-    "pages/review/review"
+    "pages/review/review",
+    "pages/text/text"
   ],
   "window": {
     "navigationBarTitleText": "单词魔卡",
