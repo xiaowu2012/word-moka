@@ -1,30 +1,36 @@
 <view class="container">
-  <!-- 加载提示 -->
-  <text wx:if="{{!showUnits}}" class="tap-hint" bindtap="onTapBook">
-    点我查看单元列表
-  </text>
+
+  <!-- 课本选择 -->
+  <view wx:if="{{!showUnits}}">
+    <view class="header">
+      <view class="header-content">
+        <text class="app-name">单词魔卡</text>
+        <text class="app-desc">初中英语课本同步</text>
+      </view>
+    </view>
+    <view class="section-title">选择课本</view>
+    <view class="book-list">
+      <view class="book-card" wx:for="{{textbooks}}" wx:key="id"
+            bindtap="onTapBook" data-id="{{item.id}}">
+        <text class="book-icon">{{item.cover}}</text>
+        <view class="book-info">
+          <text class="book-name">{{item.name}}</text>
+          <text class="book-count" wx:if="{{item.available}}">{{item.wordCount}}个单词</text>
+        </view>
+        <text class="book-status {{item.available ? 'ready' : 'coming'}}">
+          {{item.available ? '已解锁' : '即将上线'}}
+        </text>
+      </view>
+    </view>
+  </view>
 
   <!-- 单元列表 -->
   <view wx:else>
     <text class="back-btn" bindtap="onBack">‹ 返回</text>
-
-    <view class="unit-card" bindtap="onReadText" data-id="Unit1">
-      <text>🎭 Unit 1 - Teenagers today</text>
-    </view>
-    <view class="unit-card" bindtap="onReadText" data-id="Unit2">
-      <text>💰 Unit 2 - On the money</text>
-    </view>
-    <view class="unit-card" bindtap="onReadText" data-id="Unit3">
-      <text>🧩 Unit 3 - Putting the pieces together</text>
-    </view>
-    <view class="unit-card" bindtap="onReadText" data-id="Unit4">
-      <text>⏳ Unit 4 - Past passing by</text>
-    </view>
-    <view class="unit-card" bindtap="onReadText" data-id="Unit5">
-      <text>⚖️ Unit 5 - A fine balance</text>
-    </view>
-    <view class="unit-card" bindtap="onReadText" data-id="Unit6">
-      <text>🌿 Unit 6 - Live green</text>
+    <view class="unit-card" wx:for="{{units}}" wx:key="id"
+          bindtap="onReadText" data-id="{{item.id}}">
+      <text>{{item.icon}} {{item.name}}</text>
     </view>
   </view>
+
 </view>
