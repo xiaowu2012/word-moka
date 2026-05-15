@@ -41,8 +41,8 @@
 .book-status {
   font-size: 24rpx; padding: 8rpx 20rpx; border-radius: 20rpx;
 }
-.book-status.ready { background: #5B8DEF; color: #fff; }
-.book-status.coming { background: #F0F0F0; color: #aaa; }
+.book-status.ready { background: #E8F8E8; color: #27AE60; }
+.book-status.coming { background: #FFF3E8; color: #E67E22; }
 
 /* 单元列表头部 */
 .unit-header {
