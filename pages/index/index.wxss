@@ -3,13 +3,11 @@
 }
 
 .header {
-  display: flex;
-  justify-content: center;
-  padding: 30rpx 24rpx;
+  width: 100%;
 }
 
 .header-img {
-  width: 85%;
+  width: 100%;
   display: block;
 }
 
