@@ -37,13 +37,11 @@
 
   <!-- 模块选择 -->
   <view class="module-picker-row">
-    <picker mode="selector" range="{{moduleOptions}}" bindchange="onModuleChange">
-      <view class="module-picker">
-        <text class="picker-label">📚 模块</text>
-        <text class="picker-value">{{selectedModuleName}}</text>
-        <text class="picker-arrow">▾</text>
-      </view>
-    </picker>
+    <view class="module-picker" bindtap="onModuleDropdownTap">
+      <text class="picker-label">📚 模块</text>
+      <text class="picker-value">{{selectedModuleName}}</text>
+      <text class="picker-arrow">▾</text>
+    </view>
   </view>
 
   <!-- 操作区 -->
@@ -75,6 +73,20 @@
       </view>
       <text class="action-arrow">›</text>
     </view>
+  </view>
+
+  <!-- 模块下拉面板 -->
+  <view class="drop-mask" wx:if="{{showModulePicker}}" bindtap="onModuleDropdownClose"></view>
+  <view class="drop-panel" wx:if="{{showModulePicker}}">
+    <view 
+      class="drop-option {{!selectedModuleId ? 'active' : ''}}" 
+      bindtap="onModuleSelect" data-id=""
+    >全部</view>
+    <view 
+      class="drop-option {{selectedModuleId === item.id ? 'active' : ''}}"
+      wx:for="{{modules}}" wx:key="id"
+      bindtap="onModuleSelect" data-id="{{item.id}}"
+    >{{item.icon}} {{item.name}}</view>
   </view>
 
   <!-- 目标选择浮层 -->

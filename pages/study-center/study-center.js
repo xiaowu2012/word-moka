@@ -15,7 +15,7 @@ Page({
     modules: [],
     selectedModuleId: '',
     selectedModuleName: '全部',
-    moduleOptions: [],
+    showModulePicker: false,
     words: {}
   },
 
@@ -32,15 +32,11 @@ Page({
       m.wordCount = cnt
     })
 
-    // picker 选项
-    const moduleOptions = ['全部', ...modules.map(m => `${m.icon} ${m.name}`)]
-
     this.setData({
       textbook,
       totalWords: total,
       dailyGoal: wx.getStorageSync('dailyGoal') || DEFAULT_GOAL,
       modules,
-      moduleOptions,
       selectedModuleId: '',
       selectedModuleName: '全部',
       words
@@ -98,22 +94,25 @@ Page({
     }).catch(() => {})
   },
 
-  onModuleChange(e) {
-    const idx = e.detail.value
+  onModuleDropdownTap() {
+    this.setData({ showModulePicker: true })
+  },
+
+  onModuleSelect(e) {
+    const id = e.currentTarget.dataset.id
     const modules = this.data.modules
-    let id = ''
-    let name = '全部'
-    if (idx > 0) {
-      const mod = modules[idx - 1]
-      id = mod.id
-      name = `${mod.icon} ${mod.name}`
-    }
+    const mod = modules.find(m => m.id === id)
     this.setData({
-      selectedModuleId: id,
-      selectedModuleName: name
+      selectedModuleId: id || '',
+      selectedModuleName: id ? `${mod.icon} ${mod.name}` : '全部',
+      showModulePicker: false
     }, () => {
       this.loadProgress()
     })
+  },
+
+  onModuleDropdownClose() {
+    this.setData({ showModulePicker: false })
   },
 
   onContinueLearning() {
