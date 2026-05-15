@@ -48,7 +48,5 @@ App({
   initData() {
     const words = require('./data/words.js')
     this.globalData.words = words
-    const texts = require('./data/texts.js')
-    this.globalData.texts = texts
   }
 })
