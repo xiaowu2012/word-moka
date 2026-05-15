@@ -1,12 +1,7 @@
 <!-- 首页 - 教材选择 -->
 <view class="container">
   <view class="header">
-    <image class="header-bg" src="/images/home-banner.jpg" mode="aspectFill"></image>
-    <view class="header-overlay"></view>
-    <view class="header-content">
-      <text class="app-name">单词魔卡</text>
-      <text class="app-desc">初中英语同步 · 艾宾浩斯记忆</text>
-    </view>
+    <image class="header-img" src="/images/home-banner.jpg" mode="widthFix"></image>
   </view>
 
   <view class="section-title">选择教材</view>
