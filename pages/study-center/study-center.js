@@ -45,7 +45,7 @@ Page({
       // 今日已学新词（stage=0, dueDate=today）
       let todayLearned = 0
       for (const s of Object.values(schedule)) {
-        if (s.stage === 0 && s.dueDate === today) todayLearned++
+        if (s.stage === 0) todayLearned++
       }
 
       // 今日待复习（stage>=1, dueDate<=today, 没掌握）
@@ -86,6 +86,7 @@ Page({
       const schedule = p.schedule || {}
       const words = app.globalData.words
       const today = new Date().toISOString().slice(0, 10)
+      const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10)
 
       for (const key of Object.keys(words)) {
         if (!mastered.includes(key) && !schedule[key]) {
@@ -96,7 +97,7 @@ Page({
               field: 'schedule',
               key,
               add: true,
-              value: { stage: 0, dueDate: today }
+              value: { stage: 0, dueDate: tomorrow }
             }
           }).then(() => {
             this.loadProgress()

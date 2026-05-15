@@ -36,7 +36,7 @@ Page({
 
       let dueWords = []
       for (const [key, s] of Object.entries(schedule)) {
-        if (!mastered.includes(key) && s.dueDate <= today) {
+        if (!mastered.includes(key) && s.dueDate <= today && s.stage >= 1) {
           if (words[key]) {
             dueWords.push({
               key,

@@ -78,7 +78,7 @@ Page({
       let todayLearned = 0
       const schedule = p.schedule || {}
       for (const s of Object.values(schedule)) {
-        if (s.stage === 0 && s.dueDate === today) todayLearned++
+        if (s.stage === 0) todayLearned++
       }
 
       this.setData({
@@ -125,6 +125,7 @@ Page({
   onGoNext() {
     const words = app.globalData.words
     const today = new Date().toISOString().slice(0, 10)
+    const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10)
 
     wx.cloud.callFunction({
       name: 'getProgress'
@@ -137,7 +138,7 @@ Page({
       // 计算今日已学
       let todayLearned = 0
       for (const s of Object.values(schedule)) {
-        if (s.stage === 0 && s.dueDate === today) todayLearned++
+        if (s.stage === 0) todayLearned++
       }
 
       if (todayLearned >= dailyGoal) {
@@ -156,7 +157,7 @@ Page({
               field: 'schedule',
               key,
               add: true,
-              value: { stage: 0, dueDate: today }
+              value: { stage: 0, dueDate: tomorrow }
             }
           }).then(() => {
             wx.redirectTo({
