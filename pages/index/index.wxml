@@ -49,8 +49,7 @@
         <text class="unit-icon">{{item.icon}}</text>
         <view class="unit-info">
           <text class="unit-name">{{item.name}}</text>
-          <text class="unit-progress">{{item.learned}}/{{item.total}} 词</text>
-          <text class="unit-hint">点击阅读课文</text>
+          <text class="unit-progress">点击阅读课文</text>
         </view>
         <text class="unit-arrow">›</text>
       </view>
