@@ -23,7 +23,7 @@
             <text class="sentence-en">
               <text wx:for="{{item.tokens}}" wx:key="*this">
                 <text wx:if="{{item.isVocab}}" class="vocab-word"
-                      bindtap="onTapWord" data-word="{{item.wordKey}}">{{item.text}} </text>
+                      catchtap="onTapWord" data-word="{{item.wordKey}}">{{item.text}} </text>
                 <text wx:else>{{item.text}} </text>
               </text>
             </text>
