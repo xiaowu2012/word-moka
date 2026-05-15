@@ -4,7 +4,7 @@ const STAR_MAP = { 5: '★★★★★', 4: '★★★★☆', 3: '★★★☆�
 
 Page({
   data: {
-    moduleTitle: '外研版 八年级下册',
+    moduleTitle: '全部单词',
     wordList: [],
     filteredList: [],
     currentFilter: 'all',
@@ -26,13 +26,13 @@ Page({
   buildWordList() {
     const words = app.globalData.words
     const { moduleFilter } = this.data
-    const modules = app.globalData.modules
     const list = []
 
-    let moduleTitle = '外研版 八年级下册'
+    let moduleTitle = '全部单词'
     if (moduleFilter) {
-      const mod = modules.find(m => m.id === moduleFilter)
-      moduleTitle = `${mod.icon} ${mod.name}`
+      const units = app.globalData.units
+      const mod = units.find(u => u.id === moduleFilter)
+      moduleTitle = mod ? `${mod.icon} ${mod.name}` : moduleFilter
     }
 
     for (const [key, card] of Object.entries(words)) {

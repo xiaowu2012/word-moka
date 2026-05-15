@@ -3,97 +3,76 @@ const app = getApp()
 Page({
   data: {
     textbooks: [],
-    unlockedObj: {},
-    showUnlock: false,
-    unlockTextbookId: '',
-    inviteCode: '',
-    loading: false,
-    errorMsg: ''
+    units: [],
+    totalWords: 0,
+    progressMap: {}
   },
 
   onLoad() {
-    this.setData({ textbooks: app.globalData.textbooks })
-    this.loadUnlocked()
+    this.setData({ 
+      textbooks: app.globalData.textbooks,
+      units: this.buildUnits()
+    })
+    this.loadProgress()
   },
 
   onShow() {
-    this.loadUnlocked()
+    this.loadProgress()
   },
 
-  loadUnlocked() {
+  buildUnits() {
+    const words = app.globalData.words
+    const textUnits = app.globalData.textbooks[0].units
+    const unitDefs = app.globalData.units
+
+    return textUnits.map(id => {
+      const def = unitDefs.find(u => u.id === id)
+      const unitWords = Object.values(words).filter(w => w.module === id)
+      return {
+        id,
+        name: def ? def.name : id,
+        icon: def ? def.icon : '📖',
+        wordCount: unitWords.length,
+        progress: 0
+      }
+    })
+  },
+
+  loadProgress() {
     wx.cloud.callFunction({
       name: 'getProgress'
     }).then(res => {
       const p = res.result || {}
-      const unlocked = p.unlocked || []
-      const unlockedObj = {}
-      unlocked.forEach(id => { unlockedObj[id] = true })
-      this.setData({ unlockedObj })
+      const mastered = p.mastered || []
+      const schedule = p.schedule || {}
+      const words = app.globalData.words
+
+      const units = this.buildUnits().map(u => {
+        const unitWords = Object.values(words).filter(w => w.module === u.id)
+        let learned = 0
+        for (const w of unitWords) {
+          const key = w.word.toLowerCase()
+          if (mastered.includes(key) || schedule[key]) learned++
+        }
+        return { ...u, progress: learned }
+      })
+
+      this.setData({ units })
     }).catch(() => {})
   },
 
-  onTapTextbook(e) {
+  onTapUnit(e) {
     const id = e.currentTarget.dataset.id
-    const textbook = app.globalData.textbooks.find(t => t.id === id)
-
-    if (!textbook.available) {
-      wx.showToast({ title: '即将上线，敬请期待', icon: 'none' })
-      return
-    }
-
-    if (this.data.unlockedObj[id]) {
-      wx.navigateTo({
-        url: `/pages/study-center/study-center?textbookId=${id}`
-      })
-    } else {
-      this.setData({
-        showUnlock: true,
-        unlockTextbookId: id,
-        inviteCode: '',
-        errorMsg: ''
-      })
-    }
-  },
-
-  onCodeInput(e) {
-    this.setData({ inviteCode: e.detail.value.toUpperCase(), errorMsg: '' })
-  },
-
-  onSubmitCode() {
-    const code = this.data.inviteCode.trim()
-    if (!code) {
-      this.setData({ errorMsg: '请输入邀请码' })
-      return
-    }
-
-    this.setData({ loading: true, errorMsg: '' })
-
-    wx.cloud.callFunction({
-      name: 'verifyInviteCode',
-      data: { code, textbookId: this.data.unlockTextbookId }
-    }).then(res => {
-      this.setData({ loading: false })
-      const result = res.result || {}
-      if (result.success) {
-        wx.showToast({ title: '解锁成功 🎉', icon: 'success' })
-        this.setData({ showUnlock: false })
-        this.loadUnlocked()
-        wx.navigateTo({
-          url: `/pages/study-center/study-center?textbookId=${this.data.unlockTextbookId}`
-        })
-      } else {
-        this.setData({ errorMsg: result.error || '解锁失败' })
-      }
-    }).catch(() => {
-      this.setData({ loading: false, errorMsg: '网络错误，请重试' })
+    wx.navigateTo({
+      url: `/pages/wordlist/wordlist?module=${id}`
     })
   },
 
-  onPayUnlock() {
-    wx.showToast({ title: '付费功能即将开放', icon: 'none' })
+  onReview() {
+    wx.navigateTo({ url: '/pages/review/review' })
   },
 
-  onCloseUnlock() {
-    this.setData({ showUnlock: false })
+  onAllWords() {
+    wx.navigateTo({ url: '/pages/wordlist/wordlist' })
   }
 })

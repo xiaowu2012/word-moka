@@ -3,9 +3,7 @@
     "pages/index/index",
     "pages/wordlist/wordlist",
     "pages/detail/detail",
-    "pages/review/review",
-    "pages/study-center/study-center",
-    "pages/daily-summary/daily-summary"
+    "pages/review/review"
   ],
   "window": {
     "navigationBarTitleText": "单词魔卡",
@@ -13,6 +11,5 @@
     "navigationBarBackgroundColor": "#5B8DEF",
     "backgroundColor": "#F5F7FA"
   },
-  "usingComponents": {},
   "sitemapLocation": "sitemap.json"
 }

@@ -1,65 +1,43 @@
-<!-- 首页 - 教材选择 -->
+<!-- 首页 - 课本封面 + 单元列表 -->
 <view class="container">
   <view class="header">
     <image class="header-img" src="/images/home-banner.jpg" mode="widthFix"></image>
   </view>
 
-  <view class="section-title">选择教材</view>
+  <view class="textbook-info">
+    <text class="tb-name">九年级上册</text>
+    <text class="tb-sub">2026秋季版 · 外研社</text>
+    <text class="tb-count">{{totalWords}}个单词</text>
+  </view>
 
-  <view class="textbook-list">
+  <view class="unit-list">
     <view 
-      class="textbook-card" 
-      wx:for="{{textbooks}}" 
+      class="unit-card" 
+      wx:for="{{units}}" 
       wx:key="id"
-      bindtap="onTapTextbook"
+      bindtap="onTapUnit"
       data-id="{{item.id}}"
     >
-      <view class="textbook-left">
-        <view class="textbook-cover">{{item.cover}}</view>
-        <view class="textbook-info">
-          <text class="textbook-name">{{item.name}}</text>
-          <text class="textbook-count">{{item.wordCount}}个单词</text>
+      <view class="unit-left">
+        <text class="unit-icon">{{item.icon}}</text>
+        <view class="unit-info">
+          <text class="unit-name">{{item.name}}</text>
+          <text class="unit-count">{{item.wordCount}}个单词</text>
         </view>
       </view>
-      <view class="textbook-status">
-        <text wx:if="{{!item.available && item.comingSoon}}" class="status-tag status-coming">即将上线</text>
-        <text wx:elif="{{unlockedObj[item.id]}}" class="status-tag status-unlocked">✅ 已解锁</text>
-        <text wx:else class="status-tag status-locked">🔒 解锁</text>
+      <view class="unit-right">
+        <text class="unit-status">{{item.progress > 0 ? item.progress + '/' + item.wordCount : '未开始'}}</text>
+        <text class="unit-arrow">›</text>
       </view>
     </view>
   </view>
 
-  <!-- 解锁弹窗 -->
-  <view class="unlock-mask" wx:if="{{showUnlock}}" bindtap="onCloseUnlock"></view>
-  <view class="unlock-panel" wx:if="{{showUnlock}}">
-    <text class="unlock-title">🔓 解锁教材</text>
-    <text class="unlock-desc">输入邀请码或付费解锁</text>
-
-    <view class="code-section">
-      <input class="code-input" placeholder="输入邀请码" 
-        maxlength="8" value="{{inviteCode}}" 
-        bindinput="onCodeInput" />
-      <text class="error-text" wx:if="{{errorMsg}}">{{errorMsg}}</text>
-      <button class="btn-code" bindtap="onSubmitCode" disabled="{{loading}}">
-        {{loading ? '验证中...' : '验证邀请码'}}
-      </button>
+  <view class="bottom-bar">
+    <view class="bottom-btn review-btn" bindtap="onReview">
+      <text>🔄 今日复习</text>
     </view>
-
-    <view class="divider">
-      <text class="divider-line"></text>
-      <text class="divider-text">或</text>
-      <text class="divider-line"></text>
+    <view class="bottom-btn list-btn" bindtap="onAllWords">
+      <text>📝 全部单词</text>
     </view>
-
-    <view class="pay-section" bindtap="onPayUnlock">
-      <text class="pay-icon">💳</text>
-      <view class="pay-info">
-        <text class="pay-title">付费解锁</text>
-        <text class="pay-desc">即将开放，敬请期待</text>
-      </view>
-      <text class="pay-arrow">›</text>
-    </view>
-
-    <text class="close-btn" bindtap="onCloseUnlock">取消</text>
   </view>
 </view>
