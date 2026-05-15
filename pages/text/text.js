@@ -1,6 +1,3 @@
-const app = getApp()
-
-// Unit 1 课文数据（内联，确保可加载）
 const TEXT_DATA = {
   "Unit1": {
     "title": "Art in safe hands",
@@ -69,10 +66,12 @@ Page({
 
     const allWords = getApp().globalData.words || {}
 
+    let gidx = 0
     const paragraphs = textData.paragraphs.map(para => ({
       sentences: para.sentences.map(s => ({
         en: s.en,
         cn: s.cn,
+        gidx: gidx++,
         tokens: this.tokenize(s.en, s.vocab, allWords)
       }))
     }))
@@ -92,8 +91,7 @@ Page({
       const clean = part.replace(/[^a-zA-Z\-\']/g, '').toLowerCase()
       const isVocab = vocabList.includes(clean)
       tokens.push({
-        text: part,
-        isVocab,
+        text: part, isVocab,
         wordKey: isVocab ? clean : null
       })
     }
@@ -101,10 +99,21 @@ Page({
   },
 
   onPlaySentence(e) {
-    const globalIdx = parseInt(e.currentTarget.dataset.globalidx)
-    this.setData({ playingIdx: globalIdx })
-    wx.showToast({ title: '发音待完善', icon: 'none' })
-    setTimeout(() => this.setData({ playingIdx: null }), 800)
+    const idx = e.currentTarget.dataset.idx
+    this.setData({ playingIdx: idx })
+
+    const audioCtx = wx.createInnerAudioContext()
+    audioCtx.src = `/audio/text/${this.data.unitId.toLowerCase()}_${idx}.mp3`
+    audioCtx.play()
+
+    audioCtx.onEnded(() => {
+      this.setData({ playingIdx: null })
+      audioCtx.destroy()
+    })
+    audioCtx.onError(() => {
+      this.setData({ playingIdx: null })
+      audioCtx.destroy()
+    })
   },
 
   onTapWord(e) {

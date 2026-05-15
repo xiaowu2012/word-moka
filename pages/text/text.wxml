@@ -11,11 +11,11 @@
   <scroll-view class="passage-scroll" scroll-y>
     <view class="passage">
       <view class="paragraph" wx:for="{{paragraphs}}" wx:key="*this">
-        <view wx:for="{{item.sentences}}" wx:key="*this" wx:for-index="idx">
+        <view wx:for="{{item.sentences}}" wx:key="*this">
           <!-- 英文 + 播放 -->
-          <view class="sentence-row {{playingIdx === globalIdx ? 'playing' : ''}}"
-                bindtap="onPlaySentence" data-globalidx="{{globalIdx}}">
-            <text class="play-icon">{{playingIdx === globalIdx ? '🔊' : '▶'}}</text>
+          <view class="sentence-row {{playingIdx === item.gidx ? 'playing' : ''}}"
+                bindtap="onPlaySentence" data-idx="{{item.gidx}}">
+            <text class="play-icon">{{playingIdx === item.gidx ? '🔊' : '▶'}}</text>
             <text class="sentence-en">
               <text wx:for="{{item.tokens}}" wx:key="*this">
                 <text wx:if="{{item.isVocab}}" class="vocab-word" 
@@ -37,7 +37,6 @@
     <text class="wc-word">{{selectedWord.word}}</text>
     <text class="wc-phonetic">{{selectedWord.phonetic}}</text>
     <text class="wc-meaning">{{selectedWord.cnMeaning}}</text>
-    <text class="wc-action" bindtap="onAddSchedule">加入学习计划</text>
     <text class="wc-close" bindtap="onCloseWordCard">关闭</text>
   </view>
 </view>

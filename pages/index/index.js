@@ -4,12 +4,12 @@ Page({
   data: {
     textbooks: [],
     units: [
-      { id: 'Unit1', name: 'Teenagers today', icon: '🎭' },
-      { id: 'Unit2', name: 'On the money', icon: '💰' },
-      { id: 'Unit3', name: 'Putting the pieces together', icon: '🧩' },
-      { id: 'Unit4', name: 'Past passing by', icon: '⏳' },
-      { id: 'Unit5', name: 'A fine balance', icon: '⚖️' },
-      { id: 'Unit6', name: 'Live green', icon: '🌿' }
+      { id: 'Unit1', name: 'Unit 1 · Teenagers today', icon: '🎭' },
+      { id: 'Unit2', name: 'Unit 2 · On the money', icon: '💰' },
+      { id: 'Unit3', name: 'Unit 3 · Putting the pieces together', icon: '🧩' },
+      { id: 'Unit4', name: 'Unit 4 · Past passing by', icon: '⏳' },
+      { id: 'Unit5', name: 'Unit 5 · A fine balance', icon: '⚖️' },
+      { id: 'Unit6', name: 'Unit 6 · Live green', icon: '🌿' }
     ],
     showUnits: false
   },
