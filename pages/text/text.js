@@ -88,27 +88,39 @@ Page({
   },
 
   playSentence(idx) {
+    // 停止正在播放的音频
+    if (this._audioCtx) {
+      this._audioCtx.stop()
+      this._audioCtx.destroy()
+      this._audioCtx = null
+    }
+
     if (idx >= this.data.totalSentences) {
       this.setData({ playAllMode: false, playingIdx: null, showActions: false })
       return
     }
     this.setData({ playingIdx: idx, showActions: false })
 
-    const audioCtx = wx.createInnerAudioContext()
-    audioCtx.src = `/audio/text/${this.data.unitId.toLowerCase()}_${idx}.mp3`
-    audioCtx.play()
+    this._audioCtx = wx.createInnerAudioContext()
+    this._audioCtx.src = `/audio/text/${this.data.unitId.toLowerCase()}_${idx}.mp3`
+    this._audioCtx.play()
 
-    audioCtx.onEnded(() => {
-      audioCtx.destroy()
+    this._audioCtx.onEnded(() => {
+      this._audioCtx.destroy()
+      this._audioCtx = null
       if (this.data.playAllMode) {
-        this.playSentence(idx + 1)
+        // 句间停顿2秒
+        setTimeout(() => {
+          this.playSentence(idx + 1)
+        }, 2000)
       } else {
         this.setData({ playingIdx: null })
         this.showActions(idx)
       }
     })
-    audioCtx.onError(() => {
-      audioCtx.destroy()
+    this._audioCtx.onError(() => {
+      this._audioCtx.destroy()
+      this._audioCtx = null
       if (this.data.playAllMode) this.playSentence(idx + 1)
       else this.setData({ playingIdx: null })
     })
