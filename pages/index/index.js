@@ -3,7 +3,7 @@ const app = getApp()
 Page({
   data: {
     textbooks: [],
-    unlockedSet: new Set(),
+    unlockedObj: {},
     showUnlock: false,
     unlockTextbookId: '',
     inviteCode: '',
@@ -26,7 +26,9 @@ Page({
     }).then(res => {
       const p = res.result || {}
       const unlocked = p.unlocked || []
-      this.setData({ unlockedSet: new Set(unlocked) })
+      const unlockedObj = {}
+      unlocked.forEach(id => { unlockedObj[id] = true })
+      this.setData({ unlockedObj })
     }).catch(() => {})
   },
 
@@ -39,12 +41,11 @@ Page({
       return
     }
 
-    if (textbook.free || this.data.unlockedSet.has(id)) {
+    if (textbook.free || this.data.unlockedObj[id]) {
       wx.navigateTo({
         url: `/pages/study-center/study-center?textbookId=${id}`
       })
     } else {
-      // 弹出解锁
       this.setData({
         showUnlock: true,
         unlockTextbookId: id,
@@ -77,7 +78,6 @@ Page({
         wx.showToast({ title: '解锁成功 🎉', icon: 'success' })
         this.setData({ showUnlock: false })
         this.loadUnlocked()
-        // 跳转到学习中心
         wx.navigateTo({
           url: `/pages/study-center/study-center?textbookId=${this.data.unlockTextbookId}`
         })

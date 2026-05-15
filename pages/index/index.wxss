@@ -109,6 +109,11 @@
   color: #E74C3C;
 }
 
+.status-unlocked {
+  background: #F0F4FF;
+  color: #5B8DEF;
+}
+
 /* 解锁弹窗 */
 .unlock-mask {
   position: fixed;
