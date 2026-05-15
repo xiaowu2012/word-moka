@@ -13,7 +13,10 @@
 .book-info { flex: 1; }
 .book-name { font-size: 30rpx; font-weight: 700; color: #2C3E50; display: block; }
 .book-count { font-size: 22rpx; color: #5B8DEF; display: block; margin-top: 4rpx; }
-.book-status { font-size: 24rpx; padding: 8rpx 20rpx; border-radius: 20rpx; }
+.book-status {
+  font-size: 24rpx; padding: 8rpx 20rpx; border-radius: 20rpx;
+  display: inline-flex; align-items: center; line-height: 1.2;
+}
 .book-status.ready { background: #E8F8E8; color: #27AE60; }
 .book-status.coming { background: #FFF3E8; color: #E67E22; }
 
