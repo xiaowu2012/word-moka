@@ -1,70 +1,75 @@
 <!-- 单词卡片详情 -->
 <view class="container">
   <view class="card-main">
-    <!-- 单词头部 -->
-    <view class="word-header">
-      <view class="word-row">
-        <text class="word-text">{{word.word}}</text>
-        <text class="play-btn" bindtap="onPlayWord">{{playing === 'word' ? '🔊' : '🔊'}}</text>
-        <view class="word-actions">
-          <text class="action-fav {{isFav ? 'fav-active' : ''}}" bindtap="onToggleFav">
-            {{isFav ? '❤️' : '🤍'}}
-          </text>
-          <text class="action-master {{isMastered ? 'master-active' : ''}}" bindtap="onToggleMaster">
-            {{isMastered ? '✅' : '📌'}}
-          </text>
+    <!-- 单词配图 -->
+    <image class="card-banner" src="{{imageSrc}}" mode="aspectFill" binderror="onImageError"></image>
+
+    <view class="card-body">
+      <!-- 单词头部 -->
+      <view class="word-header">
+        <view class="word-row">
+          <text class="word-text">{{word.word}}</text>
+          <text class="play-btn" bindtap="onPlayWord">🔊</text>
+          <view class="word-actions">
+            <text class="action-fav {{isFav ? 'fav-active' : ''}}" bindtap="onToggleFav">
+              {{isFav ? '❤️' : '🤍'}}
+            </text>
+            <text class="action-master {{isMastered ? 'master-active' : ''}}" bindtap="onToggleMaster">
+              {{isMastered ? '✅' : '📌'}}
+            </text>
+          </view>
+        </view>
+        <text class="word-phonetic">{{word.phonetic}}</text>
+        <view class="word-stars">
+          <text class="stars">{{stars}}</text>
+          <text class="freq-label">{{freqLabel}}</text>
         </view>
       </view>
-      <text class="word-phonetic">{{word.phonetic}}</text>
-      <view class="word-stars">
-        <text class="stars">{{stars}}</text>
-        <text class="freq-label">{{freqLabel}}</text>
-      </view>
-    </view>
 
-    <!-- 释义 -->
-    <view class="section">
-      <view class="section-label">释义</view>
-      <text class="cn-mean">{{word.cnMeaning}}</text>
-      <text class="en-mean" wx:if="{{word.enMeaning}}">{{word.enMeaning}}</text>
-    </view>
+      <!-- 释义 -->
+      <view class="section">
+        <view class="section-label">释义</view>
+        <text class="cn-mean">{{word.cnMeaning}}</text>
+        <text class="en-mean" wx:if="{{word.enMeaning}}">{{word.enMeaning}}</text>
+      </view>
 
-    <!-- 课本例句 -->
-    <view class="section" wx:if="{{example}}">
-      <view class="section-label">
-        <text class="tag tag-orange">课本例句</text>
-        <text class="play-inline" bindtap="onPlayExample">{{playing === 'example' ? '🔊' : '🔊'}}</text>
+      <!-- 课本例句 -->
+      <view class="section" wx:if="{{example}}">
+        <view class="section-label">
+          <text class="tag tag-orange">课本例句</text>
+          <text class="play-inline" bindtap="onPlayExample">🔊</text>
+        </view>
+        <view class="example-box orange">
+          <text class="example-en">{{example.sentence}}</text>
+          <text class="example-cn">{{exampleCn}}</text>
+        </view>
+        <view class="example-scene" wx:if="{{example.scene}}">📌 {{example.scene}}</view>
       </view>
-      <view class="example-box orange">
-        <text class="example-en">{{example.sentence}}</text>
-        <text class="example-cn">{{exampleCn}}</text>
-      </view>
-      <view class="example-scene" wx:if="{{example.scene}}">📌 {{example.scene}}</view>
-    </view>
 
-    <!-- 拓展例句 -->
-    <view class="section" wx:if="{{extraExample}}">
-      <view class="section-label">
-        <text class="tag tag-blue">拓展例句</text>
-        <text class="play-inline" bindtap="onPlayExtra">{{playing === 'extra' ? '🔊' : '🔊'}}</text>
+      <!-- 拓展例句 -->
+      <view class="section" wx:if="{{extraExample}}">
+        <view class="section-label">
+          <text class="tag tag-blue">拓展例句</text>
+          <text class="play-inline" bindtap="onPlayExtra">🔊</text>
+        </view>
+        <view class="example-box blue">
+          <text class="example-en">{{extraExample}}</text>
+          <text class="example-cn">{{extraCn}}</text>
+        </view>
       </view>
-      <view class="example-box blue">
-        <text class="example-en">{{extraExample}}</text>
-        <text class="example-cn">{{extraCn}}</text>
-      </view>
-    </view>
 
-    <!-- 小知识 -->
-    <view class="section tip-section" wx:if="{{tip}}">
-      <view class="section-label">
-        <text class="tag tag-green">考点小知识</text>
+      <!-- 小知识 -->
+      <view class="section tip-section" wx:if="{{tip}}">
+        <view class="section-label">
+          <text class="tag tag-green">考点小知识</text>
+        </view>
+        <text class="tip-text">{{tip}}</text>
       </view>
-      <text class="tip-text">{{tip}}</text>
-    </view>
 
-    <!-- 来源 -->
-    <view class="source-bar">
-      <text>{{word.module}} · 外研版八年级下册</text>
+      <!-- 来源 -->
+      <view class="source-bar">
+        <text>{{word.module}} · 外研版八年级下册</text>
+      </view>
     </view>
   </view>
 </view>

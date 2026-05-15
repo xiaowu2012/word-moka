@@ -7,6 +7,7 @@ Page({
   data: {
     word: {},
     key: '',
+    imageSrc: '',
     isFav: false,
     isMastered: false,
     stars: '',
@@ -42,6 +43,7 @@ Page({
     this.setData({
       key: wordKey,
       word: card,
+      imageSrc: `/images/${wordKey}_card.jpg`,
       stars: STAR_MAP[card.examFrequency] || '★★★☆☆',
       freqLabel: FREQ_LABEL[card.examFrequency] || '',
       example,
@@ -104,6 +106,10 @@ Page({
       this.setData({ playing: '' })
       wx.showToast({ title: '播放失败', icon: 'none' })
     })
+  },
+
+  onImageError() {
+    this.setData({ imageSrc: '' })
   },
 
   onToggleFav() {
