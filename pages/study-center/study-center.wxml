@@ -10,8 +10,11 @@
   <!-- 进度 + 每日目标（合并） -->
   <view class="stats-card">
     <view class="stat-row">
-      <text class="stat-label">学习中</text>
-      <text class="stat-value">{{learnedCount}} / {{totalWords}}  <text class="stat-pct">{{totalWords > 0 ? Math.round(learnedCount / totalWords * 100) : 0}}%</text></text>
+      <view class="stat-label-row">
+        <text class="stat-label">学习中</text>
+        <text class="stat-pct">{{totalWords > 0 ? Math.round(learnedCount / totalWords * 100) : 0}}%</text>
+      </view>
+      <text class="stat-value">{{learnedCount}} / {{totalWords}}</text>
     </view>
     <view class="bar-wrap">
       <view class="bar-fill blue" style="width: {{totalWords > 0 ? (learnedCount / totalWords * 100) : 0}}%"></view>
@@ -20,7 +23,7 @@
     <view class="stat-row" style="margin-top: 20rpx;">
       <text class="stat-label">今日学习</text>
       <view class="stat-right">
-        <text class="stat-mini">{{todayLearned}} / {{dailyGoal}}  <text class="stat-pct">{{dailyGoal > 0 ? Math.round(todayLearned / dailyGoal * 100) : 0}}%</text></text>
+        <text class="stat-mini">{{todayLearned}} / {{dailyGoal}}</text>
         <view class="goal-setter" bindtap="onGoalTap">
           <text class="goal-arrow">▾ {{dailyGoal}}词</text>
         </view>

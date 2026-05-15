@@ -66,8 +66,14 @@
 
 .stat-pct {
   font-size: 22rpx;
-  color: #999;
+  color: #aaa;
   font-weight: 400;
+  margin-left: 8rpx;
+}
+
+.stat-label-row {
+  display: flex;
+  align-items: baseline;
 }
 
 .stat-right {
