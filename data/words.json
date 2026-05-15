@@ -1,898 +1,1136 @@
 {
-  "creator": {
-    "word": "Creator",
-    "phonetic": "/kri'eito/",
-    "cnMeaning": "创作者; 创造者",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
-  },
   "lady": {
     "word": "Lady",
-    "phonetic": "/‘letdi/",
-    "cnMeaning": "Zt, BF                  4     ",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'lerdi/",
+    "cnMeaning": "女士，女子",
+    "module": "Unit1"
   },
   "gentleman": {
     "word": "Gentleman",
-    "phonetic": "/‘dgentlmoan/",
-    "cnMeaning": "先生           4          educat",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'dsentlman/",
+    "cnMeaning": "先生",
+    "module": "Unit1"
   },
   "puppet": {
     "word": "Puppet",
-    "phonetic": "/'paprt/",
-    "cnMeaning": "( 牵线 ) 木偶;                    ",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
-  },
-  "inspire": {
-    "word": "Inspire",
-    "phonetic": "/m'spare/",
-    "cnMeaning": "v 鼓舞，激励",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'pAprt/",
+    "cnMeaning": "（牵线）木偶；",
+    "module": "Unit1"
   },
   "performer": {
     "word": "Performer",
-    "phonetic": "/po'fo:mo/",
-    "cnMeaning": "表演者           4          lie /",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
+    "phonetic": "/pe 'fo:ma/",
+    "cnMeaning": "表演者",
+    "module": "Unit1"
   },
   "finger": {
     "word": "Finger",
-    "phonetic": "/'fingo/",
-    "cnMeaning": "手指                            ",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'fuga/",
+    "cnMeaning": "手指",
+    "module": "Unit1"
   },
   "teenager": {
     "word": "Teenager",
-    "phonetic": "/'ti:nerd3o/",
-    "cnMeaning": "青少年          5          aay, F",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
-  },
-  "old-fashioned": {
-    "word": "Old-fashioned",
-    "phonetic": "/,suld'faefand/",
-    "cnMeaning": "wealthy /'wel@i/ adj. 富有的; B",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'tinerdga/",
+    "cnMeaning": "青少年",
+    "module": "Unit1"
   },
   "puppetry": {
     "word": "Puppetry",
-    "phonetic": "/'papotri/",
-    "cnMeaning": "木偶表演艺术 5          independent ",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'pApatri/",
+    "cnMeaning": "木偶表演艺术",
+    "module": "Unit1"
   },
   "unless": {
     "word": "Unless",
     "phonetic": "/an'les/",
-    "cnMeaning": "除非 ……           5           自立",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
+    "cnMeaning": "除非•.",
+    "module": "Unit1"
   },
   "performance": {
     "word": "Performance",
-    "phonetic": "/ps'fomens/",
-    "cnMeaning": "表演;                 burst /bs:",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
-  },
-  "hidden": {
-    "word": "Hidden",
-    "phonetic": "/hrdn/",
-    "cnMeaning": "隐藏的，隐秘的",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
+    "phonetic": "/pa 'fo:mans/",
+    "cnMeaning": "表演；",
+    "module": "Unit1"
   },
   "blood": {
     "word": "Blood",
-    "phonetic": "/blad/",
-    "cnMeaning": "血，血液                    5     ",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
+    "phonetic": "/bld/",
+    "cnMeaning": "血，血液",
+    "module": "Unit1"
   },
   "perform": {
     "word": "Perform",
-    "phonetic": "/po'fo:m/",
-    "cnMeaning": "表演，演出         5         claw /",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
+    "phonetic": "/pe 'fo:m/",
+    "cnMeaning": "表演，演出",
+    "module": "Unit1"
   },
   "edge": {
     "word": "Edge",
-    "phonetic": "/ed3/",
-    "cnMeaning": "边缘            5 wildly /‘warld",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
-  },
-  "on": {
-    "word": "On",
-    "phonetic": "/rov/",
-    "cnMeaning": "LAY, eG",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
-  },
-  "valley": {
-    "word": "Valley",
-    "phonetic": "/'veli/",
-    "cnMeaning": "&; 山谷",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
+    "phonetic": "/eds/",
+    "cnMeaning": "边缘",
+    "module": "Unit1"
   },
   "viewer": {
     "word": "Viewer",
-    "phonetic": "/'vju:o/",
-    "cnMeaning": "观看者                   5       ",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'vjua/",
+    "cnMeaning": "观看者",
+    "module": "Unit1"
   },
   "creativity": {
     "word": "Creativity",
-    "phonetic": "/kri'er'trvety n. 独创性，                  eagle /",
-    "cnMeaning": "'i:gal/ n. fie",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
-  },
-  "wing": {
-    "word": "Wing",
-    "phonetic": "/win/",
-    "cnMeaning": "2, 2",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
+    "phonetic": "/，kri:er'tvsti/",
+    "cnMeaning": "独创性，",
+    "module": "Unit1"
   },
   "volunteer": {
     "word": "Volunteer",
-    "phonetic": "/, volon'tio/",
-    "cnMeaning": "SBS          7         dust /d",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
+    "phonetic": "/，volon'tra/",
+    "cnMeaning": "志愿者",
+    "module": "Unit1"
   },
   "artist": {
     "word": "Artist",
-    "phonetic": "/'a:tist/",
-    "cnMeaning": "艺术家                        7  ",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'a:tust/",
+    "cnMeaning": "艺术家",
+    "module": "Unit1"
   },
   "group": {
     "word": "Group",
-    "phonetic": "/gru:p/",
-    "cnMeaning": "组，群; 团体             7         ",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
+    "phonetic": "/grup/",
+    "cnMeaning": "组，群；团体",
+    "module": "Unit1"
   },
-  "bud": {
-    "word": "Bud",
-    "phonetic": "/bad/",
-    "cnMeaning": "苞; #28                        ",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
+  "creator": {
+    "word": "Creator",
+    "phonetic": "/kri'eite/",
+    "cnMeaning": "创作者；创造者",
+    "module": "Unit1"
+  },
+  "kill": {
+    "word": "Kill",
+    "phonetic": "/kal/",
+    "cnMeaning": "弄死，杀死",
+    "module": "Unit1"
+  },
+  "scarecrow": {
+    "word": "Scarecrow",
+    "phonetic": "/'skeokru/",
+    "cnMeaning": "稻草人",
+    "module": "Unit1"
+  },
+  "educator": {
+    "word": "Educator",
+    "phonetic": "/'edjukerta/",
+    "cnMeaning": "教育家",
+    "module": "Unit1"
+  },
+  "youth": {
+    "word": "Youth",
+    "phonetic": "/ju:6/",
+    "cnMeaning": "青年，年轻人",
+    "module": "Unit1"
+  },
+  "inspire": {
+    "word": "Inspire",
+    "phonetic": "/m'spars/",
+    "cnMeaning": "鼓舞，激励",
+    "module": "Unit1"
+  },
+  "intelligent": {
+    "word": "Intelligent",
+    "phonetic": "/m 'teladgont/",
+    "cnMeaning": "有智",
+    "module": "Unit1"
+  },
+  "wealthy": {
+    "word": "Wealthy",
+    "phonetic": "/'welfi/",
+    "cnMeaning": "富有的；富",
+    "module": "Unit1"
+  },
+  "burst": {
+    "word": "Burst",
+    "phonetic": "/b3:st/",
+    "cnMeaning": "冲，闯；（使）爆裂",
+    "module": "Unit1"
+  },
+  "hidden": {
+    "word": "Hidden",
+    "phonetic": "/'hrcdn/",
+    "cnMeaning": "隐藏的，隐秘的",
+    "module": "Unit1"
+  },
+  "scaled": {
+    "word": "Scaled",
+    "phonetic": "/skerld/",
+    "cnMeaning": "有鳞的",
+    "module": "Unit1"
+  },
+  "claw": {
+    "word": "Claw",
+    "phonetic": "/klo:/",
+    "cnMeaning": "爪",
+    "module": "Unit1"
+  },
+  "wildly": {
+    "word": "Wildly",
+    "phonetic": "/'warldli/",
+    "cnMeaning": "激动地",
+    "module": "Unit1"
+  },
+  "roar": {
+    "word": "Roar",
+    "phonetic": "/ro:/",
+    "cnMeaning": "吼叫，呼啸",
+    "module": "Unit1"
+  },
+  "valley": {
+    "word": "Valley",
+    "phonetic": "/'vaeli/",
+    "cnMeaning": "谷；山谷",
+    "module": "Unit1"
+  },
+  "scare": {
+    "word": "Scare",
+    "phonetic": "/skea/",
+    "cnMeaning": "使惊恐，吓唬",
+    "module": "Unit1"
+  },
+  "wing": {
+    "word": "Wing",
+    "phonetic": "/wu/",
+    "cnMeaning": "翅膀，翼",
+    "module": "Unit1"
+  },
+  "dust": {
+    "word": "Dust",
+    "phonetic": "/dast/",
+    "cnMeaning": "灰尘，尘埃",
+    "module": "Unit1"
+  },
+  "tender": {
+    "word": "Tender",
+    "phonetic": "/'tenda/",
+    "cnMeaning": "娇嫩的，幼嫩",
+    "module": "Unit1"
   },
   "vast": {
     "word": "Vast",
-    "phonetic": "/va:st/",
-    "cnMeaning": "广大无边的，极大的 13        value /val",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
+    "phonetic": "/vast/",
+    "cnMeaning": "广大无边的，极大的13",
+    "module": "Unit1"
   },
   "grand": {
     "word": "Grand",
-    "phonetic": "/grend/",
-    "cnMeaning": "宏伟的，壮丽的”13        unlike /an'l",
-    "module": "Unit1",
-    "origin": "外研版九年级上册"
-  },
-  "date": {
-    "word": "Date",
-    "phonetic": "/deit/",
-    "cnMeaning": "日期，日子",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
-  },
-  "sale": {
-    "word": "Sale",
-    "phonetic": "/seIly/",
-    "cnMeaning": "0. HE, BE",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
+    "phonetic": "/graend/",
+    "cnMeaning": "宏伟的，壮丽的",
+    "module": "Unit1"
   },
   "tin": {
     "word": "Tin",
-    "phonetic": "/tm/",
-    "cnMeaning": "#5; RB                   20   ",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
+    "phonetic": "/tn/",
+    "cnMeaning": "罐头；金属盒",
+    "module": "Unit2"
   },
   "spare": {
     "word": "Spare",
-    "phonetic": "/speo/",
-    "cnMeaning": "备用的; 多余的，                T-shi",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
+    "phonetic": "/spea/",
+    "cnMeaning": "ad）. 备用的；多余的，",
+    "module": "Unit2"
+  },
+  "size": {
+    "word": "Size",
+    "phonetic": "/sarz/",
+    "cnMeaning": "大小，尺寸",
+    "module": "Unit2"
+  },
+  "dreamland": {
+    "word": "Dreamland",
+    "phonetic": "/'dri:mlend/",
+    "cnMeaning": "梦境，",
+    "module": "Unit2"
+  },
+  "manage": {
+    "word": "Manage",
+    "phonetic": "/'maenidz/",
+    "cnMeaning": "终于做成，",
+    "module": "Unit2"
+  },
+  "laptop": {
+    "word": "Laptop",
+    "phonetic": "/'la:ptop/",
+    "cnMeaning": "笔记本电脑，",
+    "module": "Unit2"
+  },
+  "exactly": {
+    "word": "Exactly",
+    "phonetic": "/g'zektli/",
+    "cnMeaning": "正是，一点",
+    "module": "Unit2"
+  },
+  "rate": {
+    "word": "Rate",
+    "phonetic": "/rett/",
+    "cnMeaning": "v对••••做评估，评价",
+    "module": "Unit2"
+  },
+  "pleasure": {
+    "word": "Pleasure",
+    "phonetic": "/'plega/",
+    "cnMeaning": "愉快，快乐；",
+    "module": "Unit2"
+  },
+  "inference": {
+    "word": "Inference",
+    "phonetic": "/'mforans/",
+    "cnMeaning": "推论，推断",
+    "module": "Unit2"
+  },
+  "account": {
+    "word": "Account",
+    "phonetic": "/'kaunt/",
+    "cnMeaning": "账户",
+    "module": "Unit2"
+  },
+  "saving": {
+    "word": "Saving",
+    "phonetic": "/'servip/",
+    "cnMeaning": "积蓄；存钱",
+    "module": "Unit2"
+  },
+  "habit": {
+    "word": "Habit",
+    "phonetic": "/'haebt/",
+    "cnMeaning": "习惯",
+    "module": "Unit2"
+  },
+  "value": {
+    "word": "Value",
+    "phonetic": "/'valju/",
+    "cnMeaning": "价值",
+    "module": "Unit2"
+  },
+  "unlike": {
+    "word": "Unlike",
+    "phonetic": "/An 'laik/",
+    "cnMeaning": "不像⋯⋯，",
+    "module": "Unit2"
+  },
+  "date": {
+    "word": "Date",
+    "phonetic": "/der/",
+    "cnMeaning": "日期，日子",
+    "module": "Unit2"
+  },
+  "sale": {
+    "word": "Sale",
+    "phonetic": "/seil/",
+    "cnMeaning": "出售，销售",
+    "module": "Unit2"
+  },
+  "t-shirt": {
+    "word": "T-shirt",
+    "phonetic": "/'ti:J3:t/",
+    "cnMeaning": "T恤（衫）",
+    "module": "Unit2"
   },
   "quick": {
     "word": "Quick",
     "phonetic": "/kwik/",
-    "cnMeaning": "(RAD; 快速的",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
+    "cnMeaning": "快的；快速的",
+    "module": "Unit2"
   },
-  "piggy": {
-    "word": "Piggy",
-    "phonetic": "/'websait/",
+  "website": {
+    "word": "Website",
+    "phonetic": "/'websart/",
     "cnMeaning": "网站",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
+    "module": "Unit2"
   },
-  "size": {
-    "word": "Size",
-    "phonetic": "/saiz/",
-    "cnMeaning": "大小，尺二                 20      ",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
-  },
-  "dreamland": {
-    "word": "Dreamland",
-    "phonetic": "/'dri:mlznd/",
-    "cnMeaning": "梦境，                      安排者",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
+  "organiser": {
+    "word": "Organiser",
+    "phonetic": "/'o:gnaiza/",
+    "cnMeaning": "组织者，",
+    "module": "Unit2"
   },
   "dollar": {
     "word": "Dollar",
-    "phonetic": "/'dolo/",
+    "phonetic": "/'dola/",
     "cnMeaning": "美元",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
+    "module": "Unit2"
   },
-  "manage": {
-    "word": "Manage",
-    "phonetic": "/'menid3/",
-    "cnMeaning": "终于做成，                    cent ",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
+  "cent": {
+    "word": "Cent",
+    "phonetic": "/sent/",
+    "cnMeaning": "分",
+    "module": "Unit2"
   },
   "penny": {
     "word": "Penny",
     "phonetic": "/'peni/",
-    "cnMeaning": "( 美国、加拿大的 )",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
-  },
-  "laptop": {
-    "word": "Laptop",
-    "phonetic": "/'leptop/",
-    "cnMeaning": "笔记本电脑，                       一",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
+    "cnMeaning": "（美国、加拿大的）",
+    "module": "Unit2"
   },
   "exception": {
     "word": "Exception",
     "phonetic": "/ik'sepfan/",
     "cnMeaning": "例外，除外",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
+    "module": "Unit2"
   },
-  "budget": {
-    "word": "Budget",
-    "phonetic": "/'bad3it/",
-    "cnMeaning": "v 编制预算             21         ",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
-  },
-  "exactly": {
-    "word": "Exactly",
-    "phonetic": "/1g'zektli/",
-    "cnMeaning": "正是，一点               情侣",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
+  "couple": {
+    "word": "Couple",
+    "phonetic": "/'kApal/",
+    "cnMeaning": "一对夫妇；一对",
+    "module": "Unit2"
   },
   "treasure": {
     "word": "Treasure",
-    "phonetic": "/'trezo/",
-    "cnMeaning": "BR, Bm",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'tregsa/",
+    "cnMeaning": "珍宝，珍品",
+    "module": "Unit2"
   },
-  "rate": {
-    "word": "Rate",
-    "phonetic": "/rert/",
-    "cnMeaning": "对…… 做评估，评价” 22        Christma",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
-  },
-  "pleasure": {
-    "word": "Pleasure",
-    "phonetic": "/'plezo/",
-    "cnMeaning": "愉快，快乐;                     平安夜",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
+  "christmas": {
+    "word": "Christmas",
+    "phonetic": "/i:v/",
+    "cnMeaning": "圣诞前夕，",
+    "module": "Unit2"
   },
   "certainly": {
     "word": "Certainly",
     "phonetic": "/'ss:tnli/",
     "cnMeaning": "当然",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
+    "module": "Unit2"
   },
-  "inference": {
-    "word": "Inference",
-    "phonetic": "/'mforons/",
-    "cnMeaning": "推论，推断              chain /ASem",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
+  "chain": {
+    "word": "Chain",
+    "phonetic": "/tTem/",
+    "cnMeaning": "链子，链条",
+    "module": "Unit2"
   },
   "expensive": {
     "word": "Expensive",
-    "phonetic": "/1k'spenstv/",
+    "phonetic": "/ik'spensrv/",
     "cnMeaning": "昂贵的，",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
-  },
-  "account": {
-    "word": "Account",
-    "phonetic": "/o'kaunt/",
-    "cnMeaning": "账户                 23         ",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
-  },
-  "saving": {
-    "word": "Saving",
-    "phonetic": "/'servID n. AB; HE          23        comb /",
-    "cnMeaning": "koum/ n. 梳子; 梳状饰物，",
-    "module": "Unit2",
-    "origin": "外研版九年级上册"
-  },
-  "archaeological": {
-    "word": "Archaeological",
-    "phonetic": "/, a:kio' lnd3tkel/",
-    "cnMeaning": "",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
+    "module": "Unit2"
   },
   "remains": {
     "word": "Remains",
-    "phonetic": "/ri'memz/",
-    "cnMeaning": "遗迹                 36         ",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
+    "phonetic": "/r'memz/",
+    "cnMeaning": "遗迹",
+    "module": "Unit3"
   },
   "kingdom": {
     "word": "Kingdom",
-    "phonetic": "/'kindem/",
-    "cnMeaning": "王国               36         Mo",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'kugdam/",
+    "cnMeaning": "王国",
+    "module": "Unit3"
   },
   "northwest": {
     "word": "Northwest",
-    "phonetic": "/,n9:0'west/",
-    "cnMeaning": "西北，                    mystery",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
-  },
-  "possibility": {
-    "word": "Possibility",
-    "phonetic": "/,ppse'bllati/",
-    "cnMeaning": "可能，",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
-  },
-  "archaeologist": {
-    "word": "Archaeologist",
-    "phonetic": "/, a:ki' plad3ist/",
-    "cnMeaning": "可能性",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
+    "phonetic": "/，n3:0'west/",
+    "cnMeaning": "西北，",
+    "module": "Unit3"
   },
   "centre": {
     "word": "Centre",
-    "phonetic": "/'sento/",
-    "cnMeaning": "中心                   36       ",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'senta/",
+    "cnMeaning": "中心",
+    "module": "Unit3"
   },
   "period": {
     "word": "Period",
-    "phonetic": "/prerisd/",
-    "cnMeaning": "时期                   36       ",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'proriod/",
+    "cnMeaning": "时期",
+    "module": "Unit3"
   },
   "valuable": {
     "word": "Valuable",
-    "phonetic": "/'valjusbal/",
-    "cnMeaning": "宝贵的，                       多媒体",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'valjuobal/",
+    "cnMeaning": "宝贵的，",
+    "module": "Unit3"
+  },
+  "amaze": {
+    "word": "Amaze",
+    "phonetic": "/s'merz/",
+    "cnMeaning": "使大为惊奇，",
+    "module": "Unit3"
+  },
+  "researcher": {
+    "word": "Researcher",
+    "phonetic": "/rr'ss:tja/",
+    "cnMeaning": "研究者；",
+    "module": "Unit3"
+  },
+  "detailed": {
+    "word": "Detailed",
+    "phonetic": "/diteild/",
+    "cnMeaning": "详尽的，详",
+    "module": "Unit3"
+  },
+  "cartoon": {
+    "word": "Cartoon",
+    "phonetic": "/ka：'tun/",
+    "cnMeaning": "卡通（片），",
+    "module": "Unit3"
+  },
+  "tomb": {
+    "word": "Tomb",
+    "phonetic": "/tu:m/",
+    "cnMeaning": "坟墓，冢",
+    "module": "Unit3"
+  },
+  "sillk": {
+    "word": "Sillk",
+    "phonetic": "/silk/",
+    "cnMeaning": "丝绸",
+    "module": "Unit3"
+  },
+  "matchbox": {
+    "word": "Matchbox",
+    "phonetic": "/'mzetjboks/",
+    "cnMeaning": "火柴盒",
+    "module": "Unit3"
+  },
+  "statue": {
+    "word": "Statue",
+    "phonetic": "/'stethu:/",
+    "cnMeaning": "雕像；塑像",
+    "module": "Unit3"
+  },
+  "moai": {
+    "word": "Moai",
+    "phonetic": "/'mavau/",
+    "cnMeaning": "摩埃石像",
+    "module": "Unit3"
+  },
+  "mystery": {
+    "word": "Mystery",
+    "phonetic": "/'mistari/",
+    "cnMeaning": "神秘事物，谜",
+    "module": "Unit3"
+  },
+  "possibility": {
+    "word": "Possibility",
+    "phonetic": "/，pose\"bilati/",
+    "cnMeaning": "可能，",
+    "module": "Unit3"
+  },
+  "pretty": {
+    "word": "Pretty",
+    "phonetic": "/'prti/",
+    "cnMeaning": "漂亮的，好看的",
+    "module": "Unit3"
+  },
+  "besides": {
+    "word": "Besides",
+    "phonetic": "/br'sardz/",
+    "cnMeaning": "除•之外",
+    "module": "Unit3"
   },
   "version": {
     "word": "Version",
     "phonetic": "/'va:fan/",
     "cnMeaning": "版本",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
+    "module": "Unit3"
   },
-  "imagination": {
-    "word": "Imagination",
-    "phonetic": "/1,mzd3o' nerf an/",
-    "cnMeaning": "palace /'pzlis/n. 王宫; 宫殿",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
+  "palace": {
+    "word": "Palace",
+    "phonetic": "/'paels/",
+    "cnMeaning": "王宫；宫殿",
+    "module": "Unit3"
   },
   "background": {
     "word": "Background",
-    "phonetic": "/'bekgraund/",
+    "phonetic": "/'backgraund/",
     "cnMeaning": "背景",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
+    "module": "Unit3"
   },
-  "amaze": {
-    "word": "Amaze",
-    "phonetic": "/o'merz/",
-    "cnMeaning": "使大为惊奇，                        ",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
+  "fever": {
+    "word": "Fever",
+    "phonetic": "/'fi:va/",
+    "cnMeaning": "狂热，兴奋",
+    "module": "Unit3"
   },
   "pride": {
     "word": "Pride",
-    "phonetic": "/praid/",
-    "cnMeaning": "BR, Fre",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
+    "phonetic": "/prard/",
+    "cnMeaning": "自豪，",
+    "module": "Unit3"
   },
-  "dig": {
-    "word": "Dig",
-    "phonetic": "/bet/",
+  "bat": {
+    "word": "Bat",
+    "phonetic": "/baet/",
     "cnMeaning": "蝙蝠",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
+    "module": "Unit3"
   },
-  "luck": {
-    "word": "Luck",
-    "phonetic": "/LAK nm. 好运，幸运                    37          fridge /",
-    "cnMeaning": "frid3/ n. 冰箱，冰柜",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
+  "fridge": {
+    "word": "Fridge",
+    "phonetic": "/frds/",
+    "cnMeaning": "冰箱，冰柜",
+    "module": "Unit3"
   },
-  "researcher": {
-    "word": "Researcher",
-    "phonetic": "/r1'ss:tfo/",
-    "cnMeaning": "研究者;                     magne",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
+  "magnet": {
+    "word": "Magnet",
+    "phonetic": "/'magnt/",
+    "cnMeaning": "磁铁",
+    "module": "Unit3"
   },
   "central": {
     "word": "Central",
     "phonetic": "/'sentral/",
-    "cnMeaning": "中心的;",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
+    "cnMeaning": "中心的；",
+    "module": "Unit3"
   },
-  "cartoon": {
-    "word": "Cartoon",
-    "phonetic": "/ka:'tu:n/",
-    "cnMeaning": "卡通(片)，",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
+  "fearless": {
+    "word": "Fearless",
+    "phonetic": "/'fieles/",
+    "cnMeaning": "无畏的，不",
+    "module": "Unit4"
   },
-  "tomb": {
-    "word": "Tomb",
-    "phonetic": "/tum/",
-    "cnMeaning": "WE, R                 39      ",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
-  },
-  "silk": {
-    "word": "Silk",
-    "phonetic": "/silk/",
-    "cnMeaning": "丝绸                            ",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
-  },
-  "matchbox": {
-    "word": "Matchbox",
-    "phonetic": "/'mztfbpks/",
-    "cnMeaning": "火柴盒 39         bravely /'brerv",
-    "module": "Unit3",
-    "origin": "外研版九年级上册"
+  "bravely": {
+    "word": "Bravely",
+    "phonetic": "/'brervli/",
+    "cnMeaning": "勇敢地，无",
+    "module": "Unit4"
   },
   "footstep": {
     "word": "Footstep",
     "phonetic": "/'futstep/",
-    "cnMeaning": "足迹               52         pr",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
+    "cnMeaning": "足迹",
+    "module": "Unit4"
   },
   "northeast": {
     "word": "Northeast",
-    "phonetic": "/,no:0'i:st/",
-    "cnMeaning": "东北，东北               总统",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
+    "phonetic": "/，no:0'ist/",
+    "cnMeaning": "东北，东北",
+    "module": "Unit4"
   },
   "death": {
     "word": "Death",
-    "phonetic": "/de0/",
-    "cnMeaning": "死，死亡                 53 _ prod",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
+    "phonetic": "/de8/",
+    "cnMeaning": "死，死亡",
+    "module": "Unit4"
   },
   "gentle": {
     "word": "Gentle",
-    "phonetic": "/‘dgentl/",
-    "cnMeaning": "温和的，温柔的 53         type /taip/",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'dsentl/",
+    "cnMeaning": "温和的，温柔的",
+    "module": "Unit4"
   },
   "fighter": {
     "word": "Fighter",
-    "phonetic": "/'farto/",
-    "cnMeaning": "斗士,奋斗者 53 soilysody nm 土壤土地，泥土",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'farta/",
+    "cnMeaning": "斗士，奋斗者",
+    "module": "Unit4"
   },
   "pity": {
     "word": "Pity",
-    "phonetic": "/'piti/",
-    "cnMeaning": "THe, JR                     53",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'prti/",
+    "cnMeaning": "可惜，遗憾",
+    "module": "Unit4"
   },
   "fixed": {
     "word": "Fixed",
     "phonetic": "/fikst/",
-    "cnMeaning": "固定的; 不变的",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
+    "cnMeaning": "固定的；不变的",
+    "module": "Unit4"
   },
   "unchanging": {
     "word": "Unchanging",
-    "phonetic": "/an'tfemd3in/",
+    "phonetic": "/An'tfemdgu/",
     "cnMeaning": "不",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
+    "module": "Unit4"
   },
   "entry": {
     "word": "Entry",
-    "phonetic": "/entri/",
-    "cnMeaning": "( 日记的 ) 一则    55 _ drop /drop/",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'entri/",
+    "cnMeaning": "（日记的）一则",
+    "module": "Unit4"
   },
   "battle": {
     "word": "Battle",
-    "phonetic": "/‘bectl/",
-    "cnMeaning": "战斗，战役                55 _ tour",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
+    "phonetic": "/\"baetl/",
+    "cnMeaning": "战斗，战役",
+    "module": "Unit4"
   },
   "temperature": {
     "word": "Temperature",
-    "phonetic": "/'temprotfo/",
-    "cnMeaning": "温度，                  ecosystem",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'tempratja/",
+    "cnMeaning": "温度，",
+    "module": "Unit4"
   },
   "selfless": {
     "word": "Selfless",
-    "phonetic": "/'selflos/",
-    "cnMeaning": "忘我的，无             balance /'bz",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'selflas/",
+    "cnMeaning": "忘我的，无",
+    "module": "Unit4"
   },
   "heroic": {
     "word": "Heroic",
-    "phonetic": "/hi'raurk/",
-    "cnMeaning": "英雄的，英                  smog /s",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
-  },
-  "admire": {
-    "word": "Admire",
-    "phonetic": "/sd'mare/",
-    "cnMeaning": "v 欣赏，观赏",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
-  },
-  "loyal": {
-    "word": "Loyal",
-    "phonetic": "/'lorol/",
-    "cnMeaning": "忠贞的，忠实的，             mark /ma:",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
-  },
-  "farmland": {
-    "word": "Farmland",
-    "phonetic": "/'fa:mlend/",
-    "cnMeaning": "农田，耕地",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
+    "phonetic": "/hr'raurk/",
+    "cnMeaning": "英雄的，英",
+    "module": "Unit4"
   },
   "recommend": {
     "word": "Recommend",
-    "phonetic": "/,reko'mend/",
-    "cnMeaning": "劝告，                rapid /'rzp",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
-  },
-  "society": {
-    "word": "Society",
-    "phonetic": "/so'satoti/",
-    "cnMeaning": "社会",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
+    "phonetic": "/，reka'mend/",
+    "cnMeaning": "劝告，",
+    "module": "Unit4"
   },
   "dreamer": {
     "word": "Dreamer",
-    "phonetic": "/'dri:mo/",
-    "cnMeaning": "做梦的人          60         till ",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'dri:ma/",
+    "cnMeaning": "做梦的人",
+    "module": "Unit4"
   },
-  "burning": {
-    "word": "Burning",
-    "phonetic": "/'bs:nin/",
-    "cnMeaning": "火热的;               cancel /'ke",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
+  "buring": {
+    "word": "Buring",
+    "phonetic": "/'bsrn/",
+    "cnMeaning": "火热的；灼",
+    "module": "Unit4"
   },
   "countless": {
     "word": "Countless",
-    "phonetic": "/'kauntlos/",
-    "cnMeaning": "无数的，                  organisa",
-    "module": "Unit4",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'kauntlas/",
+    "cnMeaning": "无数的，",
+    "module": "Unit4"
+  },
+  "president": {
+    "word": "President",
+    "phonetic": "/'prezidant/",
+    "cnMeaning": "国家主席；",
+    "module": "Unit4"
+  },
+  "republic": {
+    "word": "Republic",
+    "phonetic": "/n'pAblik/",
+    "cnMeaning": "共和国",
+    "module": "Unit4"
+  },
+  "productive": {
+    "word": "Productive",
+    "phonetic": "/prs'dAktrv/",
+    "cnMeaning": "多产的",
+    "module": "Unit4"
+  },
+  "type": {
+    "word": "Type",
+    "phonetic": "/taup/",
+    "cnMeaning": "类型，种类",
+    "module": "Unit4"
+  },
+  "soil": {
+    "word": "Soil",
+    "phonetic": "/soil/",
+    "cnMeaning": "土壤，土地，泥土",
+    "module": "Unit4"
+  },
+  "socialist": {
+    "word": "Socialist",
+    "phonetic": "/'saufalst/",
+    "cnMeaning": "社会主",
+    "module": "Unit4"
+  },
+  "drop": {
+    "word": "Drop",
+    "phonetic": "/drop/",
+    "cnMeaning": "降低",
+    "module": "Unit5"
+  },
+  "tourist": {
+    "word": "Tourist",
+    "phonetic": "/'tuorist/",
+    "cnMeaning": "游客",
+    "module": "Unit5"
+  },
+  "ecosystem": {
+    "word": "Ecosystem",
+    "phonetic": "/'i:kau,sistum/",
+    "cnMeaning": "生态",
+    "module": "Unit5"
+  },
+  "balance": {
+    "word": "Balance",
+    "phonetic": "/'baelans/",
+    "cnMeaning": "（使）平稳，（使）",
+    "module": "Unit5"
+  },
+  "smog": {
+    "word": "Smog",
+    "phonetic": "/smpg/",
+    "cnMeaning": "烟雾",
+    "module": "Unit5"
+  },
+  "admire": {
+    "word": "Admire",
+    "phonetic": "/ed'maua/",
+    "cnMeaning": "欣赏，观赏",
+    "module": "Unit5"
+  },
+  "mark": {
+    "word": "Mark",
+    "phonetic": "/mosk/",
+    "cnMeaning": "痕迹；标记",
+    "module": "Unit5"
+  },
+  "farmland": {
+    "word": "Farmland",
+    "phonetic": "/'fa:mlaend/",
+    "cnMeaning": "农田，耕地",
+    "module": "Unit5"
+  },
+  "rapid": {
+    "word": "Rapid",
+    "phonetic": "/'raprd/",
+    "cnMeaning": "快速的，迅速的",
+    "module": "Unit5"
+  },
+  "society": {
+    "word": "Society",
+    "phonetic": "/se'sareti/",
+    "cnMeaning": "社会",
+    "module": "Unit5"
+  },
+  "till": {
+    "word": "Till",
+    "phonetic": "/tl/",
+    "cnMeaning": "直到",
+    "module": "Unit5"
+  },
+  "cancel": {
+    "word": "Cancel",
+    "phonetic": "/'kensel/",
+    "cnMeaning": "取消",
+    "module": "Unit5"
+  },
+  "permit": {
+    "word": "Permit",
+    "phonetic": "/pe'mt/",
+    "cnMeaning": "v 允许；使成为可能",
+    "module": "Unit5"
   },
   "harm": {
     "word": "Harm",
-    "phonetic": "/haim/",
-    "cnMeaning": "v 损害; 危害; 伤害 = 71        popul",
-    "module": "Unit5",
-    "origin": "外研版九年级上册"
+    "phonetic": "/ha:m/",
+    "cnMeaning": "V. 损害；危害；伤害",
+    "module": "Unit5"
   },
   "punishment": {
     "word": "Punishment",
-    "phonetic": "/'panifmont/",
-    "cnMeaning": "惩罚                       动植物的总",
-    "module": "Unit5",
-    "origin": "外研版九年级上册"
-  },
-  "undoubtedly": {
-    "word": "Undoubtedly",
-    "phonetic": "/an' dautidli/",
-    "cnMeaning": "",
-    "module": "Unit5",
-    "origin": "外研版九年级上册"
-  },
-  "global": {
-    "word": "Global",
-    "phonetic": "/'glaubal/",
-    "cnMeaning": "全球的，                     毫无疑问地",
-    "module": "Unit5",
-    "origin": "外研版九年级上册"
-  },
-  "survival": {
-    "word": "Survival",
-    "phonetic": "/se'varval/",
-    "cnMeaning": "继续生存;                        |",
-    "module": "Unit5",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'pAnjmant/",
+    "cnMeaning": "惩罚",
+    "module": "Unit5"
   },
   "overfishing": {
     "word": "Overfishing",
-    "phonetic": "/,ouvo'fifi/",
-    "cnMeaning": "GE                     幸存",
-    "module": "Unit5",
-    "origin": "外研版九年级上册"
+    "phonetic": "/，ouva'fufup/",
+    "cnMeaning": "过度",
+    "module": "Unit5"
   },
   "greenhouse": {
     "word": "Greenhouse",
-    "phonetic": "/,grimnhaus/",
+    "phonetic": "/'gri:nhaus/",
     "cnMeaning": "温室，",
-    "module": "Unit5",
-    "origin": "外研版九年级上册"
+    "module": "Unit5"
   },
   "gas": {
     "word": "Gas",
     "phonetic": "/gas/",
-    "cnMeaning": "气，气体                  71      ",
-    "module": "Unit5",
-    "origin": "外研版九年级上册"
+    "cnMeaning": "气，气体",
+    "module": "Unit5"
   },
   "control": {
     "word": "Control",
-    "phonetic": "/kon'traul/",
-    "cnMeaning": "v 控制，限制      71        toothbr",
-    "module": "Unit5",
-    "origin": "外研版九年级上册"
+    "phonetic": "/kan'traul/",
+    "cnMeaning": "控制，限制",
+    "module": "Unit5"
   },
   "rubbish": {
     "word": "Rubbish",
-    "phonetic": "/'rabif/",
-    "cnMeaning": "垃圾，废弃物 71          glove /glav",
-    "module": "Unit5",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'tAbuf/",
+    "cnMeaning": "垃圾，废弃物",
+    "module": "Unit5"
   },
   "cartoonist": {
     "word": "Cartoonist",
-    "phonetic": "/ka:' tu:nist/",
-    "cnMeaning": "漫画家 ;                   silent",
-    "module": "Unit5",
-    "origin": "外研版九年级上册"
+    "phonetic": "/ka:/",
+    "cnMeaning": "tu:nist/ n. 漫画家；",
+    "module": "Unit5"
   },
   "logging": {
     "word": "Logging",
-    "phonetic": "/'login/",
-    "cnMeaning": "伐木                    73      ",
-    "module": "Unit5",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'logu/",
+    "cnMeaning": "伐木",
+    "module": "Unit5"
+  },
+  "alarm": {
+    "word": "Alarm",
+    "phonetic": "/'la:m/",
+    "cnMeaning": "警报；警报器",
+    "module": "Unit5"
   },
   "foreigner": {
     "word": "Foreigner",
-    "phonetic": "/'forono/",
-    "cnMeaning": "外国人          76        tie /ta",
-    "module": "Unit5",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'forana/",
+    "cnMeaning": "外国人",
+    "module": "Unit5"
   },
   "logo": {
     "word": "Logo",
-    "phonetic": "/‘lougou/",
-    "cnMeaning": "标识，标志，徽标 76       bin /brmy/ n",
-    "module": "Unit5",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'laugau/",
+    "cnMeaning": "标识，标志，徽标",
+    "module": "Unit5"
   },
   "endangered": {
     "word": "Endangered",
-    "phonetic": "/m'demnd3ad/",
-    "cnMeaning": "濒危                average /'zv",
-    "module": "Unit5",
-    "origin": "外研版九年级上册"
+    "phonetic": "/m'de mdsod/",
+    "cnMeaning": "濒危",
+    "module": "Unit5"
   },
   "vulnerable": {
     "word": "Vulnerable",
-    "phonetic": "/'valnorabal/",
-    "cnMeaning": "脆弱的;                tiny /'tam",
-    "module": "Unit5",
-    "origin": "外研版九年级上册"
-  },
-  "nowhere": {
-    "word": "Nowhere",
-    "phonetic": "/'nauweo/",
-    "cnMeaning": "什么地方                        |",
-    "module": "Unit5",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'vAlnerabal/",
+    "cnMeaning": "脆弱的；",
+    "module": "Unit5"
   },
   "worldwide": {
     "word": "Worldwide",
-    "phonetic": "/, w3:ld' waid/",
-    "cnMeaning": "世界                都不，无处",
-    "module": "Unit5",
-    "origin": "外研版九年级上册"
+    "phonetic": "/，ws:ld'ward/",
+    "cnMeaning": "世界",
+    "module": "Unit5"
   },
   "protection": {
     "word": "Protection",
-    "phonetic": "/pra'tekfan/",
-    "cnMeaning": "保护         77            料的",
-    "module": "Unit5",
-    "origin": "外研版九年级上册"
+    "phonetic": "/pre'tekfan/",
+    "cnMeaning": "保护",
+    "module": "Unit5"
   },
   "environmental": {
     "word": "Environmental",
-    "phonetic": "/mvarrsn'mentl/",
-    "cnMeaning": "highlight /'harlart/ v 突出，强调",
-    "module": "Unit5",
-    "origin": "外研版九年级上册"
+    "phonetic": "/in,vauren 'ment/",
+    "cnMeaning": "/",
+    "module": "Unit5"
+  },
+  "population": {
+    "word": "Population",
+    "phonetic": "/，popjs'lefon/",
+    "cnMeaning": "人口；",
+    "module": "Unit5"
+  },
+  "cheap": {
+    "word": "Cheap",
+    "phonetic": "/tfip/",
+    "cnMeaning": "便宜的，廉价的",
+    "module": "Unit6"
+  },
+  "toothbrush": {
+    "word": "Toothbrush",
+    "phonetic": "/'tu:0brAJ/",
+    "cnMeaning": "牙刷",
+    "module": "Unit6"
+  },
+  "glove": {
+    "word": "Glove",
+    "phonetic": "/glav/",
+    "cnMeaning": "手套",
+    "module": "Unit6"
+  },
+  "silently": {
+    "word": "Silently",
+    "phonetic": "/'satlontli/",
+    "cnMeaning": "默不作声地；",
+    "module": "Unit6"
+  },
+  "former": {
+    "word": "Former",
+    "phonetic": "/'fo:ma/",
+    "cnMeaning": "以前的，从",
+    "module": "Unit6"
+  },
+  "tie": {
+    "word": "Tie",
+    "phonetic": "/ta/",
+    "cnMeaning": "系，扎，拴，捆",
+    "module": "Unit6"
+  },
+  "bin": {
+    "word": "Bin",
+    "phonetic": "/bm/",
+    "cnMeaning": "垃圾箱，垃圾桶",
+    "module": "Unit6"
+  },
+  "average": {
+    "word": "Average",
+    "phonetic": "/'zvardg/",
+    "cnMeaning": "平均数",
+    "module": "Unit6"
+  },
+  "tiny": {
+    "word": "Tiny",
+    "phonetic": "/'tamni/",
+    "cnMeaning": "极小的",
+    "module": "Unit6"
+  },
+  "nowhere": {
+    "word": "Nowhere",
+    "phonetic": "/'nauwee/",
+    "cnMeaning": "什么地方",
+    "module": "Unit6"
+  },
+  "plastic-free": {
+    "word": "Plastic-free",
+    "phonetic": "/'pleestik fri:/",
+    "cnMeaning": "ad）. 无塑",
+    "module": "Unit6"
+  },
+  "highlight": {
+    "word": "Highlight",
+    "phonetic": "/'harlant/",
+    "cnMeaning": "突出，强调",
+    "module": "Unit6"
   },
   "formation": {
     "word": "Formation",
-    "phonetic": "/fo:'merfan/",
-    "cnMeaning": "构成，                    recycle",
-    "module": "Unit6",
-    "origin": "外研版九年级上册"
+    "phonetic": "/fo：'merjon/",
+    "cnMeaning": "构成，",
+    "module": "Unit6"
   },
   "pollute": {
     "word": "Pollute",
-    "phonetic": "/po'lu:t/",
-    "cnMeaning": "v 污染                     87   ",
-    "module": "Unit6",
-    "origin": "外研版九年级上册"
+    "phonetic": "/pe'lu:t/",
+    "cnMeaning": "污染",
+    "module": "Unit6"
   },
   "electronic": {
     "word": "Electronic",
-    "phonetic": "/,elik' trontk/",
-    "cnMeaning": "电子的，             loudly /laudl",
-    "module": "Unit6",
-    "origin": "外研版九年级上册"
-  },
-  "village": {
-    "word": "Village",
-    "phonetic": "/valdz/",
-    "cnMeaning": "mn SAY, AE",
-    "module": "Unit6",
-    "origin": "外研版九年级上册"
+    "phonetic": "/，eluk'tronik/",
+    "cnMeaning": "电子的，",
+    "module": "Unit6"
   },
   "fog": {
     "word": "Fog",
     "phonetic": "/fog/",
-    "cnMeaning": "#                             ",
-    "module": "Unit6",
-    "origin": "外研版九年级上册"
+    "cnMeaning": "雾",
+    "module": "Unit6"
   },
   "industry": {
     "word": "Industry",
-    "phonetic": "/'mndostri/",
-    "cnMeaning": "工业，制造业 87        reporter /r1'",
-    "module": "Unit6",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'mdsstri/",
+    "cnMeaning": "工业，制造业",
+    "module": "Unit6"
   },
   "capital": {
     "word": "Capital",
-    "phonetic": "/'kepotl/",
-    "cnMeaning": "首都            87 depth /dep0/n",
-    "module": "Unit6",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'kaepotl/",
+    "cnMeaning": "首都",
+    "module": "Unit6"
   },
   "coal": {
     "word": "Coal",
     "phonetic": "/kaul/",
-    "cnMeaning": "煤                             ",
-    "module": "Unit6",
-    "origin": "外研版九年级上册"
+    "cnMeaning": "煤",
+    "module": "Unit6"
   },
   "worst": {
     "word": "Worst",
-    "phonetic": "/wa:st/",
-    "cnMeaning": "最坏的; REA 87         businessma",
-    "module": "Unit6",
-    "origin": "外研版九年级上册"
-  },
-  "location": {
-    "word": "Location",
-    "phonetic": "/lou'kerfon/",
-    "cnMeaning": "地点，位置 87           企业家",
-    "module": "Unit6",
-    "origin": "外研版九年级上册"
+    "phonetic": "/w3:st/",
+    "cnMeaning": "最坏的；最差的",
+    "module": "Unit6"
   },
   "negative": {
     "word": "Negative",
-    "phonetic": "/'negotiv/",
-    "cnMeaning": "有害的;                     truck",
-    "module": "Unit6",
-    "origin": "外研版九年级上册"
-  },
-  "industrial": {
-    "word": "Industrial",
-    "phonetic": "/in'dastriol/",
-    "cnMeaning": "工业的",
-    "module": "Unit6",
-    "origin": "外研版九年级上册"
+    "phonetic": "/'negatrv/",
+    "cnMeaning": "ad）.有害的；",
+    "module": "Unit6"
   },
   "furthermore": {
     "word": "Furthermore",
-    "phonetic": "/, f3:59'mo:/",
-    "cnMeaning": "此外;                litter /‘li",
-    "module": "Unit6",
-    "origin": "外研版九年级上册"
+    "phonetic": "/，fs:0e'mo:/",
+    "cnMeaning": "此外；",
+    "module": "Unit6"
   },
-  "ma": {
-    "word": "Ma",
+  "recycle": {
+    "word": "Recycle",
+    "phonetic": "/，ri：' satkal/",
+    "cnMeaning": "再利用，回收",
+    "module": "Unit6"
+  },
+  "upcycle": {
+    "word": "Upcycle",
+    "phonetic": "/'Ap,salkal/",
+    "cnMeaning": "升级改造",
+    "module": "Unit6"
+  },
+  "loudly": {
+    "word": "Loudly",
+    "phonetic": "/laudli/",
+    "cnMeaning": "晌亮地，大声地",
+    "module": "Unit6"
+  },
+  "village": {
+    "word": "Village",
+    "phonetic": "/'virds/",
+    "cnMeaning": "乡村，村庄",
+    "module": "Unit6"
+  },
+  "noisy": {
+    "word": "Noisy",
+    "phonetic": "/'norzi/",
+    "cnMeaning": "喧闹的；吵闹的",
+    "module": "Unit6"
+  },
+  "reporter": {
+    "word": "Reporter",
+    "phonetic": "/r'po:ta/",
+    "cnMeaning": "记者",
+    "module": "Unit6"
+  },
+  "depth": {
+    "word": "Depth",
+    "phonetic": "/depe/",
+    "cnMeaning": "深，深度",
+    "module": "Unit6"
+  },
+  "weight": {
+    "word": "Weight",
+    "phonetic": "/weit/",
+    "cnMeaning": "重物",
+    "module": "Unit6"
+  },
+  "businessman": {
+    "word": "Businessman",
+    "phonetic": "/'brznasmon/",
+    "cnMeaning": "商人；",
+    "module": "Unit6"
+  },
+  "truck": {
+    "word": "Truck",
+    "phonetic": "/trAk/",
+    "cnMeaning": "货车，卡车",
+    "module": "Unit6"
+  },
+  "industrial": {
+    "word": "Industrial",
+    "phonetic": "/in 'dAstriaV/",
+    "cnMeaning": "工业的",
+    "module": "Unit6"
+  },
+  "litter": {
+    "word": "Litter",
+    "phonetic": "/'hta/",
+    "cnMeaning": "垃圾，废弃物",
+    "module": "Unit6"
+  },
+  "peace": {
+    "word": "Peace",
     "phonetic": "/pi:s/",
-    "cnMeaning": "和平; 平静，安宁",
-    "module": "Unit6",
-    "origin": "外研版九年级上册"
+    "cnMeaning": "和平；平静，安宁",
+    "module": "Unit6"
   },
   "business": {
     "word": "Business",
-    "phonetic": "/'biznoas/",
+    "phonetic": "/'brznas/",
     "cnMeaning": "商业",
-    "module": "Unit6",
-    "origin": "外研版九年级上册"
+    "module": "Unit6"
   }
 }

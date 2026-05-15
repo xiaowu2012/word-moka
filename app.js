@@ -27,7 +27,7 @@ App({
         name: '九年级上册',
         subtitle: '2026秋季版',
         units: ['Unit1', 'Unit2', 'Unit3', 'Unit4', 'Unit5', 'Unit6'],
-        wordCount: 128,
+        wordCount: 189,
         available: true
       }
     ],
