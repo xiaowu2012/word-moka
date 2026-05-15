@@ -39,13 +39,13 @@
   transition: all 0.2s;
 }
 
-.sentence-row.playing {
-  background: #FFF3E8;
-}
-
 .sentence-row.playing .sentence-en {
   font-weight: 700;
-  color: #2C3E50;
+  color: #E67E22;
+}
+
+.sentence-row.playing {
+  background: #FFF8F0;
 }
 
 .play-icon {

@@ -41,7 +41,7 @@ Page({
   data: {
     unitId: '', title: '', paragraphs: [],
     words: {}, selectedWord: null, showWordCard: false,
-    playingIdx: null, playAllMode: false, totalSentences: 0,
+    playingIdx: null, playAllMode: false, totalSentences: 0, resumeIdx: 0,
     showActions: false, actionSentenceIdx: -1
   },
 
@@ -77,17 +77,17 @@ Page({
 
   onTogglePlayAll() {
     if (this.data.playAllMode && this.data.playingIdx !== null) {
-      // 正在播放 → 停止
       if (this._audioCtx) {
         this._audioCtx.stop()
         this._audioCtx.destroy()
         this._audioCtx = null
       }
-      this.setData({ playAllMode: false, playingIdx: null })
+      this.setData({ playAllMode: false, resumeIdx: this.data.playingIdx })
     } else {
-      // 未播放 → 开始全文
+      const startIdx = this.data.resumeIdx || 0
       this.setData({ playAllMode: true, showActions: false })
-      this.playSentence(0)
+      if (this._actionTimer) clearTimeout(this._actionTimer)
+      this.playSentence(startIdx)
     }
   },
 
@@ -107,7 +107,7 @@ Page({
     }
 
     if (idx >= this.data.totalSentences) {
-      this.setData({ playAllMode: false, playingIdx: null, showActions: false })
+      this.setData({ playAllMode: false, playingIdx: null, showActions: false, resumeIdx: 0 })
       return
     }
     this.setData({ playingIdx: idx, showActions: false })

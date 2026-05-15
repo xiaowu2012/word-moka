@@ -2,7 +2,6 @@
 <view class="page-wrap">
   <!-- 固定顶部 -->
   <view class="header">
-    <text class="back-btn" bindtap="onBack">‹</text>
     <view class="header-info">
       <text class="header-title">{{title}}</text>
       <text class="header-unit">{{unitId}}</text>
