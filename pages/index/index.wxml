@@ -1,43 +1,59 @@
-<!-- 首页 - 课本封面 + 单元列表 -->
+<!-- 首页 -->
 <view class="container">
-  <view class="header">
-    <image class="header-img" src="/images/home-banner.jpg" mode="widthFix"></image>
+  <!-- 课本选择 -->
+  <view wx:if="{{!showUnits}}">
+    <view class="header">
+      <image class="header-img" src="/images/home-banner.jpg" mode="widthFix"></image>
+    </view>
+
+    <view class="section-title">选择课本</view>
+
+    <view class="book-list">
+      <view 
+        class="book-card" 
+        wx:for="{{textbooks}}" wx:key="id"
+        bindtap="onTapBook" data-id="{{item.id}}"
+      >
+        <text class="book-icon">{{item.cover}}</text>
+        <view class="book-meta">
+          <text class="book-name">{{item.name}}</text>
+          <text class="book-sub">{{item.subtitle}}</text>
+        </view>
+        <text class="book-tag {{item.available ? 'tag-go' : 'tag-coming'}}">
+          {{item.available ? '进入 ›' : '即将推出'}}
+        </text>
+      </view>
+    </view>
   </view>
 
-  <view class="textbook-info">
-    <text class="tb-name">九年级上册</text>
-    <text class="tb-sub">2026秋季版 · 外研社</text>
-    <text class="tb-count">{{totalWords}}个单词</text>
-  </view>
+  <!-- 单元列表 -->
+  <view wx:else>
+    <view class="unit-header">
+      <text class="back-btn" bindtap="onBackToBooks">‹</text>
+      <view class="unit-header-info">
+        <text class="unit-header-name">{{selectedTextbook.name}}</text>
+        <text class="unit-header-sub">{{selectedTextbook.subtitle}} · {{totalWords}}个单词</text>
+      </view>
+    </view>
 
-  <view class="unit-list">
-    <view 
-      class="unit-card" 
-      wx:for="{{units}}" 
-      wx:key="id"
-      bindtap="onTapUnit"
-      data-id="{{item.id}}"
-    >
-      <view class="unit-left">
+    <view class="unit-list">
+      <view 
+        class="unit-card" 
+        wx:for="{{units}}" wx:key="id"
+        bindtap="onTapUnit" data-id="{{item.id}}"
+      >
         <text class="unit-icon">{{item.icon}}</text>
         <view class="unit-info">
           <text class="unit-name">{{item.name}}</text>
-          <text class="unit-count">{{item.wordCount}}个单词</text>
+          <text class="unit-progress">{{item.learned}}/{{item.total}} 词</text>
         </view>
-      </view>
-      <view class="unit-right">
-        <text class="unit-status">{{item.progress > 0 ? item.progress + '/' + item.wordCount : '未开始'}}</text>
         <text class="unit-arrow">›</text>
       </view>
     </view>
   </view>
 
   <view class="bottom-bar">
-    <view class="bottom-btn review-btn" bindtap="onReview">
-      <text>🔄 今日复习</text>
-    </view>
-    <view class="bottom-btn list-btn" bindtap="onAllWords">
-      <text>📝 全部单词</text>
-    </view>
+    <view class="bottom-btn review-btn" bindtap="onReview">🔄 今日复习</view>
+    <view class="bottom-btn list-btn" bindtap="onAllWords">📝 全部单词</view>
   </view>
 </view>

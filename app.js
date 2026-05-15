@@ -14,21 +14,32 @@ App({
   globalData: {
     words: {},
     units: [
-      { id: 'Unit1', name: 'Unit 1', icon: '🎭' },
-      { id: 'Unit2', name: 'Unit 2', icon: '💰' },
-      { id: 'Unit3', name: 'Unit 3', icon: '🏛️' },
-      { id: 'Unit4', name: 'Unit 4', icon: '🦸' },
-      { id: 'Unit5', name: 'Unit 5', icon: '🌍' },
-      { id: 'Unit6', name: 'Unit 6', icon: '💡' }
+      { id: 'Unit1', name: 'Teenagers today', icon: '🎭' },
+      { id: 'Unit2', name: 'On the money', icon: '💰' },
+      { id: 'Unit3', name: 'Putting the pieces together', icon: '🧩' },
+      { id: 'Unit4', name: 'Past passing by', icon: '⏳' },
+      { id: 'Unit5', name: 'A fine balance', icon: '⚖️' },
+      { id: 'Unit6', name: 'Live green', icon: '🌿' }
     ],
     textbooks: [
       {
-        id: 'jiunianji',
+        id: '9a-2026q',
         name: '九年级上册',
         subtitle: '2026秋季版',
         units: ['Unit1', 'Unit2', 'Unit3', 'Unit4', 'Unit5', 'Unit6'],
         wordCount: 189,
-        available: true
+        available: true,
+        cover: '📘'
+      },
+      {
+        id: '8b-2026c',
+        name: '八年级下册',
+        subtitle: '2026春季版',
+        units: [],
+        wordCount: 0,
+        available: false,
+        comingSoon: true,
+        cover: '📙'
       }
     ],
     userProgress: {}

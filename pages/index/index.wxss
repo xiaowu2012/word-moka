@@ -2,135 +2,86 @@
   padding-bottom: 120rpx;
 }
 
-.header {
-  width: 100%;
-}
+.header { width: 100%; }
+.header-img { width: 100%; display: block; }
 
-.header-img {
-  width: 100%;
-  display: block;
-}
-
-.textbook-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 32rpx 24rpx 16rpx;
-  border-bottom: 2rpx solid #f0f0f0;
-}
-
-.tb-name {
-  font-size: 38rpx;
+.section-title {
+  font-size: 32rpx;
   font-weight: 700;
   color: #2C3E50;
-  margin-bottom: 6rpx;
+  padding: 32rpx 24rpx 16rpx;
 }
 
-.tb-sub {
-  font-size: 26rpx;
-  color: #999;
-  margin-bottom: 4rpx;
-}
+/* 课本卡片 */
+.book-list { padding: 0 24rpx; }
 
-.tb-count {
-  font-size: 24rpx;
-  color: #5B8DEF;
+.book-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 28rpx;
+  margin-bottom: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04);
 }
+.book-card:active { transform: scale(0.98); }
 
-.unit-list {
-  padding: 16rpx 24rpx;
+.book-icon { font-size: 52rpx; margin-right: 20rpx; }
+.book-meta { flex: 1; }
+.book-name { font-size: 32rpx; font-weight: 700; color: #2C3E50; display: block; }
+.book-sub { font-size: 24rpx; color: #999; display: block; margin-top: 4rpx; }
+
+.book-tag {
+  font-size: 24rpx; padding: 8rpx 20rpx; border-radius: 20rpx;
 }
+.tag-go { background: #5B8DEF; color: #fff; }
+.tag-coming { background: #F0F0F0; color: #aaa; }
 
+/* 单元列表头部 */
+.unit-header {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #5B8DEF, #7C6FF7);
+  padding: 40rpx 24rpx;
+}
+.back-btn { font-size: 52rpx; color: #fff; margin-right: 16rpx; }
+.back-btn:active { opacity: 0.7; }
+.unit-header-info { flex: 1; }
+.unit-header-name { font-size: 34rpx; font-weight: 700; color: #fff; display: block; }
+.unit-header-sub { font-size: 24rpx; color: rgba(255,255,255,0.8); display: block; margin-top: 4rpx; }
+
+/* 单元卡片 */
+.unit-list { padding: 20rpx 24rpx; }
 .unit-card {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   background: #fff;
-  border-radius: 16rpx;
-  padding: 24rpx;
+  border-radius: 14rpx;
+  padding: 22rpx 24rpx;
   margin-bottom: 12rpx;
-  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.04);
 }
+.unit-card:active { transform: scale(0.98); }
+.unit-icon { font-size: 36rpx; margin-right: 16rpx; }
+.unit-info { flex: 1; }
+.unit-name { font-size: 28rpx; font-weight: 600; color: #2C3E50; display: block; }
+.unit-progress { font-size: 24rpx; color: #5B8DEF; display: block; margin-top: 4rpx; }
+.unit-arrow { font-size: 36rpx; color: #ccc; }
 
-.unit-card:active {
-  transform: scale(0.98);
-}
-
-.unit-left {
-  display: flex;
-  align-items: center;
-}
-
-.unit-icon {
-  font-size: 40rpx;
-  margin-right: 16rpx;
-}
-
-.unit-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.unit-name {
-  font-size: 30rpx;
-  font-weight: 600;
-  color: #2C3E50;
-  margin-bottom: 4rpx;
-}
-
-.unit-count {
-  font-size: 24rpx;
-  color: #999;
-}
-
-.unit-right {
-  display: flex;
-  align-items: center;
-  gap: 8rpx;
-}
-
-.unit-status {
-  font-size: 24rpx;
-  color: #5B8DEF;
-}
-
-.unit-arrow {
-  font-size: 36rpx;
-  color: #ccc;
-}
-
+/* 底部 */
 .bottom-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  gap: 16rpx;
+  position: fixed; bottom: 0; left: 0; right: 0;
+  display: flex; gap: 16rpx;
   padding: 20rpx 24rpx;
   padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
   background: #fff;
-  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.06);
+  box-shadow: 0 -4rpx 20rpx rgba(0,0,0,0.06);
 }
-
 .bottom-btn {
-  flex: 1;
-  text-align: center;
-  padding: 22rpx 0;
-  border-radius: 16rpx;
-  font-size: 28rpx;
-  font-weight: 600;
+  flex: 1; text-align: center;
+  padding: 22rpx 0; border-radius: 16rpx;
+  font-size: 28rpx; font-weight: 600;
 }
-
-.bottom-btn:active {
-  opacity: 0.85;
-}
-
-.review-btn {
-  background: linear-gradient(135deg, #5B8DEF, #7C6FF7);
-  color: #fff;
-}
-
-.list-btn {
-  background: #F0F4FF;
-  color: #5B8DEF;
-}
+.bottom-btn:active { opacity: 0.85; }
+.review-btn { background: linear-gradient(135deg,#5B8DEF,#7C6FF7); color: #fff; }
+.list-btn { background: #F0F4FF; color: #5B8DEF; }
