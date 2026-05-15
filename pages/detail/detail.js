@@ -141,7 +141,10 @@ Page({
       }
 
       if (todayLearned >= dailyGoal) {
-        wx.showToast({ title: '今日目标已完成 🎉', icon: 'none' })
+        wx.showToast({ title: '今日目标完成，去复习吧 🎉', icon: 'none' })
+        setTimeout(() => {
+          wx.navigateTo({ url: '/pages/review/review' })
+        }, 800)
         return
       }
 
