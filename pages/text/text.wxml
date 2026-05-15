@@ -8,7 +8,7 @@
     <text class="play-all-btn" bindtap="onTogglePlayAll">
       {{playAllMode ? '■ 停止' : '▶ 全文'}}
     </text>
-    <text class="cn-toggle-btn" bindtap="onToggleCn">
+    <text class="cn-toggle-btn {{showCn ? 'active' : ''}}" bindtap="onToggleCn">
       {{showCn ? '中' : 'EN'}}
     </text>
   </view>

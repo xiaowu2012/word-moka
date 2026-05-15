@@ -1,26 +1,38 @@
+/* 首页 - Duolingo 风格 */
 .container { padding-bottom: 40rpx; }
-.header-img { width: 100%; display: block; }
-.section-title { font-size: 32rpx; font-weight: 700; color: #2C3E50; padding: 40rpx 24rpx 20rpx; }
 
+.header-img { width: 100%; display: block; }
+
+.section-title {
+  font-size: 26rpx; font-weight: 600; color: #bbb;
+  padding: 32rpx 24rpx 16rpx;
+  text-transform: uppercase;
+  letter-spacing: 2rpx;
+}
+
+/* 课本卡片 */
 .book-list { padding: 0 24rpx; }
 .book-card {
   display: flex; align-items: center;
-  background: #fff; border-radius: 16rpx; padding: 28rpx; margin-bottom: 16rpx;
-  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04);
+  background: #fff; border-radius: 20rpx;
+  padding: 28rpx; margin-bottom: 16rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.06);
 }
-.book-card:active { transform: scale(0.98); }
+.book-card:active { transform: scale(0.97); }
 .book-icon { font-size: 52rpx; margin-right: 20rpx; }
 .book-info { flex: 1; }
-.book-name { font-size: 30rpx; font-weight: 700; color: #2C3E50; display: block; }
-.book-count { font-size: 22rpx; color: #5B8DEF; display: block; margin-top: 4rpx; }
-.book-status { font-size: 24rpx; padding: 8rpx 20rpx; border-radius: 20rpx; }
-.book-status.ready { background: #E8F8E8; color: #27AE60; }
-.book-status.coming { background: #FFF3E8; color: #E67E22; }
+.book-name { font-size: 30rpx; font-weight: 700; color: #4B4B4B; display: block; }
+.book-count { font-size: 24rpx; color: #58CC02; display: block; margin-top: 4rpx; }
+.book-status { font-size: 24rpx; padding: 8rpx 20rpx; border-radius: 16rpx; }
+.book-status.ready { background: #E5F5D9; color: #58CC02; }
+.book-status.coming { background: #F5F5F5; color: #ccc; }
 
-.back-btn { font-size: 36rpx; color: #5B8DEF; display: block; padding: 30rpx 24rpx 20rpx; }
+/* 单元卡片 */
+.back-btn { font-size: 32rpx; color: #58CC02; display: block; padding: 24rpx 24rpx 8rpx; }
 .unit-card {
-  font-size: 30rpx; padding: 24rpx; margin: 0 24rpx 16rpx;
-  background: #fff; border-radius: 14rpx;
-  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.04);
+  font-size: 28rpx; padding: 22rpx 24rpx;
+  margin: 0 24rpx 12rpx;
+  background: #fff; border-radius: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
 }
-.unit-card:active { transform: scale(0.98); }
+.unit-card:active { transform: scale(0.97); }

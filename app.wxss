@@ -1,31 +1,32 @@
-/* 全局样式 - 单词魔卡 */
+/* 全局样式 - Duolingo 风格 */
 page {
-  background-color: #F5F7FA;
+  background-color: #FFFFFF;
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-  color: #333;
+  color: #4B4B4B;
   box-sizing: border-box;
 }
 
 /* 卡片容器 */
 .card {
   background: #fff;
-  border-radius: 16rpx;
-  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.06);
   margin: 0 24rpx;
-  padding: 32rpx;
+  padding: 28rpx;
 }
 
 /* 按钮基础 */
 .btn-primary {
-  background: linear-gradient(135deg, #5B8DEF, #7C6FF7);
+  background: #58CC02;
   color: #fff;
-  border-radius: 40rpx;
+  border-radius: 16rpx;
   padding: 20rpx 48rpx;
   font-size: 28rpx;
   border: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4rpx 8rpx rgba(88, 204, 2, 0.3);
 }
 
 .btn-primary:active {
@@ -35,15 +36,15 @@ page {
 /* 标签 */
 .tag {
   display: inline-block;
-  padding: 4rpx 16rpx;
+  padding: 4rpx 14rpx;
   border-radius: 8rpx;
   font-size: 22rpx;
   margin-right: 8rpx;
 }
 
 .tag-blue {
-  background: #EEF3FF;
-  color: #5B8DEF;
+  background: #DDF4FF;
+  color: #1CB0F6;
 }
 
 .tag-orange {
@@ -52,20 +53,6 @@ page {
 }
 
 .tag-green {
-  background: #E8F8E8;
-  color: #27AE60;
-}
-
-/* 星星评分 */
-.stars {
-  color: #F1C40F;
-  font-size: 24rpx;
-}
-
-/* 标题 */
-.page-title {
-  font-size: 36rpx;
-  font-weight: 700;
-  color: #2C3E50;
-  padding: 32rpx 24rpx 16rpx;
+  background: #E5F5D9;
+  color: #58CC02;
 }
