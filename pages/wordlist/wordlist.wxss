@@ -114,10 +114,7 @@
   color: #27AE60;
 }
 
-.tag-orange {
-  background: #FFF3E8;
-  color: #E67E22;
-}
+
 
 .tag-blue {
   background: #EEF3FF;

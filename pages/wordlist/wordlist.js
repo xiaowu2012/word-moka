@@ -13,11 +13,6 @@ Page({
   },
 
   onLoad(options) {
-    const textbookId = options.textbookId || 'waiyan8b'
-    const showFavorites = options.favorites === 'true'
-
-    this.setData({ showFavorites })
-
     this.buildWordList()
     this.loadProgress()
   },
@@ -52,7 +47,6 @@ Page({
     }).then(res => {
       const progress = res.result || {}
       const masteredSet = new Set(progress.mastered || [])
-      const favoriteSet = new Set(progress.favorites || [])
       const schedule = progress.schedule || {}
 
       const updated = this.data.wordList.map(item => {
@@ -62,12 +56,7 @@ Page({
         if (isMastered) status = 'mastered'
         else if (inSchedule) status = 'learning'
 
-        return {
-          ...item,
-          mastered: isMastered,
-          favorite: favoriteSet.has(item.key),
-          status
-        }
+        return { ...item, status }
       })
 
       this.setData({ wordList: updated, userProgress: progress }, () => {
@@ -84,25 +73,18 @@ Page({
   },
 
   applyFilter() {
-    const { wordList, currentFilter, showFavorites } = this.data
+    const { wordList, currentFilter } = this.data
     let filtered = wordList
 
-    if (showFavorites || currentFilter === 'favorites') {
-      filtered = wordList.filter(w => w.favorite)
-    } else if (currentFilter === 'mastered') {
-      filtered = wordList.filter(w => w.mastered)
+    if (currentFilter === 'mastered') {
+      filtered = wordList.filter(w => w.status === 'mastered')
     } else if (currentFilter === 'learning') {
       filtered = wordList.filter(w => w.status === 'learning')
+    } else if (currentFilter === 'new') {
+      filtered = wordList.filter(w => w.status === 'new')
     }
 
-    if (showFavorites) {
-      this.setData({ 
-        filteredList: filtered,
-        moduleTitle: '我的收藏'
-      })
-    } else {
-      this.setData({ filteredList: filtered })
-    }
+    this.setData({ filteredList: filtered })
   },
 
   onTapWord(e) {

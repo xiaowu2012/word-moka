@@ -8,7 +8,6 @@ Page({
     word: {},
     key: '',
     imageSrc: '',
-    isFav: false,
     fromContinue: false,
     stars: '',
     freqLabel: '',
@@ -83,7 +82,6 @@ Page({
       }
 
       this.setData({
-        isFav: (p.favorites || []).includes(this.data.key),
         todayLearned,
         dailyGoal
       })
@@ -122,15 +120,6 @@ Page({
 
   onImageError() {
     this.setData({ imageSrc: '' })
-  },
-
-  onToggleFav() {
-    const newVal = !this.data.isFav
-    this.setData({ isFav: newVal })
-    wx.cloud.callFunction({
-      name: 'updateProgress',
-      data: { field: 'favorites', key: this.data.key, add: newVal }
-    }).catch(() => {})
   },
 
   onGoNext() {

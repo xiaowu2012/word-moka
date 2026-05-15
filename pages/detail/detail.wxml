@@ -10,11 +10,6 @@
         <view class="word-row">
           <text class="word-text">{{word.word}}</text>
           <text class="play-btn" bindtap="onPlayWord">🔊</text>
-          <view class="word-actions">
-            <text class="action-fav {{isFav ? 'fav-active' : ''}}" bindtap="onToggleFav">
-              {{isFav ? '❤️' : '🤍'}}
-            </text>
-          </view>
         </view>
         <text class="word-phonetic">{{word.phonetic}}</text>
         <view class="word-stars">

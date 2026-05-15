@@ -17,11 +17,11 @@
     <view 
       class="filter-tab {{currentFilter === 'mastered' ? 'active' : ''}}" 
       bindtap="onFilter" data-filter="mastered"
-    >已掌握</view>
+    >已完成</view>
     <view 
-      class="filter-tab {{currentFilter === 'favorites' ? 'active' : ''}}" 
-      bindtap="onFilter" data-filter="favorites"
-    >收藏</view>
+      class="filter-tab {{currentFilter === 'new' ? 'active' : ''}}" 
+      bindtap="onFilter" data-filter="new"
+    >未开始</view>
   </view>
 
   <scroll-view class="word-scroll" scroll-y>
@@ -41,9 +41,8 @@
         <view class="word-tags">
           <text class="stars">{{item.stars}}</text>
           <text wx:if="{{item.status === 'learning'}}" class="tag tag-blue">📖学习中</text>
-          <text wx:if="{{item.mastered}}" class="tag tag-green">✓掌握</text>
+          <text wx:if="{{item.status === 'mastered'}}" class="tag tag-green">✓已完成</text>
           <text wx:if="{{item.status === 'new'}}" class="tag tag-gray">未开始</text>
-          <text wx:if="{{item.favorite}}" class="tag tag-orange">❤️</text>
         </view>
       </view>
     </view>

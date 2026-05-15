@@ -49,23 +49,6 @@
   font-size: 36rpx;
 }
 
-.action-fav, .action-master {
-  transition: transform 0.2s;
-}
-
-.action-fav:active, .action-master:active {
-  transform: scale(1.3);
-}
-
-.fav-active, .master-active {
-  animation: bounce 0.3s;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.3); }
-}
-
 .word-phonetic {
   font-size: 28rpx;
   color: #aaa;
