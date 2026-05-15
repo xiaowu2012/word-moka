@@ -45,7 +45,7 @@ Page({
   data: {
     unitId: '', title: '', paragraphs: [],
     words: {}, selectedWord: null, showWordCard: false,
-    playingIdx: null, playAllMode: false, totalSentences: 0, resumeIdx: 0,
+    playingIdx: null, playAllMode: false, totalSentences: 0, resumeIdx: 0, showCn: true,
     showActions: false, actionSentenceIdx: -1
   },
 
@@ -182,6 +182,10 @@ Page({
       this._audioCtx = null
     }
     if (this._actionTimer) clearTimeout(this._actionTimer)
+  },
+
+  onToggleCn() {
+    this.setData({ showCn: !this.data.showCn })
   },
 
   onBack() { wx.navigateBack() }

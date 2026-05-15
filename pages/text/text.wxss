@@ -12,9 +12,18 @@
 .header-info { text-align: center; }
 .header-title { font-size: 30rpx; font-weight: 700; color: #fff; display: block; }
 .header-unit { font-size: 22rpx; color: rgba(255,255,255,0.7); display: block; }
-.play-all-btn {
+.play-all-btn, .cn-toggle-btn {
   font-size: 26rpx; color: #fff; background: rgba(255,255,255,0.2);
-  padding: 10rpx 20rpx; border-radius: 24rpx; flex-shrink: 0;
+  padding: 8rpx 20rpx; border-radius: 24rpx; flex-shrink: 0;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cn-toggle-btn {
+  min-width: 56rpx;
+  font-weight: 700;
 }
 
 /* 课文滚动区 */
