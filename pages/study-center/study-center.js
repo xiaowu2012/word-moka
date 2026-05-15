@@ -62,8 +62,10 @@ Page({
 
       this.setData({
         learnedCount,
+        learnedPct: total > 0 ? Math.round(learnedCount / total * 100) : 0,
         dueCount,
-        todayLearned
+        todayLearned,
+        todayPct: dailyGoal > 0 ? Math.round(todayLearned / dailyGoal * 100) : 0
       })
     }).catch(() => {})
   },

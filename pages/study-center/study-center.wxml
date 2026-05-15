@@ -12,7 +12,7 @@
     <view class="stat-row">
       <view class="stat-label-row">
         <text class="stat-label">学习中</text>
-        <text class="stat-pct">{{totalWords > 0 ? Math.round(learnedCount / totalWords * 100) : 0}}%</text>
+        <text class="stat-pct">{{learnedPct}}%</text>
       </view>
       <text class="stat-value">{{learnedCount}} / {{totalWords}}</text>
     </view>
@@ -23,7 +23,7 @@
     <view class="stat-row" style="margin-top: 20rpx;">
       <view class="stat-label-row">
         <text class="stat-label">今日学习</text>
-        <text class="stat-pct">{{dailyGoal > 0 ? Math.round(todayLearned / dailyGoal * 100) : 0}}%</text>
+        <text class="stat-pct">{{todayPct}}%</text>
       </view>
       <view class="stat-right">
         <text class="stat-mini">{{todayLearned}} / {{dailyGoal}}</text>
