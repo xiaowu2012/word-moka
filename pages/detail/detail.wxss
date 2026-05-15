@@ -1,17 +1,6 @@
-.page-wrap {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
-.content-scroll {
-  flex: 1;
-  padding: 24rpx 24rpx 0;
-}
-
-/* 保留 .container 防止旧引用冲突 */
 .container {
   padding: 24rpx;
+  padding-bottom: 200rpx;
 }
 
 .card-main {
