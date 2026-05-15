@@ -3,10 +3,14 @@ const TEXT_DATA = {
     "title": "Art in safe hands",
     "paragraphs": [
       {"sentences": [
+        {"en": "Good evening, ladies and gentlemen. I'm Zhan Haojing, a high school student.", "cn": "晚上好，女士们先生们。我是詹昊晶，一名高中生。", "vocab": ["gentleman"]},
+        {"en": "I'm also a puppet performer.", "cn": "我还是一名木偶表演者。", "vocab": ["performer"]},
+        {"en": "Look at this puppet. If I move my fingers, it will come to life!", "cn": "看看这个木偶。如果我动动手指，它就会活过来！", "vocab": ["finger"]}
+      ]},
+      {"sentences": [
         {"en": "I was born into a family of Minnan puppet performers.", "cn": "我出生在闽南的一个木偶戏表演世家。", "vocab": ["performer"]},
         {"en": "My grandpa and my mum are both among the best.", "cn": "我的外公和我的母亲都是这行中的佼佼者。", "vocab": []},
-        {"en": "They tell stories with their hands.", "cn": "他们用手讲述故事。", "vocab": []},
-        {"en": "I loved the stories my grandpa and my mum told with their hands.", "cn": "我喜欢外公和妈妈用手讲述的故事。", "vocab": []}
+        {"en": "When I was little, I loved the amazing stories they told with their hands.", "cn": "小的时候，我喜欢他们用手讲述的精彩故事。", "vocab": []}
       ]},
       {"sentences": [
         {"en": "However, things changed when I became a teenager.", "cn": "然而，当我成为一名青少年时，情况发生了变化。", "vocab": ["teenager"]},
