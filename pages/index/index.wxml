@@ -1,9 +1,13 @@
 <!-- 首页 -->
 <view class="container">
-  <!-- 课本选择 -->
+
+  <!-- 模式1: 课本选择 -->
   <view wx:if="{{!showUnits}}">
     <view class="header">
-      <image class="header-img" src="/images/home-banner.jpg" mode="widthFix"></image>
+      <view class="header-content">
+        <text class="app-name">单词魔卡</text>
+        <text class="app-desc">初中英语课本同步</text>
+      </view>
     </view>
 
     <view class="section-title">选择课本</view>
@@ -15,24 +19,25 @@
         bindtap="onTapBook" data-id="{{item.id}}"
       >
         <text class="book-icon">{{item.cover}}</text>
-        <view class="book-meta">
+        <view class="book-info">
           <text class="book-name">{{item.name}}</text>
           <text class="book-sub">{{item.subtitle}}</text>
+          <text class="book-count" wx:if="{{item.available}}">{{item.wordCount}}个单词</text>
         </view>
-        <text class="book-tag {{item.available ? 'tag-go' : 'tag-coming'}}">
+        <text class="book-status {{item.available ? 'ready' : 'coming'}}">
           {{item.available ? '进入 ›' : '即将推出'}}
         </text>
       </view>
     </view>
   </view>
 
-  <!-- 单元列表 -->
+  <!-- 模式2: 单元列表 -->
   <view wx:else>
     <view class="unit-header">
-      <text class="back-btn" bindtap="onBackToBooks">‹</text>
+      <text class="back-btn" bindtap="onBack">‹</text>
       <view class="unit-header-info">
-        <text class="unit-header-name">{{selectedTextbook.name}}</text>
-        <text class="unit-header-sub">{{selectedTextbook.subtitle}} · {{totalWords}}个单词</text>
+        <text class="unit-header-name">{{selectedTextbook.cover}} {{selectedTextbook.name}}</text>
+        <text class="unit-header-sub">{{selectedTextbook.subtitle}}</text>
       </view>
     </view>
 
@@ -52,8 +57,4 @@
     </view>
   </view>
 
-  <view class="bottom-bar">
-    <view class="bottom-btn review-btn" bindtap="onReview">🔄 今日复习</view>
-    <view class="bottom-btn list-btn" bindtap="onAllWords">📝 全部单词</view>
-  </view>
 </view>
