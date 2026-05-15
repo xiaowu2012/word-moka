@@ -42,8 +42,7 @@ App({
         cover: '📙',
         modules: [],
         wordCount: 0,
-        available: false,
-        comingSoon: true
+        available: true
       }
     ],
     userProgress: {}
