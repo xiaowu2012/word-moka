@@ -48,6 +48,10 @@
   background: #EEF3FF;
 }
 
+.sentence-row.playing .sentence-en {
+  font-weight: 700;
+}
+
 .play-icon {
   font-size: 24rpx;
   color: #5B8DEF;

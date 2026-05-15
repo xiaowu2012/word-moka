@@ -153,5 +153,16 @@ Page({
   },
 
   onCloseWordCard() { this.setData({ showWordCard: false }) },
+
+  onUnload() {
+    // 离开页面时停止播放
+    if (this._audioCtx) {
+      this._audioCtx.stop()
+      this._audioCtx.destroy()
+      this._audioCtx = null
+    }
+    if (this._actionTimer) clearTimeout(this._actionTimer)
+  },
+
   onBack() { wx.navigateBack() }
 })
