@@ -15,7 +15,7 @@ const TEXT_DATA = {
       {"sentences": [
         {"en": "However, things changed when I became a teenager.", "cn": "然而，当我成为一名青少年时，情况发生了变化。", "vocab": ["teenager"]},
         {"en": "I felt less close to the art because people thought puppets were too old-fashioned.", "cn": "我觉得与这门艺术不那么亲近了，因为人们认为木偶太老式了。", "vocab": ["old-fashioned"]},
-        {"en": "I didn't want to be part of puppetry unless I was asked to.", "cn": "除非有人要求，否则我不想参与木偶表演。", "vocab": ["puppetry", "unless"]},
+        {"en": "I didn't want to be part of puppetry unless I was asked to.", "cn": "除非有人要求，否则我不想参与木偶表演。", "vocab": ["puppetry"]},
         {"en": "One day my mum showed me a performance by my grandpa's teacher.", "cn": "一天，妈妈给我看了外公老师的一场表演。", "vocab": ["performance"]},
         {"en": "The finely made puppets and their exciting movements brought back childhood memories.", "cn": "精致的木偶和激动人心的动作带回了童年的记忆。", "vocab": []},
         {"en": "Then and there, my love for puppetry started to grow again.", "cn": "就在那时，我对木偶表演的热爱重新燃起。", "vocab": []},
