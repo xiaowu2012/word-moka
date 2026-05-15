@@ -11,8 +11,8 @@
 
   <scroll-view class="passage-scroll" scroll-y>
     <view class="passage">
-      <view class="paragraph" wx:for="{{paragraphs}}" wx:key="*this">
-        <view wx:for="{{item.sentences}}" wx:key="*this">
+      <view class="paragraph" wx:for="{{paragraphs}}" wx:for-index="pidx" wx:key="pidx">
+        <view wx:for="{{item.sentences}}" wx:key="gidx">
           <view class="sentence-row {{playingIdx === item.gidx ? 'playing' : ''}}"
                 bindtap="onPlaySentence" data-idx="{{item.gidx}}">
             <text class="play-icon">{{playingIdx === item.gidx ? '🔊' : '▶'}}</text>
