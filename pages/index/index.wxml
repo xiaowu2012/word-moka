@@ -21,6 +21,7 @@
 
   <!-- 单元列表 -->
   <view wx:else>
+    <image class="header-img" src="/images/home-banner.jpg" mode="widthFix"></image>
     <text class="back-btn" bindtap="onBack">‹ 返回</text>
     <view class="unit-card" wx:for="{{units}}" wx:key="id"
           bindtap="onReadText" data-id="{{item.id}}">
