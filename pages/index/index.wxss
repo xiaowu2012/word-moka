@@ -3,15 +3,13 @@
 }
 
 .header {
-  height: 30vh;
-  min-height: 240rpx;
-  max-height: 400rpx;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  padding: 30rpx 24rpx;
 }
 
 .header-img {
-  width: 100%;
-  height: 100%;
+  width: 85%;
   display: block;
 }
 

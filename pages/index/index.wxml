@@ -1,7 +1,7 @@
 <!-- 首页 - 教材选择 -->
 <view class="container">
   <view class="header">
-    <image class="header-img" src="/images/home-banner.jpg" mode="aspectFill"></image>
+    <image class="header-img" src="/images/home-banner.jpg" mode="widthFix"></image>
   </view>
 
   <view class="section-title">选择教材</view>
