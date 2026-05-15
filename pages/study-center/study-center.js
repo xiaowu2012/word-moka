@@ -56,9 +56,13 @@ Page({
         }
       }
 
+      // 已学习 = 已掌握 + 在学习（schedule中的都算）
+      const scheduleKeys = Object.keys(schedule)
+      const learnedCount = mastered.length + scheduleKeys.filter(k => !mastered.includes(k)).length
+
       this.setData({
-        learnedCount: mastered.length,
-        dueCount: dueCount,
+        learnedCount,
+        dueCount,
         todayLearned
       })
     }).catch(() => {})
