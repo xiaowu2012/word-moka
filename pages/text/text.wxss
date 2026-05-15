@@ -1,17 +1,16 @@
 .page-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   background: #F5F7FA;
 }
 
 /* 固定顶部 */
 .header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 10;
   display: flex; align-items: center;
-  justify-content: center;
   background: linear-gradient(135deg, #5B8DEF, #7C6FF7);
   padding: 24rpx 24rpx 20rpx;
-  gap: 24rpx;
+  flex-shrink: 0;
 }
 .back-btn { font-size: 48rpx; color: #fff; margin-right: 16rpx; }
 .header-info { flex: 1; }
@@ -24,9 +23,8 @@
 
 /* 课文滚动区 */
 .passage-scroll {
+  flex: 1;
   padding: 24rpx;
-  padding-top: 140rpx;
-  height: 100vh;
 }
 
 .paragraph {
@@ -41,13 +39,13 @@
   transition: all 0.2s;
 }
 
-.sentence-row.playing .sentence-en {
-  font-weight: 700;
-  color: #E67E22;
+.sentence-row.playing {
+  background: #FFF3E8;
 }
 
-.sentence-row.playing {
-  background: #FFF8F0;
+.sentence-row.playing .sentence-en {
+  font-weight: 700;
+  color: #2C3E50;
 }
 
 .play-icon {
