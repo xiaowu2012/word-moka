@@ -14,7 +14,7 @@ Page({
     showGoalPicker: false,
     modules: [],
     selectedModuleId: '',
-    selectedModuleName: '请选择模块',
+    selectedModuleName: '全部',
     showModulePicker: false,
     words: {}
   },
@@ -38,7 +38,7 @@ Page({
       dailyGoal: wx.getStorageSync('dailyGoal') || DEFAULT_GOAL,
       modules,
       selectedModuleId: '',
-      selectedModuleName: '请选择模块',
+      selectedModuleName: '全部',
       words
     })
 
@@ -104,7 +104,7 @@ Page({
     const mod = modules.find(m => m.id === id)
     this.setData({
       selectedModuleId: id || '',
-      selectedModuleName: id ? `${mod.icon} ${mod.name}` : '请选择模块',
+      selectedModuleName: id ? `${mod.icon} ${mod.name}` : '全部',
       showModulePicker: false
     }, () => {
       this.loadProgress()

@@ -38,7 +38,7 @@
   <!-- 模块选择 -->
   <view class="module-picker-row">
     <view class="module-picker" bindtap="onModuleDropdownTap">
-      <text class="picker-label">📚 模块</text>
+      <text class="picker-label">📚 请选择模块</text>
       <text class="picker-value">{{selectedModuleName}}</text>
       <text class="picker-arrow">▾</text>
     </view>
