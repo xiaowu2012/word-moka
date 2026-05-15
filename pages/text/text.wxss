@@ -1,117 +1,103 @@
-/* 课文阅读页 - Duolingo 风格 */
 .page-wrap {
-  background: #FFFFFF;
-  min-height: 100vh;
+  background: #F5F7FA;
 }
 
-/* 顶部 */
 .header {
-  display: flex; align-items: center; justify-content: center;
-  gap: 16rpx;
-  padding: 20rpx 24rpx 16rpx;
-  border-bottom: 2rpx solid #F0F0F0;
+  display: flex; align-items: center;
+  justify-content: center;
+  gap: 24rpx;
+  background: linear-gradient(135deg, #5B8DEF, #7C6FF7);
+  padding: 24rpx 24rpx 20rpx;
 }
 .header-info { text-align: center; }
-.header-title { font-size: 28rpx; font-weight: 600; color: #4B4B4B; display: block; }
-.header-unit { font-size: 22rpx; color: #bbb; display: block; margin-top: 2rpx; }
-
+.header-title { font-size: 30rpx; font-weight: 700; color: #fff; display: block; }
+.header-unit { font-size: 22rpx; color: rgba(255,255,255,0.7); display: block; }
 .play-all-btn, .cn-toggle-btn {
-  font-size: 24rpx; color: #fff; background: #58CC02;
-  padding: 8rpx 18rpx; border-radius: 16rpx; flex-shrink: 0;
-  line-height: 1.3; display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 2rpx 4rpx rgba(88, 204, 2, 0.3);
+  font-size: 26rpx; color: #fff; background: rgba(255,255,255,0.2);
+  padding: 8rpx 20rpx; border-radius: 24rpx; flex-shrink: 0;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.cn-toggle-btn { 
-  min-width: 48rpx; font-weight: 700; 
-  background: #E8E8E8; color: #888;
-  box-shadow: none;
-}
-.cn-toggle-btn.active { background: #58CC02; color: #fff; box-shadow: 0 2rpx 4rpx rgba(88, 204, 2, 0.3); }
 
+.cn-toggle-btn {
+  min-width: 56rpx;
+  font-weight: 700;
+}
+
+/* 课文滚动区 */
 .passage-scroll {
-  padding: 20rpx 24rpx;
+  padding: 24rpx;
 }
 
 .paragraph {
-  background: #fff;
-  padding: 12rpx 0;
-  margin-bottom: 8rpx;
+  background: #fff; border-radius: 20rpx;
+  padding: 28rpx; margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.04);
 }
 
 .sentence-row {
   display: flex; align-items: flex-start;
-  padding: 14rpx 16rpx; border-radius: 14rpx;
+  padding: 8rpx 0; border-radius: 8rpx;
   transition: all 0.2s;
-  margin: 0 -8rpx;
-}
-
-.sentence-row.playing {
-  background: #E5F5D9;
-  box-shadow: 0 0 0 2rpx #58CC02;
-}
-
-.play-icon {
-  font-size: 22rpx; color: #58CC02;
-  margin-right: 12rpx; margin-top: 4rpx; flex-shrink: 0;
-}
-
-.sentence-row.playing .play-icon {
-  color: #4B4B4B;
-}
-
-.sentence-en {
-  font-size: 32rpx; line-height: 1.8; color: #4B4B4B;
 }
 
 .sentence-row.playing .sentence-en {
   font-weight: 700;
-  color: #2B6B00;
+  color: #E67E22;
+}
+
+.sentence-row.playing {
+  background: #FFF8F0;
+}
+
+.play-icon {
+  font-size: 24rpx; color: #E67E22;
+  margin-right: 12rpx; margin-top: 4rpx; flex-shrink: 0;
+}
+
+.sentence-en {
+  font-size: 30rpx; line-height: 1.7; color: #333;
 }
 
 .sentence-cn {
-  display: block; font-size: 26rpx; color: #aaa;
-  line-height: 1.5; margin: 4rpx 0 8rpx 50rpx;
+  display: block; font-size: 26rpx; color: #999;
+  line-height: 1.6; margin: 4rpx 0 12rpx 40rpx;
 }
 
 .vocab-word {
-  color: #1CB0F6; font-weight: 600;
-  border-bottom: 3rpx solid #1CB0F6; padding-bottom: 2rpx;
+  color: #5B8DEF; font-weight: 600;
+  border-bottom: 3rpx solid #5B8DEF; padding-bottom: 2rpx;
 }
 
 /* 操作按钮 */
 .action-bar {
-  display: flex; gap: 12rpx;
-  margin: 12rpx 0 8rpx 50rpx;
+  display: flex; gap: 16rpx;
+  margin: 12rpx 0 16rpx 40rpx;
 }
 .action-btn {
-  font-size: 24rpx; padding: 12rpx 24rpx; border-radius: 16rpx;
-  background: #F0F0F0; color: #888;
+  font-size: 24rpx; padding: 12rpx 24rpx; border-radius: 20rpx;
+  background: #F0F4FF; color: #5B8DEF;
 }
 .action-btn.primary {
-  background: #58CC02; color: #fff;
-  box-shadow: 0 2rpx 4rpx rgba(88, 204, 2, 0.3);
+  background: linear-gradient(135deg, #5B8DEF, #7C6FF7); color: #fff;
 }
-.action-btn:active { opacity: 0.8; }
+.action-btn:active { opacity: 0.7; }
 
-/* 底部单词卡片 */
+/* 重点词弹窗 */
 .word-mask {
   position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.2); z-index: 99;
+  background: rgba(0,0,0,0.4); z-index: 99;
 }
 .word-card {
-  position: fixed; left: 0; right: 0; bottom: 0;
-  background: #fff; border-radius: 24rpx 24rpx 0 0;
-  padding: 40rpx 32rpx;
-  padding-bottom: calc(40rpx + env(safe-area-inset-bottom));
-  z-index: 100;
-  box-shadow: 0 -8rpx 40rpx rgba(0,0,0,0.1);
+  position: fixed; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff; border-radius: 24rpx; padding: 40rpx;
+  width: 520rpx; z-index: 100; text-align: center;
+  box-shadow: 0 8rpx 40rpx rgba(0,0,0,0.15);
 }
-.wc-word { font-size: 40rpx; font-weight: 700; color: #4B4B4B; display: block; }
-.wc-phonetic { font-size: 26rpx; color: #bbb; display: block; margin: 6rpx 0 16rpx; }
+.wc-word { font-size: 44rpx; font-weight: 700; color: #2C3E50; display: block; margin-bottom: 8rpx; }
+.wc-phonetic { font-size: 26rpx; color: #aaa; display: block; margin-bottom: 20rpx; }
 .wc-meaning { font-size: 32rpx; color: #E67E22; display: block; margin-bottom: 28rpx; }
-.wc-close {
-  display: block; width: 100%; text-align: center;
-  background: #E8E8E8; color: #888;
-  padding: 18rpx 0; border-radius: 16rpx;
-  font-size: 28rpx;
-}
+.wc-close { display: block; font-size: 26rpx; color: #999; padding: 10rpx 0; }
