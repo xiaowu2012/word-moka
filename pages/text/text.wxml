@@ -13,26 +13,28 @@
     <view class="passage">
       <view class="paragraph" wx:for="{{paragraphs}}" wx:key="*this">
         <view wx:for="{{item.sentences}}" wx:key="*this">
-          <!-- 英文 + 播放 -->
           <view class="sentence-row {{playingIdx === item.gidx ? 'playing' : ''}}"
                 bindtap="onPlaySentence" data-idx="{{item.gidx}}">
             <text class="play-icon">{{playingIdx === item.gidx ? '🔊' : '▶'}}</text>
             <text class="sentence-en">
               <text wx:for="{{item.tokens}}" wx:key="*this">
-                <text wx:if="{{item.isVocab}}" class="vocab-word" 
+                <text wx:if="{{item.isVocab}}" class="vocab-word"
                       bindtap="onTapWord" data-word="{{item.wordKey}}">{{item.text}} </text>
                 <text wx:else>{{item.text}} </text>
               </text>
             </text>
           </view>
-          <!-- 中文翻译 -->
           <text class="sentence-cn">{{item.cn}}</text>
+          <!-- 操作按钮：仅单句播放后显示 -->
+          <view class="action-bar" wx:if="{{showActions && actionSentenceIdx === item.gidx}}">
+            <text class="action-btn" bindtap="onReplay">🔁 再读一遍</text>
+            <text class="action-btn primary" bindtap="onContinueReading">➡ 往后跟读</text>
+          </view>
         </view>
       </view>
     </view>
   </scroll-view>
 
-  <!-- 重点词弹窗 -->
   <view class="word-mask" wx:if="{{showWordCard}}" bindtap="onCloseWordCard"></view>
   <view class="word-card" wx:if="{{showWordCard}}">
     <text class="wc-word">{{selectedWord.word}}</text>

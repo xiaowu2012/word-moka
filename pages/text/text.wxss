@@ -79,6 +79,26 @@
 }
 
 /* 重点词弹窗 */
+.action-bar {
+  display: flex; gap: 16rpx;
+  margin: 12rpx 0 16rpx 40rpx;
+}
+
+.action-btn {
+  font-size: 24rpx;
+  padding: 12rpx 24rpx;
+  border-radius: 20rpx;
+  background: #F0F4FF;
+  color: #5B8DEF;
+}
+
+.action-btn.primary {
+  background: linear-gradient(135deg, #5B8DEF, #7C6FF7);
+  color: #fff;
+}
+
+.action-btn:active { opacity: 0.7; }
+
 .word-mask {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
