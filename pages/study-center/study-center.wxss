@@ -64,6 +64,12 @@
   color: #5B8DEF;
 }
 
+.stat-pct {
+  font-size: 22rpx;
+  color: #999;
+  font-weight: 400;
+}
+
 .stat-right {
   display: flex;
   align-items: center;
