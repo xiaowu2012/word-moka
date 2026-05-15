@@ -13,8 +13,9 @@ Page({
 
   onLoad(options) {
     const unitId = options.unit || 'Unit1'
-    const texts = require('../../data/texts.js')
-    const textData = texts[unitId]
+    const app = getApp()
+    const texts = app.globalData.texts
+    const textData = texts ? texts[unitId] : null
     if (!textData) {
       wx.showToast({ title: '课文加载失败', icon: 'none' })
       return
