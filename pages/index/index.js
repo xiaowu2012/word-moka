@@ -41,7 +41,7 @@ Page({
       return
     }
 
-    if (textbook.free || this.data.unlockedObj[id]) {
+    if (this.data.unlockedObj[id]) {
       wx.navigateTo({
         url: `/pages/study-center/study-center?textbookId=${id}`
       })

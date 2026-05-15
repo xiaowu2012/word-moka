@@ -110,8 +110,8 @@
 }
 
 .status-unlocked {
-  background: #F0F4FF;
-  color: #5B8DEF;
+  background: #E8F8E8;
+  color: #27AE60;
 }
 
 /* 解锁弹窗 */
