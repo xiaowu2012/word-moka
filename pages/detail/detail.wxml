@@ -5,6 +5,7 @@
     <view class="word-header">
       <view class="word-row">
         <text class="word-text">{{word.word}}</text>
+        <text class="play-btn" bindtap="onPlayWord">{{playing === 'word' ? '🔊' : '🔊'}}</text>
         <view class="word-actions">
           <text class="action-fav {{isFav ? 'fav-active' : ''}}" bindtap="onToggleFav">
             {{isFav ? '❤️' : '🤍'}}
@@ -28,40 +29,11 @@
       <text class="en-mean" wx:if="{{word.enMeaning}}">{{word.enMeaning}}</text>
     </view>
 
-    <!-- 发音区域 -->
-    <view class="section audio-section">
-      <view class="section-label">发音</view>
-      <view class="audio-list">
-        <view class="audio-btn" bindtap="onPlayWord" data-type="word">
-          <view class="audio-left">
-            <text class="play-icon">{{playing === 'word' ? '🔊' : '▶️'}}</text>
-            <text class="audio-text">单词</text>
-          </view>
-          <text class="audio-word">{{word.word}}</text>
-        </view>
-
-        <view class="audio-btn" bindtap="onPlayExample" data-type="example">
-          <view class="audio-left">
-            <text class="play-icon">{{playing === 'example' ? '🔊' : '▶️'}}</text>
-            <text class="audio-text">课本例句</text>
-            <text class="audio-badge tag tag-orange">课本</text>
-          </view>
-        </view>
-
-        <view class="audio-btn" bindtap="onPlayExtra" data-type="extra">
-          <view class="audio-left">
-            <text class="play-icon">{{playing === 'extra' ? '🔊' : '▶️'}}</text>
-            <text class="audio-text">拓展例句</text>
-            <text class="audio-badge tag tag-blue">拓展</text>
-          </view>
-        </view>
-      </view>
-    </view>
-
     <!-- 课本例句 -->
     <view class="section" wx:if="{{example}}">
       <view class="section-label">
         <text class="tag tag-orange">课本例句</text>
+        <text class="play-inline" bindtap="onPlayExample">{{playing === 'example' ? '🔊' : '🔊'}}</text>
       </view>
       <view class="example-box orange">
         <text class="example-en">{{example.sentence}}</text>
@@ -74,6 +46,7 @@
     <view class="section" wx:if="{{extraExample}}">
       <view class="section-label">
         <text class="tag tag-blue">拓展例句</text>
+        <text class="play-inline" bindtap="onPlayExtra">{{playing === 'extra' ? '🔊' : '🔊'}}</text>
       </view>
       <view class="example-box blue">
         <text class="example-en">{{extraExample}}</text>
