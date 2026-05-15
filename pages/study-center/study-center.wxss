@@ -1,51 +1,39 @@
 .container {
   background: #F5F7FA;
   min-height: 100vh;
+  padding-bottom: 40rpx;
 }
 
-/* 顶部 */
-.header {
+/* 顶部教材封面 */
+.textbook-cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48rpx 0 32rpx;
   background: linear-gradient(180deg, #5B8DEF 0%, #7C6FF7 100%);
-  padding: 24rpx 24rpx 60rpx;
   border-radius: 0 0 40rpx 40rpx;
 }
 
-.header-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.cover-icon {
+  font-size: 72rpx;
+  margin-bottom: 12rpx;
 }
 
-.header-left,
-.header-right {
-  width: 60rpx;
-}
-
-.back-arrow {
-  font-size: 52rpx;
+.cover-name {
+  font-size: 36rpx;
+  font-weight: 700;
   color: #fff;
-  font-weight: 300;
+  margin-bottom: 6rpx;
 }
 
-.header-info {
-  display: flex;
-  align-items: center;
-  gap: 12rpx;
+.cover-count {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.75);
 }
 
-.header-icon {
-  font-size: 40rpx;
-}
-
-.header-name {
-  font-size: 32rpx;
-  font-weight: 600;
-  color: #fff;
-}
-
-/* 进度卡片 */
-.progress-card {
-  margin: -40rpx 24rpx 16rpx;
+/* 统计卡片（合并进度+目标） */
+.stats-card {
+  margin: -24rpx 24rpx 16rpx;
   background: #fff;
   border-radius: 20rpx;
   padding: 28rpx;
@@ -54,122 +42,146 @@
   z-index: 2;
 }
 
-.progress-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 16rpx;
-}
-
-.progress-title {
-  font-size: 30rpx;
-  font-weight: 600;
-  color: #2C3E50;
-}
-
-.progress-sub {
-  font-size: 24rpx;
-  color: #999;
-}
-
-.progress-bar-wrap {
-  height: 10rpx;
-  background: #e8e8e8;
-  border-radius: 5rpx;
-  overflow: hidden;
-}
-
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #5B8DEF, #7C6FF7);
-  border-radius: 5rpx;
-  transition: width 0.3s;
-}
-
-/* 每日目标卡片 */
-.goal-card {
-  margin: 0 24rpx 16rpx;
-  background: #fff;
-  border-radius: 20rpx;
-  padding: 28rpx;
-  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.06);
-}
-
-.goal-header {
+.stat-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16rpx;
+  margin-bottom: 10rpx;
 }
 
-.goal-title {
-  font-size: 30rpx;
-  font-weight: 600;
-  color: #2C3E50;
+.stat-label {
+  font-size: 26rpx;
+  color: #666;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #5B8DEF;
+}
+
+.stat-right {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.stat-mini {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #27AE60;
 }
 
 .goal-setter {
-  display: flex;
-  align-items: center;
-  gap: 8rpx;
   background: #F0F4FF;
-  border-radius: 20rpx;
-  padding: 8rpx 20rpx;
+  border-radius: 16rpx;
+  padding: 6rpx 16rpx;
 }
 
 .goal-setter:active {
   opacity: 0.7;
 }
 
-.goal-label {
+.goal-arrow {
   font-size: 24rpx;
   color: #5B8DEF;
 }
 
-.goal-value {
-  font-size: 28rpx;
-  font-weight: 700;
-  color: #5B8DEF;
-}
-
-.goal-arrow {
-  font-size: 20rpx;
-  color: #5B8DEF;
-}
-
-.goal-progress-wrap {
-  height: 10rpx;
+.bar-wrap {
+  height: 8rpx;
   background: #e8e8e8;
-  border-radius: 5rpx;
+  border-radius: 4rpx;
   overflow: hidden;
-  margin-bottom: 12rpx;
 }
 
-.goal-fill {
+.bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, #27AE60, #2ECC71);
-  border-radius: 5rpx;
+  border-radius: 4rpx;
   transition: width 0.3s;
 }
 
-.goal-stats {
-  display: flex;
-  justify-content: space-between;
+.bar-fill.blue {
+  background: linear-gradient(90deg, #5B8DEF, #7C6FF7);
 }
 
-.goal-count {
+.bar-fill.green {
+  background: linear-gradient(90deg, #27AE60, #2ECC71);
+}
+
+/* 操作区 */
+.action-section {
+  padding: 0 24rpx;
+}
+
+.action-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 26rpx 28rpx;
+  margin-bottom: 14rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+
+.action-card:active {
+  transform: scale(0.98);
+  transition: transform 0.1s;
+}
+
+.action-card.muted {
+  opacity: 0.55;
+}
+
+.action-card.done {
+  background: #E8F8E8;
+}
+
+.action-icon {
+  font-size: 36rpx;
+  margin-right: 20rpx;
+  width: 56rpx;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.action-info {
+  flex: 1;
+}
+
+.action-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #2C3E50;
+  margin-bottom: 4rpx;
+}
+
+.action-desc {
   font-size: 24rpx;
   color: #999;
 }
 
-.goal-num {
-  font-size: 32rpx;
-  font-weight: 700;
-  color: #2C3E50;
+.action-arrow {
+  font-size: 40rpx;
+  color: #ccc;
+  margin-left: 12rpx;
 }
 
-.goal-done {
-  color: #27AE60;
+.action-badge {
+  font-size: 22rpx;
+  min-width: 36rpx;
+  height: 36rpx;
+  border-radius: 18rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10rpx;
+  margin-left: 8rpx;
+}
+
+.action-badge.orange {
+  background: #FFF0F0;
+  color: #E74C3C;
 }
 
 /* 目标选择浮层 */
@@ -217,7 +229,6 @@
   background: #F5F7FA;
   border-radius: 16rpx;
   padding: 24rpx;
-  transition: all 0.2s;
 }
 
 .picker-option:active {
@@ -246,92 +257,4 @@
   margin-left: auto;
   font-size: 28rpx;
   color: #5B8DEF;
-}
-
-/* 操作区 */
-.action-section {
-  padding: 0 24rpx 40rpx;
-}
-
-.action-card {
-  display: flex;
-  align-items: center;
-  background: #fff;
-  border-radius: 16rpx;
-  padding: 28rpx;
-  margin-bottom: 16rpx;
-  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
-}
-
-.action-card:active {
-  transform: scale(0.98);
-  transition: transform 0.1s;
-}
-
-.action-card.muted {
-  opacity: 0.6;
-}
-
-.action-card.done {
-  background: #E8F8E8;
-}
-
-.action-icon {
-  width: 72rpx;
-  height: 72rpx;
-  border-radius: 16rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36rpx;
-  margin-right: 20rpx;
-  flex-shrink: 0;
-}
-
-.book-icon {
-  background: #EEF3FF;
-}
-
-.review-icon {
-  background: #FFF0F0;
-}
-
-.list-icon {
-  background: #E8F8E8;
-}
-
-.action-info {
-  flex: 1;
-}
-
-.action-title {
-  font-size: 30rpx;
-  font-weight: 600;
-  color: #2C3E50;
-  margin-bottom: 4rpx;
-}
-
-.action-desc {
-  font-size: 24rpx;
-  color: #999;
-}
-
-.action-arrow {
-  font-size: 40rpx;
-  color: #ccc;
-  margin-left: 12rpx;
-}
-
-.action-badge {
-  background: #E74C3C;
-  color: #fff;
-  font-size: 22rpx;
-  min-width: 40rpx;
-  height: 40rpx;
-  border-radius: 20rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 12rpx;
-  margin-left: 8rpx;
 }
