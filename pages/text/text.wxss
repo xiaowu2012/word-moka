@@ -1,19 +1,15 @@
 .page-wrap {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
   background: #F5F7FA;
 }
 
-/* 固定顶部 */
 .header {
   display: flex; align-items: center;
+  justify-content: center;
+  gap: 24rpx;
   background: linear-gradient(135deg, #5B8DEF, #7C6FF7);
   padding: 24rpx 24rpx 20rpx;
-  flex-shrink: 0;
 }
-.back-btn { font-size: 48rpx; color: #fff; margin-right: 16rpx; }
-.header-info { flex: 1; }
+.header-info { text-align: center; }
 .header-title { font-size: 30rpx; font-weight: 700; color: #fff; display: block; }
 .header-unit { font-size: 22rpx; color: rgba(255,255,255,0.7); display: block; }
 .play-all-btn {
@@ -23,7 +19,6 @@
 
 /* 课文滚动区 */
 .passage-scroll {
-  flex: 1;
   padding: 24rpx;
 }
 

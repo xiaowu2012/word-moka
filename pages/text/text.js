@@ -59,9 +59,14 @@ Page({
       }))
     }))
 
+    // 计算滚动区高度（视口高度 - 固定标题高度）
+    const sys = wx.getSystemInfoSync()
+    const scrollHeight = sys.windowHeight - (sys.statusBarHeight || 44) - 100
+
     this.setData({
       unitId, title: textData.title, paragraphs, words: allWords,
-      totalSentences: paragraphs.reduce((s, p) => s + p.sentences.length, 0)
+      totalSentences: paragraphs.reduce((s, p) => s + p.sentences.length, 0),
+      scrollHeight
     })
   },
 

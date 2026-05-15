@@ -1,6 +1,5 @@
 <!-- 课文阅读页 -->
 <view class="page-wrap">
-  <!-- 固定顶部 -->
   <view class="header">
     <view class="header-info">
       <text class="header-title">{{title}}</text>
@@ -11,8 +10,7 @@
     </text>
   </view>
 
-  <!-- 滚动课文区 -->
-  <scroll-view class="passage-scroll" scroll-y>
+  <scroll-view class="passage-scroll" scroll-y style="height: {{scrollHeight}}px;">
     <view class="passage">
       <view class="paragraph" wx:for="{{paragraphs}}" wx:for-index="pidx" wx:key="pidx">
         <view wx:for="{{item.sentences}}" wx:key="gidx">
@@ -37,7 +35,6 @@
     </view>
   </scroll-view>
 
-  <!-- 重点词弹窗 -->
   <view class="word-mask" wx:if="{{showWordCard}}" bindtap="onCloseWordCard"></view>
   <view class="word-card" wx:if="{{showWordCard}}">
     <text class="wc-word">{{selectedWord.word}}</text>
