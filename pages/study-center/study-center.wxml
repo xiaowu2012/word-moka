@@ -10,7 +10,7 @@
   <!-- 进度 + 每日目标（合并） -->
   <view class="stats-card">
     <view class="stat-row">
-      <text class="stat-label">已学习</text>
+      <text class="stat-label">学习中</text>
       <text class="stat-value">{{learnedCount}} / {{totalWords}}</text>
     </view>
     <view class="bar-wrap">
