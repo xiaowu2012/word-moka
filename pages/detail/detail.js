@@ -9,7 +9,8 @@ Page({
     key: '',
     imageSrc: '',
     isFav: false,
-    isMastered: false,
+    inSchedule: false,
+    scheduleStage: -1,
     stars: '',
     freqLabel: '',
     example: null,
@@ -32,7 +33,6 @@ Page({
       return
     }
 
-    // Build example object
     let example = null
     let exampleCn = ''
     if (card.examples && card.examples.length > 0) {
@@ -68,11 +68,17 @@ Page({
       name: 'getProgress'
     }).then(res => {
       const progress = res.result || {}
-      const mastered = progress.mastered || []
       const favorites = progress.favorites || []
+      const schedule = progress.schedule || {}
+      const mastered = progress.mastered || []
+
+      const scheduleEntry = schedule[this.data.key]
+      const isMastered = mastered.includes(this.data.key)
+
       this.setData({
-        isMastered: mastered.includes(this.data.key),
-        isFav: favorites.includes(this.data.key)
+        isFav: favorites.includes(this.data.key),
+        inSchedule: isMastered || !!scheduleEntry,
+        scheduleStage: isMastered ? 5 : (scheduleEntry ? scheduleEntry.stage : -1)
       })
     }).catch(() => {})
   },
@@ -104,7 +110,6 @@ Page({
     })
     audioCtx.onError(() => {
       this.setData({ playing: '' })
-      wx.showToast({ title: '播放失败', icon: 'none' })
     })
   },
 
@@ -112,24 +117,33 @@ Page({
     this.setData({ imageSrc: '' })
   },
 
+  onAddSchedule() {
+    if (this.data.inSchedule) return
+
+    const today = new Date().toISOString().slice(0, 10)
+    wx.cloud.callFunction({
+      name: 'updateProgress',
+      data: {
+        field: 'schedule',
+        key: this.data.key,
+        add: true,
+        value: { stage: 0, dueDate: today }
+      }
+    }).then(() => {
+      this.setData({
+        inSchedule: true,
+        scheduleStage: 0
+      })
+      wx.showToast({ title: '已加入学习计划', icon: 'success' })
+    }).catch(() => {})
+  },
+
   onToggleFav() {
     const newVal = !this.data.isFav
     this.setData({ isFav: newVal })
-    this.syncProgress('favorites', this.data.key, newVal)
-  },
-
-  onToggleMaster() {
-    const newVal = !this.data.isMastered
-    this.setData({ isMastered: newVal })
-    this.syncProgress('mastered', this.data.key, newVal)
-  },
-
-  syncProgress(field, key, add) {
     wx.cloud.callFunction({
       name: 'updateProgress',
-      data: { field, key, add }
-    }).catch(err => {
-      console.error('sync error', err)
-    })
+      data: { field: 'favorites', key: this.data.key, add: newVal }
+    }).catch(() => {})
   }
 })

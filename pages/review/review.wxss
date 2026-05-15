@@ -84,6 +84,50 @@
   font-size: 28rpx;
 }
 
+/* 加载/空状态 */
+.loading-state, .empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 200rpx;
+}
+
+.loading-text {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.empty-icon {
+  font-size: 100rpx;
+  margin-bottom: 24rpx;
+}
+
+.empty-text {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #2C3E50;
+  margin-bottom: 8rpx;
+}
+
+.empty-sub {
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 48rpx;
+}
+
+/* 复习次数标签 */
+.review-stage {
+  margin-top: 12rpx;
+}
+
+.stage-tag {
+  font-size: 22rpx;
+  color: #5B8DEF;
+  background: #EEF3FF;
+  padding: 4rpx 16rpx;
+  border-radius: 12rpx;
+}
+
 /* 操作按钮 */
 .review-actions {
   width: 100%;

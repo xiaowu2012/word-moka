@@ -1,56 +1,33 @@
 <!-- 首页 - 教材选择 -->
 <view class="container">
   <view class="header">
-    <image class="logo" src="/images/logo.jpg" mode="aspectFill"></image>
-    <text class="app-name">单词魔卡</text>
-    <text class="app-desc">初中英语课本同步单词学习</text>
+    <view class="header-content">
+      <text class="app-name">单词魔卡</text>
+      <text class="app-desc">初中英语课本同步 · 艾宾浩斯记忆</text>
+    </view>
   </view>
 
   <view class="section-title">选择教材</view>
 
   <view class="textbook-list">
     <view 
-      class="textbook-card {{item.available ? '' : 'disabled'}}" 
+      class="textbook-card" 
       wx:for="{{textbooks}}" 
       wx:key="id"
-      bindtap="{{item.available ? 'onTapTextbook' : ''}}"
+      bindtap="onTapTextbook"
       data-id="{{item.id}}"
     >
-      <view class="textbook-cover">{{item.cover}}</view>
-      <view class="textbook-info">
-        <text class="textbook-name">{{item.name}}</text>
-        <text class="textbook-count">{{item.wordCount}}个单词</text>
+      <view class="textbook-left">
+        <view class="textbook-cover">{{item.cover}}</view>
+        <view class="textbook-info">
+          <text class="textbook-name">{{item.name}}</text>
+          <text class="textbook-count">{{item.wordCount}}个单词</text>
+        </view>
       </view>
       <view class="textbook-status">
         <text wx:if="{{item.available}}" class="status-tag status-ready">已就绪</text>
         <text wx:elif="{{item.comingSoon}}" class="status-tag status-coming">即将上线</text>
       </view>
-    </view>
-  </view>
-
-  <view class="stats-bar">
-    <view class="stat-item">
-      <text class="stat-num">{{masteredCount}}</text>
-      <text class="stat-label">已掌握</text>
-    </view>
-    <view class="stat-item">
-      <text class="stat-num">{{favoriteCount}}</text>
-      <text class="stat-label">已收藏</text>
-    </view>
-    <view class="stat-item">
-      <text class="stat-num">{{totalWords}}</text>
-      <text class="stat-label">总单词</text>
-    </view>
-  </view>
-
-  <view class="quick-actions">
-    <view class="action-btn review-btn" bindtap="onStartReview">
-      <text class="action-icon">🔄</text>
-      <text>今日复习</text>
-    </view>
-    <view class="action-btn fav-btn" bindtap="onViewFavorites">
-      <text class="action-icon">❤️</text>
-      <text>我的收藏</text>
     </view>
   </view>
 </view>

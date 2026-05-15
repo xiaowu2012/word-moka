@@ -1,5 +1,5 @@
 /**
- * 获取用户学习进度
+ * 获取用户学习进度（含艾宾浩斯计划）
  */
 const cloud = require('wx-server-sdk')
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV })
@@ -19,6 +19,7 @@ exports.main = async () => {
         mastered: progress.mastered || [],
         favorites: progress.favorites || [],
         reviewed: progress.reviewed || [],
+        schedule: progress.schedule || {},
         lastStudyDate: progress.lastStudyDate || ''
       }
     }
@@ -27,6 +28,7 @@ exports.main = async () => {
       mastered: [],
       favorites: [],
       reviewed: [],
+      schedule: {},
       lastStudyDate: ''
     }
   } catch (err) {
@@ -34,6 +36,7 @@ exports.main = async () => {
       mastered: [],
       favorites: [],
       reviewed: [],
+      schedule: {},
       lastStudyDate: '',
       error: err.message
     }

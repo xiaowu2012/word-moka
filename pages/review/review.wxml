@@ -3,26 +3,42 @@
   <view class="progress-bar">
     <view class="progress-fill" style="width: {{progress}}%"></view>
   </view>
-  <text class="progress-text">{{currentIndex + 1}} / {{reviewList.length}}</text>
+  <text class="progress-text" wx:if="{{!loading && total > 0}}">{{currentIndex + 1}} / {{total}}</text>
 
-  <view class="card" wx:if="{{reviewList.length > 0 && currentIndex < reviewList.length}}">
-    <!-- 单词正面 -->
-    <view class="card-inner {{showAnswer ? 'flipped' : ''}}" bindtap="onFlipCard">
-      <view class="card-face front">
+  <!-- 加载中 -->
+  <view class="loading-state" wx:if="{{loading}}">
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <!-- 没有待复习 -->
+  <view class="empty-state" wx:elif="{{!loading && total === 0 && !completed}}">
+    <text class="empty-icon">🎉</text>
+    <text class="empty-text">今天没有待复习的单词！</text>
+    <text class="empty-sub">去学习新单词吧</text>
+    <view class="btn-primary" bindtap="onLearnNew" wx:if="{{false}}">去学习</view>
+    <view class="btn-primary" bindtap="onGoHome">返回</view>
+  </view>
+
+  <!-- 复习进行中 -->
+  <view class="card" wx:elif="{{reviewList.length > 0 && currentIndex < reviewList.length}}">
+    <view class="card-inner" bindtap="onFlipCard">
+      <view class="card-face front" wx:if="{{!showAnswer}}">
         <text class="review-word">{{currentWord.word}}</text>
         <text class="review-hint">点击翻看答案</text>
       </view>
-      <view class="card-face back">
+      <view class="card-face back" wx:else>
         <text class="review-word">{{currentWord.word}}</text>
         <text class="review-phonetic">{{currentWord.phonetic}}</text>
         <text class="review-mean">{{currentWord.cnMeaning}}</text>
         <view class="review-stars">
           <text class="stars">{{currentStars}}</text>
         </view>
+        <view class="review-stage" wx:if="{{currentWord.stage >= 0}}">
+          <text class="stage-tag">第 {{currentWord.stage + 1}} 次复习</text>
+        </view>
       </view>
     </view>
 
-    <!-- 操作按钮 -->
     <view class="review-actions" wx:if="{{showAnswer}}">
       <view class="action-btn btn-hard" bindtap="onHard">
         <text>😓 再想想</text>
@@ -37,10 +53,10 @@
   </view>
 
   <!-- 复习完成 -->
-  <view class="completed" wx:elif="{{reviewList.length > 0}}">
+  <view class="completed" wx:elif="{{completed}}">
     <text class="completed-icon">🎉</text>
     <text class="completed-text">复习完成！</text>
-    <text class="completed-sub">今天复习了 {{reviewList.length}} 个单词</text>
-    <view class="btn-primary" bindtap="onGoHome">返回首页</view>
+    <text class="completed-sub">今天复习了 {{total}} 个单词</text>
+    <view class="btn-primary" bindtap="onGoHome">返回</view>
   </view>
 </view>
