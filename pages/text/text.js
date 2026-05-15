@@ -42,7 +42,8 @@ Page({
     unitId: '', title: '', paragraphs: [],
     words: {}, selectedWord: null, showWordCard: false,
     playingIdx: null, playAllMode: false, totalSentences: 0,
-    showActions: false, actionSentenceIdx: -1
+    showActions: false, actionSentenceIdx: -1,
+    resumeIdx: 0  // 停止时记住位置
   },
 
   onLoad(options) {
@@ -77,29 +78,39 @@ Page({
 
   onTogglePlayAll() {
     if (this.data.playAllMode && this.data.playingIdx !== null) {
-      // 正在播放 → 停止
+      // 停止 → 记住位置，保持高亮
       if (this._audioCtx) {
         this._audioCtx.stop()
         this._audioCtx.destroy()
         this._audioCtx = null
       }
-      this.setData({ playAllMode: false, playingIdx: null })
+      this.setData({
+        playAllMode: false,
+        resumeIdx: this.data.playingIdx
+        // playingIdx 不置空，保持高亮
+      })
     } else {
-      // 未播放 → 开始全文
+      // 开始全文：从 resumeIdx 继续
+      const startIdx = this.data.resumeIdx || 0
       this.setData({ playAllMode: true, showActions: false })
-      this.playSentence(0)
+      if (this._actionTimer) clearTimeout(this._actionTimer)
+      this.playSentence(startIdx)
     }
   },
 
   onPlaySentence(e) {
     const idx = parseInt(e.currentTarget.dataset.idx)
-    this.setData({ playAllMode: false, showActions: false })
+    this.setData({ playAllMode: false, showActions: false, resumeIdx: 0 })
     if (this._actionTimer) clearTimeout(this._actionTimer)
+    if (this._audioCtx) {
+      this._audioCtx.stop()
+      this._audioCtx.destroy()
+      this._audioCtx = null
+    }
     this.playSentence(idx)
   },
 
   playSentence(idx) {
-    // 停止正在播放的音频
     if (this._audioCtx) {
       this._audioCtx.stop()
       this._audioCtx.destroy()
@@ -107,7 +118,9 @@ Page({
     }
 
     if (idx >= this.data.totalSentences) {
-      this.setData({ playAllMode: false, playingIdx: null, showActions: false })
+      this.setData({
+        playAllMode: false, playingIdx: null, showActions: false, resumeIdx: 0
+      })
       return
     }
     this.setData({ playingIdx: idx, showActions: false })
@@ -120,10 +133,7 @@ Page({
       this._audioCtx.destroy()
       this._audioCtx = null
       if (this.data.playAllMode) {
-        // 句间停顿2秒
-        setTimeout(() => {
-          this.playSentence(idx + 1)
-        }, 2000)
+        setTimeout(() => { this.playSentence(idx + 1) }, 2000)
       } else {
         this.setData({ playingIdx: null })
         this.showActions(idx)
@@ -166,12 +176,7 @@ Page({
   onCloseWordCard() { this.setData({ showWordCard: false }) },
 
   onUnload() {
-    // 离开页面时停止播放
-    if (this._audioCtx) {
-      this._audioCtx.stop()
-      this._audioCtx.destroy()
-      this._audioCtx = null
-    }
+    if (this._audioCtx) { this._audioCtx.stop(); this._audioCtx.destroy(); this._audioCtx = null }
     if (this._actionTimer) clearTimeout(this._actionTimer)
   },
 

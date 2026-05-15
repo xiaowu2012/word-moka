@@ -2,7 +2,6 @@
 <view class="page-wrap">
   <!-- 固定顶部 -->
   <view class="header">
-    <text class="back-btn" bindtap="onBack">‹</text>
     <view class="header-info">
       <text class="header-title">{{title}}</text>
       <text class="header-unit">{{unitId}}</text>
@@ -19,7 +18,6 @@
         <view wx:for="{{item.sentences}}" wx:key="gidx">
           <view class="sentence-row {{playingIdx === item.gidx ? 'playing' : ''}}"
                 bindtap="onPlaySentence" data-idx="{{item.gidx}}">
-            <text class="play-icon">{{playingIdx === item.gidx ? '🔊' : '▶'}}</text>
             <text class="sentence-en">
               <text wx:for="{{item.tokens}}" wx:key="*this">
                 <text wx:if="{{item.isVocab}}" class="vocab-word"
