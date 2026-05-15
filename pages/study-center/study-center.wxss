@@ -140,6 +140,10 @@
   background: #E8F8E8;
 }
 
+.action-card.done .action-title {
+  margin-bottom: 10rpx;
+}
+
 .action-icon {
   font-size: 36rpx;
   margin-right: 20rpx;
