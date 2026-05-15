@@ -53,19 +53,27 @@ Page({
       const progress = res.result || {}
       const masteredSet = new Set(progress.mastered || [])
       const favoriteSet = new Set(progress.favorites || [])
+      const schedule = progress.schedule || {}
 
-      const updated = this.data.wordList.map(item => ({
-        ...item,
-        mastered: masteredSet.has(item.key),
-        favorite: favoriteSet.has(item.key)
-      }))
+      const updated = this.data.wordList.map(item => {
+        const isMastered = masteredSet.has(item.key)
+        const inSchedule = !!schedule[item.key]
+        let status = 'new'
+        if (isMastered) status = 'mastered'
+        else if (inSchedule) status = 'learning'
+
+        return {
+          ...item,
+          mastered: isMastered,
+          favorite: favoriteSet.has(item.key),
+          status
+        }
+      })
 
       this.setData({ wordList: updated, userProgress: progress }, () => {
         this.applyFilter()
       })
-    }).catch(() => {
-      // offline mode - no progress
-    })
+    }).catch(() => {})
   },
 
   onFilter(e) {
@@ -83,6 +91,8 @@ Page({
       filtered = wordList.filter(w => w.favorite)
     } else if (currentFilter === 'mastered') {
       filtered = wordList.filter(w => w.mastered)
+    } else if (currentFilter === 'learning') {
+      filtered = wordList.filter(w => w.status === 'learning')
     }
 
     if (showFavorites) {

@@ -118,3 +118,13 @@
   background: #FFF3E8;
   color: #E67E22;
 }
+
+.tag-blue {
+  background: #EEF3FF;
+  color: #5B8DEF;
+}
+
+.tag-gray {
+  background: #F0F0F0;
+  color: #aaa;
+}

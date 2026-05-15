@@ -57,6 +57,12 @@
     <text class="completed-icon">🎉</text>
     <text class="completed-text">复习完成！</text>
     <text class="completed-sub">今天复习了 {{total}} 个单词</text>
+    <view class="streak-card" wx:if="{{streakCount > 0}}">
+      <text class="streak-fire">🔥</text>
+      <text class="streak-num">{{streakCount}}</text>
+      <text class="streak-label">天连续打卡</text>
+      <text class="streak-badge" wx:if="{{isNewStreak}}">+1</text>
+    </view>
     <view class="btn-primary" bindtap="onGoHome">返回</view>
   </view>
 </view>

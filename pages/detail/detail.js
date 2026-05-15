@@ -18,6 +18,8 @@ Page({
     extraCn: '',
     tip: '',
     playing: '',
+    todayLearned: 0,
+    dailyGoal: 5,
     audioCtx: null
   },
 
@@ -66,12 +68,24 @@ Page({
   },
 
   loadProgress() {
+    const dailyGoal = wx.getStorageSync('dailyGoal') || 5
+    const today = new Date().toISOString().slice(0, 10)
+
     wx.cloud.callFunction({
       name: 'getProgress'
     }).then(res => {
       const p = res.result || {}
+
+      let todayLearned = 0
+      const schedule = p.schedule || {}
+      for (const s of Object.values(schedule)) {
+        if (s.stage === 0 && s.dueDate === today) todayLearned++
+      }
+
       this.setData({
-        isFav: (p.favorites || []).includes(this.data.key)
+        isFav: (p.favorites || []).includes(this.data.key),
+        todayLearned,
+        dailyGoal
       })
     }).catch(() => {})
   },

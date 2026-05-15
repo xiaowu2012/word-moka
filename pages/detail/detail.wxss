@@ -192,11 +192,15 @@
 
 /* 底部继续按钮 */
 .next-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16rpx;
   padding: 0 36rpx 36rpx;
 }
 
 .next-text {
-  display: block;
+  flex: 1;
   text-align: center;
   background: linear-gradient(135deg, #5B8DEF, #7C6FF7);
   color: #fff;
@@ -208,6 +212,15 @@
 
 .next-text:active {
   opacity: 0.85;
+}
+
+.next-progress {
+  font-size: 24rpx;
+  color: #5B8DEF;
+  background: #EEF3FF;
+  padding: 8rpx 16rpx;
+  border-radius: 12rpx;
+  white-space: nowrap;
 }
 
 /* 来源 */

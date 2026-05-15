@@ -1,22 +1,22 @@
 const app = getApp()
 const STAR_MAP = { 5: '★★★★★', 4: '★★★★☆', 3: '★★★☆☆', 2: '★★☆☆☆', 1: '★☆☆☆☆' }
 
-// 艾宾浩斯间隔（天）
 const INTERVALS = [1, 3, 7, 14, 30]
-const MAX_STAGE = 5  // stage 5 = mastered
+const MAX_STAGE = 5
 
 Page({
   data: {
     reviewList: [],
     currentIndex: 0,
     showAnswer: false,
-    progress: 0,
     currentWord: {},
     currentStars: '',
     total: 0,
     completed: false,
     progress: 0,
-    loading: true
+    loading: true,
+    streakCount: 0,
+    isNewStreak: false
   },
 
   onLoad() {
@@ -34,7 +34,6 @@ Page({
       const mastered = p.mastered || []
       const schedule = p.schedule || {}
 
-      // 取到期复习的单词（dueDate <= today，且不在 mastered 中）
       let dueWords = []
       for (const [key, s] of Object.entries(schedule)) {
         if (!mastered.includes(key) && s.dueDate <= today) {
@@ -51,7 +50,6 @@ Page({
         }
       }
 
-      // 打乱顺序
       for (let i = dueWords.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [dueWords[i], dueWords[j]] = [dueWords[j], dueWords[i]]
@@ -90,61 +88,42 @@ Page({
   },
 
   onHard() {
-    const word = this.data.currentWord
-    this.saveAndNext(word.key, -1)
+    this.saveAndNext(this.data.currentWord.key, -1)
   },
 
   onGood() {
-    const word = this.data.currentWord
-    this.saveAndNext(word.key, 0)
+    this.saveAndNext(this.data.currentWord.key, 0)
   },
 
   onEasy() {
-    const word = this.data.currentWord
-    this.saveAndNext(word.key, 1)
+    this.saveAndNext(this.data.currentWord.key, 1)
   },
 
   saveAndNext(key, levelDelta) {
-    const today = new Date().toISOString().slice(0, 10)
     const word = this.data.currentWord
-
-    // 计算新 stage 和 dueDate
-    let newStage = (word.stage || 0) + levelDelta + 1  // levelDelta 0=记住了(+1), 1=很简单(+2), -1=再想想(+0)
+    let newStage = (word.stage || 0) + levelDelta + 1
     newStage = Math.max(0, Math.min(MAX_STAGE, newStage))
 
     if (newStage >= MAX_STAGE) {
-      // 到达顶级 → 移入 mastered
       wx.cloud.callFunction({
         name: 'updateProgress',
-        data: {
-          field: 'mastered',
-          key,
-          add: true
-        }
+        data: { field: 'mastered', key, add: true }
       }).catch(() => {})
-      // 移除 schedule
       wx.cloud.callFunction({
         name: 'updateProgress',
-        data: {
-          field: 'schedule',
-          key,
-          add: false
-        }
+        data: { field: 'schedule', key, add: false }
       }).catch(() => {})
     } else {
-      // 更新 schedule
       const interval = INTERVALS[newStage] || 1
       const due = new Date()
       due.setDate(due.getDate() + interval)
-      const dueDate = due.toISOString().slice(0, 10)
-
       wx.cloud.callFunction({
         name: 'updateProgress',
         data: {
           field: 'schedule',
           key,
           add: true,
-          value: { stage: newStage, dueDate }
+          value: { stage: newStage, dueDate: due.toISOString().slice(0, 10) }
         }
       }).catch(() => {})
     }
@@ -164,11 +143,36 @@ Page({
         currentStars: STAR_MAP[nextWord.examFrequency] || '★★★☆☆'
       })
     } else {
-      this.setData({
-        completed: true,
-        progress: 100
-      })
+      this.showCompletion()
     }
+  },
+
+  showCompletion() {
+    const today = new Date().toISOString().slice(0, 10)
+    const lastStudy = wx.getStorageSync('lastStudyDate') || ''
+    let streak = 1
+    let isNewStreak = true
+
+    if (lastStudy === today) {
+      streak = wx.getStorageSync('streakCount') || 1
+      isNewStreak = false
+    } else {
+      const yesterday = new Date()
+      yesterday.setDate(yesterday.getDate() - 1)
+      if (lastStudy === yesterday.toISOString().slice(0, 10)) {
+        streak = (wx.getStorageSync('streakCount') || 1) + 1
+      }
+    }
+
+    wx.setStorageSync('lastStudyDate', today)
+    wx.setStorageSync('streakCount', streak)
+
+    this.setData({
+      completed: true,
+      progress: 100,
+      streakCount: streak,
+      isNewStreak
+    })
   },
 
   onGoHome() {
