@@ -4,15 +4,17 @@ const STAR_MAP = { 5: '★★★★★', 4: '★★★★☆', 3: '★★★☆�
 
 Page({
   data: {
-    moduleTitle: '外研版 八年级下册 · Module1',
+    moduleTitle: '外研版 八年级下册',
     wordList: [],
     filteredList: [],
     currentFilter: 'all',
-    showFavorites: false,
+    moduleFilter: '',
     userProgress: {}
   },
 
   onLoad(options) {
+    const moduleFilter = options.module || ''
+    this.setData({ moduleFilter })
     this.buildWordList()
     this.loadProgress()
   },
@@ -23,9 +25,18 @@ Page({
 
   buildWordList() {
     const words = app.globalData.words
+    const { moduleFilter } = this.data
+    const modules = app.globalData.modules
     const list = []
 
+    let moduleTitle = '外研版 八年级下册'
+    if (moduleFilter) {
+      const mod = modules.find(m => m.id === moduleFilter)
+      moduleTitle = `${mod.icon} ${mod.name}`
+    }
+
     for (const [key, card] of Object.entries(words)) {
+      if (moduleFilter && card.module !== moduleFilter) continue
       list.push({
         key,
         word: card.word,
@@ -36,7 +47,7 @@ Page({
       })
     }
 
-    this.setData({ wordList: list }, () => {
+    this.setData({ wordList: list, moduleTitle }, () => {
       this.applyFilter()
     })
   },

@@ -2,7 +2,7 @@
 <view class="container">
   <!-- 顶部教材封面 -->
   <view class="textbook-cover">
-    <image class="cover-image" src="/images/textbook-cover.jpg" mode="widthFix"></image>
+    <image class="cover-image" src="/images/textbook-cover.jpg" mode="aspectFill"></image>
     <text class="cover-name">{{textbook.name}}</text>
     <text class="cover-count">{{totalWords}}个单词</text>
   </view>
@@ -12,18 +12,16 @@
     <view class="stat-row">
       <view class="stat-label-row">
         <text class="stat-label">学习中</text>
-        <text class="stat-pct">{{totalWords > 0 ? Math.round(learnedCount / totalWords * 100) : 0}}%</text>
       </view>
-      <text class="stat-value">{{learnedCount}} / {{totalWords}}</text>
+      <text class="stat-value">{{learnedCount}} / {{moduleTotal || totalWords}}</text>
     </view>
     <view class="bar-wrap">
-      <view class="bar-fill blue" style="width: {{totalWords > 0 ? (learnedCount / totalWords * 100) : 0}}%"></view>
+      <view class="bar-fill blue" style="width: {{(moduleTotal || totalWords) > 0 ? (learnedCount / (moduleTotal || totalWords) * 100) : 0}}%"></view>
     </view>
 
     <view class="stat-row" style="margin-top: 20rpx;">
       <view class="stat-label-row">
         <text class="stat-label">今日学习</text>
-        <text class="stat-pct">{{dailyGoal > 0 ? Math.round(todayLearned / dailyGoal * 100) : 0}}%</text>
       </view>
       <view class="stat-right">
         <text class="stat-mini">{{todayLearned}} / {{dailyGoal}}</text>
@@ -35,6 +33,21 @@
     <view class="bar-wrap">
       <view class="bar-fill green" style="width: {{dailyGoal > 0 ? Math.min(todayLearned / dailyGoal * 100, 100) : 0}}%"></view>
     </view>
+  </view>
+
+  <!-- 模块选择 -->
+  <view class="module-strip-wrap">
+    <scroll-view class="module-strip" scroll-x enhanced show-scrollbar="{{false}}">
+      <view 
+        class="module-chip {{!selectedModuleId ? 'active' : ''}}"
+        bindtap="onModuleSelect" data-id=""
+      >全部模块</view>
+      <view 
+        class="module-chip {{selectedModuleId === item.id ? 'active' : ''}}"
+        wx:for="{{modules}}" wx:key="id"
+        bindtap="onModuleSelect" data-id="{{item.id}}"
+      >{{item.icon}} {{item.name}}</view>
+    </scroll-view>
   </view>
 
   <!-- 操作区 -->
@@ -62,7 +75,7 @@
       <text class="action-icon">📝</text>
       <view class="action-info">
         <text class="action-title">单词列表</text>
-        <text class="action-desc">浏览全部 {{totalWords}} 个单词</text>
+        <text class="action-desc">浏览全部 {{(moduleTotal || totalWords)}} 个单词</text>
       </view>
       <text class="action-arrow">›</text>
     </view>

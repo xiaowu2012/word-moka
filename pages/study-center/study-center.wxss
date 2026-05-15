@@ -199,6 +199,41 @@
   color: #E74C3C;
 }
 
+/* 模块选择条 */
+.module-strip-wrap {
+  padding: 0 24rpx 16rpx;
+}
+
+.module-strip {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.module-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 12rpx 24rpx;
+  margin-right: 12rpx;
+  border-radius: 32rpx;
+  font-size: 26rpx;
+  color: #666;
+  background: #f0f0f0;
+  flex-shrink: 0;
+}
+
+.module-chip:active {
+  opacity: 0.7;
+}
+
+.module-chip.active {
+  background: #5B8DEF;
+  color: #fff;
+  font-weight: 600;
+}
+
 /* 目标选择浮层 */
 .goal-mask {
   position: fixed;
