@@ -9,8 +9,7 @@ Page({
     key: '',
     imageSrc: '',
     isFav: false,
-    inSchedule: false,
-    scheduleStage: -1,
+    fromContinue: false,
     stars: '',
     freqLabel: '',
     example: null,
@@ -24,6 +23,8 @@ Page({
 
   onLoad(options) {
     const wordKey = options.wordKey
+    const fromContinue = options.from === 'continue'
+
     if (!wordKey) return
 
     const words = app.globalData.words
@@ -44,6 +45,7 @@ Page({
       key: wordKey,
       word: card,
       imageSrc: `/images/${wordKey}_card.jpg`,
+      fromContinue,
       stars: STAR_MAP[card.examFrequency] || '★★★☆☆',
       freqLabel: FREQ_LABEL[card.examFrequency] || '',
       example,
@@ -67,18 +69,9 @@ Page({
     wx.cloud.callFunction({
       name: 'getProgress'
     }).then(res => {
-      const progress = res.result || {}
-      const favorites = progress.favorites || []
-      const schedule = progress.schedule || {}
-      const mastered = progress.mastered || []
-
-      const scheduleEntry = schedule[this.data.key]
-      const isMastered = mastered.includes(this.data.key)
-
+      const p = res.result || {}
       this.setData({
-        isFav: favorites.includes(this.data.key),
-        inSchedule: isMastered || !!scheduleEntry,
-        scheduleStage: isMastered ? 5 : (scheduleEntry ? scheduleEntry.stage : -1)
+        isFav: (p.favorites || []).includes(this.data.key)
       })
     }).catch(() => {})
   },
@@ -117,27 +110,6 @@ Page({
     this.setData({ imageSrc: '' })
   },
 
-  onAddSchedule() {
-    if (this.data.inSchedule) return
-
-    const today = new Date().toISOString().slice(0, 10)
-    wx.cloud.callFunction({
-      name: 'updateProgress',
-      data: {
-        field: 'schedule',
-        key: this.data.key,
-        add: true,
-        value: { stage: 0, dueDate: today }
-      }
-    }).then(() => {
-      this.setData({
-        inSchedule: true,
-        scheduleStage: 0
-      })
-      wx.showToast({ title: '已加入学习计划', icon: 'success' })
-    }).catch(() => {})
-  },
-
   onToggleFav() {
     const newVal = !this.data.isFav
     this.setData({ isFav: newVal })
@@ -145,5 +117,53 @@ Page({
       name: 'updateProgress',
       data: { field: 'favorites', key: this.data.key, add: newVal }
     }).catch(() => {})
+  },
+
+  onGoNext() {
+    const words = app.globalData.words
+    const today = new Date().toISOString().slice(0, 10)
+
+    wx.cloud.callFunction({
+      name: 'getProgress'
+    }).then(res => {
+      const p = res.result || {}
+      const mastered = p.mastered || []
+      const schedule = p.schedule || {}
+      const dailyGoal = wx.getStorageSync('dailyGoal') || 5
+
+      // 计算今日已学
+      let todayLearned = 0
+      for (const s of Object.values(schedule)) {
+        if (s.stage === 0 && s.dueDate === today) todayLearned++
+      }
+
+      if (todayLearned >= dailyGoal) {
+        wx.showToast({ title: '今日目标已完成 🎉', icon: 'none' })
+        return
+      }
+
+      for (const key of Object.keys(words)) {
+        if (!mastered.includes(key) && !schedule[key]) {
+          wx.cloud.callFunction({
+            name: 'updateProgress',
+            data: {
+              field: 'schedule',
+              key,
+              add: true,
+              value: { stage: 0, dueDate: today }
+            }
+          }).then(() => {
+            wx.redirectTo({
+              url: `/pages/detail/detail?wordKey=${key}&from=continue`
+            })
+          }).catch(() => {})
+          return
+        }
+      }
+
+      wx.showToast({ title: '全部学完啦 🎉', icon: 'none' })
+    }).catch(() => {
+      wx.showToast({ title: '加载失败', icon: 'none' })
+    })
   }
 })

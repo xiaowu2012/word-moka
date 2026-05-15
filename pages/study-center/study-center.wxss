@@ -6,16 +6,14 @@
 /* 顶部 */
 .header {
   background: linear-gradient(180deg, #5B8DEF 0%, #7C6FF7 100%);
-  padding-bottom: 60rpx;
+  padding: 24rpx 24rpx 60rpx;
   border-radius: 0 0 40rpx 40rpx;
-  overflow: hidden;
 }
 
 .header-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24rpx 24rpx 0;
 }
 
 .header-left,
@@ -45,20 +43,12 @@
   color: #fff;
 }
 
-.header-illust {
-  width: 100%;
-  height: 200rpx;
-  margin-top: 24rpx;
-  opacity: 0.3;
-  mix-blend-mode: overlay;
-}
-
 /* 进度卡片 */
 .progress-card {
-  margin: -40rpx 24rpx 24rpx;
+  margin: -40rpx 24rpx 16rpx;
   background: #fff;
   border-radius: 20rpx;
-  padding: 32rpx;
+  padding: 28rpx;
   box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.06);
   position: relative;
   z-index: 2;
@@ -87,7 +77,6 @@
   background: #e8e8e8;
   border-radius: 5rpx;
   overflow: hidden;
-  margin-bottom: 28rpx;
 }
 
 .progress-fill {
@@ -97,31 +86,166 @@
   transition: width 0.3s;
 }
 
-.stats-row {
-  display: flex;
-  justify-content: space-around;
+/* 每日目标卡片 */
+.goal-card {
+  margin: 0 24rpx 16rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 28rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.06);
 }
 
-.stat-item {
+.goal-header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  margin-bottom: 16rpx;
 }
 
-.stat-num {
-  font-size: 40rpx;
+.goal-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #2C3E50;
+}
+
+.goal-setter {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  background: #F0F4FF;
+  border-radius: 20rpx;
+  padding: 8rpx 20rpx;
+}
+
+.goal-setter:active {
+  opacity: 0.7;
+}
+
+.goal-label {
+  font-size: 24rpx;
+  color: #5B8DEF;
+}
+
+.goal-value {
+  font-size: 28rpx;
   font-weight: 700;
   color: #5B8DEF;
 }
 
-.due-num {
-  color: #E74C3C;
+.goal-arrow {
+  font-size: 20rpx;
+  color: #5B8DEF;
 }
 
-.stat-label {
-  font-size: 22rpx;
+.goal-progress-wrap {
+  height: 10rpx;
+  background: #e8e8e8;
+  border-radius: 5rpx;
+  overflow: hidden;
+  margin-bottom: 12rpx;
+}
+
+.goal-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #27AE60, #2ECC71);
+  border-radius: 5rpx;
+  transition: width 0.3s;
+}
+
+.goal-stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+.goal-count {
+  font-size: 24rpx;
   color: #999;
-  margin-top: 4rpx;
+}
+
+.goal-num {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #2C3E50;
+}
+
+.goal-done {
+  color: #27AE60;
+}
+
+/* 目标选择浮层 */
+.goal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 99;
+}
+
+.goal-picker {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 36rpx;
+  width: 520rpx;
+  z-index: 100;
+  box-shadow: 0 8rpx 40rpx rgba(0, 0, 0, 0.15);
+}
+
+.picker-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #2C3E50;
+  text-align: center;
+  display: block;
+  margin-bottom: 24rpx;
+}
+
+.picker-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.picker-option {
+  display: flex;
+  align-items: center;
+  background: #F5F7FA;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  transition: all 0.2s;
+}
+
+.picker-option:active {
+  transform: scale(0.97);
+}
+
+.picker-option.selected {
+  background: #EEF3FF;
+  border: 2rpx solid #5B8DEF;
+}
+
+.option-value {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #2C3E50;
+  min-width: 50rpx;
+  margin-right: 8rpx;
+}
+
+.option-label {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.option-check {
+  margin-left: auto;
+  font-size: 28rpx;
+  color: #5B8DEF;
 }
 
 /* 操作区 */
@@ -146,6 +270,10 @@
 
 .action-card.muted {
   opacity: 0.6;
+}
+
+.action-card.done {
+  background: #E8F8E8;
 }
 
 .action-icon {

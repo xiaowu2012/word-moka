@@ -23,17 +23,6 @@
         </view>
       </view>
 
-      <!-- 学习状态 -->
-      <view class="schedule-bar" wx:if="{{inSchedule}}">
-        <text class="schedule-dot"></text>
-        <text wx:if="{{scheduleStage >= 5}}" class="schedule-text">✅ 已掌握</text>
-        <text wx:elif="{{scheduleStage >= 0}}" class="schedule-text">📖 学习中 · 第 {{scheduleStage + 1}} 轮复习</text>
-      </view>
-      <view class="add-schedule" wx:elif="{{!inSchedule}}" bindtap="onAddSchedule">
-        <text class="add-icon">➕</text>
-        <text class="add-text">加入学习计划</text>
-      </view>
-
       <!-- 释义 -->
       <view class="section">
         <view class="section-label">释义</view>
@@ -78,6 +67,11 @@
       <view class="source-bar">
         <text>{{word.module}} · 外研版八年级下册</text>
       </view>
+    </view>
+
+    <!-- 底部继续按钮 -->
+    <view class="next-bar" wx:if="{{fromContinue}}" bindtap="onGoNext">
+      <text class="next-text">学习下一个 →</text>
     </view>
   </view>
 </view>

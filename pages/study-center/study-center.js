@@ -1,4 +1,6 @@
 const app = getApp()
+const DEFAULT_GOAL = 5
+const GOALS = [3, 5, 10, 15, 20]
 
 Page({
   data: {
@@ -6,22 +8,22 @@ Page({
     totalWords: 0,
     learnedCount: 0,
     dueCount: 0,
-    studiedToday: false
-  },
-
-  onBack() {
-    wx.navigateBack()
+    dailyGoal: DEFAULT_GOAL,
+    todayLearned: 0,
+    goalOptions: GOALS,
+    showGoalPicker: false
   },
 
   onLoad(options) {
     const textbookId = options.textbookId || 'waiyan8b'
     const textbook = app.globalData.textbooks.find(t => t.id === textbookId)
-    const words = app.globalData.words
-    const total = Object.keys(words).length
+    const total = Object.keys(app.globalData.words).length
+    const savedGoal = wx.getStorageSync('dailyGoal') || DEFAULT_GOAL
 
     this.setData({
       textbook,
-      totalWords: total
+      totalWords: total,
+      dailyGoal: savedGoal
     })
 
     this.loadProgress()
@@ -40,49 +42,92 @@ Page({
       const schedule = p.schedule || {}
       const today = new Date().toISOString().slice(0, 10)
 
-      // 今天到期的复习：schedule 中 dueDate <= today 且不在 mastered 中的
+      // 今日已学新词（stage=0, dueDate=today）
+      let todayLearned = 0
+      for (const s of Object.values(schedule)) {
+        if (s.stage === 0 && s.dueDate === today) todayLearned++
+      }
+
+      // 今日待复习（stage>=1, dueDate<=today, 没掌握）
       let dueCount = 0
       for (const [key, s] of Object.entries(schedule)) {
-        if (!mastered.includes(key) && s.dueDate <= today) {
+        if (!mastered.includes(key) && s.dueDate <= today && s.stage >= 1) {
           dueCount++
         }
       }
 
-      // 今天是否学过（有今天添加的 schedule 记录）
-      const studiedToday = Object.values(schedule).some(s => s.dueDate === today && s.stage === 0)
-
       this.setData({
         learnedCount: mastered.length,
-        dueCount,
-        studiedToday
+        dueCount: dueCount,
+        todayLearned
       })
     }).catch(() => {})
   },
 
   onContinueLearning() {
-    // 跳到第一个未掌握、未在学习的词
-    const words = app.globalData.words
-    const { learnedCount, textbook } = this.data
-
-    if (learnedCount >= Object.keys(words).length) {
-      wx.showToast({ title: '全部学完啦 🎉', icon: 'none' })
+    const { todayLearned, dailyGoal } = this.data
+    if (todayLearned >= dailyGoal) {
+      wx.showToast({ title: '今日目标已完成 🎉', icon: 'none' })
       return
     }
 
-    wx.navigateTo({
-      url: `/pages/wordlist/wordlist?textbookId=${textbook.id}`
+    wx.cloud.callFunction({
+      name: 'getProgress'
+    }).then(res => {
+      const p = res.result || {}
+      const mastered = p.mastered || []
+      const schedule = p.schedule || {}
+      const words = app.globalData.words
+      const today = new Date().toISOString().slice(0, 10)
+
+      for (const key of Object.keys(words)) {
+        if (!mastered.includes(key) && !schedule[key]) {
+          // 自动加入学习计划
+          wx.cloud.callFunction({
+            name: 'updateProgress',
+            data: {
+              field: 'schedule',
+              key,
+              add: true,
+              value: { stage: 0, dueDate: today }
+            }
+          }).then(() => {
+            this.loadProgress()
+            wx.navigateTo({
+              url: `/pages/detail/detail?wordKey=${key}&from=continue`
+            })
+          }).catch(() => {})
+          return
+        }
+      }
+
+      wx.showToast({ title: '全部单词已学完 🎉', icon: 'none' })
+    }).catch(() => {
+      wx.showToast({ title: '加载失败', icon: 'none' })
     })
   },
 
   onStartReview() {
-    wx.navigateTo({
-      url: '/pages/review/review'
-    })
+    wx.navigateTo({ url: '/pages/review/review' })
   },
 
   onViewWordList() {
     wx.navigateTo({
       url: `/pages/wordlist/wordlist?textbookId=${this.data.textbook.id}`
     })
+  },
+
+  onGoalTap() {
+    this.setData({ showGoalPicker: true })
+  },
+
+  onGoalSelect(e) {
+    const goal = parseInt(e.currentTarget.dataset.goal)
+    wx.setStorageSync('dailyGoal', goal)
+    this.setData({ dailyGoal: goal, showGoalPicker: false })
+  },
+
+  onGoalPickerClose() {
+    this.setData({ showGoalPicker: false })
   }
 })
