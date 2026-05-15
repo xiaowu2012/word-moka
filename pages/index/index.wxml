@@ -21,7 +21,7 @@
         <text class="book-icon">{{item.cover}}</text>
         <view class="book-info">
           <text class="book-name">{{item.name}}</text>
-          <text class="book-sub">{{item.subtitle}}</text>
+          <text class="book-sub" wx:if="{{item.subtitle}}">{{item.subtitle}}</text>
           <text class="book-count" wx:if="{{item.available}}">{{item.wordCount}}个单词</text>
         </view>
         <text class="book-status {{item.available ? 'ready' : 'coming'}}">
@@ -37,7 +37,7 @@
       <text class="back-btn" bindtap="onBack">‹</text>
       <view class="unit-header-info">
         <text class="unit-header-name">{{selectedTextbook.cover}} {{selectedTextbook.name}}</text>
-        <text class="unit-header-sub">{{selectedTextbook.subtitle}}</text>
+        <text class="unit-header-sub">{{selectedTextbook.wordCount}}个单词</text>
       </view>
     </view>
 

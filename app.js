@@ -24,8 +24,8 @@ App({
     textbooks: [
       {
         id: '9a-2026q',
-        name: '九年级上册',
-        subtitle: '2026秋季版',
+        name: '外研版2026秋季版 九（上）',
+        subtitle: '',
         units: ['Unit1', 'Unit2', 'Unit3', 'Unit4', 'Unit5', 'Unit6'],
         wordCount: 189,
         available: true,
@@ -33,8 +33,8 @@ App({
       },
       {
         id: '8b-2026c',
-        name: '八年级下册',
-        subtitle: '2026春季版',
+        name: '外研版2026春季版 八（下）',
+        subtitle: '',
         units: [],
         wordCount: 0,
         available: false,
