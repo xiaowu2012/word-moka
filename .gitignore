@@ -1,5 +1,5 @@
+audio_backup/
+audio_new/
+scripts/
 node_modules/
 .DS_Store
-*.log
-.env
-cloudfunctions/*/node_modules/
