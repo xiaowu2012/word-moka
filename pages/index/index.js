@@ -67,18 +67,28 @@ Page({
       return
     }
     if (!book.available) return
-    this.setData({ selectedTextbook: book, showUnits: true }, () => {
-      this.loadProgress()
+
+    // 立刻显示单元列表（不依赖云函数）
+    const words = app.globalData.words
+    const unitDefs = app.globalData.units
+    const unitList = book.units.map(id => {
+      const def = unitDefs.find(u => u.id === id)
+      const unitWords = Object.values(words).filter(w => w.module === id)
+      return {
+        id, learned: 0, total: unitWords.length,
+        name: def ? def.name : id,
+        icon: def ? def.icon : '📖'
+      }
     })
+
+    this.setData({ selectedTextbook: book, showUnits: true, units: unitList })
+
+    // 后台加载进度（成功就更新，失败不影响显示）
+    this.loadProgress()
   },
 
   onBack() {
     this.setData({ selectedTextbook: null, showUnits: false })
-  },
-
-  onTapUnit(e) {
-    const id = e.currentTarget.dataset.id
-    wx.navigateTo({ url: `/pages/wordlist/wordlist?module=${id}` })
   },
 
   onReadText(e) {
