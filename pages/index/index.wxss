@@ -25,5 +25,7 @@
   font-size: 30rpx; padding: 24rpx; margin: 0 24rpx 16rpx;
   background: #fff; border-radius: 14rpx;
   box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.04);
+ transition: background 0.15s;
 }
-.unit-card:active { transform: scale(0.98); }
+
+.card-hover { background: #F5F7FA; }
