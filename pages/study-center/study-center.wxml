@@ -2,7 +2,7 @@
 <view class="container">
   <!-- 顶部教材封面 -->
   <view class="textbook-cover">
-    <text class="cover-icon">{{textbook.cover}}</text>
+    <image class="cover-image" src="/images/textbook-cover.jpg" mode="widthFix"></image>
     <text class="cover-name">{{textbook.name}}</text>
     <text class="cover-count">{{totalWords}}个单词</text>
   </view>
