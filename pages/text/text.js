@@ -181,7 +181,7 @@ Page({
     playingSentenceIdx: -1,
     showCn: true,
     isPlaying: false,
-    isSlow: false,
+    isSlow: true,
     // 预格式化好的时间显示
     progressTime: '0s',
     totalTime: '0s',
@@ -198,8 +198,9 @@ Page({
     this._audioCtx = null
 
     // 加载正常版
-    this._setTimestamps(TIMESTAMPS_FAST)
-    this._initAudio('normal')
+    // 默认慢速
+    this._setTimestamps(TIMESTAMPS_SLOW)
+    this._initAudio('slow')
   },
 
   _setTimestamps(ts) {
