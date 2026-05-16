@@ -5,15 +5,15 @@
       <text class="header-title">{{title}}</text>
       <text class="header-unit">{{unitId}} · {{isSlow ? '慢速' : '常速'}}</text>
     </view>
-    <text class="speed-btn {{isSlow ? 'slow' : 'fast'}}" bindtap="onToggleSpeed">
-      {{isSlow ? '慢' : '快'}}
-    </text>
-    <text class="play-all-btn" bindtap="onTogglePlayAll">
-      {{isPlaying ? '⏸' : '▶'}}
-    </text>
-    <text class="cn-toggle-btn" bindtap="onToggleCn">
-      {{showCn ? '中' : 'EN'}}
-    </text>
+    <view class="speed-btn {{isSlow ? 'slow' : 'fast'}}" bindtap="onToggleSpeed">
+      <text>{{isSlow ? '慢' : '快'}}</text>
+    </view>
+    <view class="play-all-btn" bindtap="onTogglePlayAll">
+      <text>{{isPlaying ? '⏸' : '▶'}}</text>
+    </view>
+    <view class="cn-toggle-btn" bindtap="onToggleCn">
+      <text>{{showCn ? '中' : 'EN'}}</text>
+    </view>
   </view>
 
   <view class="passage">
