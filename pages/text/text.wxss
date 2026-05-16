@@ -157,21 +157,26 @@
   border-left: 4rpx solid #7C6FF7;
 }
 .detail-item {
-  margin-bottom: 10rpx;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6rpx;
+  margin-bottom: 6rpx;
   font-size: 24rpx;
   line-height: 1.6;
 }
 .detail-item:last-child { margin-bottom: 0; }
 .detail-part {
-  display: block;
   font-weight: 600;
   color: #5B6ABF;
 }
+.detail-arrow {
+  color: #CCC;
+  font-size: 20rpx;
+}
 .detail-explain {
-  display: block;
-  padding-left: 20rpx;
-  color: #888;
-  font-size: 22rpx;
+  color: #555;
+  flex: 1;
 }
 
 /* 底部进度条 */
