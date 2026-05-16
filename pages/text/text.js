@@ -13,6 +13,7 @@
 const TIMESTAMPS_FAST = {
   unit: "Unit1",
   title: "Art in safe hands",
+  totalSentences: 25,
   audioDuration: 109.04,
   sentences: [
     { "index": 0, "en": "Good evening, ladies and gentlemen. I\'m Zhan Haojing, a high school student.", "cn": "晚上好，女士们先生们。我是詹昊晶，一名高中生。", "start": 0.0, "end": 4.11 },
@@ -54,6 +55,7 @@ const SCALE = 1 / 0.86
 const TIMESTAMPS_SLOW = {
   unit: "Unit1",
   title: "Art in safe hands",
+  totalSentences: 25,
   audioDuration: +(109.04 * SCALE).toFixed(2),
   sentences: [
     { "index": 0, "en": "Good evening, ladies and gentlemen. I\'m Zhan Haojing, a high school student.", "cn": "晚上好，女士们先生们。我是詹昊晶，一名高中生。", "start": 0.0, "end": 4.779 },
