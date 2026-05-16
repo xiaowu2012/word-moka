@@ -114,14 +114,14 @@
 /* ===== 翻译下方单词卡片 ===== */
 .word-cards {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 12rpx;
   margin: 12rpx 0 4rpx 44rpx;
 }
 
 .word-card {
-  width: calc(50% - 6rpx);
-  background: #FFF8E1;
+  width: 100%;
+  background: #E3F2FD;
   border-radius: 14rpx;
   padding: 16rpx;
   box-sizing: border-box;
