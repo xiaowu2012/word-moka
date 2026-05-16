@@ -372,8 +372,17 @@ Page({
       progressTime: this._formatTime(idx),
     })
 
+    const target = sentences[idx].start
+
+    // seek(0) 不会触发 onSeeked（已经在0位），直接play
+    if (target === 0) {
+      this._audioCtx.seek(0)
+      this._audioCtx.play()
+      return
+    }
+
     // 先seek到位再play，否则seek异步会先播0再跳转
-    this._audioCtx.seek(sentences[idx].start)
+    this._audioCtx.seek(target)
     const handler = () => {
       this._audioCtx.offSeeked(handler)
       this._audioCtx.play()
