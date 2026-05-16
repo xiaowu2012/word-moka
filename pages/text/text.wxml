@@ -1,12 +1,15 @@
-<!-- 课文阅读页 - 单音频 + 时间戳高亮 -->
+<!-- 课文阅读页 - 单音频 + 时间戳高亮 + 慢/快切换 -->
 <view class="page-wrap">
   <view class="header">
     <view class="header-info">
       <text class="header-title">{{title}}</text>
-      <text class="header-unit">{{unitId}}</text>
+      <text class="header-unit">{{unitId}} · {{isSlow ? '慢速' : '常速'}}</text>
     </view>
+    <text class="speed-btn {{isSlow ? 'slow' : 'fast'}}" bindtap="onToggleSpeed">
+      {{isSlow ? '慢' : '快'}}
+    </text>
     <text class="play-all-btn" bindtap="onTogglePlayAll">
-      {{isPlaying ? '⏸ 暂停' : '▶ 全文'}}
+      {{isPlaying ? '⏸' : '▶'}}
     </text>
     <text class="cn-toggle-btn" bindtap="onToggleCn">
       {{showCn ? '中' : 'EN'}}
@@ -14,12 +17,10 @@
   </view>
 
   <view class="passage">
-    <!-- 按段落分组 -->
     <view class="paragraph" wx:for="{{paragraphs}}" wx:for-index="pidx" wx:key="pidx">
       <view class="sentence-wrap"
             wx:for="{{item.sentenceIndices}}"
-            wx:for-index="sidx"
-            wx:key="sidx">
+            wx:for-index="sidx" wx:key="sidx">
         <view class="sentence-row {{playingSentenceIdx === sentences[item].index ? 'playing' : ''}}"
               id="sentence-{{sentences[item].index}}"
               data-idx="{{sentences[item].index}}"
@@ -32,7 +33,7 @@
     </view>
   </view>
 
-  <!-- 底部播放进度条 -->
+  <!-- 底部进度条 -->
   <view class="footer-bar {{isPlaying ? 'active' : ''}}">
     <view class="progress-row">
       <view class="progress-track">

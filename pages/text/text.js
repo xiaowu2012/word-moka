@@ -1,16 +1,16 @@
 /**
- * 课文阅读页 - 单音频 + 时间戳高亮
+ * 课文阅读页 - 单音频 + 时间戳高亮 + 慢/快切换
  * 
  * 逻辑：
- * 1. 加载 Unit1_full.mp3 整篇音频
- * 2. 时间戳数据内联在此，控制句子高亮和跳转
+ * 1. 加载 Unit1_full.mp3 或 Unit1_slow.mp3
+ * 2. 时间戳决定句子高亮和跳转
  * 3. 播放全文 → onTimeUpdate 实时算当前时间落在哪句 → 高亮
  * 4. 点某句 → seek 到对应时间位置
+ * 5. 顶部"慢/快"按钮切换语速
  */
 
-// Unit1 时间戳数据（由 scripts/generate-unit-audio.py 生成）
-// 内联以兼容微信小程序运行时
-const UNIT_TIMESTAMPS = {
+// 正常版时间戳
+const TIMESTAMPS_FAST = {
   "unit": "Unit1",
   "title": "Art in safe hands",
   "totalSentences": 23,
@@ -48,6 +48,23 @@ const UNIT_TIMESTAMPS = {
   ]
 };
 
+// 慢速版时间戳 (0.86x)
+const SCALE = 1 / 0.86
+const TIMESTAMPS_SLOW = {
+  ...TIMESTAMPS_FAST,
+  audioDuration: +(TIMESTAMPS_FAST.audioDuration * SCALE).toFixed(2),
+  sentences: TIMESTAMPS_FAST.sentences.map(s => ({
+    ...s,
+    start: +(s.start * SCALE).toFixed(3),
+    end: +(s.end * SCALE).toFixed(3),
+  })),
+  paragraphs: TIMESTAMPS_FAST.paragraphs.map(p => ({
+    ...p,
+    start: +(p.start * SCALE).toFixed(3),
+    end: +(p.end * SCALE).toFixed(3),
+  })),
+}
+
 let app = null
 
 Page({
@@ -61,6 +78,7 @@ Page({
     playingSentenceIdx: -1,
     showCn: true,
     isPlaying: false,
+    isSlow: false,          // 慢速模式 on/off
 
     // 弹窗
     showWordCard: false,
@@ -73,32 +91,44 @@ Page({
     this._unitId = unitId
     this._audioCtx = null
 
-    // 加载时间戳数据
-    const data = UNIT_TIMESTAMPS
-
-    this.setData({
-      unitId,
-      title: data.title,
-      totalSentences: data.totalSentences,
-      audioDuration: data.audioDuration,
-      paragraphs: data.paragraphs,
-      sentences: data.sentences,
-    })
-
-    // 创建音频上下文
-    this._initAudio()
+    // 加载正常版
+    this._setTimestamps(TIMESTAMPS_FAST)
+    this._initAudio('normal')
   },
 
-  _initAudio() {
+  _setTimestamps(ts) {
+    this._ts = ts
+    this.setData({
+      title: ts.title,
+      totalSentences: ts.totalSentences,
+      audioDuration: ts.audioDuration,
+      paragraphs: ts.paragraphs,
+      sentences: ts.sentences,
+    })
+  },
+
+  // 对应两个音频文件
+  _audioFiles: {
+    'normal': 'Unit1_full.mp3',
+    'slow': 'Unit1_slow.mp3',
+  },
+
+  _initAudio(mode = 'normal') {
+    // 销毁旧音频
+    if (this._audioCtx) {
+      this._audioCtx.stop()
+      this._audioCtx.destroy()
+      this._audioCtx = null
+    }
+
     const ctx = wx.createInnerAudioContext()
-    ctx.src = `/audio/${this._unitId}_full.mp3`
+    ctx.src = `/audio/${this._audioFiles[mode]}`
     ctx.autoplay = false
     ctx.obeyMuteSwitch = false
 
-    // 监听进度 → 高亮当前句子
     ctx.onTimeUpdate(() => {
       const t = ctx.currentTime
-      const sentences = this.data.sentences
+      const sentences = this._ts.sentences
       let foundIdx = -1
       for (let i = 0; i < sentences.length; i++) {
         if (t >= sentences[i].start && t < sentences[i].end) {
@@ -112,20 +142,51 @@ Page({
       }
     })
 
-    // 播放结束
     ctx.onEnded(() => {
       this.setData({ isPlaying: false, playingSentenceIdx: -1 })
     })
 
-    // 暂停/中断
-    ctx.onStop(() => {
-      this.setData({ isPlaying: false })
-    })
-    ctx.onPause(() => {
-      this.setData({ isPlaying: false })
-    })
+    ctx.onStop(() => { this.setData({ isPlaying: false }) })
+    ctx.onPause(() => { this.setData({ isPlaying: false }) })
 
     this._audioCtx = ctx
+  },
+
+  // === 慢/快切换 ===
+  onToggleSpeed() {
+    const isSlow = !this.data.isSlow
+    const mode = isSlow ? 'slow' : 'normal'
+    const ts = isSlow ? TIMESTAMPS_SLOW : TIMESTAMPS_FAST
+    const wasPlaying = this._audioCtx && !this._audioCtx.paused
+    const currentTime = this._audioCtx ? this._audioCtx.currentTime : 0
+
+    // 找当前句，换算到新时间线
+    let seekTime = 0
+    const oldTs = this._ts
+    if (wasPlaying && oldTs) {
+      const oldSentences = oldTs.sentences
+      let curIdx = -1
+      for (let i = 0; i < oldSentences.length; i++) {
+        if (currentTime >= oldSentences[i].start && currentTime < oldSentences[i].end) {
+          curIdx = i
+          break
+        }
+      }
+      if (curIdx >= 0 && ts.sentences[curIdx]) {
+        const ratio = oldTs.audioDuration / ts.audioDuration
+        seekTime = currentTime * ratio
+      }
+    }
+
+    // 换音频和时间戳
+    this._setTimestamps(ts)
+    this._initAudio(mode)
+    this.setData({ isSlow })
+
+    if (wasPlaying && seekTime > 0) {
+      this._audioCtx.seek(seekTime)
+      this._audioCtx.play()
+    }
   },
 
   _scrollToSentence(idx) {
@@ -148,7 +209,6 @@ Page({
   onPlaySentence(e) {
     const idx = parseInt(e.currentTarget.dataset.idx)
     if (isNaN(idx)) return
-    // 如果点的是当前播放的句子，toggle 暂停/播放
     if (idx === this.data.playingSentenceIdx && this.data.isPlaying) {
       this._pause()
       return
@@ -166,7 +226,7 @@ Page({
 
   _playFrom(idx) {
     if (!this._audioCtx) return
-    const sentences = this.data.sentences
+    const sentences = this._ts.sentences
     if (idx >= sentences.length) return
 
     this._audioCtx.seek(sentences[idx].start)
@@ -175,9 +235,7 @@ Page({
   },
 
   _pause() {
-    if (this._audioCtx) {
-      this._audioCtx.pause()
-    }
+    if (this._audioCtx) this._audioCtx.pause()
     this.setData({ isPlaying: false })
   },
 
@@ -186,8 +244,6 @@ Page({
   onToggleCn() {
     this.setData({ showCn: !this.data.showCn })
   },
-
-  // === 重点词弹窗 ===
 
   onTapWord(e) {
     const wordKey = e.currentTarget.dataset.word
@@ -212,7 +268,5 @@ Page({
     }
   },
 
-  onBack() {
-    wx.navigateBack()
-  },
+  onBack() { wx.navigateBack() },
 })
