@@ -7,14 +7,14 @@
     <view class="book-list">
       <view class="book-card" wx:for="{{textbooks}}" wx:key="id"
             bindtap="onTapBook" data-id="{{item.id}}">
-        <text class="book-icon">{{item.cover}}</text>
+        <view class="book-icon"><text>{{item.cover}}</text></view>
         <view class="book-info">
           <text class="book-name">{{item.name}}</text>
           <text class="book-count" wx:if="{{item.available}}">{{item.wordCount}}个单词</text>
         </view>
-        <text class="book-status {{item.available ? 'ready' : 'coming'}}">
-          {{item.available ? '已解锁' : '即将上线'}}
-        </text>
+        <view class="book-status {{item.available ? 'ready' : 'coming'}}">
+          <text>{{item.available ? '已解锁' : '即将上线'}}</text>
+        </view>
       </view>
     </view>
   </view>
@@ -22,7 +22,7 @@
   <!-- 单元列表 -->
   <view wx:else>
     <image class="header-img" src="/images/home-banner.jpg" mode="widthFix"></image>
-    <text class="back-btn" bindtap="onBack">‹ 返回</text>
+    <view class="back-btn" bindtap="onBack"><text>‹ 返回</text></view>
     <view class="unit-card" hover-class="card-hover" wx:for="{{units}}" wx:key="id"
           bindtap="onReadText" data-id="{{item.id}}">
       <text>{{item.icon}} {{item.name}}</text>
