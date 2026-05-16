@@ -301,11 +301,11 @@ const TIMESTAMPS_FAST = {
   ]
 }
 const SCALE = 1 / 0.86
-const TIMESTAMPS_SLOW = {{
+const TIMESTAMPS_SLOW = {
   "totalSentences": 25,
   "audioDuration": +(109.04 * SCALE).toFixed(2),
-  "sentences": TIMESTAMPS_FAST.sentences.map(s => ({{ ...s, start: +(s.start * SCALE).toFixed(3), end: +(s.end * SCALE).toFixed(3) }})),
-  "paragraphs": TIMESTAMPS_FAST.paragraphs.map(p => ({{ ...p, start: +(p.start * SCALE).toFixed(3), end: +(p.end * SCALE).toFixed(3) }}))
+  "sentences": TIMESTAMPS_FAST.sentences.map(s => ({ ...s, start: +(s.start * SCALE).toFixed(3), end: +(s.end * SCALE).toFixed(3) })),
+  "paragraphs": TIMESTAMPS_FAST.paragraphs.map(p => ({ ...p, start: +(p.start * SCALE).toFixed(3), end: +(p.end * SCALE).toFixed(3) }))
 }
 
 const VOCAB_DATA = {
