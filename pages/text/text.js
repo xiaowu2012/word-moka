@@ -702,6 +702,7 @@ Page({
   // 行内卡片点击
   onTapWord(e) {
     const wordKey = e.currentTarget.dataset.word
+    // 非重点词（wordKey空字符串）→ 忽略
     if (!wordKey || !VOCAB_DATA[wordKey]) return
 
     const info = VOCAB_DATA[wordKey]
