@@ -5,6 +5,32 @@
       {
         "sentences": [
           {
+            "en": "Good evening, ladies and gentlemen. I'm Zhan Haojing, a high school student.",
+            "cn": "晚上好，女士们先生们。我是詹昊晶，一名高中生。",
+            "vocab": [
+              "gentleman"
+            ]
+          },
+          {
+            "en": "I'm also a puppet performer.",
+            "cn": "我还是一名木偶表演者。",
+            "vocab": [
+              "performer"
+            ]
+          },
+          {
+            "en": "Look at this puppet. If I move my fingers, it will come to life!",
+            "cn": "看看这个木偶。如果我动动手指，它就会活过来！",
+            "vocab": [
+              "puppet",
+              "finger"
+            ]
+          }
+        ]
+      },
+      {
+        "sentences": [
+          {
             "en": "I was born into a family of Minnan puppet performers.",
             "cn": "我出生在闽南的一个木偶戏表演世家。",
             "vocab": [

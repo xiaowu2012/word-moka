@@ -1,193 +1,194 @@
 // Unit Unit1 - Art in safe hands 句子时间戳
-// 由 ElevenLabs 自动生成, 共 26 句
+// 由 generate-unit-audio.py 从 data/texts.json 自动生成
+// 26 句
 
 const unitTimestamps = {
   "unit": "Unit1",
   "title": "Art in safe hands",
   "totalSentences": 26,
-  "audioDuration": 110.02,
+  "audioDuration": 114.15,
   "sentences": [
     {
       "index": 0,
       "en": "Good evening, ladies and gentlemen. I'm Zhan Haojing, a high school student.",
       "cn": "晚上好，女士们先生们。我是詹昊晶，一名高中生。",
       "start": 0.0,
-      "end": 3.959
+      "end": 5.224
     },
     {
       "index": 1,
       "en": "I'm also a puppet performer.",
       "cn": "我还是一名木偶表演者。",
-      "start": 4.133,
-      "end": 5.735
+      "start": 5.55,
+      "end": 7.407
     },
     {
       "index": 2,
       "en": "Look at this puppet. If I move my fingers, it will come to life!",
       "cn": "看看这个木偶。如果我动动手指，它就会活过来！",
-      "start": 5.944,
-      "end": 10.286
+      "start": 7.581,
+      "end": 11.889
     },
     {
       "index": 3,
       "en": "I was born into a family of Minnan puppet performers.",
       "cn": "我出生在闽南的一个木偶戏表演世家。",
-      "start": 10.728,
-      "end": 14.013
+      "start": 13.003,
+      "end": 16.254
     },
     {
       "index": 4,
       "en": "My grandpa and my mum are both among the best.",
       "cn": "我的外公和我的母亲都是这行中的佼佼者。",
-      "start": 14.222,
-      "end": 16.846
+      "start": 16.695,
+      "end": 19.47
     },
     {
       "index": 5,
       "en": "They tell stories with their hands.",
       "cn": "他们用手讲述故事。",
-      "start": 17.171,
-      "end": 19.006
+      "start": 19.795,
+      "end": 21.734
     },
     {
       "index": 6,
       "en": "I loved the stories my grandpa and my mum told with their hands.",
       "cn": "我喜欢外公和妈妈用手讲述的故事。",
-      "start": 19.447,
-      "end": 22.976
+      "start": 22.175,
+      "end": 25.867
     },
     {
       "index": 7,
       "en": "However, things changed when I became a teenager.",
       "cn": "然而，当我成为一名青少年时，情况发生了变化。",
-      "start": 23.417,
-      "end": 26.517
+      "start": 26.25,
+      "end": 29.722
     },
     {
       "index": 8,
       "en": "I felt less close to the art because people thought puppets were too old-fashioned.",
       "cn": "我觉得与这门艺术不那么亲近了，因为人们认为木偶太老式了。",
-      "start": 26.9,
-      "end": 31.161
+      "start": 30.233,
+      "end": 34.401
     },
     {
       "index": 9,
       "en": "I didn't want to be part of puppetry unless I was asked to.",
       "cn": "除非有人要求，否则我不想参与木偶表演。",
-      "start": 31.672,
-      "end": 34.482
+      "start": 34.912,
+      "end": 38.0
     },
     {
       "index": 10,
       "en": "One day my mum showed me a performance by my grandpa's teacher.",
       "cn": "一天，妈妈给我看了外公老师的一场表演。",
-      "start": 35.434,
-      "end": 39.323
+      "start": 38.511,
+      "end": 42.133
     },
     {
       "index": 11,
       "en": "The finely made puppets and their exciting movements brought back childhood memories.",
       "cn": "精致的木偶和它们激动人心的动作带回了童年的记忆。",
-      "start": 39.764,
-      "end": 44.478
+      "start": 42.516,
+      "end": 47.125
     },
     {
       "index": 12,
       "en": "Then and there, my love for puppetry started to grow again.",
       "cn": "就在那时，我对木偶表演的热爱重新燃起。",
-      "start": 45.174,
-      "end": 48.889
+      "start": 48.077,
+      "end": 51.897
     },
     {
       "index": 13,
       "en": "I posted my doubts about the future of puppetry online.",
       "cn": "我在网上发布了关于木偶表演未来的困惑。",
-      "start": 49.331,
-      "end": 52.651
+      "start": 52.408,
+      "end": 55.716
     },
     {
       "index": 14,
       "en": "To my surprise, the post was flooded with comments expressing warm feelings.",
       "cn": "令我惊讶的是，帖子被表达温暖情感的评论淹没了。",
-      "start": 53.162,
-      "end": 58.224
+      "start": 56.1,
+      "end": 61.277
     },
     {
       "index": 15,
       "en": "Many people showed their love for the art of puppetry and encouraged me to hold on.",
       "cn": "许多人表达了对木偶表演艺术的热爱，并鼓励我坚持。",
-      "start": 58.92,
-      "end": 63.855
+      "start": 61.719,
+      "end": 66.99
     },
     {
       "index": 16,
       "en": "A truth hit me - it was my duty to keep the art alive because puppetry was in my blood.",
       "cn": "一个真相击中了我——让这门艺术保持活力是我的责任，因为木偶表演在我的血液里。",
-      "start": 64.18,
-      "end": 70.019
+      "start": 67.431,
+      "end": 73.48
     },
     {
       "index": 17,
       "en": "The art will be popular again if young people are interested in it.",
       "cn": "如果年轻人对它感兴趣，这门艺术就会再次流行起来。",
-      "start": 70.53,
-      "end": 74.176
+      "start": 73.921,
+      "end": 77.81
     },
     {
       "index": 18,
       "en": "So I held a puppet show at school.",
       "cn": "于是我在学校举办了一场木偶表演。",
-      "start": 74.686,
-      "end": 76.66
+      "start": 78.321,
+      "end": 80.457
     },
     {
       "index": 19,
       "en": "When I finished performing, I looked up and saw a surprising picture: the students were on the edge of their seats.",
       "cn": "当我表演完，抬头看到一幅令人惊讶的画面：学生们都聚精会神地看着。",
-      "start": 77.043,
-      "end": 83.487
+      "start": 80.898,
+      "end": 87.748
     },
     {
       "index": 20,
       "en": "Their eyes were glued to the puppets.",
       "cn": "他们的眼睛紧盯着木偶。",
-      "start": 83.661,
-      "end": 86.087
+      "start": 87.957,
+      "end": 90.07
     },
     {
       "index": 21,
       "en": "After a warm cheer, they came to ask where they could see a full performance.",
       "cn": "在热烈的欢呼之后，他们来询问在哪里能看到完整的表演。",
-      "start": 86.598,
-      "end": 91.312
+      "start": 90.674,
+      "end": 95.306
     },
     {
       "index": 22,
       "en": "The positive reply from the young viewers gave me more courage.",
       "cn": "年轻观众们的积极回应给了我更多勇气。",
-      "start": 91.916,
-      "end": 95.515
+      "start": 95.817,
+      "end": 99.079
     },
     {
       "index": 23,
       "en": "Since then, my puppet shows have drawn more attention both from home and abroad.",
       "cn": "从此，我的木偶表演在国内外都引起了更多的关注。",
-      "start": 95.898,
-      "end": 100.461
+      "start": 99.358,
+      "end": 104.06
     },
     {
       "index": 24,
       "en": "The old art is getting more interest and new stories.",
       "cn": "这门古老的艺术正在获得更多的兴趣和新故事。",
-      "start": 100.786,
-      "end": 103.689
+      "start": 104.443,
+      "end": 107.369
     },
     {
       "index": 25,
       "en": "With more and more people joining in, I believe the special magic of this traditional art will last forever!",
       "cn": "随着越来越多的人加入，我相信这门传统艺术的特殊魔力将永远持续下去！",
-      "start": 104.014,
-      "end": 110.016
+      "start": 107.752,
+      "end": 114.15
     }
   ],
   "paragraphs": [
@@ -198,7 +199,7 @@ const unitTimestamps = {
         2
       ],
       "start": 0.0,
-      "end": 10.286
+      "end": 11.889
     },
     {
       "sentenceIndices": [
@@ -207,8 +208,8 @@ const unitTimestamps = {
         5,
         6
       ],
-      "start": 10.728,
-      "end": 22.976
+      "start": 13.003,
+      "end": 25.867
     },
     {
       "sentenceIndices": [
@@ -223,8 +224,8 @@ const unitTimestamps = {
         15,
         16
       ],
-      "start": 23.417,
-      "end": 70.019
+      "start": 26.25,
+      "end": 73.48
     },
     {
       "sentenceIndices": [
@@ -234,8 +235,8 @@ const unitTimestamps = {
         20,
         21
       ],
-      "start": 70.53,
-      "end": 91.312
+      "start": 73.921,
+      "end": 95.306
     },
     {
       "sentenceIndices": [
@@ -244,8 +245,8 @@ const unitTimestamps = {
         24,
         25
       ],
-      "start": 91.916,
-      "end": 110.016
+      "start": 95.817,
+      "end": 114.15
     }
   ]
 };
