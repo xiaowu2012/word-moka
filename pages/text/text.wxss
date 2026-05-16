@@ -95,10 +95,10 @@
   display: inline;
 }
 
-/* 重点词 → 粗体 */
+/* 重点词 → 绿底 + 粗体 */
 .vocab-word.key-word {
   font-weight: 700;
-  background: transparent;
+  background: #E8F5E9;
 }
 
 /* 非重点词 → 黄底（参考词） */
