@@ -1072,5 +1072,124 @@
     "cnMeaning": "老式的，过时的",
     "module": "Unit1",
     "key": true
+  },
+  "puppet": {
+    "word": "puppet",
+    "phonetic": "/'pAprt/",
+    "cnMeaning": "（牵线）木偶；",
+    "module": "Unit1",
+    "key": false
+  },
+  "puppetry": {
+    "word": "puppetry",
+    "phonetic": "/'pApatri/",
+    "cnMeaning": "木偶表演艺术",
+    "module": "Unit1",
+    "key": false
+  },
+  "edge": {
+    "word": "edge",
+    "phonetic": "/eds/",
+    "cnMeaning": "边缘",
+    "module": "Unit1",
+    "key": false
+  },
+  "volunteer": {
+    "word": "volunteer",
+    "phonetic": "/，volon'tra/",
+    "cnMeaning": "志愿者",
+    "module": "Unit1",
+    "key": false
+  },
+  "scarecrow": {
+    "word": "scarecrow",
+    "phonetic": "/'skeokru/",
+    "cnMeaning": "稻草人",
+    "module": "Unit1",
+    "key": false
+  },
+  "educator": {
+    "word": "educator",
+    "phonetic": "/'edjukerta/",
+    "cnMeaning": "教育家",
+    "module": "Unit1",
+    "key": false
+  },
+  "inspire": {
+    "word": "inspire",
+    "phonetic": "/m'spars/",
+    "cnMeaning": "鼓舞，激励",
+    "module": "Unit1",
+    "key": false
+  },
+  "intelligent": {
+    "word": "intelligent",
+    "phonetic": "/m 'teladgont/",
+    "cnMeaning": "有智",
+    "module": "Unit1",
+    "key": false
+  },
+  "burst": {
+    "word": "burst",
+    "phonetic": "/b3:st/",
+    "cnMeaning": "冲，闯；（使）爆裂",
+    "module": "Unit1",
+    "key": false
+  },
+  "scaled": {
+    "word": "scaled",
+    "phonetic": "/skerld/",
+    "cnMeaning": "有鳞的",
+    "module": "Unit1",
+    "key": false
+  },
+  "claw": {
+    "word": "claw",
+    "phonetic": "/klo:/",
+    "cnMeaning": "爪",
+    "module": "Unit1",
+    "key": false
+  },
+  "roar": {
+    "word": "roar",
+    "phonetic": "/ro:/",
+    "cnMeaning": "吼叫，呼啸",
+    "module": "Unit1",
+    "key": false
+  },
+  "valley": {
+    "word": "valley",
+    "phonetic": "/'vaeli/",
+    "cnMeaning": "谷；山谷",
+    "module": "Unit1",
+    "key": false
+  },
+  "dust": {
+    "word": "dust",
+    "phonetic": "/dast/",
+    "cnMeaning": "灰尘，尘埃",
+    "module": "Unit1",
+    "key": false
+  },
+  "tender": {
+    "word": "tender",
+    "phonetic": "/'tenda/",
+    "cnMeaning": "娇嫩的，幼嫩",
+    "module": "Unit1",
+    "key": false
+  },
+  "vast": {
+    "word": "vast",
+    "phonetic": "/vast/",
+    "cnMeaning": "广大无边的，极大的13",
+    "module": "Unit1",
+    "key": false
+  },
+  "grand": {
+    "word": "grand",
+    "phonetic": "/graend/",
+    "cnMeaning": "宏伟的，壮丽的",
+    "module": "Unit1",
+    "key": false
   }
 }

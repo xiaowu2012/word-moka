@@ -119,126 +119,47 @@ const TIMESTAMPS_SLOW = {
 }
 
 const VOCAB_DATA = {
-  "lady": {
-    "word": "lady",
-    "cn": "女士，女子",
-    "ph": "/'lerdi/"
-  },
-  "gentleman": {
-    "word": "gentleman",
-    "cn": "先生",
-    "ph": "/'dsentlman/"
-  },
-  "performer": {
-    "word": "performer",
-    "cn": "表演者",
-    "ph": "/pe 'fo:ma/"
-  },
-  "finger": {
-    "word": "finger",
-    "cn": "手指",
-    "ph": "/'fuga/"
-  },
-  "teenager": {
-    "word": "teenager",
-    "cn": "青少年",
-    "ph": "/'tinerdga/"
-  },
-  "unless": {
-    "word": "unless",
-    "cn": "除非•.",
-    "ph": "/an'les/"
-  },
-  "performance": {
-    "word": "performance",
-    "cn": "表演",
-    "ph": "/pa 'fo:mans/"
-  },
-  "blood": {
-    "word": "blood",
-    "cn": "血，血液",
-    "ph": "/bld/"
-  },
-  "perform": {
-    "word": "perform",
-    "cn": "表演，演出",
-    "ph": "/pe 'fo:m/"
-  },
-  "viewer": {
-    "word": "viewer",
-    "cn": "观看者",
-    "ph": "/'vjua/"
-  },
-  "creativity": {
-    "word": "creativity",
-    "cn": "独创性",
-    "ph": "/，kri:er'tvsti/"
-  },
-  "artist": {
-    "word": "artist",
-    "cn": "艺术家",
-    "ph": "/'a:tust/"
-  },
-  "group": {
-    "word": "group",
-    "cn": "组，群；团体",
-    "ph": "/grup/"
-  },
-  "creator": {
-    "word": "creator",
-    "cn": "创作者；创造者",
-    "ph": "/kri'eite/"
-  },
-  "kill": {
-    "word": "kill",
-    "cn": "弄死，杀死",
-    "ph": "/kal/"
-  },
-  "youth": {
-    "word": "youth",
-    "cn": "青年，年轻人",
-    "ph": "/ju:6/"
-  },
-  "wealthy": {
-    "word": "wealthy",
-    "cn": "富有的；富",
-    "ph": "/'welfi/"
-  },
-  "hidden": {
-    "word": "hidden",
-    "cn": "隐藏的，隐秘的",
-    "ph": "/'hrcdn/"
-  },
-  "wildly": {
-    "word": "wildly",
-    "cn": "激动地",
-    "ph": "/'warldli/"
-  },
-  "scare": {
-    "word": "scare",
-    "cn": "使惊恐，吓唬",
-    "ph": "/skea/"
-  },
-  "wing": {
-    "word": "wing",
-    "cn": "翅膀，翼",
-    "ph": "/wu/"
-  },
-  "eagle": {
-    "word": "eagle",
-    "cn": "鹰",
-    "ph": ""
-  },
-  "lie": {
-    "word": "lie",
-    "cn": "躺；说谎",
-    "ph": ""
-  },
-  "old-fashioned": {
-    "word": "old-fashioned",
-    "cn": "老式的，过时的",
-    "ph": ""
-  }
+    "artist": { "word": "artist", "cn": "艺术家", "ph": "/\'a:tust/", "key": true },
+    "blood": { "word": "blood", "cn": "血，血液", "ph": "/bld/", "key": true },
+    "burst": { "word": "burst", "cn": "冲，闯；（使）爆裂", "ph": "/b3:st/", "key": false },
+    "claw": { "word": "claw", "cn": "爪", "ph": "/klo:/", "key": false },
+    "creativity": { "word": "creativity", "cn": "独创性", "ph": "/，kri:er\'tvsti/", "key": true },
+    "creator": { "word": "creator", "cn": "创作者；创造者", "ph": "/kri\'eite/", "key": true },
+    "dust": { "word": "dust", "cn": "灰尘，尘埃", "ph": "/dast/", "key": false },
+    "eagle": { "word": "eagle", "cn": "鹰", "ph": "", "key": true },
+    "edge": { "word": "edge", "cn": "边缘", "ph": "/eds/", "key": false },
+    "educator": { "word": "educator", "cn": "教育家", "ph": "/\'edjukerta/", "key": false },
+    "finger": { "word": "finger", "cn": "手指", "ph": "/\'fuga/", "key": true },
+    "gentleman": { "word": "gentleman", "cn": "先生", "ph": "/\'dsentlman/", "key": true },
+    "grand": { "word": "grand", "cn": "宏伟的，壮丽的", "ph": "/graend/", "key": false },
+    "group": { "word": "group", "cn": "组，群；团体", "ph": "/grup/", "key": true },
+    "hidden": { "word": "hidden", "cn": "隐藏的，隐秘的", "ph": "/\'hrcdn/", "key": true },
+    "inspire": { "word": "inspire", "cn": "鼓舞，激励", "ph": "/m\'spars/", "key": false },
+    "intelligent": { "word": "intelligent", "cn": "有智", "ph": "/m \'teladgont/", "key": false },
+    "kill": { "word": "kill", "cn": "弄死，杀死", "ph": "/kal/", "key": true },
+    "lady": { "word": "lady", "cn": "女士，女子", "ph": "/\'lerdi/", "key": true },
+    "lie": { "word": "lie", "cn": "躺；说谎", "ph": "", "key": true },
+    "old-fashioned": { "word": "old-fashioned", "cn": "老式的，过时的", "ph": "", "key": true },
+    "perform": { "word": "perform", "cn": "表演，演出", "ph": "/pe \'fo:m/", "key": true },
+    "performance": { "word": "performance", "cn": "表演", "ph": "/pa \'fo:mans/", "key": true },
+    "performer": { "word": "performer", "cn": "表演者", "ph": "/pe \'fo:ma/", "key": true },
+    "puppet": { "word": "puppet", "cn": "（牵线）木偶", "ph": "/\'pAprt/", "key": false },
+    "puppetry": { "word": "puppetry", "cn": "木偶表演艺术", "ph": "/\'pApatri/", "key": false },
+    "roar": { "word": "roar", "cn": "吼叫，呼啸", "ph": "/ro:/", "key": false },
+    "scaled": { "word": "scaled", "cn": "有鳞的", "ph": "/skerld/", "key": false },
+    "scare": { "word": "scare", "cn": "使惊恐，吓唬", "ph": "/skea/", "key": true },
+    "scarecrow": { "word": "scarecrow", "cn": "稻草人", "ph": "/\'skeokru/", "key": false },
+    "teenager": { "word": "teenager", "cn": "青少年", "ph": "/\'tinerdga/", "key": true },
+    "tender": { "word": "tender", "cn": "娇嫩的，幼嫩", "ph": "/\'tenda/", "key": false },
+    "unless": { "word": "unless", "cn": "除非•.", "ph": "/an\'les/", "key": true },
+    "valley": { "word": "valley", "cn": "谷；山谷", "ph": "/\'vaeli/", "key": false },
+    "vast": { "word": "vast", "cn": "广大无边的，极大的13", "ph": "/vast/", "key": false },
+    "viewer": { "word": "viewer", "cn": "观看者", "ph": "/\'vjua/", "key": true },
+    "volunteer": { "word": "volunteer", "cn": "志愿者", "ph": "/，volon\'tra/", "key": false },
+    "wealthy": { "word": "wealthy", "cn": "富有的；富", "ph": "/\'welfi/", "key": true },
+    "wildly": { "word": "wildly", "cn": "激动地", "ph": "/\'warldli/", "key": true },
+    "wing": { "word": "wing", "cn": "翅膀，翼", "ph": "/wu/", "key": true },
+    "youth": { "word": "youth", "cn": "青年，年轻人", "ph": "/ju:6/", "key": true }
 }
 
 let app = null
@@ -499,10 +420,12 @@ Page({
     const parts = en.match(/\w+(?:'\w+)?(?:-\w+)*|[^\w\s]+/g) || []
     for (const part of parts) {
       const matched = this._matchVocab(part, vocabList)
+      const isKey = matched ? (VOCAB_DATA[matched] && !!VOCAB_DATA[matched].key) : false
       tokens.push({
         text: part,
         isVocab: !!matched,
         wordKey: matched || '',
+        isKey: isKey,
       })
     }
     return tokens

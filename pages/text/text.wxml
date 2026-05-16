@@ -28,7 +28,7 @@
           <text class="play-icon">{{playingSentenceIdx === sentences[item].index ? '🔊' : '▶'}}</text>
           <view class="sentence-en">
             <block wx:for="{{sentenceTokens[item]}}" wx:for-index="tidx" wx:key="tidx">
-              <text wx:if="{{item.isVocab}}" class="vocab-word" data-word="{{item.wordKey}}" catchtap="onTapWord">{{item.text}} </text>
+              <text wx:if="{{item.isVocab}}" class="vocab-word {{item.isKey ? 'key-word' : ''}}" data-word="{{item.wordKey}}" catchtap="onTapWord">{{item.text}} </text>
               <text wx:else>{{item.text}} </text>
             </block>
           </view>

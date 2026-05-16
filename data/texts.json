@@ -16,14 +16,16 @@
             "en": "I'm also a puppet performer.",
             "cn": "我还是一名木偶表演者。",
             "vocab": [
-              "performer"
+              "performer",
+              "puppet"
             ]
           },
           {
             "en": "Look at this puppet. If I move my fingers, it will come to life!",
             "cn": "看看这个木偶。如果我动动手指，它就会活过来！",
             "vocab": [
-              "finger"
+              "finger",
+              "puppet"
             ]
           }
         ]
@@ -34,7 +36,8 @@
             "en": "I was born into a family of Minnan puppet performers.",
             "cn": "我出生在闽南的一个木偶戏表演世家。",
             "vocab": [
-              "performer"
+              "performer",
+              "puppet"
             ]
           },
           {
@@ -62,13 +65,15 @@
             "en": "I felt less close to the art because people thought puppets were too old-fashioned.",
             "cn": "我觉得与这门艺术不那么亲近了，因为人们认为木偶太老式了。",
             "vocab": [
-              "old-fashioned"
+              "old-fashioned",
+              "puppet"
             ]
           },
           {
             "en": "I didn't want to be part of puppetry unless I was asked to.",
             "cn": "除非有人要求，否则我不想参与木偶表演。",
             "vocab": [
+              "puppetry",
               "unless"
             ]
           },
@@ -82,17 +87,23 @@
           {
             "en": "The finely made puppets and their exciting movements brought back childhood memories.",
             "cn": "精致的木偶和它们激动人心的动作带回了童年的记忆。",
-            "vocab": []
+            "vocab": [
+              "puppet"
+            ]
           },
           {
             "en": "Then and there, my love for puppetry started to grow again.",
             "cn": "就在那时，我对木偶表演的热爱重新燃起。",
-            "vocab": []
+            "vocab": [
+              "puppetry"
+            ]
           },
           {
             "en": "I posted my doubts about the future of puppetry online.",
             "cn": "我在网上发布了关于木偶表演未来的困惑。",
-            "vocab": []
+            "vocab": [
+              "puppetry"
+            ]
           },
           {
             "en": "To my surprise, the post was flooded with comments expressing warm feelings.",
@@ -102,13 +113,16 @@
           {
             "en": "Many people showed their love for the art of puppetry and encouraged me to hold on.",
             "cn": "许多人表达了对木偶表演艺术的热爱，并鼓励我坚持。",
-            "vocab": []
+            "vocab": [
+              "puppetry"
+            ]
           },
           {
             "en": "A truth hit me - it was my duty to keep the art alive because puppetry was in my blood.",
             "cn": "一个真相击中了我——让这门艺术保持活力是我的责任，因为木偶表演在我的血液里。",
             "vocab": [
-              "blood"
+              "blood",
+              "puppetry"
             ]
           }
         ]
@@ -123,19 +137,24 @@
           {
             "en": "So I held a puppet show at school.",
             "cn": "于是我在学校举办了一场木偶表演。",
-            "vocab": []
+            "vocab": [
+              "puppet"
+            ]
           },
           {
             "en": "When I finished performing, I looked up and saw a surprising picture: the students were on the edge of their seats.",
             "cn": "当我表演完，抬头看到一幅令人惊讶的画面：学生们都聚精会神地看着。",
             "vocab": [
+              "edge",
               "perform"
             ]
           },
           {
             "en": "Their eyes were glued to the puppets.",
             "cn": "他们的眼睛紧盯着木偶。",
-            "vocab": []
+            "vocab": [
+              "puppet"
+            ]
           },
           {
             "en": "After a warm cheer, they came to ask where they could see a full performance.",
@@ -158,7 +177,9 @@
           {
             "en": "Since then, my puppet shows have drawn more attention both from home and abroad.",
             "cn": "从此，我的木偶表演在国内外都引起了更多的关注。",
-            "vocab": []
+            "vocab": [
+              "puppet"
+            ]
           },
           {
             "en": "The old art is getting more interest and new stories.",

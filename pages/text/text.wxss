@@ -87,13 +87,22 @@
   display: inline;
 }
 
-/* ===== 重点词高亮（Kindle 淡黄荧光笔风格） ===== */
+/* ===== 生词高亮 ===== */
 .vocab-word {
-  background: #FFF8E1;
   padding: 2rpx 4rpx;
   border-radius: 4rpx;
   cursor: pointer;
   display: inline;
+}
+
+/* 重点词 → 绿底 */
+.vocab-word.key-word {
+  background: #E8F5E9;
+}
+
+/* 非重点词 → 黄底（参考词） */
+.vocab-word:not(.key-word) {
+  background: #FFF8E1;
 }
 
 /* ===== 居中单词卡弹窗 ===== */
