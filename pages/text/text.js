@@ -191,16 +191,15 @@ Page({
     selectedWord: null,
   },
 
-  onLoad(options) {
+  async onLoad(options) {
     const unitId = options.unit || 'Unit1'
     app = getApp()
     this._unitId = unitId
     this._audioCtx = null
 
-    // 加载正常版
     // 默认慢速
     this._setTimestamps(TIMESTAMPS_SLOW)
-    this._initAudio('slow')
+    this._audioCtx = await this._initAudio('slow')
   },
 
   _setTimestamps(ts) {
@@ -243,16 +242,35 @@ Page({
     'slow': 'cloud://cloudbase-d2gs4fpbhca51e19f.636c-cloudbase-d2gs4fpbhca51e19f-1433289257/audio/Unit1_slow.mp3',
   },
 
+  // 初始化音频，返回 Promise，resolve 后 src 才可用
   _initAudio(mode = 'normal') {
-    // 销毁旧音频
-    if (this._audioCtx) {
-      this._audioCtx.stop()
-      this._audioCtx.destroy()
-      this._audioCtx = null
-    }
+    return new Promise((resolve) => {
+      // 销毁旧音频
+      if (this._audioCtx) {
+        this._audioCtx.stop()
+        this._audioCtx.destroy()
+        this._audioCtx = null
+      }
 
-    const ctx = wx.createInnerAudioContext()
-    ctx.src = this._audioFiles[mode]
+      const ctx = wx.createInnerAudioContext()
+
+      // 云存储 fileID 需先转临时链接才能播放
+      wx.cloud.getTempFileURL({
+        fileList: [this._audioFiles[mode]],
+        success: res => {
+          const url = res.fileList && res.fileList[0] && res.fileList[0].tempFileURL
+          ctx.src = url || `/audio/${mode === 'slow' ? 'Unit1_slow.mp3' : 'Unit1_full.mp3'}`
+        },
+        fail: () => {
+          // 降级到本地文件
+          ctx.src = `/audio/${mode === 'slow' ? 'Unit1_slow.mp3' : 'Unit1_full.mp3'}`
+        },
+        complete: () => {
+          resolve(ctx)
+        }
+      })
+    })
+  },
     ctx.autoplay = false
     ctx.obeyMuteSwitch = false
 
@@ -291,7 +309,7 @@ Page({
   },
 
   // === 慢/快切换 ===
-  onToggleSpeed() {
+  async onToggleSpeed() {
     const isSlow = !this.data.isSlow
     const mode = isSlow ? 'slow' : 'normal'
     const ts = isSlow ? TIMESTAMPS_SLOW : TIMESTAMPS_FAST
@@ -318,7 +336,7 @@ Page({
 
     // 换音频和时间戳
     this._setTimestamps(ts)
-    this._initAudio(mode)
+    this._audioCtx = await this._initAudio(mode)
     this.setData({ isSlow })
 
     if (wasPlaying && seekTime > 0) {
