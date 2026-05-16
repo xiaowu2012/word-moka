@@ -357,10 +357,10 @@ async onToggleSpeed() {
       }
     }
 
-    // 换音频和时间戳
+    // 按钮颜色立刻变，不用等云存储
+    this.setData({ isSlow })
     this._setTimestamps(ts)
     this._audioCtx = await this._initAudio(mode)
-    this.setData({ isSlow })
 
     if (wasPlaying && seekTime > 0) {
       this._seeking = true
