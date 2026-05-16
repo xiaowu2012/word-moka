@@ -44,7 +44,6 @@
         <view class="sentence-detail" wx:if="{{showDetailed}}">
           <view wx:for="{{sentences[item].detailed}}" wx:for-index="didx" wx:key="didx" class="detail-item">
             <text class="detail-part">{{item.part}}</text>
-            <text class="detail-arrow">→</text>
             <text class="detail-explain">{{item.explain}}</text>
           </view>
         </view>
