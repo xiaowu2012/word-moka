@@ -7,8 +7,6 @@
       { "type": "file", "value": "audio/Unit1_timestamps.js" },
       { "type": "file", "value": "audio/Unit1_timestamps.json" },
       { "type": "file", "value": "audio/Unit1_slow_timestamps.json" },
-      { "type": "suffix", "value": ".mp3" },
-      { "type": "folder", "value": "audio/text/" },
       { "type": "folder", "value": "scripts/" }
     ],
     "include": []

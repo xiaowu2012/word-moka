@@ -122,47 +122,47 @@ const TIMESTAMPS_SLOW = {
 }
 
 const VOCAB_DATA = {
-    "artist": { "word": "artist", "cn": "艺术家", "ph": "/\'a:tust/", "key": true },
-    "blood": { "word": "blood", "cn": "血，血液", "ph": "/bld/", "key": true },
-    "burst": { "word": "burst", "cn": "冲，闯；（使）爆裂", "ph": "/b3:st/", "key": false },
-    "claw": { "word": "claw", "cn": "爪", "ph": "/klo:/", "key": false },
-    "creativity": { "word": "creativity", "cn": "独创性", "ph": "/，kri:er\'tvsti/", "key": true },
-    "creator": { "word": "creator", "cn": "创作者；创造者", "ph": "/kri\'eite/", "key": true },
-    "dust": { "word": "dust", "cn": "灰尘，尘埃", "ph": "/dast/", "key": false },
-    "eagle": { "word": "eagle", "cn": "鹰", "ph": "", "key": true },
-    "edge": { "word": "edge", "cn": "边缘", "ph": "/eds/", "key": false },
-    "educator": { "word": "educator", "cn": "教育家", "ph": "/\'edjukerta/", "key": false },
-    "finger": { "word": "finger", "cn": "手指", "ph": "/\'fuga/", "key": true },
-    "gentleman": { "word": "gentleman", "cn": "先生", "ph": "/\'dsentlman/", "key": true },
-    "grand": { "word": "grand", "cn": "宏伟的，壮丽的", "ph": "/graend/", "key": false },
-    "group": { "word": "group", "cn": "组，群；团体", "ph": "/grup/", "key": true },
-    "hidden": { "word": "hidden", "cn": "隐藏的，隐秘的", "ph": "/\'hrcdn/", "key": true },
-    "inspire": { "word": "inspire", "cn": "鼓舞，激励", "ph": "/m\'spars/", "key": false },
-    "intelligent": { "word": "intelligent", "cn": "有智", "ph": "/m \'teladgont/", "key": false },
-    "kill": { "word": "kill", "cn": "弄死，杀死", "ph": "/kal/", "key": true },
-    "lady": { "word": "lady", "cn": "女士，女子", "ph": "/\'lerdi/", "key": true },
-    "lie": { "word": "lie", "cn": "躺；说谎", "ph": "", "key": true },
-    "old-fashioned": { "word": "old-fashioned", "cn": "老式的，过时的", "ph": "", "key": true },
-    "perform": { "word": "perform", "cn": "表演，演出", "ph": "/pe \'fo:m/", "key": true },
-    "performance": { "word": "performance", "cn": "表演", "ph": "/pa \'fo:mans/", "key": true },
-    "performer": { "word": "performer", "cn": "表演者", "ph": "/pe \'fo:ma/", "key": true },
-    "puppet": { "word": "puppet", "cn": "（牵线）木偶", "ph": "/\'pAprt/", "key": false },
-    "puppetry": { "word": "puppetry", "cn": "木偶表演艺术", "ph": "/\'pApatri/", "key": false },
-    "roar": { "word": "roar", "cn": "吼叫，呼啸", "ph": "/ro:/", "key": false },
-    "scaled": { "word": "scaled", "cn": "有鳞的", "ph": "/skerld/", "key": false },
-    "scare": { "word": "scare", "cn": "使惊恐，吓唬", "ph": "/skea/", "key": true },
-    "scarecrow": { "word": "scarecrow", "cn": "稻草人", "ph": "/\'skeokru/", "key": false },
-    "teenager": { "word": "teenager", "cn": "青少年", "ph": "/\'tinerdga/", "key": true },
-    "tender": { "word": "tender", "cn": "娇嫩的，幼嫩", "ph": "/\'tenda/", "key": false },
-    "unless": { "word": "unless", "cn": "除非•.", "ph": "/an\'les/", "key": true },
-    "valley": { "word": "valley", "cn": "谷；山谷", "ph": "/\'vaeli/", "key": false },
-    "vast": { "word": "vast", "cn": "广大无边的，极大的13", "ph": "/vast/", "key": false },
-    "viewer": { "word": "viewer", "cn": "观看者", "ph": "/\'vjua/", "key": true },
-    "volunteer": { "word": "volunteer", "cn": "志愿者", "ph": "/，volon\'tra/", "key": false },
-    "wealthy": { "word": "wealthy", "cn": "富有的；富", "ph": "/\'welfi/", "key": true },
-    "wildly": { "word": "wildly", "cn": "激动地", "ph": "/\'warldli/", "key": true },
-    "wing": { "word": "wing", "cn": "翅膀，翼", "ph": "/wu/", "key": true },
-    "youth": { "word": "youth", "cn": "青年，年轻人", "ph": "/ju:6/", "key": true }
+    "artist": { "word": "artist", "cn": "艺术家", "ph": "/\'a:tust/", "key": true, "importance": 4, "example": "The young artist painted a beautiful picture of the sunset.", "exampleCn": "那位年轻艺术家画了一幅美丽的日落画。", "tip": "artist（艺术家）来自 art（艺术）+ ist（从事...的人）", "etymology": "来自拉丁语 ars（艺术），后缀 -ist 表示从事某种艺术的人", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_11.mp3" },
+    "blood": { "word": "blood", "cn": "血，血液", "ph": "/bld/", "key": true, "importance": 4, "example": "The doctor tested his blood and said he was healthy.", "exampleCn": "医生检测了他的血液，说他很健康。", "tip": "blood（血）- 过去常考短语：in cold blood（冷酷地）", "etymology": "来自古英语 blod（血），与德语 Blut 同源", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_7.mp3" },
+    "burst": { "word": "burst", "cn": "冲，闯；（使）爆裂", "ph": "/b3:st/", "key": false, "importance": 0, "example": "", "exampleCn": "", "tip": "", "etymology": "", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_32.mp3" },
+    "claw": { "word": "claw", "cn": "爪", "ph": "/klo:/", "key": false, "importance": 0, "example": "", "exampleCn": "", "tip": "", "etymology": "", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_34.mp3" },
+    "creativity": { "word": "creativity", "cn": "独创性", "ph": "/，kri:er\'tvsti/", "key": true, "importance": 3, "example": "Teachers should encourage students\' creativity in class.", "exampleCn": "老师应该在课堂上鼓励学生的创造力。", "tip": "create（创造）→ creative（有创造力的）→ creativity（创造力）", "etymology": "来自拉丁语 creare（创造），后缀 -ity 表示性质", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_10.mp3" },
+    "creator": { "word": "creator", "cn": "创作者；创造者", "ph": "/kri\'eite/", "key": true, "importance": 3, "example": "He is the creator of this popular mobile game.", "exampleCn": "他是这款热门手游的创作者。", "tip": "create（创造）+ or（...的人）= creator（创造者）。注意：-er 和 -or 都表示做某事的人", "etymology": "来自拉丁语 creator（创造者），creare（创造）+ or（人）", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_13.mp3" },
+    "dust": { "word": "dust", "cn": "灰尘，尘埃", "ph": "/dast/", "key": false, "importance": 0, "example": "", "exampleCn": "", "tip": "", "etymology": "", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_37.mp3" },
+    "eagle": { "word": "eagle", "cn": "鹰", "ph": "", "key": true, "importance": 3, "example": "An eagle flew high above the mountains.", "exampleCn": "一只鹰在高山上空飞翔。", "tip": "eagle（鹰）- 常考短语：eagle eye（锐利的目光/鹰眼）", "etymology": "来自古法语 aigle，源自拉丁语 aquila（鹰）", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_21.mp3" },
+    "edge": { "word": "edge", "cn": "边缘", "ph": "/eds/", "key": false, "importance": 0, "example": "", "exampleCn": "", "tip": "", "etymology": "", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_26.mp3" },
+    "educator": { "word": "educator", "cn": "教育家", "ph": "/\'edjukerta/", "key": false, "importance": 0, "example": "", "exampleCn": "", "tip": "", "etymology": "", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_29.mp3" },
+    "finger": { "word": "finger", "cn": "手指", "ph": "/\'fuga/", "key": true, "importance": 4, "example": "Be careful! Don\'t cut your finger with that knife.", "exampleCn": "小心！别用那把刀割到手指。", "tip": "finger 手指。拇指 thumb 食指 index finger 中指 middle finger 无名指 ring finger 小指 little finger", "etymology": "来自古英语 finger，与德语 Finger 同源", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_3.mp3" },
+    "gentleman": { "word": "gentleman", "cn": "先生", "ph": "/\'dsentlman/", "key": true, "importance": 4, "example": "A true gentleman always holds the door for others.", "exampleCn": "一个真正的绅士总会为别人扶门。", "tip": "gentleman（先生/绅士）的复数是 gentlemen（不规则变化：man → men）", "etymology": "由 gentle（有教养的）+ man（人）组成", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_1.mp3" },
+    "grand": { "word": "grand", "cn": "宏伟的，壮丽的", "ph": "/graend/", "key": false, "importance": 0, "example": "", "exampleCn": "", "tip": "", "etymology": "", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_40.mp3" },
+    "group": { "word": "group", "cn": "组，群；团体", "ph": "/grup/", "key": true, "importance": 5, "example": "Our study group meets every Friday after school.", "exampleCn": "我们学习小组每周五放学后碰面。", "tip": "group（组/群体）- a group of... 一群...（后面名词用复数）", "etymology": "来自意大利语 gruppo（一群），原意是圆形", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_12.mp3" },
+    "hidden": { "word": "hidden", "cn": "隐藏的，隐秘的", "ph": "/\'hrcdn/", "key": true, "importance": 3, "example": "The hidden treasure was finally found by the children.", "exampleCn": "被隐藏的宝藏最终被孩子们找到了。", "tip": "hide（隐藏）→ hid（过去式）→ hidden（过去分词/形容词）", "etymology": "来自古英语 hydan（隐藏）", "past": "hid", "pastParticiple": "hidden", "pronounceFile": "audio/word_pronounce/unit1_word_17.mp3" },
+    "inspire": { "word": "inspire", "cn": "鼓舞，激励", "ph": "/m\'spars/", "key": false, "importance": 0, "example": "", "exampleCn": "", "tip": "", "etymology": "", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_30.mp3" },
+    "intelligent": { "word": "intelligent", "cn": "有智", "ph": "/m \'teladgont/", "key": false, "importance": 0, "example": "", "exampleCn": "", "tip": "", "etymology": "", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_31.mp3" },
+    "kill": { "word": "kill", "cn": "弄死，杀死", "ph": "/kal/", "key": true, "importance": 4, "example": "It is cruel to kill wild animals for fun.", "exampleCn": "以杀戮野生动物为乐是残忍的。", "tip": "kill（杀/弄死）是完全规则动词：kill → killed → killed", "etymology": "来自古英语 cwellan（杀死）", "past": "killed", "pastParticiple": "killed", "pronounceFile": "audio/word_pronounce/unit1_word_14.mp3" },
+    "lady": { "word": "lady", "cn": "女士，女子", "ph": "/\'lerdi/", "key": true, "importance": 4, "example": "The old lady feeds the cats in her neighborhood every day.", "exampleCn": "那位老太太每天都喂小区里的猫。", "tip": "lady（女士）复数是 ladies。y 变 i 加 es：lady → ladies", "etymology": "来自古英语 hlafdig（揉面包的人），hlaf（面包）+ dig（揉）", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_0.mp3" },
+    "lie": { "word": "lie", "cn": "躺；说谎", "ph": "", "key": true, "importance": 4, "example": "Never tell a lie; always be honest with others.", "exampleCn": "永远不要说谎；要始终对他人诚实。", "tip": "lie（说谎）→ lied/lied（规则）；lie（躺）→ lay/lain（不规则），区别：tell a lie（说谎）是名词用法", "etymology": "来自古英语 lyge（谎言），与德语 Luge 同源", "past": "lied", "pastParticiple": "lied", "pronounceFile": "audio/word_pronounce/unit1_word_22.mp3" },
+    "old-fashioned": { "word": "old-fashioned", "cn": "老式的，过时的", "ph": "", "key": true, "importance": 3, "example": "My grandpa still wears old-fashioned clothes.", "exampleCn": "我爷爷还穿老式的衣服。", "tip": "复合形容词：old（老的）+ fashioned（样式的）= old-fashioned（老式的）", "etymology": "由 old（老）+ fashioned（...样式的）组成", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_23.mp3" },
+    "perform": { "word": "perform", "cn": "表演，演出", "ph": "/pe \'fo:m/", "key": true, "importance": 5, "example": "The magician will perform a wonderful show tonight.", "exampleCn": "魔术师今晚将表演一场精彩的秀。", "tip": "perform（表演/演出）→ performer（表演者）→ performance（表演/表现）。中考常考：perform well/badly 表现好/差", "etymology": "来自古法语 parfournir（完成），per-（完全）+ fournir（提供）", "past": "performed", "pastParticiple": "performed", "pronounceFile": "audio/word_pronounce/unit1_word_8.mp3" },
+    "performance": { "word": "performance", "cn": "表演", "ph": "/pa \'fo:mans/", "key": true, "importance": 4, "example": "Her performance in the singing competition was amazing.", "exampleCn": "她在歌唱比赛中的表现令人惊叹。", "tip": "perform（表演）+ ance（名词后缀）= performance（表演/表现）", "etymology": "来自 perform（表演）+ ance（行为名词后缀）", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_6.mp3" },
+    "performer": { "word": "performer", "cn": "表演者", "ph": "/pe \'fo:ma/", "key": true, "importance": 4, "example": "He is a famous performer who travels around the world.", "exampleCn": "他是一位周游世界的著名表演者。", "tip": "perform（表演）+ er（...的人）= performer（表演者）", "etymology": "来自 perform（表演）+ er（行为者后缀）", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_2.mp3" },
+    "puppet": { "word": "puppet", "cn": "（牵线）木偶", "ph": "/\'pAprt/", "key": false, "importance": 0, "example": "", "exampleCn": "", "tip": "", "etymology": "", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_24.mp3" },
+    "puppetry": { "word": "puppetry", "cn": "木偶表演艺术", "ph": "/\'pApatri/", "key": false, "importance": 0, "example": "", "exampleCn": "", "tip": "", "etymology": "", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_25.mp3" },
+    "roar": { "word": "roar", "cn": "吼叫，呼啸", "ph": "/ro:/", "key": false, "importance": 0, "example": "", "exampleCn": "", "tip": "", "etymology": "", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_35.mp3" },
+    "scaled": { "word": "scaled", "cn": "有鳞的", "ph": "/skerld/", "key": false, "importance": 0, "example": "", "exampleCn": "", "tip": "", "etymology": "", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_33.mp3" },
+    "scare": { "word": "scare", "cn": "使惊恐，吓唬", "ph": "/skea/", "key": true, "importance": 3, "example": "Don\'t scare the cat with loud noises.", "exampleCn": "不要用大声响吓到猫。", "tip": "scare（吓唬）→ scared（害怕的）→ scary（吓人的）。区别：scared 形容人的感受，scary 形容事物", "etymology": "来自古英语 scearn（惊吓）", "past": "scared", "pastParticiple": "scared", "pronounceFile": "audio/word_pronounce/unit1_word_19.mp3" },
+    "scarecrow": { "word": "scarecrow", "cn": "稻草人", "ph": "/\'skeokru/", "key": false, "importance": 0, "example": "", "exampleCn": "", "tip": "", "etymology": "", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_28.mp3" },
+    "teenager": { "word": "teenager", "cn": "青少年", "ph": "/\'tinerdga/", "key": true, "importance": 4, "example": "Many teenagers spend too much time on their phones.", "exampleCn": "很多青少年花太多时间在手机上。", "tip": "teenager（青少年）= thirteen（13）到 nineteen（19）都以 teen 结尾 + age（年龄）+ r", "etymology": "由 teenage（青少年的）+ er（人）组成", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_4.mp3" },
+    "tender": { "word": "tender", "cn": "娇嫩的，幼嫩", "ph": "/\'tenda/", "key": false, "importance": 0, "example": "", "exampleCn": "", "tip": "", "etymology": "", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_38.mp3" },
+    "unless": { "word": "unless", "cn": "除非•.", "ph": "/an\'les/", "key": true, "importance": 5, "example": "You will fail the exam unless you study harder.", "exampleCn": "除非你更努力学习，否则会考试不及格。", "tip": "unless = if...not（如果不）。中考高频考点：unless 引导条件状语从句，主将从现（主句将来时，从句一般现在时）", "etymology": "来自 on less than（在...更少的前提下），缩写为 unless", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_5.mp3" },
+    "valley": { "word": "valley", "cn": "谷；山谷", "ph": "/\'vaeli/", "key": false, "importance": 0, "example": "", "exampleCn": "", "tip": "", "etymology": "", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_36.mp3" },
+    "vast": { "word": "vast", "cn": "广大无边的，极大的13", "ph": "/vast/", "key": false, "importance": 0, "example": "", "exampleCn": "", "tip": "", "etymology": "", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_39.mp3" },
+    "viewer": { "word": "viewer", "cn": "观看者", "ph": "/\'vjua/", "key": true, "importance": 3, "example": "The TV show attracted millions of viewers.", "exampleCn": "这档电视节目吸引了数百万观众。", "tip": "view（观看）+ er（...的人）= viewer（观看者）。注意复数 viewers", "etymology": "来自 view（看）+ er（行为者后缀）", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_9.mp3" },
+    "volunteer": { "word": "volunteer", "cn": "志愿者", "ph": "/，volon\'tra/", "key": false, "importance": 0, "example": "", "exampleCn": "", "tip": "", "etymology": "", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_27.mp3" },
+    "wealthy": { "word": "wealthy", "cn": "富有的；富", "ph": "/\'welfi/", "key": true, "importance": 3, "example": "He dreams of becoming a wealthy businessman one day.", "exampleCn": "他梦想有一天成为一名富有的商人。", "tip": "wealth（财富）+ y（形容词后缀）= wealthy（富有的）。比较级 wealthier，最高级 wealthiest", "etymology": "来自 wealth（财富）+ y（...的）", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_16.mp3" },
+    "wildly": { "word": "wildly", "cn": "激动地", "ph": "/\'warldli/", "key": true, "importance": 3, "example": "The fans cheered wildly when their team won.", "exampleCn": "当他们的队伍获胜时，球迷们激动地欢呼。", "tip": "wild（狂野的）+ ly（副词后缀）= wildly（激动地/疯狂地）。形容词加 ly 变副词是高频考点", "etymology": "来自 wild（狂野的）+ ly（副词后缀）", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_18.mp3" },
+    "wing": { "word": "wing", "cn": "翅膀，翼", "ph": "/wu/", "key": true, "importance": 3, "example": "The bird spread its wings and flew away.", "exampleCn": "那只鸟展开翅膀飞走了。", "tip": "wing（翅膀）- 常考搭配：on a wing and a prayer（在极其艰难的情况下）", "etymology": "来自古英语 wenge（翅膀），与德语 Schwinge 同源", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_20.mp3" },
+    "youth": { "word": "youth", "cn": "青年，年轻人", "ph": "/ju:6/", "key": true, "importance": 4, "example": "In his youth, he traveled to many different countries.", "exampleCn": "他年轻时去过很多不同的国家。", "tip": "young（年轻的）→ youth（青年/年轻）。注意拼写变化：young → youth", "etymology": "来自古英语 geoguth（年轻），与德语 Jugend 同源", "past": "", "pastParticiple": "", "pronounceFile": "audio/word_pronounce/unit1_word_15.mp3" }
 }
 
 let app = null
@@ -521,16 +521,18 @@ async onToggleSpeed() {
   onPlayWord(e) {
     const wordKey = e.currentTarget.dataset.word
     if (!wordKey || !VOCAB_DATA[wordKey]) return
-    // TODO: 播放单词读音
-    wx.showToast({ title: wordKey, icon: 'none' })
-  },
 
-  // 展开/收起卡片详情
-  onToggleCard(e) {
-    const idx = e.currentTarget.dataset.idx
-    if (idx === undefined) return
-    const key = 'cardExpanded_' + idx
-    this.setData({ [key]: !this.data[key] })
+    const file = VOCAB_DATA[wordKey].pronounceFile
+    if (!file) return
+
+    // 创建临时音频播放
+    const audio = wx.createInnerAudioContext()
+    audio.src = `/${file}`
+    audio.play()
+
+    // 播完后销毁
+    audio.onEnded(() => audio.destroy())
+    audio.onError(() => audio.destroy())
   },
 
   // 分享

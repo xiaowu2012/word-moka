@@ -39,39 +39,34 @@
 
         <!-- 单词卡片区 -->
         <view class="word-cards" wx:if="{{showCn && wordCards[item] && wordCards[item].length > 0}}">
-          <view class="word-card {{card.isKey ? 'key-card' : ''}}"
+          <view class="word-card {{wcard.key ? 'key-card' : ''}}"
                 wx:for="{{wordCards[item]}}"
                 wx:for-index="cidx" wx:key="cidx"
-                data-word="{{item.word}}">
+                wx:for-item="wcard">
             <!-- 第一行: 单词 + 🔊 + ⭐ -->
             <view class="card-row1">
-              <text class="card-word">{{item.word}}</text>
-              <text class="card-play" data-word="{{item.word}}" catchtap="onPlayWord">🔊</text>
-              <text class="card-rating" wx:if="{{item.importance}}">⭐{{item.importance}}</text>
+              <text class="card-word">{{wcard.word}}</text>
+              <text class="card-play" data-word="{{wcard.word}}" catchtap="onPlayWord">🔊</text>
+              <text class="card-rating" wx:if="{{wcard.importance}}">⭐{{wcard.importance}}</text>
             </view>
             <!-- 音标 + 中文 -->
-            <text class="card-phonetic" wx:if="{{item.ph}}">{{item.ph}}</text>
-            <text class="card-meaning">{{item.cn}}</text>
+            <text class="card-phonetic" wx:if="{{wcard.ph}}">{{wcard.ph}}</text>
+            <text class="card-meaning">{{wcard.cn}}</text>
 
-            <!-- 展开按钮（仅重点词）-->
-            <view wx:if="{{item.key && (item.example || item.tip || item.etymology)}}"
-                  class="card-expand-btn" catchtap="onToggleCard" data-idx="{{item.index}}">
-              <text>{{cardExpanded_item.index ? '▲ 收起' : '▼ 更多'}}</text>
-            </view>
-            <!-- 展开内容 -->
-            <view wx:if="{{cardExpanded_item.index && item.key}}" class="card-extras">
-              <view wx:if="{{item.example}}" class="extra-item">
+            <!-- 重点词额外信息: 例句/考点/词源（直接显示，无需展开）-->
+            <view wx:if="{{wcard.key}}" class="card-extras">
+              <view wx:if="{{wcard.example}}" class="extra-item">
                 <text class="extra-label">例句</text>
-                <text class="extra-text">{{item.example}}</text>
-                <text class="extra-cn">{{item.exampleCn}}</text>
+                <text class="extra-text">{{wcard.example}}</text>
+                <text class="extra-cn" wx:if="{{wcard.exampleCn}}">{{wcard.exampleCn}}</text>
               </view>
-              <view wx:if="{{item.tip}}" class="extra-item">
+              <view wx:if="{{wcard.tip}}" class="extra-item">
                 <text class="extra-label">考点</text>
-                <text class="extra-text">{{item.tip}}</text>
+                <text class="extra-text">{{wcard.tip}}</text>
               </view>
-              <view wx:if="{{item.etymology}}" class="extra-item">
+              <view wx:if="{{wcard.etymology}}" class="extra-item">
                 <text class="extra-label">词源</text>
-                <text class="extra-text">{{item.etymology}}</text>
+                <text class="extra-text">{{wcard.etymology}}</text>
               </view>
             </view>
           </view>
