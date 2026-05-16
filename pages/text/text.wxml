@@ -1,5 +1,5 @@
-<!-- 课文阅读页 - 分词高亮 + 行内卡片 -->
-<view class="page-wrap" catchtap="onDismissCard">
+<!-- 课文阅读页 - 分词高亮 + 居中弹窗 -->
+<view class="page-wrap">
   <view class="header">
     <view class="header-info">
       <text class="header-title">{{title}}</text>
@@ -34,15 +34,6 @@
           </view>
         </view>
         <text class="sentence-cn" wx:if="{{showCn}}">{{sentences[item].cn}}</text>
-
-        <!-- 行内卡片：出现在当前句下方 -->
-        <view class="inline-card {{selectedVocab && sentences[item].vocab.includes(selectedVocab.word.toLowerCase()) ? 'show' : ''}}"
-              wx:if="{{selectedVocab && sentences[item].vocab.includes(selectedVocab.word.toLowerCase())}}"
-              catchtap="onDismissCard">
-          <text class="card-word">{{selectedVocab.word}}</text>
-          <text class="card-phonetic">{{selectedVocab.ph}}</text>
-          <text class="card-meaning">{{selectedVocab.cn}}</text>
-        </view>
       </view>
     </view>
   </view>
@@ -55,5 +46,16 @@
       </view>
       <view class="time-label">{{progressTime}} / {{totalTime}}</view>
     </view>
+  </view>
+
+  <!-- 居中单词卡弹窗 -->
+  <view class="word-mask" wx:if="{{showWordCard}}" bindtap="onCloseWordCard"></view>
+  <view class="word-card" wx:if="{{showWordCard}}">
+    <view class="wc-wrap">
+      <text class="wc-word">{{selectedWord.word}}</text>
+      <text class="wc-phonetic" wx:if="{{selectedWord.ph}}">{{selectedWord.ph}}</text>
+      <text class="wc-meaning">{{selectedWord.cn}}</text>
+    </view>
+    <text class="wc-close" bindtap="onCloseWordCard">知道了</text>
   </view>
 </view>

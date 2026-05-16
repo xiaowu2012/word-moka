@@ -252,7 +252,8 @@ Page({
     paragraphs: [],
     sentences: [],
     sentenceTokens: [],
-    selectedVocab: null,
+    showWordCard: false,
+    selectedWord: null,
     playingSentenceIdx: -1,
     showCn: true,
     isPlaying: false,
@@ -293,8 +294,6 @@ Page({
       sentences: ts.sentences,
       sentenceTokens,
       totalTime,
-      // 关掉行内卡片
-      selectedVocab: null,
     })
   },
 
@@ -509,24 +508,15 @@ Page({
     return tokens
   },
 
-  // 行内卡片点击
+  // 重点词点击 → 弹出居中单词卡
   onTapWord(e) {
     const wordKey = e.currentTarget.dataset.word
-    // 非重点词（wordKey空字符串）→ 忽略
     if (!wordKey || !VOCAB_DATA[wordKey]) return
-
-    const info = VOCAB_DATA[wordKey]
-    if (this.data.selectedVocab && this.data.selectedVocab.word === info.word) {
-      // 点同一个词 → 关掉
-      this.setData({ selectedVocab: null })
-    } else {
-      this.setData({ selectedVocab: info })
-    }
+    this.setData({ selectedWord: VOCAB_DATA[wordKey], showWordCard: true })
   },
 
-  // 点击空白区域关卡片
-  onDismissCard() {
-    this.setData({ selectedVocab: null })
+  onCloseWordCard() {
+    this.setData({ showWordCard: false })
   },
 
   // === 生命周期 ===
