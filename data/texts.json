@@ -10,6 +10,24 @@
             "vocab": [
               "gentleman",
               "lady"
+            ],
+            "detailed": [
+              {
+                "part": "Good evening",
+                "explain": "晚上好。good 好的，evening 傍晚/晚上"
+              },
+              {
+                "part": "ladies and gentlemen",
+                "explain": "女士们先生们。lady 女士，gentleman 先生，固定招呼用语"
+              },
+              {
+                "part": "I'm Zhan Haojing",
+                "explain": "我是詹昊晶。I'm = I am 缩写"
+              },
+              {
+                "part": "a high school student",
+                "explain": "一名高中生。high school 高中，student 学生"
+              }
             ]
           },
           {
@@ -18,6 +36,16 @@
             "vocab": [
               "performer",
               "puppet"
+            ],
+            "detailed": [
+              {
+                "part": "also",
+                "explain": "也，还。放在 be 动词 am 之后"
+              },
+              {
+                "part": "a puppet performer",
+                "explain": "一名木偶表演者。puppet 木偶，performer 表演者"
+              }
             ]
           },
           {
@@ -26,6 +54,24 @@
             "vocab": [
               "finger",
               "puppet"
+            ],
+            "detailed": [
+              {
+                "part": "Look at",
+                "explain": "看。look at 固定搭配，后接宾语"
+              },
+              {
+                "part": "this puppet",
+                "explain": "这个木偶。this 指示代词"
+              },
+              {
+                "part": "If I move my fingers",
+                "explain": "如果我动动手指。if 如果(条件状语从句)，finger 手指"
+              },
+              {
+                "part": "it will come to life",
+                "explain": "它就会活过来。come to life 活过来，固定搭配"
+              }
             ]
           }
         ]
@@ -38,17 +84,51 @@
             "vocab": [
               "performer",
               "puppet"
+            ],
+            "detailed": [
+              {
+                "part": "I was born into",
+                "explain": "我出生于(某家庭)。be born into 出生于"
+              },
+              {
+                "part": "a family of Minnan puppet performers",
+                "explain": "闽南木偶表演世家。Minnan 闽南，puppet performer 木偶表演者"
+              }
             ]
           },
           {
             "en": "My grandpa and my mum are both among the best.",
             "cn": "我的外公和我的母亲都是这行中的佼佼者。",
-            "vocab": []
+            "vocab": [],
+            "detailed": [
+              {
+                "part": "My grandpa and my mum",
+                "explain": "我的外公和我的母亲。grandpa 外公，mum 妈妈(英式)"
+              },
+              {
+                "part": "are both among the best",
+                "explain": "都是佼佼者。both 两者都，among the best 最优秀之列"
+              }
+            ]
           },
           {
             "en": "When I was little, I loved the amazing stories they told with their hands.",
             "cn": "小的时候，我喜欢他们用手讲述的精彩故事。",
-            "vocab": []
+            "vocab": [],
+            "detailed": [
+              {
+                "part": "When I was little",
+                "explain": "我小时候。when 当，little 小(年纪)"
+              },
+              {
+                "part": "I loved the amazing stories",
+                "explain": "我喜欢那些精彩的故事。amazing 令人惊叹的"
+              },
+              {
+                "part": "they told with their hands",
+                "explain": "他们用手讲述的。tell stories with hands 用手讲故事"
+              }
+            ]
           }
         ]
       },
@@ -59,6 +139,20 @@
             "cn": "然而，当我成为一名青少年时，情况发生了变化。",
             "vocab": [
               "teenager"
+            ],
+            "detailed": [
+              {
+                "part": "However",
+                "explain": "然而。转折连词，比 but 更正式"
+              },
+              {
+                "part": "things changed",
+                "explain": "情况变了。change 改变(过去式 changed)"
+              },
+              {
+                "part": "when I became a teenager",
+                "explain": "当我成为青少年。teenager 青少年(13-19岁)"
+              }
             ]
           },
           {
@@ -67,6 +161,20 @@
             "vocab": [
               "old-fashioned",
               "puppet"
+            ],
+            "detailed": [
+              {
+                "part": "felt less close to",
+                "explain": "感觉不那么亲近了。feel 感觉(过去 felt)，less 更少地"
+              },
+              {
+                "part": "the art",
+                "explain": "这门艺术"
+              },
+              {
+                "part": "because people thought puppets were too old-fashioned",
+                "explain": "因为人们认为木偶太老式了。old-fashioned 老式的"
+              }
             ]
           },
           {
@@ -75,6 +183,20 @@
             "vocab": [
               "puppetry",
               "unless"
+            ],
+            "detailed": [
+              {
+                "part": "didn't want to be part of",
+                "explain": "不想参与。be part of 成为的一部分"
+              },
+              {
+                "part": "puppetry",
+                "explain": "木偶表演艺术"
+              },
+              {
+                "part": "unless I was asked to",
+                "explain": "除非有人要求。unless 除非(条件连词)"
+              }
             ]
           },
           {
@@ -82,6 +204,20 @@
             "cn": "一天，妈妈给我看了外公老师的一场表演。",
             "vocab": [
               "performance"
+            ],
+            "detailed": [
+              {
+                "part": "One day",
+                "explain": "有一天。讲故事常用开头"
+              },
+              {
+                "part": "my mum showed me",
+                "explain": "我妈妈给我看了。show sb. sth. 给某人看"
+              },
+              {
+                "part": "a performance by my grandpa's teacher",
+                "explain": "外公老师的一场表演。by 由"
+              }
             ]
           },
           {
@@ -89,6 +225,20 @@
             "cn": "精致的木偶和它们激动人心的动作带回了童年的记忆。",
             "vocab": [
               "puppet"
+            ],
+            "detailed": [
+              {
+                "part": "The finely made puppets",
+                "explain": "制作精良的木偶。finely 精细地"
+              },
+              {
+                "part": "their exciting movements",
+                "explain": "激动人心的动作。exciting 令人兴奋的，movement 动作"
+              },
+              {
+                "part": "brought back childhood memories",
+                "explain": "带回童年回忆。bring back 带回，memory 记忆"
+              }
             ]
           },
           {
@@ -96,6 +246,20 @@
             "cn": "就在那时，我对木偶表演的热爱重新燃起。",
             "vocab": [
               "puppetry"
+            ],
+            "detailed": [
+              {
+                "part": "Then and there",
+                "explain": "就在那时。固定短语"
+              },
+              {
+                "part": "my love for puppetry",
+                "explain": "我对木偶表演的爱"
+              },
+              {
+                "part": "started to grow again",
+                "explain": "重新燃起。start to do 开始，grow 增长"
+              }
             ]
           },
           {
@@ -103,18 +267,56 @@
             "cn": "我在网上发布了关于木偶表演未来的困惑。",
             "vocab": [
               "puppetry"
+            ],
+            "detailed": [
+              {
+                "part": "I posted my doubts",
+                "explain": "我发布了困惑。post 发帖，doubt 困惑"
+              },
+              {
+                "part": "about the future of puppetry",
+                "explain": "关于木偶表演的未来"
+              }
             ]
           },
           {
             "en": "To my surprise, the post was flooded with comments expressing warm feelings.",
             "cn": "令我惊讶的是，帖子被表达温暖情感的评论淹没了。",
-            "vocab": []
+            "vocab": [],
+            "detailed": [
+              {
+                "part": "To my surprise",
+                "explain": "令我惊讶的是。固定短语"
+              },
+              {
+                "part": "the post was flooded with comments",
+                "explain": "帖子被评论淹没。be flooded with 被淹没"
+              },
+              {
+                "part": "expressing warm feelings",
+                "explain": "表达温暖的情感。express 表达，warm 温暖的"
+              }
+            ]
           },
           {
             "en": "Many people showed their love for the art of puppetry and encouraged me to hold on.",
             "cn": "许多人表达了对木偶表演艺术的热爱，并鼓励我坚持。",
             "vocab": [
               "puppetry"
+            ],
+            "detailed": [
+              {
+                "part": "Many people showed their love",
+                "explain": "许多人表达了爱。show one's love 表达某人的爱"
+              },
+              {
+                "part": "for the art of puppetry",
+                "explain": "对木偶表演艺术"
+              },
+              {
+                "part": "encouraged me to hold on",
+                "explain": "鼓励我坚持。encourage sb. to do 鼓励，hold on 坚持"
+              }
             ]
           },
           {
@@ -123,6 +325,24 @@
             "vocab": [
               "blood",
               "puppetry"
+            ],
+            "detailed": [
+              {
+                "part": "A truth hit me",
+                "explain": "一个真相击中了我。hit 击中(过去式 hit)"
+              },
+              {
+                "part": "it was my duty",
+                "explain": "这是我的责任。duty 责任"
+              },
+              {
+                "part": "to keep the art alive",
+                "explain": "让艺术保持活力。keep alive 保持活力"
+              },
+              {
+                "part": "because puppetry was in my blood",
+                "explain": "因为木偶在我血液里。be in one's blood 与生俱来"
+              }
             ]
           }
         ]
@@ -132,13 +352,33 @@
           {
             "en": "The art will be popular again if young people are interested in it.",
             "cn": "如果年轻人对它感兴趣，这门艺术就会再次流行起来。",
-            "vocab": []
+            "vocab": [],
+            "detailed": [
+              {
+                "part": "The art will be popular again",
+                "explain": "艺术会再次流行。popular 流行的"
+              },
+              {
+                "part": "if young people are interested in it",
+                "explain": "如果年轻人感兴趣。be interested in 对感兴趣"
+              }
+            ]
           },
           {
             "en": "So I held a puppet show at school.",
             "cn": "于是我在学校举办了一场木偶表演。",
             "vocab": [
               "puppet"
+            ],
+            "detailed": [
+              {
+                "part": "So I held a puppet show",
+                "explain": "于是我举办了一场木偶表演。hold 举办(过去 held)"
+              },
+              {
+                "part": "at school",
+                "explain": "在学校"
+              }
             ]
           },
           {
@@ -147,6 +387,24 @@
             "vocab": [
               "edge",
               "perform"
+            ],
+            "detailed": [
+              {
+                "part": "When I finished performing",
+                "explain": "当我表演完。finish doing 做完某事"
+              },
+              {
+                "part": "I looked up",
+                "explain": "我抬头看。look up 抬头"
+              },
+              {
+                "part": "saw a surprising picture",
+                "explain": "看到惊人的画面。surprising 令人惊讶的"
+              },
+              {
+                "part": "the students were on the edge of their seats",
+                "explain": "学生们聚精会神。on the edge of one's seat 全神贯注"
+              }
             ]
           },
           {
@@ -154,6 +412,12 @@
             "cn": "他们的眼睛紧盯着木偶。",
             "vocab": [
               "puppet"
+            ],
+            "detailed": [
+              {
+                "part": "Their eyes were glued to the puppets",
+                "explain": "眼睛紧盯着木偶。be glued to 紧盯着"
+              }
             ]
           },
           {
@@ -161,6 +425,20 @@
             "cn": "在热烈的欢呼之后，他们来询问在哪里能看到完整的表演。",
             "vocab": [
               "performance"
+            ],
+            "detailed": [
+              {
+                "part": "After a warm cheer",
+                "explain": "热烈的欢呼后。cheer 欢呼声"
+              },
+              {
+                "part": "they came to ask",
+                "explain": "他们来询问。come to do 来做"
+              },
+              {
+                "part": "where they could see a full performance",
+                "explain": "哪里能看到完整表演。full 完整的"
+              }
             ]
           }
         ]
@@ -172,6 +450,20 @@
             "cn": "年轻观众们的积极回应给了我更多勇气。",
             "vocab": [
               "viewer"
+            ],
+            "detailed": [
+              {
+                "part": "The positive reply",
+                "explain": "积极的回应。positive 积极的，reply 回应"
+              },
+              {
+                "part": "from the young viewers",
+                "explain": "来自年轻观众。viewer 观看者(复数 viewers)"
+              },
+              {
+                "part": "gave me more courage",
+                "explain": "给了我更多勇气。give 给(过去 gave)，courage 勇气"
+              }
             ]
           },
           {
@@ -179,17 +471,59 @@
             "cn": "从此，我的木偶表演在国内外都引起了更多的关注。",
             "vocab": [
               "puppet"
+            ],
+            "detailed": [
+              {
+                "part": "Since then",
+                "explain": "从那时起。since 自以后"
+              },
+              {
+                "part": "my puppet shows have drawn more attention",
+                "explain": "我的表演吸引了更多关注。draw attention 吸引注意(完成时 have drawn)"
+              },
+              {
+                "part": "both from home and abroad",
+                "explain": "国内外。home 国内，abroad 国外"
+              }
             ]
           },
           {
             "en": "The old art is getting more interest and new stories.",
             "cn": "这门古老的艺术正在获得更多的兴趣和新故事。",
-            "vocab": []
+            "vocab": [],
+            "detailed": [
+              {
+                "part": "The old art",
+                "explain": "古老的艺术。old 古老的"
+              },
+              {
+                "part": "is getting more interest",
+                "explain": "正在获得更多关注。get interest 获得关注(现在进行时)"
+              }
+            ]
           },
           {
             "en": "With more and more people joining in, I believe the special magic of this traditional art will last forever!",
             "cn": "随着越来越多的人加入，我相信这门传统艺术的特殊魔力将永远持续下去！",
-            "vocab": []
+            "vocab": [],
+            "detailed": [
+              {
+                "part": "With more and more people joining in",
+                "explain": "随着越来越多人加入。more and more 越来越多，独立主格结构"
+              },
+              {
+                "part": "I believe",
+                "explain": "我相信。believe 相信"
+              },
+              {
+                "part": "the special magic of this traditional art",
+                "explain": "这门传统艺术的特殊魔力。magic 魔力，traditional 传统的"
+              },
+              {
+                "part": "will last forever",
+                "explain": "将永远持续。last 持续，forever 永远"
+              }
+            ]
           }
         ]
       }
