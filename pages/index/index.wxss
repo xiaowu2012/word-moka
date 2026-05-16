@@ -29,3 +29,13 @@
 }
 
 .card-hover { background: #F5F7FA; }
+
+.unit-card.disabled { opacity: 0.6; }
+
+.unit-status {
+  font-size: 22rpx; padding: 4rpx 16rpx; border-radius: 20rpx;
+  display: inline-flex; align-items: center; justify-content: center;
+  margin-left: 16rpx; line-height: 1.2;
+}
+.unit-status.ready { background: #E8F8E8; color: #27AE60; }
+.unit-status.coming { background: #FFF3E8; color: #E67E22; }
