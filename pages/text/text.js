@@ -270,6 +270,8 @@ Page({
         }
       }
       if (foundIdx !== this.data.playingSentenceIdx) {
+        // foundIdx=-1 表示时间不在任何句子范围内，不要覆盖进度显示
+        if (foundIdx === -1) return
         this.setData({
           playingSentenceIdx: foundIdx,
           progressTime: this._formatTime(foundIdx),
