@@ -38,11 +38,10 @@
             </block>
           </view>
         </view>
-        <!-- 中：中文翻译（释关闭时显示）-->
-        <text class="sentence-cn" wx:if="{{!showDetailed && showCn}}">{{sentences[item].cn}}</text>
+        <text class="sentence-cn" wx:if="{{showCn && !showDetailed}}">{{sentences[item].cn}}</text>
 
-        <!-- 释：逐词拆解（同时需要 showCn=true，点EN时关闭）-->
-        <view class="sentence-detail" wx:if="{{showDetailed && showCn}}">
+        <!-- 释：逐词拆解 -->
+        <view class="sentence-detail" wx:if="{{showDetailed}}">
           <view wx:for="{{sentences[item].detailed}}" wx:for-index="didx" wx:key="didx" class="detail-item">
             <text class="detail-part">{{item.part}}</text>
             <text class="detail-explain">{{item.explain}}</text>
