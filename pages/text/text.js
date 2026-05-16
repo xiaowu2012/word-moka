@@ -271,45 +271,68 @@ Page({
       })
     })
   },
-    ctx.autoplay = false
-    ctx.obeyMuteSwitch = false
+    
+  _initAudio(mode = 'normal') {
+    return new Promise((resolve) => {
+      if (this._audioCtx) {
+        this._audioCtx.stop()
+        this._audioCtx.destroy()
+        this._audioCtx = null
+      }
 
-    this._seeking = false
+      const ctx = wx.createInnerAudioContext()
+      ctx.autoplay = false
+      ctx.obeyMuteSwitch = false
 
-    ctx.onTimeUpdate(() => {
-      if (this._seeking) return
-      const t = ctx.currentTime
-      const sentences = this._ts.sentences
-      let foundIdx = -1
-      for (let i = 0; i < sentences.length; i++) {
-        if (t >= sentences[i].start && t < sentences[i].end) {
-          foundIdx = i
-          break
+      this._seeking = false
+
+      ctx.onTimeUpdate(() => {
+        if (this._seeking) return
+        const t = ctx.currentTime
+        const sentences = this._ts.sentences
+        let foundIdx = -1
+        for (let i = 0; i < sentences.length; i++) {
+          if (t >= sentences[i].start && t < sentences[i].end) {
+            foundIdx = i
+            break
+          }
         }
-      }
-      if (foundIdx !== this.data.playingSentenceIdx) {
-        // foundIdx=-1 表示时间不在任何句子范围内，不要覆盖进度显示
-        if (foundIdx === -1) return
-        this.setData({
-          playingSentenceIdx: foundIdx,
-          progressTime: this._formatTime(foundIdx),
-        })
-        this._scrollToSentence(foundIdx)
-      }
+        if (foundIdx !== this.data.playingSentenceIdx) {
+          if (foundIdx === -1) return
+          this.setData({
+            playingSentenceIdx: foundIdx,
+            progressTime: this._formatTime(foundIdx),
+          })
+          this._scrollToSentence(foundIdx)
+        }
+      })
+
+      ctx.onEnded(() => {
+        this.setData({ isPlaying: false, playingSentenceIdx: -1 })
+      })
+
+      ctx.onStop(() => { this.setData({ isPlaying: false }) })
+      ctx.onPause(() => { this.setData({ isPlaying: false }) })
+
+      this._audioCtx = ctx
+
+      wx.cloud.getTempFileURL({
+        fileList: [this._audioFiles[mode]],
+        success: res => {
+          const url = res.fileList && res.fileList[0] && res.fileList[0].tempFileURL
+          ctx.src = url || `/audio/${mode === 'slow' ? 'Unit1_slow.mp3' : 'Unit1_full.mp3'}`
+        },
+        fail: () => {
+          ctx.src = `/audio/${mode === 'slow' ? 'Unit1_slow.mp3' : 'Unit1_full.mp3'}`
+        },
+        complete: () => {
+          resolve(ctx)
+        }
+      })
     })
-
-    ctx.onEnded(() => {
-      this.setData({ isPlaying: false, playingSentenceIdx: -1 })
-    })
-
-    ctx.onStop(() => { this.setData({ isPlaying: false }) })
-    ctx.onPause(() => { this.setData({ isPlaying: false }) })
-
-    this._audioCtx = ctx
   },
 
-  // === 慢/快切换 ===
-  async onToggleSpeed() {
+async onToggleSpeed() {
     const isSlow = !this.data.isSlow
     const mode = isSlow ? 'slow' : 'normal'
     const ts = isSlow ? TIMESTAMPS_SLOW : TIMESTAMPS_FAST
