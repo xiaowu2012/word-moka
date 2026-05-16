@@ -256,7 +256,10 @@ Page({
     ctx.autoplay = false
     ctx.obeyMuteSwitch = false
 
+    this._seeking = false
+
     ctx.onTimeUpdate(() => {
+      if (this._seeking) return
       const t = ctx.currentTime
       const sentences = this._ts.sentences
       let foundIdx = -1
@@ -317,9 +320,11 @@ Page({
     this.setData({ isSlow })
 
     if (wasPlaying && seekTime > 0) {
+      this._seeking = true
       this._audioCtx.seek(seekTime)
       const h = () => {
         this._audioCtx.offSeeked(h)
+        this._seeking = false
         this._audioCtx.play()
       }
       this._audioCtx.onSeeked(h)
@@ -366,6 +371,8 @@ Page({
     const sentences = this._ts.sentences
     if (idx >= sentences.length) return
 
+    this._seeking = true
+
     this.setData({
       isPlaying: true,
       playingSentenceIdx: idx,
@@ -374,10 +381,15 @@ Page({
 
     const target = sentences[idx].start
 
+    const done = () => {
+      this._seeking = false
+      this._audioCtx.play()
+    }
+
     // seek(0) 不会触发 onSeeked（已经在0位），直接play
     if (target === 0) {
       this._audioCtx.seek(0)
-      this._audioCtx.play()
+      done()
       return
     }
 
@@ -385,7 +397,7 @@ Page({
     this._audioCtx.seek(target)
     const handler = () => {
       this._audioCtx.offSeeked(handler)
-      this._audioCtx.play()
+      done()
     }
     this._audioCtx.onSeeked(handler)
   },
