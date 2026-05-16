@@ -159,6 +159,14 @@ def timestamps_to_sentences(full_text, alignment):
     return result
 
 
+# 段落分组: 每个元素是句子索引的列表
+PARAGRAPHS = [
+    list(range(0, 4)),   # 第1段: 0-3句
+    list(range(4, 14)),  # 第2段: 4-13句
+    list(range(14, 19)), # 第3段: 14-18句
+    list(range(19, 23)), # 第4段: 19-22句
+]
+
 def main():
     PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     AUDIO_DIR = os.path.join(PROJECT_DIR, "audio")
@@ -193,12 +201,24 @@ def main():
     print(f"\n💾 音频已保存: {audio_path} ({len(audio_bytes)/1024:.0f}KB)")
 
     # 4. 保存时间戳 JSON
+    # 构建段落结构
+    paragraphs_data = []
+    for para_indices in PARAGRAPHS:
+        para_sentences = [sentences[i] for i in para_indices if i < len(sentences)]
+        if para_sentences:
+            paragraphs_data.append({
+                "sentenceIndices": para_indices,
+                "start": para_sentences[0]["start"],
+                "end": para_sentences[-1]["end"],
+            })
+
     timestamps_data = {
         "unit": UNIT,
         "title": TITLE,
         "totalSentences": len(sentences),
         "audioDuration": round(sentences[-1]["end"], 2) if sentences else 0,
         "sentences": sentences,
+        "paragraphs": paragraphs_data,
     }
     json_path = os.path.join(AUDIO_DIR, f"{UNIT}_timestamps.json")
     with open(json_path, "w", encoding="utf-8") as f:

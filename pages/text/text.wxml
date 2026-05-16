@@ -1,4 +1,4 @@
-<!-- 课文阅读页 -->
+<!-- 课文阅读页 - 单音频 + 时间戳高亮 -->
 <view class="page-wrap">
   <view class="header">
     <view class="header-info">
@@ -6,38 +6,43 @@
       <text class="header-unit">{{unitId}}</text>
     </view>
     <text class="play-all-btn" bindtap="onTogglePlayAll">
-      {{playAllMode ? '■ 停止' : '▶ 全文'}}
+      {{isPlaying ? '⏸ 暂停' : '▶ 全文'}}
     </text>
     <text class="cn-toggle-btn" bindtap="onToggleCn">
       {{showCn ? '中' : 'EN'}}
     </text>
   </view>
 
-  <scroll-view class="passage-scroll" scroll-y style="height: {{scrollHeight}}px;">
-    <view class="passage">
-      <view class="paragraph" wx:for="{{paragraphs}}" wx:for-index="pidx" wx:key="pidx">
-        <view wx:for="{{item.sentences}}" wx:key="gidx">
-          <view class="sentence-row {{playingIdx === item.gidx ? 'playing' : ''}}"
-                bindtap="onPlaySentence" data-idx="{{item.gidx}}">
-            <text class="play-icon">{{playingIdx === item.gidx ? '🔊' : '▶'}}</text>
-            <text class="sentence-en">
-              <text wx:for="{{item.tokens}}" wx:key="*this">
-                <text wx:if="{{item.isVocab}}" class="vocab-word"
-                      catchtap="onTapWord" data-word="{{item.wordKey}}">{{item.text}} </text>
-                <text wx:else>{{item.text}} </text>
-              </text>
-            </text>
-          </view>
-          <text class="sentence-cn" wx:if="{{showCn}}">{{item.cn}}</text>
-          <view class="action-bar" wx:if="{{showActions && actionSentenceIdx === item.gidx}}">
-            <text class="action-btn" bindtap="onReplay">🔁 再读一遍</text>
-            <text class="action-btn primary" bindtap="onContinueReading">➡ 往后跟读</text>
-          </view>
+  <view class="passage">
+    <!-- 按段落分组 -->
+    <view class="paragraph" wx:for="{{paragraphs}}" wx:for-index="pidx" wx:key="pidx">
+      <view class="sentence-wrap"
+            wx:for="{{item.sentenceIndices}}"
+            wx:for-index="sidx"
+            wx:key="sidx">
+        <view class="sentence-row {{playingSentenceIdx === sentences[item].index ? 'playing' : ''}}"
+              id="sentence-{{sentences[item].index}}"
+              data-idx="{{sentences[item].index}}"
+              bindtap="onPlaySentence">
+          <text class="play-icon">{{playingSentenceIdx === sentences[item].index ? '🔊' : '▶'}}</text>
+          <text class="sentence-en">{{sentences[item].en}}</text>
         </view>
+        <text class="sentence-cn" wx:if="{{showCn}}">{{sentences[item].cn}}</text>
       </view>
     </view>
-  </scroll-view>
+  </view>
 
+  <!-- 底部播放进度条 -->
+  <view class="footer-bar {{isPlaying ? 'active' : ''}}">
+    <view class="progress-row">
+      <view class="progress-track">
+        <view class="progress-fill" style="width: {{playingSentenceIdx >= 0 ? (sentences[playingSentenceIdx].end / audioDuration * 100) : 0}}%"></view>
+      </view>
+      <view class="time-label">{{playingSentenceIdx >= 0 ? sentences[playingSentenceIdx].end.toFixed(0) : '0'}}s / {{audioDuration.toFixed(0)}}s</view>
+    </view>
+  </view>
+
+  <!-- 重点词弹窗 -->
   <view class="word-mask" wx:if="{{showWordCard}}" bindtap="onCloseWordCard"></view>
   <view class="word-card" wx:if="{{showWordCard}}">
     <text class="wc-word">{{selectedWord.word}}</text>
