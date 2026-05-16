@@ -375,7 +375,7 @@ async onToggleSpeed() {
         }
       }
       if (curIdx >= 0 && ts.sentences[curIdx]) {
-        const ratio = oldTs.audioDuration / ts.audioDuration
+        const ratio = ts.audioDuration / oldTs.audioDuration
         seekTime = currentTime * ratio
       }
     }
