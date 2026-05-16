@@ -42,11 +42,13 @@
           <view class="word-card {{wcard.key ? 'key-card' : ''}}"
                 wx:for="{{wordCards[item]}}"
                 wx:for-index="cidx" wx:key="cidx"
-                wx:for-item="wcard">
+                wx:for-item="wcard"
+                data-word="{{wcard.word}}"
+                catchtap="onPlayWord">
             <!-- 第一行: 单词 + 🔊 + ⭐ -->
             <view class="card-row1">
               <text class="card-word">{{wcard.word}}</text>
-              <text class="card-play" data-word="{{wcard.word}}" catchtap="onPlayWord">🔊</text>
+              <text class="card-play">🔊</text>
               <text class="card-rating" wx:if="{{wcard.importance}}">⭐{{wcard.importance}}</text>
             </view>
             <!-- 音标 + 中文 -->

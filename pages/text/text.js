@@ -205,12 +205,28 @@ Page({
     this._ts = ts
     const totalTime = this._fmtSec(ts.audioDuration)
 
-    // 分词：每句拆成 token 数组
-    const sentenceTokens = ts.sentences.map(s => this._tokenize(s.en, s.vocab))
+    // 分词 + 单词卡片（每个词只在首次出现时标注/展示）
+    const seenWords = new Set()
+    const sentenceTokens = ts.sentences.map(s => {
+      // 过滤掉已出现过的词
+      const firstSeen = (s.vocab || []).filter(k => {
+        if (seenWords.has(k)) return false
+        seenWords.add(k)
+        return true
+      })
+      // 用 firstSeen 重新 tokenize（只标首次出现的词）
+      return this._tokenize(s.en, firstSeen)
+    })
 
-    // 每句的单词卡片数据
+    // 重置 seenWords，同样处理单词卡片
+    seenWords.clear()
     const wordCards = ts.sentences.map(s => {
       return (s.vocab || [])
+        .filter(k => {
+          if (seenWords.has(k)) return false
+          seenWords.add(k)
+          return true
+        })
         .map(key => VOCAB_DATA[key])
         .filter(Boolean)
     })
