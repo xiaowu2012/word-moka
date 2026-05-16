@@ -9,8 +9,10 @@
  * 5. 顶部"慢/快"按钮切换语速
  */
 
-/* 从 data/texts.json 自动生成 - 25句, 所有内容已与PDF校对一致 */
+/* 从 data/texts.json 自动生成 - 25句, 与PDF核对一致 */
 const TIMESTAMPS_FAST = {
+  unit: "Unit1",
+  title: "Art in safe hands",
   audioDuration: 109.04,
   sentences: [
     { "index": 0, "en": "Good evening, ladies and gentlemen. I\'m Zhan Haojing, a high school student.", "cn": "晚上好，女士们先生们。我是詹昊晶，一名高中生。", "start": 0.0, "end": 4.11 },
@@ -50,6 +52,8 @@ const TIMESTAMPS_FAST = {
 
 const SCALE = 1 / 0.86
 const TIMESTAMPS_SLOW = {
+  unit: "Unit1",
+  title: "Art in safe hands",
   audioDuration: +(109.04 * SCALE).toFixed(2),
   sentences: [
     { "index": 0, "en": "Good evening, ladies and gentlemen. I\'m Zhan Haojing, a high school student.", "cn": "晚上好，女士们先生们。我是詹昊晶，一名高中生。", "start": 0.0, "end": 4.779 },
@@ -101,9 +105,9 @@ Page({
     showCn: true,
     isPlaying: false,
     isSlow: false,
-    // 预格式化好的时间显示，避免模板里调 .toFixed()
-    progressTime: '0',
-    totalTime: '102',          // 慢速模式 on/off
+    // 预格式化好的时间显示
+    progressTime: '0s',
+    totalTime: '0s',
 
     // 弹窗
     showWordCard: false,
@@ -123,8 +127,9 @@ Page({
 
   _setTimestamps(ts) {
     this._ts = ts
-    const totalTime = this._formatNum(ts.audioDuration)
+    const totalTime = this._fmtSec(ts.audioDuration)
     this.setData({
+      unitId: ts.unit || this._unitId,
       title: ts.title,
       totalSentences: ts.totalSentences,
       audioDuration: ts.audioDuration,
@@ -134,11 +139,19 @@ Page({
     })
   },
 
-  _formatNum(n) { return typeof n === 'number' ? Math.round(n) + '' : '0' },
+  // 秒数 -> 友好时间格式: 23s / 1m49s
+  _fmtSec(n) {
+    if (typeof n !== 'number') return '0s'
+    const s = Math.round(n)
+    if (s < 60) return s + 's'
+    const m = Math.floor(s / 60)
+    const sec = s % 60
+    return sec > 0 ? m + 'm' + sec + 's' : m + 'm'
+  },
   _formatTime(idx) {
     const s = this._ts && this._ts.sentences
-    if (s && s[idx]) return this._formatNum(s[idx].end)
-    return '0'
+    if (s && s[idx]) return this._fmtSec(s[idx].end)
+    return '0s'
   },
 
   // 对应两个音频文件

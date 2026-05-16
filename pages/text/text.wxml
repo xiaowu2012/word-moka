@@ -8,11 +8,11 @@
     <view class="speed-btn {{isSlow ? 'slow' : 'fast'}}" bindtap="onToggleSpeed">
       <text>{{isSlow ? '慢' : '快'}}</text>
     </view>
-    <view class="play-all-btn" bindtap="onTogglePlayAll">
-      <text>{{isPlaying ? '⏸' : '▶'}}</text>
-    </view>
     <view class="cn-toggle-btn" bindtap="onToggleCn">
       <text>{{showCn ? '中' : 'EN'}}</text>
+    </view>
+    <view class="play-all-btn" bindtap="onTogglePlayAll">
+      <text>{{isPlaying ? '⏸' : '▶'}}</text>
     </view>
   </view>
 
@@ -39,7 +39,7 @@
       <view class="progress-track">
         <view class="progress-fill" style="width: {{playingSentenceIdx >= 0 ? (sentences[playingSentenceIdx].end / audioDuration * 100) : 0}}%"></view>
       </view>
-      <view class="time-label">{{progressTime}}s / {{totalTime}}s</view>
+      <view class="time-label">{{progressTime}} / {{totalTime}}</view>
     </view>
   </view>
 
