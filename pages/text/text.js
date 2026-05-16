@@ -317,7 +317,11 @@ Page({
 
     if (wasPlaying && seekTime > 0) {
       this._audioCtx.seek(seekTime)
-      this._audioCtx.play()
+      const h = () => {
+        this._audioCtx.offSeeked(h)
+        this._audioCtx.play()
+      }
+      this._audioCtx.onSeeked(h)
     }
   },
 
@@ -361,13 +365,19 @@ Page({
     const sentences = this._ts.sentences
     if (idx >= sentences.length) return
 
-    this._audioCtx.seek(sentences[idx].start)
-    this._audioCtx.play()
     this.setData({
       isPlaying: true,
       playingSentenceIdx: idx,
       progressTime: this._formatTime(idx),
     })
+
+    // 先seek到位再play，否则seek异步会先播0再跳转
+    this._audioCtx.seek(sentences[idx].start)
+    const handler = () => {
+      this._audioCtx.offSeeked(handler)
+      this._audioCtx.play()
+    }
+    this._audioCtx.onSeeked(handler)
   },
 
   _pause() {
