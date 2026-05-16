@@ -8,7 +8,8 @@
             "en": "Good evening, ladies and gentlemen. I'm Zhan Haojing, a high school student.",
             "cn": "晚上好，女士们先生们。我是詹昊晶，一名高中生。",
             "vocab": [
-              "gentleman"
+              "gentleman",
+              "lady"
             ]
           },
           {
@@ -22,7 +23,6 @@
             "en": "Look at this puppet. If I move my fingers, it will come to life!",
             "cn": "看看这个木偶。如果我动动手指，它就会活过来！",
             "vocab": [
-              "puppet",
               "finger"
             ]
           }
@@ -69,7 +69,6 @@
             "en": "I didn't want to be part of puppetry unless I was asked to.",
             "cn": "除非有人要求，否则我不想参与木偶表演。",
             "vocab": [
-              "puppetry",
               "unless"
             ]
           },
@@ -124,15 +123,13 @@
           {
             "en": "So I held a puppet show at school.",
             "cn": "于是我在学校举办了一场木偶表演。",
-            "vocab": [
-              "perform"
-            ]
+            "vocab": []
           },
           {
             "en": "When I finished performing, I looked up and saw a surprising picture: the students were on the edge of their seats.",
             "cn": "当我表演完，抬头看到一幅令人惊讶的画面：学生们都聚精会神地看着。",
             "vocab": [
-              "edge"
+              "perform"
             ]
           },
           {
@@ -143,7 +140,9 @@
           {
             "en": "After a warm cheer, they came to ask where they could see a full performance.",
             "cn": "在热烈的欢呼之后，他们来询问在哪里能看到完整的表演。",
-            "vocab": []
+            "vocab": [
+              "performance"
+            ]
           }
         ]
       },
@@ -169,9 +168,7 @@
           {
             "en": "With more and more people joining in, I believe the special magic of this traditional art will last forever!",
             "cn": "随着越来越多的人加入，我相信这门传统艺术的特殊魔力将永远持续下去！",
-            "vocab": [
-              "inspire"
-            ]
+            "vocab": []
           }
         ]
       }

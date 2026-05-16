@@ -3,229 +3,148 @@
     "word": "lady",
     "phonetic": "/'lerdi/",
     "cnMeaning": "女士，女子",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "gentleman": {
     "word": "gentleman",
     "phonetic": "/'dsentlman/",
     "cnMeaning": "先生",
-    "module": "Unit1"
-  },
-  "puppet": {
-    "word": "puppet",
-    "phonetic": "/'pAprt/",
-    "cnMeaning": "（牵线）木偶；",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "performer": {
     "word": "performer",
     "phonetic": "/pe 'fo:ma/",
     "cnMeaning": "表演者",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "finger": {
     "word": "finger",
     "phonetic": "/'fuga/",
     "cnMeaning": "手指",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "teenager": {
     "word": "teenager",
     "phonetic": "/'tinerdga/",
     "cnMeaning": "青少年",
-    "module": "Unit1"
-  },
-  "puppetry": {
-    "word": "puppetry",
-    "phonetic": "/'pApatri/",
-    "cnMeaning": "木偶表演艺术",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "unless": {
     "word": "unless",
     "phonetic": "/an'les/",
     "cnMeaning": "除非•.",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "performance": {
     "word": "performance",
     "phonetic": "/pa 'fo:mans/",
     "cnMeaning": "表演；",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "blood": {
     "word": "blood",
     "phonetic": "/bld/",
     "cnMeaning": "血，血液",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "perform": {
     "word": "perform",
     "phonetic": "/pe 'fo:m/",
     "cnMeaning": "表演，演出",
-    "module": "Unit1"
-  },
-  "edge": {
-    "word": "edge",
-    "phonetic": "/eds/",
-    "cnMeaning": "边缘",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "viewer": {
     "word": "viewer",
     "phonetic": "/'vjua/",
     "cnMeaning": "观看者",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "creativity": {
     "word": "creativity",
     "phonetic": "/，kri:er'tvsti/",
     "cnMeaning": "独创性，",
-    "module": "Unit1"
-  },
-  "volunteer": {
-    "word": "volunteer",
-    "phonetic": "/，volon'tra/",
-    "cnMeaning": "志愿者",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "artist": {
     "word": "artist",
     "phonetic": "/'a:tust/",
     "cnMeaning": "艺术家",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "group": {
     "word": "group",
     "phonetic": "/grup/",
     "cnMeaning": "组，群；团体",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "creator": {
     "word": "creator",
     "phonetic": "/kri'eite/",
     "cnMeaning": "创作者；创造者",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "kill": {
     "word": "kill",
     "phonetic": "/kal/",
     "cnMeaning": "弄死，杀死",
-    "module": "Unit1"
-  },
-  "scarecrow": {
-    "word": "scarecrow",
-    "phonetic": "/'skeokru/",
-    "cnMeaning": "稻草人",
-    "module": "Unit1"
-  },
-  "educator": {
-    "word": "educator",
-    "phonetic": "/'edjukerta/",
-    "cnMeaning": "教育家",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "youth": {
     "word": "youth",
     "phonetic": "/ju:6/",
     "cnMeaning": "青年，年轻人",
-    "module": "Unit1"
-  },
-  "inspire": {
-    "word": "inspire",
-    "phonetic": "/m'spars/",
-    "cnMeaning": "鼓舞，激励",
-    "module": "Unit1"
-  },
-  "intelligent": {
-    "word": "intelligent",
-    "phonetic": "/m 'teladgont/",
-    "cnMeaning": "有智",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "wealthy": {
     "word": "wealthy",
     "phonetic": "/'welfi/",
     "cnMeaning": "富有的；富",
-    "module": "Unit1"
-  },
-  "burst": {
-    "word": "burst",
-    "phonetic": "/b3:st/",
-    "cnMeaning": "冲，闯；（使）爆裂",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "hidden": {
     "word": "hidden",
     "phonetic": "/'hrcdn/",
     "cnMeaning": "隐藏的，隐秘的",
-    "module": "Unit1"
-  },
-  "scaled": {
-    "word": "scaled",
-    "phonetic": "/skerld/",
-    "cnMeaning": "有鳞的",
-    "module": "Unit1"
-  },
-  "claw": {
-    "word": "claw",
-    "phonetic": "/klo:/",
-    "cnMeaning": "爪",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "wildly": {
     "word": "wildly",
     "phonetic": "/'warldli/",
     "cnMeaning": "激动地",
-    "module": "Unit1"
-  },
-  "roar": {
-    "word": "roar",
-    "phonetic": "/ro:/",
-    "cnMeaning": "吼叫，呼啸",
-    "module": "Unit1"
-  },
-  "valley": {
-    "word": "valley",
-    "phonetic": "/'vaeli/",
-    "cnMeaning": "谷；山谷",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "scare": {
     "word": "scare",
     "phonetic": "/skea/",
     "cnMeaning": "使惊恐，吓唬",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "wing": {
     "word": "wing",
     "phonetic": "/wu/",
     "cnMeaning": "翅膀，翼",
-    "module": "Unit1"
-  },
-  "dust": {
-    "word": "dust",
-    "phonetic": "/dast/",
-    "cnMeaning": "灰尘，尘埃",
-    "module": "Unit1"
-  },
-  "tender": {
-    "word": "tender",
-    "phonetic": "/'tenda/",
-    "cnMeaning": "娇嫩的，幼嫩",
-    "module": "Unit1"
-  },
-  "vast": {
-    "word": "vast",
-    "phonetic": "/vast/",
-    "cnMeaning": "广大无边的，极大的13",
-    "module": "Unit1"
-  },
-  "grand": {
-    "word": "grand",
-    "phonetic": "/graend/",
-    "cnMeaning": "宏伟的，壮丽的",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true
   },
   "tin": {
     "word": "tin",
@@ -1132,5 +1051,26 @@
     "phonetic": "/'brznas/",
     "cnMeaning": "商业",
     "module": "Unit6"
+  },
+  "eagle": {
+    "word": "eagle",
+    "phonetic": "",
+    "cnMeaning": "鹰",
+    "module": "Unit1",
+    "key": true
+  },
+  "lie": {
+    "word": "lie",
+    "phonetic": "",
+    "cnMeaning": "躺；说谎",
+    "module": "Unit1",
+    "key": true
+  },
+  "old-fashioned": {
+    "word": "old-fashioned",
+    "phonetic": "",
+    "cnMeaning": "老式的，过时的",
+    "module": "Unit1",
+    "key": true
   }
 }
