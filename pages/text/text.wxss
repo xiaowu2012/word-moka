@@ -84,6 +84,7 @@
 
 .sentence-en {
   font-size: 30rpx; line-height: 1.8; color: #333;
+  display: inline;
 }
 
 /* ===== 重点词高亮（Kindle 淡黄荧光笔风格） ===== */
