@@ -2,4 +2,5 @@ audio_backup/
 audio_new/
 node_modules/
 .DS_Store
+audio/*.mp3
 audio/text/*.mp3

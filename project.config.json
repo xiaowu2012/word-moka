@@ -1,7 +1,14 @@
 {
   "description": "单词魔卡 - 初中英语单词学习小程序",
   "packOptions": {
-    "ignore": [],
+    "ignore": [
+      { "type": "file", "value": "audio/Unit1_full.mp3" },
+      { "type": "file", "value": "audio/Unit1_slow.mp3" },
+      { "type": "file", "value": "audio/Unit1_timestamps.js" },
+      { "type": "file", "value": "audio/Unit1_timestamps.json" },
+      { "type": "file", "value": "audio/Unit1_slow_timestamps.json" },
+      { "type": "file", "value": "scripts/" }
+    ],
     "include": []
   },
   "setting": {

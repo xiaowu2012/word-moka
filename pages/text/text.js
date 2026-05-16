@@ -520,6 +520,14 @@ async onToggleSpeed() {
     this.setData({ showWordCard: false })
   },
 
+  // 分享
+  onShareAppMessage() {
+    return {
+      title: '单词魔卡 · ' + (this.data.title || '初中英语学习'),
+      path: '/pages/text/text?unit=' + this._unitId,
+    }
+  },
+
   // === 生命周期 ===
 
   onUnload() {

@@ -31,6 +31,14 @@ Page({
     this.setData({ showUnits: false })
   },
 
+  // 分享
+  onShareAppMessage() {
+    return {
+      title: '单词魔卡 - 初中英语单词学习',
+      path: '/pages/index/index',
+    }
+  },
+
   onReadText(e) {
     const id = e.currentTarget.dataset.id
     wx.navigateTo({ url: `/pages/text/text?unit=${id}` })
