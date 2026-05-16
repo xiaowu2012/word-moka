@@ -198,8 +198,7 @@ Page({
 
     // 默认慢速
     this._setTimestamps(TIMESTAMPS_SLOW)
-    this._audioCtx = await this._initAudio()
-    if (this._audioCtx) this._audioCtx.playbackRate = 0.86
+    this._audioCtx = await this._initAudio('slow')
   },
 
   _setTimestamps(ts) {
@@ -266,8 +265,37 @@ Page({
     'slow': 'cloud://cloudbase-d2gs4fpbhca51e19f.636c-cloudbase-d2gs4fpbhca51e19f-1433289257/audio/Unit1_slow.mp3',
   },
 
-  // 初始化音频，返回 Promise，resolve 后 src 才可用    
-  _initAudio() {
+  // 初始化音频，返回 Promise，resolve 后 src 才可用
+  _initAudio(mode = 'normal') {
+    return new Promise((resolve) => {
+      // 销毁旧音频
+      if (this._audioCtx) {
+        this._audioCtx.stop()
+        this._audioCtx.destroy()
+        this._audioCtx = null
+      }
+
+      const ctx = wx.createInnerAudioContext()
+
+      // 云存储 fileID 需先转临时链接才能播放
+      wx.cloud.getTempFileURL({
+        fileList: [this._audioFiles[mode]],
+        success: res => {
+          const url = res.fileList && res.fileList[0] && res.fileList[0].tempFileURL
+          ctx.src = url || `/audio/${mode === 'slow' ? 'Unit1_slow.mp3' : 'Unit1_full.mp3'}`
+        },
+        fail: () => {
+          // 降级到本地文件
+          ctx.src = `/audio/${mode === 'slow' ? 'Unit1_slow.mp3' : 'Unit1_full.mp3'}`
+        },
+        complete: () => {
+          resolve(ctx)
+        }
+      })
+    })
+  },
+    
+  _initAudio(mode = 'normal') {
     return new Promise((resolve) => {
       if (this._audioCtx) {
         this._audioCtx.stop()
@@ -312,10 +340,13 @@ Page({
       this._audioCtx = ctx
 
       wx.cloud.getTempFileURL({
-        fileList: [this._audioFiles.normal],
+        fileList: [this._audioFiles[mode]],
         success: res => {
           const url = res.fileList && res.fileList[0] && res.fileList[0].tempFileURL
-          if (url) ctx.src = url
+          ctx.src = url || `/audio/${mode === 'slow' ? 'Unit1_slow.mp3' : 'Unit1_full.mp3'}`
+        },
+        fail: () => {
+          ctx.src = `/audio/${mode === 'slow' ? 'Unit1_slow.mp3' : 'Unit1_full.mp3'}`
         },
         complete: () => {
           resolve(ctx)
@@ -324,17 +355,45 @@ Page({
     })
   },
 
-onToggleSpeed() {
+async onToggleSpeed() {
     const isSlow = !this.data.isSlow
+    const mode = isSlow ? 'slow' : 'normal'
     const ts = isSlow ? TIMESTAMPS_SLOW : TIMESTAMPS_FAST
+    const wasPlaying = this._audioCtx && !this._audioCtx.paused
+    const currentTime = this._audioCtx ? this._audioCtx.currentTime : 0
 
-    // 按钮颜色立刻变
+    // 找当前句，换算到新时间线
+    let seekTime = 0
+    const oldTs = this._ts
+    if (wasPlaying && oldTs) {
+      const oldSentences = oldTs.sentences
+      let curIdx = -1
+      for (let i = 0; i < oldSentences.length; i++) {
+        if (currentTime >= oldSentences[i].start && currentTime < oldSentences[i].end) {
+          curIdx = i
+          break
+        }
+      }
+      if (curIdx >= 0 && ts.sentences[curIdx]) {
+        const ratio = ts.audioDuration / oldTs.audioDuration
+        seekTime = currentTime * ratio
+      }
+    }
+
+    // 按钮颜色立刻变，不用等云存储
     this.setData({ isSlow })
     this._setTimestamps(ts)
+    this._audioCtx = await this._initAudio(mode)
 
-    // 只改播放速度，不重建音频
-    if (this._audioCtx) {
-      this._audioCtx.playbackRate = isSlow ? 0.86 : 1.0
+    if (wasPlaying && seekTime > 0) {
+      this._seeking = true
+      this._audioCtx.seek(seekTime)
+      const h = () => {
+        this._audioCtx.offSeeked(h)
+        this._seeking = false
+        this._audioCtx.play()
+      }
+      this._audioCtx.onSeeked(h)
     }
   },
 
