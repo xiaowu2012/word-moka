@@ -435,7 +435,7 @@ Page({
   },
 
   // 重点词点击 → 弹出居中单词卡
-  onTapWord(e) {
+  onWordTouch(e) {
     const wordKey = e.currentTarget.dataset.word
     if (!wordKey || !VOCAB_DATA[wordKey]) return
     this.setData({ selectedWord: VOCAB_DATA[wordKey], showWordCard: true })
