@@ -1,5 +1,5 @@
-<!-- 课文阅读页 - 单音频 + 时间戳高亮 + 慢/快切换 -->
-<view class="page-wrap">
+<!-- 课文阅读页 - 分词高亮 + 行内卡片 -->
+<view class="page-wrap" catchtap="onDismissCard">
   <view class="header">
     <view class="header-info">
       <text class="header-title">{{title}}</text>
@@ -26,9 +26,23 @@
               data-idx="{{sentences[item].index}}"
               bindtap="onPlaySentence">
           <text class="play-icon">{{playingSentenceIdx === sentences[item].index ? '🔊' : '▶'}}</text>
-          <text class="sentence-en">{{sentences[item].en}}</text>
+          <text class="sentence-en">
+            <text wx:for="{{sentenceTokens[item]}}" wx:for-index="tidx" wx:key="tidx"
+                  class="{{item.isVocab ? 'vocab-word' : ''}}"
+                  catchtap="{{item.isVocab ? 'onTapWord' : ''}}"
+                  data-word="{{item.wordKey}}">{{item.text}} </text>
+          </text>
         </view>
         <text class="sentence-cn" wx:if="{{showCn}}">{{sentences[item].cn}}</text>
+
+        <!-- 行内卡片：出现在当前句下方 -->
+        <view class="inline-card {{selectedVocab && sentences[item].vocab.includes(selectedVocab.word.toLowerCase()) ? 'show' : ''}}"
+              wx:if="{{selectedVocab && sentences[item].vocab.includes(selectedVocab.word.toLowerCase())}}"
+              catchtap="onDismissCard">
+          <text class="card-word">{{selectedVocab.word}}</text>
+          <text class="card-phonetic">{{selectedVocab.ph}}</text>
+          <text class="card-meaning">{{selectedVocab.cn}}</text>
+        </view>
       </view>
     </view>
   </view>
@@ -41,14 +55,5 @@
       </view>
       <view class="time-label">{{progressTime}} / {{totalTime}}</view>
     </view>
-  </view>
-
-  <!-- 重点词弹窗 -->
-  <view class="word-mask" wx:if="{{showWordCard}}" bindtap="onCloseWordCard"></view>
-  <view class="word-card" wx:if="{{showWordCard}}">
-    <text class="wc-word">{{selectedWord.word}}</text>
-    <text class="wc-phonetic">{{selectedWord.phonetic}}</text>
-    <text class="wc-meaning">{{selectedWord.cnMeaning}}</text>
-    <text class="wc-close" bindtap="onCloseWordCard">关闭</text>
   </view>
 </view>

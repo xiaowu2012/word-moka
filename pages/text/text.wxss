@@ -17,6 +17,7 @@
 .header-info { text-align: center; }
 .header-title { font-size: 30rpx; font-weight: 700; color: #fff; display: block; }
 .header-unit { font-size: 22rpx; color: rgba(255,255,255,0.7); display: block; }
+
 .speed-btn, .play-all-btn, .cn-toggle-btn {
   font-size: 26rpx; color: #fff; background: rgba(255,255,255,0.2);
   padding: 8rpx 20rpx; border-radius: 24rpx; flex-shrink: 0;
@@ -29,12 +30,10 @@
   min-width: 56rpx;
   font-weight: 700;
 }
-
 .speed-btn.slow {
   background: #E67E22;
   font-weight: 700;
 }
-
 .speed-btn.fast {
   background: rgba(255,255,255,0.2);
 }
@@ -52,6 +51,7 @@
 
 .sentence-wrap {
   margin-bottom: 4rpx;
+  position: relative;
 }
 
 .sentence-row {
@@ -86,6 +86,53 @@
   font-size: 30rpx; line-height: 1.8; color: #333;
 }
 
+/* ===== 重点词高亮（Kindle 淡黄荧光笔风格） ===== */
+.vocab-word {
+  background: #FFF8E1;
+  padding: 2rpx 4rpx;
+  border-radius: 4rpx;
+  cursor: pointer;
+  display: inline;
+}
+
+/* ===== 行内卡片 ===== */
+.inline-card {
+  display: none;
+  margin: 8rpx 0 8rpx 44rpx;
+  padding: 20rpx 24rpx;
+  background: linear-gradient(135deg, #F5F0FF, #EDE7F6);
+  border-radius: 16rpx;
+  border-left: 6rpx solid #7C6FF7;
+  box-shadow: 0 4rpx 16rpx rgba(124,111,247,0.12);
+  animation: cardSlideIn 0.2s ease-out;
+}
+.inline-card.show {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  flex-wrap: wrap;
+}
+.card-word {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #2C3E50;
+}
+.card-phonetic {
+  font-size: 24rpx;
+  color: #aaa;
+}
+.card-meaning {
+  font-size: 28rpx;
+  color: #E67E22;
+  font-weight: 600;
+}
+
+@keyframes cardSlideIn {
+  from { opacity: 0; transform: translateY(-8rpx); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 句子中文 */
 .sentence-cn {
   display: block; font-size: 26rpx; color: #999;
   line-height: 1.6; margin: 0 0 6rpx 44rpx;
@@ -104,17 +151,14 @@
   border-top: 1rpx solid #eee;
   transition: all 0.3s;
 }
-
 .footer-bar.active {
   background: rgba(255,255,255,0.98);
 }
-
 .progress-row {
   display: flex;
   align-items: center;
   gap: 16rpx;
 }
-
 .progress-track {
   flex: 1;
   height: 6rpx;
@@ -122,33 +166,14 @@
   border-radius: 3rpx;
   overflow: hidden;
 }
-
 .progress-fill {
   height: 100%;
   background: linear-gradient(90deg, #5B8DEF, #E67E22);
   border-radius: 3rpx;
   transition: width 0.3s;
 }
-
 .time-label {
   font-size: 22rpx;
   color: #999;
   white-space: nowrap;
 }
-
-/* 重点词弹窗 */
-.word-mask {
-  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.4); z-index: 99;
-}
-.word-card {
-  position: fixed; left: 50%; top: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff; border-radius: 24rpx; padding: 40rpx;
-  width: 520rpx; z-index: 100; text-align: center;
-  box-shadow: 0 8rpx 40rpx rgba(0,0,0,0.15);
-}
-.wc-word { font-size: 44rpx; font-weight: 700; color: #2C3E50; display: block; margin-bottom: 8rpx; }
-.wc-phonetic { font-size: 26rpx; color: #aaa; display: block; margin-bottom: 20rpx; }
-.wc-meaning { font-size: 32rpx; color: #E67E22; display: block; margin-bottom: 28rpx; }
-.wc-close { display: block; font-size: 26rpx; color: #999; padding: 10rpx 0; }
