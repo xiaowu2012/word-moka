@@ -78,7 +78,10 @@ Page({
     playingSentenceIdx: -1,
     showCn: true,
     isPlaying: false,
-    isSlow: false,          // 慢速模式 on/off
+    isSlow: false,
+    // 预格式化好的时间显示，避免模板里调 .toFixed()
+    progressTime: '0',
+    totalTime: '102',          // 慢速模式 on/off
 
     // 弹窗
     showWordCard: false,
@@ -98,13 +101,22 @@ Page({
 
   _setTimestamps(ts) {
     this._ts = ts
+    const totalTime = this._formatNum(ts.audioDuration)
     this.setData({
       title: ts.title,
       totalSentences: ts.totalSentences,
       audioDuration: ts.audioDuration,
       paragraphs: ts.paragraphs,
       sentences: ts.sentences,
+      totalTime,
     })
+  },
+
+  _formatNum(n) { return typeof n === 'number' ? Math.round(n) + '' : '0' },
+  _formatTime(idx) {
+    const s = this._ts && this._ts.sentences
+    if (s && s[idx]) return this._formatNum(s[idx].end)
+    return '0'
   },
 
   // 对应两个音频文件
@@ -137,7 +149,10 @@ Page({
         }
       }
       if (foundIdx !== this.data.playingSentenceIdx) {
-        this.setData({ playingSentenceIdx: foundIdx })
+        this.setData({
+          playingSentenceIdx: foundIdx,
+          progressTime: this._formatTime(foundIdx),
+        })
         this._scrollToSentence(foundIdx)
       }
     })
@@ -231,7 +246,11 @@ Page({
 
     this._audioCtx.seek(sentences[idx].start)
     this._audioCtx.play()
-    this.setData({ isPlaying: true, playingSentenceIdx: idx })
+    this.setData({
+      isPlaying: true,
+      playingSentenceIdx: idx,
+      progressTime: this._formatTime(idx),
+    })
   },
 
   _pause() {

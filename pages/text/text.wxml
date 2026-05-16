@@ -39,7 +39,7 @@
       <view class="progress-track">
         <view class="progress-fill" style="width: {{playingSentenceIdx >= 0 ? (sentences[playingSentenceIdx].end / audioDuration * 100) : 0}}%"></view>
       </view>
-      <view class="time-label">{{playingSentenceIdx >= 0 ? sentences[playingSentenceIdx].end.toFixed(0) : '0'}}s / {{audioDuration.toFixed(0)}}s</view>
+      <view class="time-label">{{progressTime}}s / {{totalTime}}s</view>
     </view>
   </view>
 
