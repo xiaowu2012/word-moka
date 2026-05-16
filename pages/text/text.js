@@ -237,10 +237,10 @@ Page({
     return '0s'
   },
 
-  // 对应两个音频文件
+  // 对应两个音频文件（云存储 fileID）
   _audioFiles: {
-    'normal': 'Unit1_full.mp3',
-    'slow': 'Unit1_slow.mp3',
+    'normal': 'cloud://cloudbase-d2gs4fpbhca51e19f.636c-cloudbase-d2gs4fpbhca51e19f-1433289257/audio/Unit1_full.mp3',
+    'slow': 'cloud://cloudbase-d2gs4fpbhca51e19f.636c-cloudbase-d2gs4fpbhca51e19f-1433289257/audio/Unit1_slow.mp3',
   },
 
   _initAudio(mode = 'normal') {
@@ -252,7 +252,7 @@ Page({
     }
 
     const ctx = wx.createInnerAudioContext()
-    ctx.src = `/audio/${this._audioFiles[mode]}`
+    ctx.src = this._audioFiles[mode]
     ctx.autoplay = false
     ctx.obeyMuteSwitch = false
 
