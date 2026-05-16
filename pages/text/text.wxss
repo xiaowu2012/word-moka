@@ -111,23 +111,94 @@
   background: #FFF8E1;
 }
 
-/* ===== 居中单词卡弹窗 ===== */
-.word-mask {
-  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.4); z-index: 99;
+/* ===== 翻译下方单词卡片 ===== */
+.word-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin: 12rpx 0 4rpx 44rpx;
 }
+
 .word-card {
-  position: fixed; left: 50%; top: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff; border-radius: 24rpx; padding: 40rpx;
-  width: 520rpx; z-index: 100; text-align: center;
-  box-shadow: 0 8rpx 40rpx rgba(0,0,0,0.15);
+  width: calc(50% - 6rpx);
+  background: #FFF8E1;
+  border-radius: 14rpx;
+  padding: 16rpx;
+  box-sizing: border-box;
 }
-.wc-wrap { margin-bottom: 20rpx; }
-.wc-word { font-size: 44rpx; font-weight: 700; color: #2C3E50; display: block; margin-bottom: 8rpx; }
-.wc-phonetic { font-size: 26rpx; color: #aaa; display: block; margin-bottom: 12rpx; }
-.wc-meaning { font-size: 32rpx; color: #E67E22; font-weight: 600; display: block; }
-.wc-close { display: block; font-size: 26rpx; color: #5B8DEF; padding: 10rpx 0; }
+
+.word-card.key-card {
+  background: #E8F5E9;
+}
+
+.card-row1 {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  flex-wrap: wrap;
+}
+.card-word {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #2C3E50;
+}
+.card-play {
+  font-size: 24rpx;
+  flex-shrink: 0;
+}
+.card-rating {
+  font-size: 20rpx;
+  color: #F39C12;
+  background: #FFF8E1;
+  padding: 2rpx 8rpx;
+  border-radius: 10rpx;
+}
+.card-phonetic {
+  display: block;
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 4rpx;
+}
+.card-meaning {
+  display: block;
+  font-size: 26rpx;
+  color: #E67E22;
+  font-weight: 600;
+  margin-top: 4rpx;
+}
+
+/* 展开按钮 */
+.card-expand-btn {
+  margin-top: 8rpx;
+  font-size: 22rpx;
+  color: #5B8DEF;
+  text-align: center;
+}
+.card-extras {
+  margin-top: 8rpx;
+  padding-top: 8rpx;
+  border-top: 1rpx solid #E8E8E8;
+}
+.extra-item {
+  margin-bottom: 6rpx;
+}
+.extra-label {
+  font-size: 20rpx;
+  font-weight: 700;
+  color: #7C6FF7;
+  display: block;
+  margin-bottom: 2rpx;
+}
+.extra-text {
+  font-size: 22rpx;
+  color: #555;
+  display: block;
+}
+.extra-cn {
+  font-size: 20rpx;
+  color: #999;
+  display: block;
+}
 
 /* 句子中文 */
 .sentence-cn {

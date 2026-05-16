@@ -176,8 +176,7 @@ Page({
     paragraphs: [],
     sentences: [],
     sentenceTokens: [],
-    showWordCard: false,
-    selectedWord: null,
+    wordCards: [],
     playingSentenceIdx: -1,
     showCn: true,
     isPlaying: false,
@@ -209,6 +208,13 @@ Page({
     // 分词：每句拆成 token 数组
     const sentenceTokens = ts.sentences.map(s => this._tokenize(s.en, s.vocab))
 
+    // 每句的单词卡片数据
+    const wordCards = ts.sentences.map(s => {
+      return (s.vocab || [])
+        .map(key => VOCAB_DATA[key])
+        .filter(Boolean)
+    })
+
     this.setData({
       unitId: ts.unit || this._unitId,
       title: ts.title,
@@ -217,6 +223,7 @@ Page({
       paragraphs: ts.paragraphs,
       sentences: ts.sentences,
       sentenceTokens,
+      wordCards,
       totalTime,
     })
   },
@@ -510,14 +517,20 @@ async onToggleSpeed() {
   },
 
   // 重点词点击 → 弹出居中单词卡
-  onWordTouch(e) {
+  // 点击单词卡片的播放按钮
+  onPlayWord(e) {
     const wordKey = e.currentTarget.dataset.word
     if (!wordKey || !VOCAB_DATA[wordKey]) return
-    this.setData({ selectedWord: VOCAB_DATA[wordKey], showWordCard: true })
+    // TODO: 播放单词读音
+    wx.showToast({ title: wordKey, icon: 'none' })
   },
 
-  onCloseWordCard() {
-    this.setData({ showWordCard: false })
+  // 展开/收起卡片详情
+  onToggleCard(e) {
+    const idx = e.currentTarget.dataset.idx
+    if (idx === undefined) return
+    const key = 'cardExpanded_' + idx
+    this.setData({ [key]: !this.data[key] })
   },
 
   // 分享
