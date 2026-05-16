@@ -22,6 +22,9 @@ TITLE = "Art in safe hands"
 
 # 所有英文句子（按显示顺序）
 SENTENCES = [
+    "Good evening, ladies and gentlemen. I'm Zhan Haojing, a high school student.",
+    "I'm also a puppet performer.",
+    "Look at this puppet. If I move my fingers, it will come to life!",
     "I was born into a family of Minnan puppet performers.",
     "My grandpa and my mum are both among the best.",
     "They tell stories with their hands.",
@@ -49,6 +52,9 @@ SENTENCES = [
 
 # 中文翻译（对应每句）
 SENTENCES_CN = [
+    "晚上好，女士们先生们。我是詹昊晶，一名高中生。",
+    "我还是一名木偶表演者。",
+    "看看这个木偶。如果我动动手指，它就会活过来！",
     "我出生在闽南的一个木偶戏表演世家。",
     "我的外公和我的母亲都是这行中的佼佼者。",
     "他们用手讲述故事。",
@@ -161,10 +167,11 @@ def timestamps_to_sentences(full_text, alignment):
 
 # 段落分组: 每个元素是句子索引的列表
 PARAGRAPHS = [
-    list(range(0, 4)),   # 第1段: 0-3句
-    list(range(4, 14)),  # 第2段: 4-13句
-    list(range(14, 19)), # 第3段: 14-18句
-    list(range(19, 23)), # 第4段: 19-22句
+    list(range(0, 3)),   # 第1段(引言): 0-2句
+    list(range(3, 7)),   # 第2段: 3-6句
+    list(range(7, 17)),  # 第3段: 7-16句
+    list(range(17, 22)), # 第4段: 17-21句
+    list(range(22, 26)), # 第5段: 22-25句
 ]
 
 def main():
