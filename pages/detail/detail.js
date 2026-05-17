@@ -66,7 +66,11 @@ Page({
 
     let example = null
     let exampleCn = ''
-    if (card.examples && card.examples.length > 0) {
+    // 兼容两种数据格式：八下 examples[] 数组 / 九上 example 字符串
+    if (card.example) {
+      example = { sentence: card.example }
+      exampleCn = card.exampleCn || ''
+    } else if (card.examples && card.examples.length > 0) {
       example = card.examples[0]
       exampleCn = card.exampleCn || ''
     }
@@ -131,13 +135,18 @@ Page({
   },
 
   playAudio(type) {
-    const { audioCtx, key } = this.data
+    const { audioCtx, key, word } = this.data
     if (!audioCtx) return
 
     audioCtx.stop()
     this.setData({ playing: type })
 
-    audioCtx.src = `/audio/${key}_${type}.mp3`
+    // 单词音频优先使用 pronounceFile 字段
+    if (type === 'word' && word.pronounceFile) {
+      audioCtx.src = word.pronounceFile
+    } else {
+      audioCtx.src = `/audio/${key}_${type}.mp3`
+    }
     audioCtx.play()
 
     audioCtx.onEnded(() => {
