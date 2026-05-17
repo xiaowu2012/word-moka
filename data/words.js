@@ -3,229 +3,345 @@ const words = {
     "word": "lady",
     "phonetic": "/'lerdi/",
     "cnMeaning": "女士，女子",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 4,
+    "example": "The old lady feeds the cats in her neighborhood every day.",
+    "exampleCn": "那位老太太每天都喂小区里的猫。",
+    "tip": "lady（女士）复数是 ladies。y 变 i 加 es：lady → ladies",
+    "etymology": "来自古英语 hlafdig（揉面包的人），hlaf（面包）+ dig（揉）",
+    "pronounceFile": "audio/word_pronounce/unit1_word_0.mp3",
+    "pos": "n.",
+    "extraExample": "The lady in the red dress is my English teacher.",
+    "extraCn": "穿红裙子的那位女士是我的英语老师。"
   },
   "gentleman": {
     "word": "gentleman",
     "phonetic": "/'dsentlman/",
     "cnMeaning": "先生",
-    "module": "Unit1"
-  },
-  "puppet": {
-    "word": "puppet",
-    "phonetic": "/'pAprt/",
-    "cnMeaning": "（牵线）木偶；",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 4,
+    "example": "A true gentleman always holds the door for others.",
+    "exampleCn": "一个真正的绅士总会为别人扶门。",
+    "tip": "gentleman（先生/绅士）的复数是 gentlemen（不规则变化：man → men）",
+    "etymology": "由 gentle（有教养的）+ man（人）组成",
+    "pronounceFile": "audio/word_pronounce/unit1_word_1.mp3",
+    "pos": "n.",
+    "extraExample": "That old gentleman always walks his dog in the park.",
+    "extraCn": "那位老先生总是在公园遛狗。"
   },
   "performer": {
     "word": "performer",
     "phonetic": "/pe 'fo:ma/",
     "cnMeaning": "表演者",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 4,
+    "example": "He is a famous performer who travels around the world.",
+    "exampleCn": "他是一位周游世界的著名表演者。",
+    "tip": "perform（表演）+ er（...的人）= performer（表演者）",
+    "etymology": "来自 perform（表演）+ er（行为者后缀）",
+    "pronounceFile": "audio/word_pronounce/unit1_word_2.mp3",
+    "pos": "n.",
+    "extraExample": "The performer amazed the audience with his magic tricks.",
+    "extraCn": "这位表演者用他的魔术技巧让观众惊叹。"
   },
   "finger": {
     "word": "finger",
     "phonetic": "/'fuga/",
     "cnMeaning": "手指",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 4,
+    "example": "Be careful! Don't cut your finger with that knife.",
+    "exampleCn": "小心！别用那把刀割到手指。",
+    "tip": "finger 手指。拇指 thumb 食指 index finger 中指 middle finger 无名指 ring finger 小指 little finger",
+    "etymology": "来自古英语 finger，与德语 Finger 同源",
+    "pronounceFile": "audio/word_pronounce/unit1_word_3.mp3",
+    "pos": "n.",
+    "extraExample": "She cut her finger while cooking dinner.",
+    "extraCn": "她做饭时切到了手指。"
   },
   "teenager": {
     "word": "teenager",
     "phonetic": "/'tinerdga/",
     "cnMeaning": "青少年",
-    "module": "Unit1"
-  },
-  "puppetry": {
-    "word": "puppetry",
-    "phonetic": "/'pApatri/",
-    "cnMeaning": "木偶表演艺术",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 4,
+    "example": "Many teenagers spend too much time on their phones.",
+    "exampleCn": "很多青少年花太多时间在手机上。",
+    "tip": "teenager（青少年）= thirteen（13）到 nineteen（19）都以 teen 结尾 + age（年龄）+ r",
+    "etymology": "由 teenage（青少年的）+ er（人）组成",
+    "pronounceFile": "audio/word_pronounce/unit1_word_4.mp3",
+    "pos": "n.",
+    "extraExample": "As a teenager, he started to learn programming.",
+    "extraCn": "十几岁时，他开始学习编程。"
   },
   "unless": {
     "word": "unless",
     "phonetic": "/an'les/",
     "cnMeaning": "除非•.",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 5,
+    "example": "You will fail the exam unless you study harder.",
+    "exampleCn": "除非你更努力学习，否则会考试不及格。",
+    "tip": "unless = if...not（如果不）。中考高频考点：unless 引导条件状语从句，主将从现（主句将来时，从句一般现在时）",
+    "etymology": "来自 on less than（在...更少的前提下），缩写为 unless",
+    "pronounceFile": "audio/word_pronounce/unit1_word_5.mp3",
+    "pos": "conj.",
+    "extraExample": "You won't pass the exam unless you study hard.",
+    "extraCn": "除非你努力学习，否则考试不会及格。"
   },
   "performance": {
     "word": "performance",
     "phonetic": "/pa 'fo:mans/",
     "cnMeaning": "表演；",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 4,
+    "example": "Her performance in the singing competition was amazing.",
+    "exampleCn": "她在歌唱比赛中的表现令人惊叹。",
+    "tip": "perform（表演）+ ance（名词后缀）= performance（表演/表现）",
+    "etymology": "来自 perform（表演）+ ance（行为名词后缀）",
+    "pronounceFile": "audio/word_pronounce/unit1_word_6.mp3",
+    "pos": "n.",
+    "extraExample": "The team gave an excellent performance in the match.",
+    "extraCn": "团队在比赛中表现非常出色。"
   },
   "blood": {
     "word": "blood",
     "phonetic": "/bld/",
     "cnMeaning": "血，血液",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 4,
+    "example": "The doctor tested his blood and said he was healthy.",
+    "exampleCn": "医生检测了他的血液，说他很健康。",
+    "tip": "blood（血）- 过去常考短语：in cold blood（冷酷地）",
+    "etymology": "来自古英语 blod（血），与德语 Blut 同源",
+    "pronounceFile": "audio/word_pronounce/unit1_word_7.mp3",
+    "pos": "n.",
+    "extraExample": "The hospital needs more blood donations.",
+    "extraCn": "医院需要更多的献血。"
   },
   "perform": {
     "word": "perform",
     "phonetic": "/pe 'fo:m/",
     "cnMeaning": "表演，演出",
-    "module": "Unit1"
-  },
-  "edge": {
-    "word": "edge",
-    "phonetic": "/eds/",
-    "cnMeaning": "边缘",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 5,
+    "example": "The magician will perform a wonderful show tonight.",
+    "exampleCn": "魔术师今晚将表演一场精彩的秀。",
+    "tip": "perform（表演/演出）→ performer（表演者）→ performance（表演/表现）。中考常考：perform well/badly 表现好/差",
+    "past": "performed",
+    "pastParticiple": "performed",
+    "etymology": "来自古法语 parfournir（完成），per-（完全）+ fournir（提供）",
+    "pronounceFile": "audio/word_pronounce/unit1_word_8.mp3",
+    "pos": "v.",
+    "extraExample": "The students will perform a short play on Friday.",
+    "extraCn": "学生们将在周五表演一部短剧。"
   },
   "viewer": {
     "word": "viewer",
     "phonetic": "/'vjua/",
     "cnMeaning": "观看者",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 3,
+    "example": "The TV show attracted millions of viewers.",
+    "exampleCn": "这档电视节目吸引了数百万观众。",
+    "tip": "view（观看）+ er（...的人）= viewer（观看者）。注意复数 viewers",
+    "etymology": "来自 view（看）+ er（行为者后缀）",
+    "pronounceFile": "audio/word_pronounce/unit1_word_9.mp3",
+    "pos": "n.",
+    "extraExample": "The TV show has millions of viewers around the world.",
+    "extraCn": "这个电视节目在全球有数百万观众。"
   },
   "creativity": {
     "word": "creativity",
     "phonetic": "/，kri:er'tvsti/",
     "cnMeaning": "独创性，",
-    "module": "Unit1"
-  },
-  "volunteer": {
-    "word": "volunteer",
-    "phonetic": "/，volon'tra/",
-    "cnMeaning": "志愿者",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 3,
+    "example": "Teachers should encourage students' creativity in class.",
+    "exampleCn": "老师应该在课堂上鼓励学生的创造力。",
+    "tip": "create（创造）→ creative（有创造力的）→ creativity（创造力）",
+    "etymology": "来自拉丁语 creare（创造），后缀 -ity 表示性质",
+    "pronounceFile": "audio/word_pronounce/unit1_word_10.mp3",
+    "pos": "n.",
+    "extraExample": "The art class helps students develop their creativity.",
+    "extraCn": "美术课帮助学生培养创造力。"
   },
   "artist": {
     "word": "artist",
     "phonetic": "/'a:tust/",
     "cnMeaning": "艺术家",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 4,
+    "example": "The young artist painted a beautiful picture of the sunset.",
+    "exampleCn": "那位年轻艺术家画了一幅美丽的日落画。",
+    "tip": "artist（艺术家）来自 art（艺术）+ ist（从事...的人）",
+    "etymology": "来自拉丁语 ars（艺术），后缀 -ist 表示从事某种艺术的人",
+    "pronounceFile": "audio/word_pronounce/unit1_word_11.mp3",
+    "pos": "n.",
+    "extraExample": "The artist spent three years painting this masterpiece.",
+    "extraCn": "这位艺术家花了三年时间画这幅杰作。"
   },
   "group": {
     "word": "group",
     "phonetic": "/grup/",
     "cnMeaning": "组，群；团体",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 5,
+    "example": "Our study group meets every Friday after school.",
+    "exampleCn": "我们学习小组每周五放学后碰面。",
+    "tip": "group（组/群体）- a group of... 一群...（后面名词用复数）",
+    "etymology": "来自意大利语 gruppo（一群），原意是圆形",
+    "pronounceFile": "audio/word_pronounce/unit1_word_12.mp3",
+    "pos": "n.",
+    "extraExample": "Our study group meets every Wednesday afternoon.",
+    "extraCn": "我们学习小组每周三下午碰面。"
   },
   "creator": {
     "word": "creator",
     "phonetic": "/kri'eite/",
     "cnMeaning": "创作者；创造者",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 3,
+    "example": "He is the creator of this popular mobile game.",
+    "exampleCn": "他是这款热门手游的创作者。",
+    "tip": "create（创造）+ or（...的人）= creator（创造者）。注意：-er 和 -or 都表示做某事的人",
+    "etymology": "来自拉丁语 creator（创造者），creare（创造）+ or（人）",
+    "pronounceFile": "audio/word_pronounce/unit1_word_13.mp3",
+    "pos": "n.",
+    "extraExample": "The creator of the game won several awards.",
+    "extraCn": "这款游戏的创作者赢得了多个奖项。"
   },
   "kill": {
     "word": "kill",
     "phonetic": "/kal/",
     "cnMeaning": "弄死，杀死",
-    "module": "Unit1"
-  },
-  "scarecrow": {
-    "word": "scarecrow",
-    "phonetic": "/'skeokru/",
-    "cnMeaning": "稻草人",
-    "module": "Unit1"
-  },
-  "educator": {
-    "word": "educator",
-    "phonetic": "/'edjukerta/",
-    "cnMeaning": "教育家",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 4,
+    "example": "It is cruel to kill wild animals for fun.",
+    "exampleCn": "以杀戮野生动物为乐是残忍的。",
+    "tip": "kill（杀/弄死）是完全规则动词：kill → killed → killed",
+    "past": "killed",
+    "pastParticiple": "killed",
+    "etymology": "来自古英语 cwellan（杀死）",
+    "pronounceFile": "audio/word_pronounce/unit1_word_14.mp3",
+    "pos": "v.",
+    "extraExample": "It's against the law to kill endangered animals.",
+    "extraCn": "杀害濒危动物是违法的。"
   },
   "youth": {
     "word": "youth",
     "phonetic": "/ju:6/",
     "cnMeaning": "青年，年轻人",
-    "module": "Unit1"
-  },
-  "inspire": {
-    "word": "inspire",
-    "phonetic": "/m'spars/",
-    "cnMeaning": "鼓舞，激励",
-    "module": "Unit1"
-  },
-  "intelligent": {
-    "word": "intelligent",
-    "phonetic": "/m 'teladgont/",
-    "cnMeaning": "有智",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 4,
+    "example": "In his youth, he traveled to many different countries.",
+    "exampleCn": "他年轻时去过很多不同的国家。",
+    "tip": "young（年轻的）→ youth（青年/年轻）。注意拼写变化：young → youth",
+    "etymology": "来自古英语 geoguth（年轻），与德语 Jugend 同源",
+    "pronounceFile": "audio/word_pronounce/unit1_word_15.mp3",
+    "pos": "n.",
+    "extraExample": "The youth of today are full of new ideas.",
+    "extraCn": "今天的年轻人充满新想法。"
   },
   "wealthy": {
     "word": "wealthy",
     "phonetic": "/'welfi/",
     "cnMeaning": "富有的；富",
-    "module": "Unit1"
-  },
-  "burst": {
-    "word": "burst",
-    "phonetic": "/b3:st/",
-    "cnMeaning": "冲，闯；（使）爆裂",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 3,
+    "example": "He dreams of becoming a wealthy businessman one day.",
+    "exampleCn": "他梦想有一天成为一名富有的商人。",
+    "tip": "wealth（财富）+ y（形容词后缀）= wealthy（富有的）。比较级 wealthier，最高级 wealthiest",
+    "etymology": "来自 wealth（财富）+ y（...的）",
+    "pronounceFile": "audio/word_pronounce/unit1_word_16.mp3",
+    "pos": "adj.",
+    "extraExample": "The wealthy businessman donated money to build a school.",
+    "extraCn": "那位富有的商人捐款建了一所学校。"
   },
   "hidden": {
     "word": "hidden",
     "phonetic": "/'hrcdn/",
     "cnMeaning": "隐藏的，隐秘的",
-    "module": "Unit1"
-  },
-  "scaled": {
-    "word": "scaled",
-    "phonetic": "/skerld/",
-    "cnMeaning": "有鳞的",
-    "module": "Unit1"
-  },
-  "claw": {
-    "word": "claw",
-    "phonetic": "/klo:/",
-    "cnMeaning": "爪",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 3,
+    "example": "The hidden treasure was finally found by the children.",
+    "exampleCn": "被隐藏的宝藏最终被孩子们找到了。",
+    "tip": "hide（隐藏）→ hid（过去式）→ hidden（过去分词/形容词）",
+    "past": "hid",
+    "pastParticiple": "hidden",
+    "etymology": "来自古英语 hydan（隐藏）",
+    "pronounceFile": "audio/word_pronounce/unit1_word_17.mp3",
+    "pos": "adj.",
+    "extraExample": "The cat was hidden under the bed.",
+    "extraCn": "猫藏在床底下。"
   },
   "wildly": {
     "word": "wildly",
     "phonetic": "/'warldli/",
     "cnMeaning": "激动地",
-    "module": "Unit1"
-  },
-  "roar": {
-    "word": "roar",
-    "phonetic": "/ro:/",
-    "cnMeaning": "吼叫，呼啸",
-    "module": "Unit1"
-  },
-  "valley": {
-    "word": "valley",
-    "phonetic": "/'vaeli/",
-    "cnMeaning": "谷；山谷",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 3,
+    "example": "The fans cheered wildly when their team won.",
+    "exampleCn": "当他们的队伍获胜时，球迷们激动地欢呼。",
+    "tip": "wild（狂野的）+ ly（副词后缀）= wildly（激动地/疯狂地）。形容词加 ly 变副词是高频考点",
+    "etymology": "来自 wild（狂野的）+ ly（副词后缀）",
+    "pronounceFile": "audio/word_pronounce/unit1_word_18.mp3",
+    "pos": "adv.",
+    "extraExample": "The crowd cheered wildly when their team scored.",
+    "extraCn": "当他们的球队得分时，人群疯狂欢呼。"
   },
   "scare": {
     "word": "scare",
     "phonetic": "/skea/",
     "cnMeaning": "使惊恐，吓唬",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 3,
+    "example": "Don't scare the cat with loud noises.",
+    "exampleCn": "不要用大声响吓到猫。",
+    "tip": "scare（吓唬）→ scared（害怕的）→ scary（吓人的）。区别：scared 形容人的感受，scary 形容事物",
+    "past": "scared",
+    "pastParticiple": "scared",
+    "etymology": "来自古英语 scearn（惊吓）",
+    "pronounceFile": "audio/word_pronounce/unit1_word_19.mp3",
+    "pos": "v.",
+    "extraExample": "The loud thunder scared the little girl.",
+    "extraCn": "响亮的雷声吓到了那个小女孩。"
   },
   "wing": {
     "word": "wing",
     "phonetic": "/wu/",
     "cnMeaning": "翅膀，翼",
-    "module": "Unit1"
-  },
-  "dust": {
-    "word": "dust",
-    "phonetic": "/dast/",
-    "cnMeaning": "灰尘，尘埃",
-    "module": "Unit1"
-  },
-  "tender": {
-    "word": "tender",
-    "phonetic": "/'tenda/",
-    "cnMeaning": "娇嫩的，幼嫩",
-    "module": "Unit1"
-  },
-  "vast": {
-    "word": "vast",
-    "phonetic": "/vast/",
-    "cnMeaning": "广大无边的，极大的13",
-    "module": "Unit1"
-  },
-  "grand": {
-    "word": "grand",
-    "phonetic": "/graend/",
-    "cnMeaning": "宏伟的，壮丽的",
-    "module": "Unit1"
+    "module": "Unit1",
+    "key": true,
+    "importance": 3,
+    "example": "The bird spread its wings and flew away.",
+    "exampleCn": "那只鸟展开翅膀飞走了。",
+    "tip": "wing（翅膀）- 常考搭配：on a wing and a prayer（在极其艰难的情况下）",
+    "etymology": "来自古英语 wenge（翅膀），与德语 Schwinge 同源",
+    "pronounceFile": "audio/word_pronounce/unit1_word_20.mp3",
+    "pos": "n.",
+    "extraExample": "The bird spread its wings and flew away.",
+    "extraCn": "鸟儿展开翅膀飞走了。"
   },
   "tin": {
     "word": "tin",
@@ -1132,6 +1248,244 @@ const words = {
     "phonetic": "/'brznas/",
     "cnMeaning": "商业",
     "module": "Unit6"
+  },
+  "eagle": {
+    "word": "eagle",
+    "phonetic": "",
+    "cnMeaning": "鹰",
+    "module": "Unit1",
+    "key": true,
+    "importance": 3,
+    "example": "An eagle flew high above the mountains.",
+    "exampleCn": "一只鹰在高山上空飞翔。",
+    "tip": "eagle（鹰）- 常考短语：eagle eye（锐利的目光/鹰眼）",
+    "etymology": "来自古法语 aigle，源自拉丁语 aquila（鹰）",
+    "pronounceFile": "audio/word_pronounce/unit1_word_21.mp3",
+    "pos": "n.",
+    "extraExample": "The eagle can spot a rabbit from far away.",
+    "extraCn": "鹰能从很远的地方发现兔子。"
+  },
+  "lie": {
+    "word": "lie",
+    "phonetic": "",
+    "cnMeaning": "躺；说谎",
+    "module": "Unit1",
+    "key": true,
+    "importance": 4,
+    "example": "Never tell a lie; always be honest with others.",
+    "exampleCn": "永远不要说谎；要始终对他人诚实。",
+    "tip": "lie（说谎）→ lied/lied（规则）；lie（躺）→ lay/lain（不规则），区别：tell a lie（说谎）是名词用法",
+    "past": "lied",
+    "pastParticiple": "lied",
+    "etymology": "来自古英语 lyge（谎言），与德语 Luge 同源",
+    "pronounceFile": "audio/word_pronounce/unit1_word_22.mp3",
+    "pos": "v.",
+    "extraExample": "It's wrong to tell a lie; always be honest.",
+    "extraCn": "说谎是不对的，要始终保持诚实。"
+  },
+  "old-fashioned": {
+    "word": "old-fashioned",
+    "phonetic": "",
+    "cnMeaning": "老式的，过时的",
+    "module": "Unit1",
+    "key": true,
+    "importance": 3,
+    "example": "My grandpa still wears old-fashioned clothes.",
+    "exampleCn": "我爷爷还穿老式的衣服。",
+    "tip": "复合形容词：old（老的）+ fashioned（样式的）= old-fashioned（老式的）",
+    "etymology": "由 old（老）+ fashioned（...样式的）组成",
+    "pronounceFile": "audio/word_pronounce/unit1_word_23.mp3",
+    "pos": "adj.",
+    "extraExample": "My grandfather still uses an old-fashioned radio.",
+    "extraCn": "我爷爷还在用一台老式收音机。"
+  },
+  "puppet": {
+    "word": "puppet",
+    "phonetic": "/'pAprt/",
+    "cnMeaning": "（牵线）木偶；",
+    "module": "Unit1",
+    "key": false,
+    "pronounceFile": "audio/word_pronounce/unit1_word_24.mp3",
+    "pos": "n.",
+    "extraExample": "The children loved watching the puppet show.",
+    "extraCn": "孩子们喜欢看木偶戏。"
+  },
+  "puppetry": {
+    "word": "puppetry",
+    "phonetic": "/'pApatri/",
+    "cnMeaning": "木偶表演艺术",
+    "module": "Unit1",
+    "key": false,
+    "pronounceFile": "audio/word_pronounce/unit1_word_25.mp3",
+    "pos": "n.",
+    "extraExample": "Puppetry is a traditional art form in many cultures.",
+    "extraCn": "木偶表演是许多文化中的传统艺术形式。"
+  },
+  "edge": {
+    "word": "edge",
+    "phonetic": "/eds/",
+    "cnMeaning": "边缘",
+    "module": "Unit1",
+    "key": false,
+    "pronounceFile": "audio/word_pronounce/unit1_word_26.mp3",
+    "pos": "n.",
+    "extraExample": "Don't stand too close to the edge of the cliff.",
+    "extraCn": "不要站得太靠近悬崖边缘。"
+  },
+  "volunteer": {
+    "word": "volunteer",
+    "phonetic": "/，volon'tra/",
+    "cnMeaning": "志愿者",
+    "module": "Unit1",
+    "key": false,
+    "pronounceFile": "audio/word_pronounce/unit1_word_27.mp3",
+    "pos": "n.",
+    "extraExample": "She works as a volunteer at the local hospital.",
+    "extraCn": "她在当地医院做志愿者。"
+  },
+  "scarecrow": {
+    "word": "scarecrow",
+    "phonetic": "/'skeokru/",
+    "cnMeaning": "稻草人",
+    "module": "Unit1",
+    "key": false,
+    "pronounceFile": "audio/word_pronounce/unit1_word_28.mp3",
+    "pos": "n.",
+    "extraExample": "The farmer put a scarecrow in the field to keep birds away.",
+    "extraCn": "农民在田里放了一个稻草人赶鸟。"
+  },
+  "educator": {
+    "word": "educator",
+    "phonetic": "/'edjukerta/",
+    "cnMeaning": "教育家",
+    "module": "Unit1",
+    "key": false,
+    "pronounceFile": "audio/word_pronounce/unit1_word_29.mp3",
+    "pos": "n.",
+    "extraExample": "As an educator, she believes every child can succeed.",
+    "extraCn": "作为一名教育工作者，她相信每个孩子都能成功。"
+  },
+  "inspire": {
+    "word": "inspire",
+    "phonetic": "/m'spars/",
+    "cnMeaning": "鼓舞，激励",
+    "module": "Unit1",
+    "key": false,
+    "pronounceFile": "audio/word_pronounce/unit1_word_30.mp3",
+    "pos": "v.",
+    "extraExample": "Great teachers inspire their students to dream big.",
+    "extraCn": "好老师激励学生大胆追梦。"
+  },
+  "intelligent": {
+    "word": "intelligent",
+    "phonetic": "/m 'teladgont/",
+    "cnMeaning": "有智",
+    "module": "Unit1",
+    "key": false,
+    "pronounceFile": "audio/word_pronounce/unit1_word_31.mp3",
+    "pos": "adj.",
+    "extraExample": "Dolphins are highly intelligent animals.",
+    "extraCn": "海豚是非常聪明的动物。"
+  },
+  "burst": {
+    "word": "burst",
+    "phonetic": "/b3:st/",
+    "cnMeaning": "冲，闯；（使）爆裂",
+    "module": "Unit1",
+    "key": false,
+    "pronounceFile": "audio/word_pronounce/unit1_word_32.mp3",
+    "pos": "v.",
+    "extraExample": "The balloon burst with a loud noise.",
+    "extraCn": "气球砰的一声爆了。"
+  },
+  "scaled": {
+    "word": "scaled",
+    "phonetic": "/skerld/",
+    "cnMeaning": "有鳞的",
+    "module": "Unit1",
+    "key": false,
+    "pronounceFile": "audio/word_pronounce/unit1_word_33.mp3",
+    "pos": "adj.",
+    "extraExample": "The mountaineer scaled the steep cliff with great skill.",
+    "extraCn": "登山者凭借高超的技艺攀爬上了陡峭的悬崖。"
+  },
+  "claw": {
+    "word": "claw",
+    "phonetic": "/klo:/",
+    "cnMeaning": "爪",
+    "module": "Unit1",
+    "key": false,
+    "pronounceFile": "audio/word_pronounce/unit1_word_34.mp3",
+    "pos": "n.",
+    "extraExample": "The cat used its claws to climb the tree.",
+    "extraCn": "猫用爪子爬树。"
+  },
+  "roar": {
+    "word": "roar",
+    "phonetic": "/ro:/",
+    "cnMeaning": "吼叫，呼啸",
+    "module": "Unit1",
+    "key": false,
+    "pronounceFile": "audio/word_pronounce/unit1_word_35.mp3",
+    "pos": "v.",
+    "extraExample": "We could hear the lion roar from far away.",
+    "extraCn": "我们能从很远的地方听到狮子的吼声。"
+  },
+  "valley": {
+    "word": "valley",
+    "phonetic": "/'vaeli/",
+    "cnMeaning": "谷；山谷",
+    "module": "Unit1",
+    "key": false,
+    "pronounceFile": "audio/word_pronounce/unit1_word_36.mp3",
+    "pos": "n.",
+    "extraExample": "The village lies in a beautiful green valley.",
+    "extraCn": "村庄坐落在一个美丽的绿色山谷中。"
+  },
+  "dust": {
+    "word": "dust",
+    "phonetic": "/dast/",
+    "cnMeaning": "灰尘，尘埃",
+    "module": "Unit1",
+    "key": false,
+    "pronounceFile": "audio/word_pronounce/unit1_word_37.mp3",
+    "pos": "n.",
+    "extraExample": "There was a thick layer of dust on the old books.",
+    "extraCn": "旧书上积了厚厚一层灰尘。"
+  },
+  "tender": {
+    "word": "tender",
+    "phonetic": "/'tenda/",
+    "cnMeaning": "娇嫩的，幼嫩",
+    "module": "Unit1",
+    "key": false,
+    "pronounceFile": "audio/word_pronounce/unit1_word_38.mp3",
+    "pos": "adj.",
+    "extraExample": "The mother gave her baby a tender kiss.",
+    "extraCn": "妈妈温柔地亲了亲她的宝宝。"
+  },
+  "vast": {
+    "word": "vast",
+    "phonetic": "/vast/",
+    "cnMeaning": "广大无边的，极大的13",
+    "module": "Unit1",
+    "key": false,
+    "pronounceFile": "audio/word_pronounce/unit1_word_39.mp3",
+    "pos": "adj.",
+    "extraExample": "The vast desert stretches for hundreds of miles.",
+    "extraCn": "广阔的沙漠延伸数百英里。"
+  },
+  "grand": {
+    "word": "grand",
+    "phonetic": "/graend/",
+    "cnMeaning": "宏伟的，壮丽的",
+    "module": "Unit1",
+    "key": false,
+    "pronounceFile": "audio/word_pronounce/unit1_word_40.mp3",
+    "pos": "adj.",
+    "extraExample": "They held a grand celebration for the festival.",
+    "extraCn": "他们为节日举行了盛大的庆祝活动。"
   }
-};
-module.exports = words;
+}
+
+module.exports = words
