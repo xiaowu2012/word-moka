@@ -28,19 +28,6 @@
         <text class="en-mean" wx:if="{{word.enMeaning}}">{{word.enMeaning}}</text>
       </view>
 
-      <!-- 课本例句 -->
-      <view class="section" wx:if="{{example}}">
-        <view class="section-label">
-          <text class="tag tag-orange">课本例句</text>
-          <text class="play-inline" bindtap="onPlayExample">🔊</text>
-        </view>
-        <view class="example-box orange">
-          <text class="example-en">{{example.sentence}}</text>
-          <text class="example-cn">{{exampleCn}}</text>
-        </view>
-        <view class="example-scene" wx:if="{{example.scene}}">📌 {{example.scene}}</view>
-      </view>
-
       <!-- 拓展例句 -->
       <view class="section" wx:if="{{extraExample}}">
         <view class="section-label">
