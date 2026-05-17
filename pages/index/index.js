@@ -42,5 +42,10 @@ Page({
   onReadText(e) {
     const id = e.currentTarget.dataset.id
     wx.navigateTo({ url: `/pages/text/text?unit=${id}` })
+  },
+
+  onLearnWords(e) {
+    const id = e.currentTarget.dataset.id
+    wx.navigateTo({ url: `/pages/wordlist/wordlist?module=${id}` })
   }
 })

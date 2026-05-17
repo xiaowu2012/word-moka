@@ -25,17 +25,42 @@
   font-size: 30rpx; padding: 24rpx; margin: 0 24rpx 16rpx;
   background: #fff; border-radius: 14rpx;
   box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.04);
- transition: background 0.15s;
 }
 
-.card-hover { background: #F5F7FA; }
+.unit-header {
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.unit-name { font-size: 30rpx; font-weight: 600; color: #2C3E50; }
 
 .unit-card.disabled { opacity: 0.6; }
 
 .unit-status {
   font-size: 22rpx; padding: 4rpx 16rpx; border-radius: 20rpx;
   display: inline-flex; align-items: center; justify-content: center;
-  margin-left: 16rpx; line-height: 1.2;
+  line-height: 1.2;
 }
 .unit-status.ready { background: #E8F8E8; color: #27AE60; }
 .unit-status.coming { background: #FFF3E8; color: #E67E22; }
+
+.unit-actions {
+  display: flex; gap: 16rpx; margin-top: 20rpx;
+}
+
+.action-btn {
+  flex: 1; height: 72rpx; line-height: 72rpx;
+  font-size: 26rpx; border-radius: 12rpx;
+  text-align: center; border: none; padding: 0;
+}
+
+.action-btn::after { border: none; }
+
+.read-btn {
+  background: #EBF0FF; color: #5B8DEF;
+}
+.read-btn:active { background: #D6E3FF; }
+
+.word-btn {
+  background: #FFF5E6; color: #E67E22;
+}
+.word-btn:active { background: #FFEDD0; }

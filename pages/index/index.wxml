@@ -23,10 +23,15 @@
   <view wx:else>
     <image class="header-img" src="/images/home-banner.jpg" mode="widthFix"></image>
     <view class="back-btn" bindtap="onBack"><text>‹ 返回</text></view>
-    <view class="unit-card {{item.available ? '' : 'disabled'}}" hover-class="card-hover" wx:for="{{units}}" wx:key="id"
-          bindtap="{{item.available ? 'onReadText' : ''}}" data-id="{{item.id}}">
-      <text>{{item.icon}} {{item.name}}</text>
-      <text class="unit-status {{item.available ? 'ready' : 'coming'}}">{{item.available ? '已上线' : '即将上线'}}</text>
+    <view class="unit-card {{item.available ? '' : 'disabled'}}" wx:for="{{units}}" wx:key="id">
+      <view class="unit-header">
+        <text class="unit-name">{{item.icon}} {{item.name}}</text>
+        <text class="unit-status {{item.available ? 'ready' : 'coming'}}">{{item.available ? '已上线' : '即将上线'}}</text>
+      </view>
+      <view wx:if="{{item.available}}" class="unit-actions">
+        <button class="action-btn read-btn" bindtap="onReadText" data-id="{{item.id}}">📖 课文领读</button>
+        <button class="action-btn word-btn" bindtap="onLearnWords" data-id="{{item.id}}">📚 学单词</button>
+      </view>
     </view>
   </view>
 
