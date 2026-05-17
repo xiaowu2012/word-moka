@@ -2,25 +2,6 @@
 .header-img { width: 100%; display: block; }
 .section-title { font-size: 32rpx; font-weight: 700; color: #2C3E50; padding: 40rpx 24rpx 20rpx; }
 
-/* ========== 课本选择 ========== */
-.book-list { padding: 0 24rpx; }
-.book-card {
-  display: flex; align-items: center;
-  background: #fff; border-radius: 16rpx; padding: 28rpx; margin-bottom: 16rpx;
-  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04);
-}
-.book-card:active { transform: scale(0.98); }
-.book-icon { font-size: 52rpx; margin-right: 20rpx; display: flex; align-items: center; }
-.book-info { flex: 1; }
-.book-name { font-size: 30rpx; font-weight: 700; color: #2C3E50; display: block; }
-.book-count { font-size: 22rpx; color: #5B8DEF; display: block; margin-top: 4rpx; }
-.book-status {
-  font-size: 24rpx; padding: 8rpx 20rpx; border-radius: 20rpx;
-  display: inline-flex; align-items: center; justify-content: center; line-height: 1.2;
-}
-.book-status.ready { background: #E8F8E8; color: #27AE60; }
-.book-status.coming { background: #FFF3E8; color: #E67E22; }
-
 /* ========== 返回按钮 ========== */
 .back-btn { font-size: 36rpx; color: #5B8DEF; display: block; padding: 30rpx 24rpx 20rpx; }
 
@@ -34,7 +15,7 @@
 .intro-cover { font-size: 72rpx; margin-right: 24rpx; }
 .intro-info { flex: 1; }
 .intro-name { font-size: 34rpx; font-weight: 700; color: #fff; display: block; }
-.intro-meta { font-size: 24rpx; color: rgba(255,255,255,0.85); display: block; margin-top: 6rpx; }
+.intro-meta { font-size: 26rpx; color: rgba(255,255,255,0.85); display: block; margin-top: 6rpx; }
 
 /* ========== 三入口卡片 ========== */
 .entry-cards { padding: 0 24rpx; }

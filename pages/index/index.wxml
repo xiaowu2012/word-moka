@@ -1,35 +1,15 @@
 <view class="container">
 
-  <!-- ========== 课本选择 ========== -->
-  <block wx:if="{{pageState === 'books'}}">
+  <!-- ========== 首页 · 教材 + 三入口 ========== -->
+  <block wx:if="{{!showUnits}}">
     <image class="header-img" src="/images/home-banner.jpg" mode="widthFix"></image>
-    <view class="section-title">选择课本</view>
-    <view class="book-list">
-      <view class="book-card" wx:for="{{textbooks}}" wx:key="id"
-            bindtap="onTapBook" data-id="{{item.id}}">
-        <view class="book-icon"><text>{{item.cover}}</text></view>
-        <view class="book-info">
-          <text class="book-name">{{item.name}}</text>
-          <text class="book-count" wx:if="{{item.available}}">{{item.wordCount}}个单词</text>
-        </view>
-        <view class="book-status {{item.available ? 'ready' : 'coming'}}">
-          <text>{{item.available ? '已解锁' : '即将上线'}}</text>
-        </view>
-      </view>
-    </view>
-  </block>
-
-  <!-- ========== 教材详情 · 三个入口 ========== -->
-  <block wx:elif="{{pageState === 'detail'}}">
-    <image class="header-img" src="/images/home-banner.jpg" mode="widthFix"></image>
-    <view class="back-btn" bindtap="onBack"><text>‹ 返回</text></view>
 
     <!-- 教材简介 -->
     <view class="book-intro">
-      <text class="intro-cover">{{currentBook.cover}}</text>
+      <text class="intro-cover">📘</text>
       <view class="intro-info">
-        <text class="intro-name">{{currentBook.name}}</text>
-        <text class="intro-meta">{{currentBook.wordCount}}个单词 · {{availableUnitsStr}} 等6个单元</text>
+        <text class="intro-name">外研版2026秋季版 九（上）</text>
+        <text class="intro-meta">189个单词 · 6个单元</text>
       </view>
     </view>
 
@@ -62,7 +42,7 @@
           <text class="entry-icon">📝</text>
           <view class="entry-info">
             <text class="entry-title">全部单词浏览</text>
-            <text class="entry-desc">全书{{currentBook.wordCount}}个单词一览</text>
+            <text class="entry-desc">全书189个单词一览</text>
           </view>
         </view>
         <text class="entry-arrow">›</text>
@@ -71,9 +51,9 @@
   </block>
 
   <!-- ========== 单元列表 ========== -->
-  <block wx:elif="{{pageState === 'units'}}">
+  <block wx:else>
     <image class="header-img" src="/images/home-banner.jpg" mode="widthFix"></image>
-    <view class="back-btn" bindtap="onShowDetail"><text>‹ 返回</text></view>
+    <view class="back-btn" bindtap="onBackToHome"><text>‹ 返回</text></view>
     <view class="section-title">{{unitMode === 'read' ? '📖 选择课文' : '📚 选择单元'}}</view>
     <view class="unit-card {{item.available ? '' : 'disabled'}}" wx:for="{{units}}" wx:key="id"
           bindtap="{{item.available ? 'onTapUnit' : ''}}" data-id="{{item.id}}">
