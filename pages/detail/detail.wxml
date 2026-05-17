@@ -1,5 +1,5 @@
 <!-- 单词卡片详情 -->
-<view class="container">
+<view class="container" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
   <view class="card-main">
     <!-- 单词配图 -->
     <image class="card-banner" src="{{imageSrc}}" mode="aspectFill" binderror="onImageError"></image>

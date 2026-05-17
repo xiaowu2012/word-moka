@@ -152,6 +152,29 @@ Page({
     this.setData({ imageSrc: '' })
   },
 
+  // ===== 滑动翻页 =====
+  touchStartX: 0,
+
+  onTouchStart(e) {
+    this.touchStartX = e.touches[0].clientX
+  },
+
+  onTouchEnd(e) {
+    if (this.touchStartX === 0) return
+    const endX = e.changedTouches[0].clientX
+    const diff = endX - this.touchStartX
+    this.touchStartX = 0
+
+    // 水平滑动 > 60px，且是浏览模式才翻页
+    if (Math.abs(diff) < 60 || !this.data.isBrowse) return
+
+    if (diff > 0) {
+      this.onPrevWord()
+    } else {
+      this.onNextWord()
+    }
+  },
+
   onPrevWord() {
     if (this.wordKeyList.length === 0) return
     const idx = this.data.browseIndex - 1
