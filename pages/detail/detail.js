@@ -99,11 +99,11 @@ Page({
       playing: ''
     })
 
-    // 翻页时自动播放单词发音
     if (isBrowse) {
-      setTimeout(() => {
-        this.onPlayWord()
-      }, 200)
+      // 翻页时自动播放单词发音
+      setTimeout(() => this.onPlayWord(), 200)
+      // 翻页时自动标记已学（加入记忆队列）
+      setTimeout(() => this.autoAddToSchedule(wordKey), 500)
     }
   },
 
@@ -174,6 +174,30 @@ Page({
     this.setData({ showTranslation: !this.data.showTranslation })
   },
 
+  autoAddToSchedule(key) {
+    const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10)
+
+    wx.cloud.callFunction({
+      name: 'getProgress'
+    }).then(res => {
+      const p = res.result || {}
+      const mastered = p.mastered || []
+      const schedule = p.schedule || {}
+
+      if (!mastered.includes(key) && !schedule[key]) {
+        wx.cloud.callFunction({
+          name: 'updateProgress',
+          data: {
+            field: 'schedule',
+            key,
+            add: true,
+            value: { stage: 0, dueDate: tomorrow }
+          }
+        }).catch(() => {})
+      }
+    }).catch(() => {})
+  },
+
   onImageError() {
     this.setData({ imageSrc: '' })
   },
@@ -225,7 +249,6 @@ Page({
 
   onGoNext() {
     const words = app.globalData.words
-    const today = new Date().toISOString().slice(0, 10)
     const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10)
 
     wx.cloud.callFunction({
@@ -234,17 +257,6 @@ Page({
       const p = res.result || {}
       const mastered = p.mastered || []
       const schedule = p.schedule || {}
-      const dailyGoal = wx.getStorageSync('dailyGoal') || 5
-
-      let todayLearned = 0
-      for (const s of Object.values(schedule)) {
-        if (s.stage === 0) todayLearned++
-      }
-
-      if (todayLearned >= dailyGoal) {
-        wx.navigateTo({ url: '/pages/daily-summary/daily-summary' })
-        return
-      }
 
       for (const key of Object.keys(words)) {
         if (!mastered.includes(key) && !schedule[key]) {
