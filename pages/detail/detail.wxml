@@ -11,7 +11,10 @@
           <text class="word-text">{{word.word}}</text>
           <text class="play-btn" bindtap="onPlayWord">🔊</text>
         </view>
-        <text class="word-phonetic">{{word.phonetic}}</text>
+        <view class="word-meta-row">
+          <text class="word-phonetic">{{word.phonetic}}</text>
+          <text class="word-pos" wx:if="{{word.pos}}">{{word.pos}}</text>
+        </view>
         <view class="word-stars">
           <text class="stars">{{stars}}</text>
           <text class="freq-label">{{freqLabel}}</text>
@@ -60,7 +63,7 @@
 
       <!-- 来源 -->
       <view class="source-bar">
-        <text>{{word.module}} · 外研版九上</text>
+        <text>{{word.module}} · 外研版2026秋季版 九（上）</text>
       </view>
     </view>
   </view>
