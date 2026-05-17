@@ -73,6 +73,7 @@
   width: 100%;
   height: 350rpx;
   display: block;
+  background: #F0F4FF;
 }
 
 /* 单词头部 */
