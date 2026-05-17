@@ -2,7 +2,7 @@
 <view class="container" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
   <view class="card-main">
     <!-- 单词配图 -->
-    <image class="card-banner" src="{{imageSrc}}" mode="aspectFill" binderror="onImageError"></image>
+    <image class="card-banner" src="{{imageSrc}}" mode="widthFix" binderror="onImageError"></image>
 
     <view class="card-body">
       <!-- 单词头部 -->

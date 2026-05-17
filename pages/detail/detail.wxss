@@ -71,7 +71,6 @@
 /* 卡片横幅配图 */
 .card-banner {
   width: 100%;
-  height: 360rpx;
   display: block;
 }
 
