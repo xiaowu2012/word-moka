@@ -111,11 +111,11 @@ Page({
     if (this.data.unitMode === 'read') {
       wx.navigateTo({ url: `/pages/text/text?unit=${id}` })
     } else {
-      // 按单元学单词 → 直接跳到第一张卡片
+      // 按单元学单词 → 直接跳到第一张卡片（跟浏览模式一样，只显示该单元的词）
       const words = app.globalData.words
       const firstKey = Object.keys(words).find(k => words[k].module === id)
       if (firstKey) {
-        wx.navigateTo({ url: `/pages/detail/detail?wordKey=${firstKey}&from=study` })
+        wx.navigateTo({ url: `/pages/detail/detail?wordKey=${firstKey}&mode=browse&unit=${id}` })
       }
     }
   },
