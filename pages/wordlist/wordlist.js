@@ -100,8 +100,11 @@ Page({
 
   onTapWord(e) {
     const key = e.currentTarget.dataset.key
+    const { moduleFilter } = this.data
+    // 从按单元学单词进入的，传 from=study
+    const from = moduleFilter ? 'study' : ''
     wx.navigateTo({
-      url: `/pages/detail/detail?wordKey=${key}`
+      url: `/pages/detail/detail?wordKey=${key}${from ? '&from=' + from : ''}`
     })
   }
 })

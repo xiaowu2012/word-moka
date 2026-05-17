@@ -9,6 +9,7 @@ Page({
     key: '',
     imageSrc: '',
     fromContinue: false,
+    isStudy: false,
     isBrowse: false,
     browseIndex: 0,
     browseTotal: 0,
@@ -29,10 +30,10 @@ Page({
     const wordKey = options.wordKey
     const fromContinue = options.from === 'continue'
     const isBrowse = options.mode === 'browse'
+    const isStudy = options.from === 'study'
 
     const words = app.globalData.words
 
-    // 构建有序单词列表
     const wordKeyList = Object.keys(words)
 
     let targetKey = wordKey
@@ -55,11 +56,16 @@ Page({
 
     this.wordKeyList = wordKeyList
     this.setData({ audioCtx: wx.createInnerAudioContext() })
-    this.loadWord(targetKey, targetIndex, fromContinue, isBrowse)
+    this.loadWord(targetKey, targetIndex, fromContinue, isBrowse, isStudy)
     this.loadProgress()
+
+    // 学习模式：记录当前单元的所有单词，用于下一个学习
+    if (isStudy && words[targetKey]) {
+      this.studyUnitId = words[targetKey].module
+    }
   },
 
-  loadWord(wordKey, index, fromContinue, isBrowse) {
+  loadWord(wordKey, index, fromContinue, isBrowse, isStudy) {
     const words = app.globalData.words
     const card = words[wordKey]
     if (!card) return
@@ -80,6 +86,7 @@ Page({
       word: card,
       imageSrc: `/images/${wordKey}_card.jpg`,
       fromContinue: fromContinue || false,
+      isStudy: isStudy || false,
       isBrowse: isBrowse || false,
       browseIndex: index,
       browseTotal: this.wordKeyList.length,
@@ -204,6 +211,78 @@ Page({
     }
     const key = this.wordKeyList[idx]
     this.loadWord(key, idx, false, true)
+  },
+
+  onStudyNext() {
+    const words = app.globalData.words
+    const { key } = this.data
+    const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10)
+    const dailyGoal = wx.getStorageSync('dailyGoal') || 5
+
+    // 先查进度，设置当前单词
+    wx.cloud.callFunction({
+      name: 'getProgress'
+    }).then(res => {
+      const p = res.result || {}
+      const mastered = p.mastered || []
+      const schedule = p.schedule || {}
+
+      // 今日已学计数
+      let todayLearned = 0
+      for (const s of Object.values(schedule)) {
+        if (s.stage === 0) todayLearned++
+      }
+
+      if (todayLearned >= dailyGoal) {
+        wx.showToast({ title: '今日目标已完成 🎉', icon: 'none' })
+        return
+      }
+
+      // 当前单词加入记忆队列
+      if (!mastered.includes(key) && !schedule[key]) {
+        wx.cloud.callFunction({
+          name: 'updateProgress',
+          data: {
+            field: 'schedule',
+            key,
+            add: true,
+            value: { stage: 0, dueDate: tomorrow }
+          }
+        }).catch(() => {})
+      }
+
+      // 找当前单元下一个未学的词
+      const unitId = this.studyUnitId
+      if (!unitId) {
+        wx.navigateBack()
+        return
+      }
+
+      const unitWords = this.wordKeyList.filter(k =>
+        words[k] && words[k].module === unitId
+      )
+
+      const currentIdx = unitWords.indexOf(key)
+      let nextKey = null
+      for (let i = currentIdx + 1; i < unitWords.length; i++) {
+        const wk = unitWords[i]
+        if (!mastered.includes(wk) && !schedule[wk]) {
+          nextKey = wk
+          break
+        }
+      }
+
+      if (nextKey) {
+        wx.redirectTo({
+          url: `/pages/detail/detail?wordKey=${nextKey}&from=study`
+        })
+      } else {
+        wx.showToast({ title: '本单元单词已全部加入学习 🎉', icon: 'none' })
+        setTimeout(() => wx.navigateBack(), 1500)
+      }
+    }).catch(() => {
+      wx.showToast({ title: '加载失败', icon: 'none' })
+    })
   },
 
   onGoNext() {

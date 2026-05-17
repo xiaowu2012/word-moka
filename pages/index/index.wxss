@@ -37,6 +37,14 @@
 .entry-desc { font-size: 24rpx; color: #95A5A6; display: block; margin-top: 4rpx; }
 .entry-arrow { font-size: 40rpx; color: #BDC3C7; margin-left: 16rpx; }
 
+.entry-badge {
+  font-size: 22rpx; padding: 6rpx 18rpx; border-radius: 20rpx;
+  display: inline-flex; align-items: center; justify-content: center;
+  line-height: 1.2; white-space: nowrap; margin-left: 16rpx;
+}
+.badge-due { background: #FFF0F0; color: #E74C3C; }
+.badge-none { display: none; }
+
 /* ========== 单元列表 ========== */
 .unit-card {
   margin: 0 24rpx 16rpx; padding: 24rpx;

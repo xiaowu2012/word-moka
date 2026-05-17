@@ -55,6 +55,20 @@
         <text class="entry-arrow">›</text>
       </view>
 
+      <view class="entry-card" bindtap="onReview">
+        <view class="entry-left">
+          <text class="entry-icon">🔄</text>
+          <view class="entry-info">
+            <text class="entry-title">今日复习</text>
+            <text class="entry-desc">记忆曲线巩固</text>
+          </view>
+        </view>
+        <view class="entry-badge {{dueCount > 0 ? 'badge-due' : 'badge-none'}}" wx:if="{{dueCount > 0}}">
+          <text>{{dueCount}}个待复习</text>
+        </view>
+        <text class="entry-arrow" wx:else>›</text>
+      </view>
+
       <view class="entry-card" bindtap="onAllWords">
         <view class="entry-left">
           <text class="entry-icon">📝</text>

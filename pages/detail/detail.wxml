@@ -70,8 +70,14 @@
     </view>
   </view>
 
-  <!-- 底部：学习模式按钮 -->
-  <view class="next-bar" wx:if="{{fromContinue && !isBrowse}}" bindtap="onGoNext">
+  <!-- 底部：学习模式按钮（从单词列表学词） -->
+  <view class="study-bar" wx:if="{{isStudy}}" bindtap="onStudyNext">
+    <text class="study-text">📚 学习这个词 →</text>
+    <text class="study-progress">今日 {{todayLearned}}/{{dailyGoal}}</text>
+  </view>
+
+  <!-- 底部：continue学习模式按钮 -->
+  <view class="next-bar" wx:if="{{fromContinue && !isBrowse && !isStudy}}" bindtap="onGoNext">
     <text class="next-text">学习下一个 →</text>
     <text class="next-progress">{{todayLearned}}/{{dailyGoal}}</text>
   </view>

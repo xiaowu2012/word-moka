@@ -7,7 +7,8 @@ Page({
     pageState: 'books',    // 'books' | 'detail' | 'units'
     unitMode: 'read',       // 'read' | 'word'
     currentBook: {},
-    availableUnitsStr: ''
+    availableUnitsStr: '',
+    dueCount: 0
   },
 
   onLoad() {
@@ -28,7 +29,6 @@ Page({
       { id: 'Unit6', name: 'Unit 6 · Live green', icon: '🌿', available: false, wordCount: unitCounts.Unit6 || 0 }
     ]
 
-    // 可用单元名称（用于教材详情页展示）
     const availableUnits = units.filter(u => u.available).map(u => u.name.split(' · ')[0])
 
     this.setData({
@@ -39,6 +39,30 @@ Page({
       units,
       availableUnitsStr: availableUnits.join('、')
     })
+
+    this.loadDueCount()
+  },
+
+  onShow() {
+    this.loadDueCount()
+  },
+
+  loadDueCount() {
+    const today = new Date().toISOString().slice(0, 10)
+    wx.cloud.callFunction({
+      name: 'getProgress'
+    }).then(res => {
+      const p = res.result || {}
+      const mastered = p.mastered || []
+      const schedule = p.schedule || {}
+      let count = 0
+      for (const [key, s] of Object.entries(schedule)) {
+        if (!mastered.includes(key) && s.dueDate <= today && s.stage >= 1) {
+          count++
+        }
+      }
+      this.setData({ dueCount: count })
+    }).catch(() => {})
   },
 
   onTapBook(e) {
@@ -68,6 +92,10 @@ Page({
 
   onLearnWordsByUnit() {
     this.setData({ pageState: 'units', unitMode: 'word' })
+  },
+
+  onReview() {
+    wx.navigateTo({ url: '/pages/review/review' })
   },
 
   onAllWords() {
