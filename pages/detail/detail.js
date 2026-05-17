@@ -98,6 +98,13 @@ Page({
       tip: card.tip || '',
       playing: ''
     })
+
+    // 翻页时自动播放单词发音
+    if (isBrowse) {
+      setTimeout(() => {
+        this.onPlayWord()
+      }, 200)
+    }
   },
 
   onUnload() {
