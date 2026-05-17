@@ -71,7 +71,11 @@ Page({
   },
 
   onAllWords() {
-    wx.navigateTo({ url: '/pages/wordlist/wordlist' })
+    const words = app.globalData.words
+    const firstKey = Object.keys(words)[0]
+    if (firstKey) {
+      wx.navigateTo({ url: `/pages/detail/detail?wordKey=${firstKey}&mode=browse` })
+    }
   },
 
   onTapUnit(e) {

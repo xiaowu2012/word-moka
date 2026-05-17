@@ -60,13 +60,28 @@
 
       <!-- 来源 -->
       <view class="source-bar">
-        <text>{{word.module}} · 外研版八年级下册</text>
+        <text>{{word.module}} · 外研版九上</text>
       </view>
     </view>
   </view>
 
-  <!-- 底部固定按钮 -->
-  <view class="next-bar" wx:if="{{fromContinue}}" bindtap="onGoNext">
+  <!-- 底部：浏览模式导航 -->
+  <view class="browse-bar" wx:if="{{isBrowse}}">
+    <view class="browse-prev {{browseIndex > 0 ? '' : 'browse-disabled'}}" bindtap="onPrevWord">
+      ‹ 上一个
+    </view>
+    <view class="browse-progress">
+      <text class="browse-num">{{browseIndex + 1}}</text>
+      <text class="browse-divider">/</text>
+      <text class="browse-total">{{browseTotal}}</text>
+    </view>
+    <view class="browse-next {{browseIndex < browseTotal - 1 ? '' : 'browse-disabled'}}" bindtap="onNextWord">
+      下一个 ›
+    </view>
+  </view>
+
+  <!-- 底部：学习模式按钮 -->
+  <view class="next-bar" wx:if="{{fromContinue && !isBrowse}}" bindtap="onGoNext">
     <text class="next-text">学习下一个 →</text>
     <text class="next-progress">{{todayLearned}}/{{dailyGoal}}</text>
   </view>
