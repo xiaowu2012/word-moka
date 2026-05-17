@@ -11,6 +11,7 @@ Page({
     fromContinue: false,
     isStudy: false,
     isBrowse: false,
+    showTranslation: false,
     browseIndex: 0,
     browseTotal: 0,
     stars: '',
@@ -88,6 +89,7 @@ Page({
       fromContinue: fromContinue || false,
       isStudy: isStudy || false,
       isBrowse: isBrowse || false,
+      showTranslation: false,
       browseIndex: index,
       browseTotal: this.wordKeyList.length,
       stars: STAR_MAP[card.examFrequency] || '★★★☆☆',
@@ -162,6 +164,10 @@ Page({
     audioCtx.onError(() => {
       this.setData({ playing: '' })
     })
+  },
+
+  onTapCard() {
+    this.setData({ showTranslation: !this.data.showTranslation })
   },
 
   onImageError() {

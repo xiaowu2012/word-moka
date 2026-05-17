@@ -1,6 +1,6 @@
 <!-- 单词卡片详情 -->
 <view class="container" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
-  <view class="card-main">
+  <view class="card-main" bindtap="onTapCard">
     <!-- 单词配图 -->
     <image class="card-banner" src="{{imageSrc}}" mode="aspectFill" binderror="onImageError"></image>
 
@@ -21,31 +21,40 @@
         </view>
       </view>
 
-      <!-- 释义 -->
+      <!-- 释义（默认隐藏中文，点击揭示） -->
       <view class="section">
         <view class="section-label">释义</view>
-        <text class="cn-mean">{{word.cnMeaning}}</text>
-        <text class="en-mean" wx:if="{{word.enMeaning}}">{{word.enMeaning}}</text>
+        <view wx:if="{{showTranslation}}">
+          <text class="cn-mean">{{word.cnMeaning}}</text>
+          <text class="en-mean" wx:if="{{word.enMeaning}}">{{word.enMeaning}}</text>
+        </view>
+        <view class="tap-hint" wx:else>
+          <text>👆 点击显示释义</text>
+        </view>
       </view>
 
       <!-- 拓展例句 -->
       <view class="section" wx:if="{{extraExample}}">
         <view class="section-label">
           <text class="tag tag-blue">拓展例句</text>
-          <text class="play-inline" bindtap="onPlayExtra">🔊</text>
+          <text class="play-inline" catchtap="onPlayExtra">🔊</text>
         </view>
         <view class="example-box blue">
           <text class="example-en">{{extraExample}}</text>
-          <text class="example-cn">{{extraCn}}</text>
+          <text class="example-cn" wx:if="{{showTranslation}}">{{extraCn}}</text>
+          <text class="tap-hint example-hint" wx:else>👆 点击显示中文翻译</text>
         </view>
       </view>
 
-      <!-- 小知识 -->
+      <!-- 小知识（默认隐藏） -->
       <view class="section tip-section" wx:if="{{tip}}">
         <view class="section-label">
           <text class="tag tag-green">考点小知识</text>
         </view>
-        <text class="tip-text">{{tip}}</text>
+        <text class="tip-text" wx:if="{{showTranslation}}">{{tip}}</text>
+        <view class="tap-hint" wx:else>
+          <text>👆 点击显示</text>
+        </view>
       </view>
 
       <!-- 来源 -->
@@ -70,7 +79,7 @@
     </view>
   </view>
 
-  <!-- 底部：学习模式按钮（从单词列表学词） -->
+  <!-- 底部：学习模式按钮 -->
   <view class="study-bar" wx:if="{{isStudy}}" bindtap="onStudyNext">
     <text class="study-text">📚 学习这个词 →</text>
     <text class="study-progress">今日 {{todayLearned}}/{{dailyGoal}}</text>

@@ -356,6 +356,17 @@
 }
 
 /* 按钮 */
+.tap-hint {
+  font-size: 26rpx;
+  color: #ccc;
+  padding: 16rpx 0;
+  text-align: center;
+}
+
+.example-hint {
+  padding: 8rpx 0;
+}
+
 .btn-primary {
   background: linear-gradient(135deg, #5B8DEF, #7C6FF7);
   color: #fff;
