@@ -1,7 +1,7 @@
 <view class="container">
 
-  <!-- 课本选择 -->
-  <view wx:if="{{!showUnits}}">
+  <!-- ========== 课本选择 ========== -->
+  <block wx:if="{{pageState === 'books'}}">
     <image class="header-img" src="/images/home-banner.jpg" mode="widthFix"></image>
     <view class="section-title">选择课本</view>
     <view class="book-list">
@@ -17,22 +17,76 @@
         </view>
       </view>
     </view>
-  </view>
+  </block>
 
-  <!-- 单元列表 -->
-  <view wx:else>
+  <!-- ========== 教材详情 · 三个入口 ========== -->
+  <block wx:elif="{{pageState === 'detail'}}">
     <image class="header-img" src="/images/home-banner.jpg" mode="widthFix"></image>
     <view class="back-btn" bindtap="onBack"><text>‹ 返回</text></view>
-    <view class="unit-card {{item.available ? '' : 'disabled'}}" wx:for="{{units}}" wx:key="id">
-      <view class="unit-header">
-        <text class="unit-name">{{item.icon}} {{item.name}}</text>
-        <text class="unit-status {{item.available ? 'ready' : 'coming'}}">{{item.available ? '已上线' : '即将上线'}}</text>
-      </view>
-      <view wx:if="{{item.available}}" class="unit-actions">
-        <button class="action-btn read-btn" bindtap="onReadText" data-id="{{item.id}}">📖 课文领读</button>
-        <button class="action-btn word-btn" bindtap="onLearnWords" data-id="{{item.id}}">📚 学单词</button>
+
+    <!-- 教材简介 -->
+    <view class="book-intro">
+      <text class="intro-cover">{{currentBook.cover}}</text>
+      <view class="intro-info">
+        <text class="intro-name">{{currentBook.name}}</text>
+        <text class="intro-meta">{{currentBook.wordCount}}个单词 · 
+          <text wx:for="{{units}}" wx:key="id">{{item.available ? item.name.split(' · ')[0] + ' ' : ''}}</text>
+          等6个单元
+        </text>
       </view>
     </view>
-  </view>
+
+    <!-- 三入口卡片 -->
+    <view class="entry-cards">
+      <view class="entry-card" bindtap="onReadText">
+        <view class="entry-left">
+          <text class="entry-icon">📖</text>
+          <view class="entry-info">
+            <text class="entry-title">课文领读</text>
+            <text class="entry-desc">按单元学习课文内容</text>
+          </view>
+        </view>
+        <text class="entry-arrow">›</text>
+      </view>
+
+      <view class="entry-card" bindtap="onLearnWordsByUnit">
+        <view class="entry-left">
+          <text class="entry-icon">📚</text>
+          <view class="entry-info">
+            <text class="entry-title">按单元学单词</text>
+            <text class="entry-desc">逐单元掌握单词</text>
+          </view>
+        </view>
+        <text class="entry-arrow">›</text>
+      </view>
+
+      <view class="entry-card" bindtap="onAllWords">
+        <view class="entry-left">
+          <text class="entry-icon">📝</text>
+          <view class="entry-info">
+            <text class="entry-title">全部单词浏览</text>
+            <text class="entry-desc">全书{{currentBook.wordCount}}个单词一览</text>
+          </view>
+        </view>
+        <text class="entry-arrow">›</text>
+      </view>
+    </view>
+  </block>
+
+  <!-- ========== 单元列表 ========== -->
+  <block wx:elif="{{pageState === 'units'}}">
+    <image class="header-img" src="/images/home-banner.jpg" mode="widthFix"></image>
+    <view class="back-btn" bindtap="onShowDetail"><text>‹ 返回</text></view>
+    <view class="section-title">{{unitMode === 'read' ? '📖 选择课文' : '📚 选择单元'}}</view>
+    <view class="unit-card {{item.available ? '' : 'disabled'}}" wx:for="{{units}}" wx:key="id"
+          bindtap="{{item.available ? 'onTapUnit' : ''}}" data-id="{{item.id}}">
+      <view class="unit-row">
+        <text class="unit-name">{{item.icon}} {{item.name}}</text>
+        <text class="unit-badge {{item.available ? (unitMode === 'read' ? 'badge-ready' : 'badge-word') : 'badge-coming'}}">
+          {{item.available ? (unitMode === 'read' ? '已上线' : (item.wordCount + '个单词')) : '即将上线'}}
+        </text>
+      </view>
+    </view>
+  </block>
 
 </view>
