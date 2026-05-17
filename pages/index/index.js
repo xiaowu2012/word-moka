@@ -6,7 +6,8 @@ Page({
     units: [],
     pageState: 'books',    // 'books' | 'detail' | 'units'
     unitMode: 'read',       // 'read' | 'word'
-    currentBook: {}
+    currentBook: {},
+    availableUnitsStr: ''
   },
 
   onLoad() {
@@ -27,12 +28,16 @@ Page({
       { id: 'Unit6', name: 'Unit 6 · Live green', icon: '🌿', available: false, wordCount: unitCounts.Unit6 || 0 }
     ]
 
+    // 可用单元名称（用于教材详情页展示）
+    const availableUnits = units.filter(u => u.available).map(u => u.name.split(' · ')[0])
+
     this.setData({
       textbooks: [
         { id: '9a-2026q', name: '外研版2026秋季版 九（上）', cover: '📘', wordCount: 189, available: true },
         { id: '8b-2026c', name: '外研版2026春季版 八（下）', cover: '📙', wordCount: 0, available: false }
       ],
-      units
+      units,
+      availableUnitsStr: availableUnits.join('、')
     })
   },
 
