@@ -51,7 +51,7 @@ Page({
     this.loadDueCount()
   },
 
-  loadDueCount() {
+  loadDueCount(showReminder) {
     const today = new Date().toISOString().slice(0, 10)
     wx.cloud.callFunction({
       name: 'getProgress'
@@ -67,8 +67,7 @@ Page({
       }
       this.setData({ dueCount: count })
 
-      // 选了教材后再检查复习提醒
-      if (this.data.currentBook.id) {
+      if (showReminder) {
         this.checkReviewReminder(count, today)
       }
     }).catch(() => {})
@@ -106,9 +105,8 @@ Page({
       currentBook: book
     })
 
-    // 选了教材后检查复习提醒
-    const today = new Date().toISOString().slice(0, 10)
-    this.checkReviewReminder(this.data.dueCount, today)
+    // 选了教材后重新加载待复习数 + 检查提醒
+    this.loadDueCount(true)
   },
 
   onBack() {
