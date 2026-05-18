@@ -113,10 +113,10 @@
 
 /* 题目标签（左上角） */
 .q-label {
-  font-size: 24rpx;
-  color: #aaa;
+  font-size: 28rpx;
+  color: #888;
   text-align: left;
-  margin-bottom: 20rpx;
+  margin-bottom: 16rpx;
   flex-shrink: 0;
 }
 
