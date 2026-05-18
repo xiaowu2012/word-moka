@@ -1,7 +1,7 @@
 {
   "lady": {
     "word": "lady",
-    "phonetic": "/'lerdi/",
+    "phonetic": "/ˈleɪdi/",
     "cnMeaning": "女士，女子",
     "module": "Unit1",
     "key": true,
@@ -17,7 +17,7 @@
   },
   "gentleman": {
     "word": "gentleman",
-    "phonetic": "/'dsentlman/",
+    "phonetic": "/ˈdʒentlmən/",
     "cnMeaning": "先生",
     "module": "Unit1",
     "key": true,
@@ -33,7 +33,7 @@
   },
   "performer": {
     "word": "performer",
-    "phonetic": "/pe 'fo:ma/",
+    "phonetic": "/pəˈfɔːmə/",
     "cnMeaning": "表演者",
     "module": "Unit1",
     "key": true,
@@ -49,7 +49,7 @@
   },
   "finger": {
     "word": "finger",
-    "phonetic": "/'fuga/",
+    "phonetic": "/ˈfɪŋɡə/",
     "cnMeaning": "手指",
     "module": "Unit1",
     "key": true,
@@ -65,7 +65,7 @@
   },
   "teenager": {
     "word": "teenager",
-    "phonetic": "/'tinerdga/",
+    "phonetic": "/ˈtiːneɪdʒə/",
     "cnMeaning": "青少年",
     "module": "Unit1",
     "key": true,
@@ -81,7 +81,7 @@
   },
   "unless": {
     "word": "unless",
-    "phonetic": "/an'les/",
+    "phonetic": "/ʌnˈles/",
     "cnMeaning": "除非•.",
     "module": "Unit1",
     "key": true,
@@ -97,7 +97,7 @@
   },
   "performance": {
     "word": "performance",
-    "phonetic": "/pa 'fo:mans/",
+    "phonetic": "/pəˈfɔːməns/",
     "cnMeaning": "表演；",
     "module": "Unit1",
     "key": true,
@@ -113,7 +113,7 @@
   },
   "blood": {
     "word": "blood",
-    "phonetic": "/bld/",
+    "phonetic": "/blʌd/",
     "cnMeaning": "血，血液",
     "module": "Unit1",
     "key": true,
@@ -129,7 +129,7 @@
   },
   "perform": {
     "word": "perform",
-    "phonetic": "/pe 'fo:m/",
+    "phonetic": "/pəˈfɔːm/",
     "cnMeaning": "表演，演出",
     "module": "Unit1",
     "key": true,
@@ -147,7 +147,7 @@
   },
   "viewer": {
     "word": "viewer",
-    "phonetic": "/'vjua/",
+    "phonetic": "/ˈvjuːə/",
     "cnMeaning": "观看者",
     "module": "Unit1",
     "key": true,
@@ -163,7 +163,7 @@
   },
   "creativity": {
     "word": "creativity",
-    "phonetic": "/，kri:er'tvsti/",
+    "phonetic": "/ˌkriːeɪˈtɪvəti/",
     "cnMeaning": "独创性，",
     "module": "Unit1",
     "key": true,
@@ -179,7 +179,7 @@
   },
   "artist": {
     "word": "artist",
-    "phonetic": "/'a:tust/",
+    "phonetic": "/ˈɑːtɪst/",
     "cnMeaning": "艺术家",
     "module": "Unit1",
     "key": true,
@@ -195,7 +195,7 @@
   },
   "group": {
     "word": "group",
-    "phonetic": "/grup/",
+    "phonetic": "/ɡruːp/",
     "cnMeaning": "组，群；团体",
     "module": "Unit1",
     "key": true,
@@ -211,7 +211,7 @@
   },
   "creator": {
     "word": "creator",
-    "phonetic": "/kri'eite/",
+    "phonetic": "/kriːˈeɪtə/",
     "cnMeaning": "创作者；创造者",
     "module": "Unit1",
     "key": true,
@@ -227,7 +227,7 @@
   },
   "kill": {
     "word": "kill",
-    "phonetic": "/kal/",
+    "phonetic": "/kɪl/",
     "cnMeaning": "弄死，杀死",
     "module": "Unit1",
     "key": true,
@@ -245,7 +245,7 @@
   },
   "youth": {
     "word": "youth",
-    "phonetic": "/ju:6/",
+    "phonetic": "/juːθ/",
     "cnMeaning": "青年，年轻人",
     "module": "Unit1",
     "key": true,
@@ -261,7 +261,7 @@
   },
   "wealthy": {
     "word": "wealthy",
-    "phonetic": "/'welfi/",
+    "phonetic": "/ˈwelθi/",
     "cnMeaning": "富有的；富",
     "module": "Unit1",
     "key": true,
@@ -277,7 +277,7 @@
   },
   "hidden": {
     "word": "hidden",
-    "phonetic": "/'hrcdn/",
+    "phonetic": "/ˈhɪdn/",
     "cnMeaning": "隐藏的，隐秘的",
     "module": "Unit1",
     "key": true,
@@ -295,7 +295,7 @@
   },
   "wildly": {
     "word": "wildly",
-    "phonetic": "/'warldli/",
+    "phonetic": "/ˈwaɪldli/",
     "cnMeaning": "激动地",
     "module": "Unit1",
     "key": true,
@@ -311,7 +311,7 @@
   },
   "scare": {
     "word": "scare",
-    "phonetic": "/skea/",
+    "phonetic": "/skeə/",
     "cnMeaning": "使惊恐，吓唬",
     "module": "Unit1",
     "key": true,
@@ -329,7 +329,7 @@
   },
   "wing": {
     "word": "wing",
-    "phonetic": "/wu/",
+    "phonetic": "/wɪŋ/",
     "cnMeaning": "翅膀，翼",
     "module": "Unit1",
     "key": true,
@@ -345,133 +345,133 @@
   },
   "tin": {
     "word": "tin",
-    "phonetic": "/tn/",
+    "phonetic": "/tɪn/",
     "cnMeaning": "罐头；金属盒",
     "module": "Unit2"
   },
   "spare": {
     "word": "spare",
-    "phonetic": "/spea/",
+    "phonetic": "/speə/",
     "cnMeaning": "ad）. 备用的；多余的，",
     "module": "Unit2"
   },
   "size": {
     "word": "size",
-    "phonetic": "/sarz/",
+    "phonetic": "/saɪz/",
     "cnMeaning": "大小，尺寸",
     "module": "Unit2"
   },
   "dreamland": {
     "word": "dreamland",
-    "phonetic": "/'dri:mlend/",
+    "phonetic": "/ˈdriːmlænd/",
     "cnMeaning": "梦境，",
     "module": "Unit2"
   },
   "manage": {
     "word": "manage",
-    "phonetic": "/'maenidz/",
+    "phonetic": "/ˈmænɪdʒ/",
     "cnMeaning": "终于做成，",
     "module": "Unit2"
   },
   "laptop": {
     "word": "laptop",
-    "phonetic": "/'la:ptop/",
+    "phonetic": "/ˈlæptɒp/",
     "cnMeaning": "笔记本电脑，",
     "module": "Unit2"
   },
   "exactly": {
     "word": "exactly",
-    "phonetic": "/g'zektli/",
+    "phonetic": "/ɪɡˈzæktli/",
     "cnMeaning": "正是，一点",
     "module": "Unit2"
   },
   "rate": {
     "word": "rate",
-    "phonetic": "/rett/",
+    "phonetic": "/reɪt/",
     "cnMeaning": "v对••••做评估，评价",
     "module": "Unit2"
   },
   "pleasure": {
     "word": "pleasure",
-    "phonetic": "/'plega/",
+    "phonetic": "/ˈpleʒə/",
     "cnMeaning": "愉快，快乐；",
     "module": "Unit2"
   },
   "inference": {
     "word": "inference",
-    "phonetic": "/'mforans/",
+    "phonetic": "/ˈɪnfərəns/",
     "cnMeaning": "推论，推断",
     "module": "Unit2"
   },
   "account": {
     "word": "account",
-    "phonetic": "/'kaunt/",
+    "phonetic": "/əˈkaʊnt/",
     "cnMeaning": "账户",
     "module": "Unit2"
   },
   "saving": {
     "word": "saving",
-    "phonetic": "/'servip/",
+    "phonetic": "/ˈseɪvɪŋ/",
     "cnMeaning": "积蓄；存钱",
     "module": "Unit2"
   },
   "habit": {
     "word": "habit",
-    "phonetic": "/'haebt/",
+    "phonetic": "/ˈhæbɪt/",
     "cnMeaning": "习惯",
     "module": "Unit2"
   },
   "value": {
     "word": "value",
-    "phonetic": "/'valju/",
+    "phonetic": "/ˈvæljuː/",
     "cnMeaning": "价值",
     "module": "Unit2"
   },
   "unlike": {
     "word": "unlike",
-    "phonetic": "/An 'laik/",
+    "phonetic": "/ʌnˈlaɪk/",
     "cnMeaning": "不像⋯⋯，",
     "module": "Unit2"
   },
   "date": {
     "word": "date",
-    "phonetic": "/der/",
+    "phonetic": "/deɪt/",
     "cnMeaning": "日期，日子",
     "module": "Unit2"
   },
   "sale": {
     "word": "sale",
-    "phonetic": "/seil/",
+    "phonetic": "/seɪl/",
     "cnMeaning": "出售，销售",
     "module": "Unit2"
   },
   "t-shirt": {
     "word": "t-shirt",
-    "phonetic": "/'ti:J3:t/",
+    "phonetic": "/ˈtiːʃɜːt/",
     "cnMeaning": "T恤（衫）",
     "module": "Unit2"
   },
   "quick": {
     "word": "quick",
-    "phonetic": "/kwik/",
+    "phonetic": "/kwɪk/",
     "cnMeaning": "快的；快速的",
     "module": "Unit2"
   },
   "website": {
     "word": "website",
-    "phonetic": "/'websart/",
+    "phonetic": "/ˈwebsaɪt/",
     "cnMeaning": "网站",
     "module": "Unit2"
   },
   "organiser": {
     "word": "organiser",
-    "phonetic": "/'o:gnaiza/",
+    "phonetic": "/ˈɔːɡənaɪzə/",
     "cnMeaning": "组织者，",
     "module": "Unit2"
   },
   "dollar": {
     "word": "dollar",
-    "phonetic": "/'dola/",
+    "phonetic": "/ˈdɒlə/",
     "cnMeaning": "美元",
     "module": "Unit2"
   },
@@ -483,775 +483,763 @@
   },
   "penny": {
     "word": "penny",
-    "phonetic": "/'peni/",
+    "phonetic": "/ˈpeni/",
     "cnMeaning": "（美国、加拿大的）",
     "module": "Unit2"
   },
   "exception": {
     "word": "exception",
-    "phonetic": "/ik'sepfan/",
+    "phonetic": "/ɪkˈsepʃn/",
     "cnMeaning": "例外，除外",
     "module": "Unit2"
   },
   "couple": {
     "word": "couple",
-    "phonetic": "/'kApal/",
+    "phonetic": "/ˈkʌpl/",
     "cnMeaning": "一对夫妇；一对",
     "module": "Unit2"
   },
   "treasure": {
     "word": "treasure",
-    "phonetic": "/'tregsa/",
+    "phonetic": "/ˈtreʒə/",
     "cnMeaning": "珍宝，珍品",
     "module": "Unit2"
   },
   "christmas": {
     "word": "christmas",
-    "phonetic": "/i:v/",
+    "phonetic": "/ˈkrɪsməs/",
     "cnMeaning": "圣诞前夕，",
     "module": "Unit2"
   },
   "certainly": {
     "word": "certainly",
-    "phonetic": "/'ss:tnli/",
+    "phonetic": "/ˈsɜːtnli/",
     "cnMeaning": "当然",
     "module": "Unit2"
   },
   "chain": {
     "word": "chain",
-    "phonetic": "/tTem/",
+    "phonetic": "/tʃeɪn/",
     "cnMeaning": "链子，链条",
     "module": "Unit2"
   },
   "expensive": {
     "word": "expensive",
-    "phonetic": "/ik'spensrv/",
+    "phonetic": "/ɪkˈspensɪv/",
     "cnMeaning": "昂贵的，",
     "module": "Unit2"
   },
   "remains": {
     "word": "remains",
-    "phonetic": "/r'memz/",
+    "phonetic": "/rɪˈmeɪnz/",
     "cnMeaning": "遗迹",
     "module": "Unit3"
   },
   "kingdom": {
     "word": "kingdom",
-    "phonetic": "/'kugdam/",
+    "phonetic": "/ˈkɪŋdəm/",
     "cnMeaning": "王国",
     "module": "Unit3"
   },
   "northwest": {
     "word": "northwest",
-    "phonetic": "/，n3:0'west/",
+    "phonetic": "/ˌnɔːθˈwest/",
     "cnMeaning": "西北，",
     "module": "Unit3"
   },
   "centre": {
     "word": "centre",
-    "phonetic": "/'senta/",
+    "phonetic": "/ˈsentə/",
     "cnMeaning": "中心",
     "module": "Unit3"
   },
   "period": {
     "word": "period",
-    "phonetic": "/'proriod/",
+    "phonetic": "/ˈpɪəriəd/",
     "cnMeaning": "时期",
     "module": "Unit3"
   },
   "valuable": {
     "word": "valuable",
-    "phonetic": "/'valjuobal/",
+    "phonetic": "/ˈvæljuəbl/",
     "cnMeaning": "宝贵的，",
     "module": "Unit3"
   },
   "amaze": {
     "word": "amaze",
-    "phonetic": "/s'merz/",
+    "phonetic": "/əˈmeɪz/",
     "cnMeaning": "使大为惊奇，",
     "module": "Unit3"
   },
   "researcher": {
     "word": "researcher",
-    "phonetic": "/rr'ss:tja/",
+    "phonetic": "/rɪˈsɜːtʃə/",
     "cnMeaning": "研究者；",
     "module": "Unit3"
   },
   "detailed": {
     "word": "detailed",
-    "phonetic": "/diteild/",
+    "phonetic": "/ˈdiːteɪld/",
     "cnMeaning": "详尽的，详",
     "module": "Unit3"
   },
   "cartoon": {
     "word": "cartoon",
-    "phonetic": "/ka：'tun/",
+    "phonetic": "/kɑːˈtuːn/",
     "cnMeaning": "卡通（片），",
     "module": "Unit3"
   },
   "tomb": {
     "word": "tomb",
-    "phonetic": "/tu:m/",
+    "phonetic": "/tuːm/",
     "cnMeaning": "坟墓，冢",
-    "module": "Unit3"
-  },
-  "sillk": {
-    "word": "sillk",
-    "phonetic": "/silk/",
-    "cnMeaning": "丝绸",
     "module": "Unit3"
   },
   "matchbox": {
     "word": "matchbox",
-    "phonetic": "/'mzetjboks/",
+    "phonetic": "/ˈmætʃbɒks/",
     "cnMeaning": "火柴盒",
     "module": "Unit3"
   },
   "statue": {
     "word": "statue",
-    "phonetic": "/'stethu:/",
+    "phonetic": "/ˈstætʃuː/",
     "cnMeaning": "雕像；塑像",
     "module": "Unit3"
   },
   "moai": {
     "word": "moai",
-    "phonetic": "/'mavau/",
+    "phonetic": "/ˈməʊaɪ/",
     "cnMeaning": "摩埃石像",
     "module": "Unit3"
   },
   "mystery": {
     "word": "mystery",
-    "phonetic": "/'mistari/",
+    "phonetic": "/ˈmɪstəri/",
     "cnMeaning": "神秘事物，谜",
     "module": "Unit3"
   },
   "possibility": {
     "word": "possibility",
-    "phonetic": "/，pose\"bilati/",
+    "phonetic": "/ˌpɒsəˈbɪləti/",
     "cnMeaning": "可能，",
     "module": "Unit3"
   },
   "pretty": {
     "word": "pretty",
-    "phonetic": "/'prti/",
+    "phonetic": "/ˈprɪti/",
     "cnMeaning": "漂亮的，好看的",
     "module": "Unit3"
   },
   "besides": {
     "word": "besides",
-    "phonetic": "/br'sardz/",
+    "phonetic": "/bɪˈsaɪdz/",
     "cnMeaning": "除•之外",
     "module": "Unit3"
   },
   "version": {
     "word": "version",
-    "phonetic": "/'va:fan/",
+    "phonetic": "/ˈvɜːʃn/",
     "cnMeaning": "版本",
     "module": "Unit3"
   },
   "palace": {
     "word": "palace",
-    "phonetic": "/'paels/",
+    "phonetic": "/ˈpæləs/",
     "cnMeaning": "王宫；宫殿",
     "module": "Unit3"
   },
   "background": {
     "word": "background",
-    "phonetic": "/'backgraund/",
+    "phonetic": "/ˈbækɡraʊnd/",
     "cnMeaning": "背景",
     "module": "Unit3"
   },
   "fever": {
     "word": "fever",
-    "phonetic": "/'fi:va/",
+    "phonetic": "/ˈfiːvə/",
     "cnMeaning": "狂热，兴奋",
     "module": "Unit3"
   },
   "pride": {
     "word": "pride",
-    "phonetic": "/prard/",
+    "phonetic": "/praɪd/",
     "cnMeaning": "自豪，",
     "module": "Unit3"
   },
   "bat": {
     "word": "bat",
-    "phonetic": "/baet/",
+    "phonetic": "/bæt/",
     "cnMeaning": "蝙蝠",
     "module": "Unit3"
   },
   "fridge": {
     "word": "fridge",
-    "phonetic": "/frds/",
+    "phonetic": "/frɪdʒ/",
     "cnMeaning": "冰箱，冰柜",
     "module": "Unit3"
   },
   "magnet": {
     "word": "magnet",
-    "phonetic": "/'magnt/",
+    "phonetic": "/ˈmæɡnɪt/",
     "cnMeaning": "磁铁",
     "module": "Unit3"
   },
   "central": {
     "word": "central",
-    "phonetic": "/'sentral/",
+    "phonetic": "/ˈsentrəl/",
     "cnMeaning": "中心的；",
     "module": "Unit3"
   },
   "fearless": {
     "word": "fearless",
-    "phonetic": "/'fieles/",
+    "phonetic": "/ˈfɪələs/",
     "cnMeaning": "无畏的，不",
     "module": "Unit4"
   },
   "bravely": {
     "word": "bravely",
-    "phonetic": "/'brervli/",
+    "phonetic": "/ˈbreɪvli/",
     "cnMeaning": "勇敢地，无",
     "module": "Unit4"
   },
   "footstep": {
     "word": "footstep",
-    "phonetic": "/'futstep/",
+    "phonetic": "/ˈfʊtstep/",
     "cnMeaning": "足迹",
     "module": "Unit4"
   },
   "northeast": {
     "word": "northeast",
-    "phonetic": "/，no:0'ist/",
+    "phonetic": "/ˌnɔːθˈiːst/",
     "cnMeaning": "东北，东北",
     "module": "Unit4"
   },
   "death": {
     "word": "death",
-    "phonetic": "/de8/",
+    "phonetic": "/deθ/",
     "cnMeaning": "死，死亡",
     "module": "Unit4"
   },
   "gentle": {
     "word": "gentle",
-    "phonetic": "/'dsentl/",
+    "phonetic": "/ˈdʒentl/",
     "cnMeaning": "温和的，温柔的",
     "module": "Unit4"
   },
   "fighter": {
     "word": "fighter",
-    "phonetic": "/'farta/",
+    "phonetic": "/ˈfaɪtə/",
     "cnMeaning": "斗士，奋斗者",
     "module": "Unit4"
   },
   "pity": {
     "word": "pity",
-    "phonetic": "/'prti/",
+    "phonetic": "/ˈpɪti/",
     "cnMeaning": "可惜，遗憾",
     "module": "Unit4"
   },
   "fixed": {
     "word": "fixed",
-    "phonetic": "/fikst/",
+    "phonetic": "/fɪkst/",
     "cnMeaning": "固定的；不变的",
     "module": "Unit4"
   },
   "unchanging": {
     "word": "unchanging",
-    "phonetic": "/An'tfemdgu/",
+    "phonetic": "/ʌnˈtʃeɪndʒɪŋ/",
     "cnMeaning": "不",
     "module": "Unit4"
   },
   "entry": {
     "word": "entry",
-    "phonetic": "/'entri/",
+    "phonetic": "/ˈentri/",
     "cnMeaning": "（日记的）一则",
     "module": "Unit4"
   },
   "battle": {
     "word": "battle",
-    "phonetic": "/\"baetl/",
+    "phonetic": "/ˈbætl/",
     "cnMeaning": "战斗，战役",
     "module": "Unit4"
   },
   "temperature": {
     "word": "temperature",
-    "phonetic": "/'tempratja/",
+    "phonetic": "/ˈtemprətʃə/",
     "cnMeaning": "温度，",
     "module": "Unit4"
   },
   "selfless": {
     "word": "selfless",
-    "phonetic": "/'selflas/",
+    "phonetic": "/ˈselfləs/",
     "cnMeaning": "忘我的，无",
     "module": "Unit4"
   },
   "heroic": {
     "word": "heroic",
-    "phonetic": "/hr'raurk/",
+    "phonetic": "/hɪˈrəʊɪk/",
     "cnMeaning": "英雄的，英",
     "module": "Unit4"
   },
   "recommend": {
     "word": "recommend",
-    "phonetic": "/，reka'mend/",
+    "phonetic": "/ˌrekəˈmend/",
     "cnMeaning": "劝告，",
     "module": "Unit4"
   },
   "dreamer": {
     "word": "dreamer",
-    "phonetic": "/'dri:ma/",
+    "phonetic": "/ˈdriːmə/",
     "cnMeaning": "做梦的人",
-    "module": "Unit4"
-  },
-  "buring": {
-    "word": "buring",
-    "phonetic": "/'bsrn/",
-    "cnMeaning": "火热的；灼",
     "module": "Unit4"
   },
   "countless": {
     "word": "countless",
-    "phonetic": "/'kauntlas/",
+    "phonetic": "/ˈkaʊntləs/",
     "cnMeaning": "无数的，",
     "module": "Unit4"
   },
   "president": {
     "word": "president",
-    "phonetic": "/'prezidant/",
+    "phonetic": "/ˈprezɪdənt/",
     "cnMeaning": "国家主席；",
     "module": "Unit4"
   },
   "republic": {
     "word": "republic",
-    "phonetic": "/n'pAblik/",
+    "phonetic": "/rɪˈpʌblɪk/",
     "cnMeaning": "共和国",
     "module": "Unit4"
   },
   "productive": {
     "word": "productive",
-    "phonetic": "/prs'dAktrv/",
+    "phonetic": "/prəˈdʌktɪv/",
     "cnMeaning": "多产的",
     "module": "Unit4"
   },
   "type": {
     "word": "type",
-    "phonetic": "/taup/",
+    "phonetic": "/taɪp/",
     "cnMeaning": "类型，种类",
     "module": "Unit4"
   },
   "soil": {
     "word": "soil",
-    "phonetic": "/soil/",
+    "phonetic": "/sɔɪl/",
     "cnMeaning": "土壤，土地，泥土",
     "module": "Unit4"
   },
   "socialist": {
     "word": "socialist",
-    "phonetic": "/'saufalst/",
+    "phonetic": "/ˈsəʊʃəlɪst/",
     "cnMeaning": "社会主",
     "module": "Unit4"
   },
   "drop": {
     "word": "drop",
-    "phonetic": "/drop/",
+    "phonetic": "/drɒp/",
     "cnMeaning": "降低",
     "module": "Unit5"
   },
   "tourist": {
     "word": "tourist",
-    "phonetic": "/'tuorist/",
+    "phonetic": "/ˈtʊərɪst/",
     "cnMeaning": "游客",
     "module": "Unit5"
   },
   "ecosystem": {
     "word": "ecosystem",
-    "phonetic": "/'i:kau,sistum/",
+    "phonetic": "/ˈiːkəʊsɪstəm/",
     "cnMeaning": "生态",
     "module": "Unit5"
   },
   "balance": {
     "word": "balance",
-    "phonetic": "/'baelans/",
+    "phonetic": "/ˈbæləns/",
     "cnMeaning": "（使）平稳，（使）",
     "module": "Unit5"
   },
   "smog": {
     "word": "smog",
-    "phonetic": "/smpg/",
+    "phonetic": "/smɒɡ/",
     "cnMeaning": "烟雾",
     "module": "Unit5"
   },
   "admire": {
     "word": "admire",
-    "phonetic": "/ed'maua/",
+    "phonetic": "/ədˈmaɪə/",
     "cnMeaning": "欣赏，观赏",
     "module": "Unit5"
   },
   "mark": {
     "word": "mark",
-    "phonetic": "/mosk/",
+    "phonetic": "/mɑːk/",
     "cnMeaning": "痕迹；标记",
     "module": "Unit5"
   },
   "farmland": {
     "word": "farmland",
-    "phonetic": "/'fa:mlaend/",
+    "phonetic": "/ˈfɑːmlænd/",
     "cnMeaning": "农田，耕地",
     "module": "Unit5"
   },
   "rapid": {
     "word": "rapid",
-    "phonetic": "/'raprd/",
+    "phonetic": "/ˈræpɪd/",
     "cnMeaning": "快速的，迅速的",
     "module": "Unit5"
   },
   "society": {
     "word": "society",
-    "phonetic": "/se'sareti/",
+    "phonetic": "/səˈsaɪəti/",
     "cnMeaning": "社会",
     "module": "Unit5"
   },
   "till": {
     "word": "till",
-    "phonetic": "/tl/",
+    "phonetic": "/tɪl/",
     "cnMeaning": "直到",
     "module": "Unit5"
   },
   "cancel": {
     "word": "cancel",
-    "phonetic": "/'kensel/",
+    "phonetic": "/ˈkænsl/",
     "cnMeaning": "取消",
     "module": "Unit5"
   },
   "permit": {
     "word": "permit",
-    "phonetic": "/pe'mt/",
+    "phonetic": "/pəˈmɪt/",
     "cnMeaning": "v 允许；使成为可能",
     "module": "Unit5"
   },
   "harm": {
     "word": "harm",
-    "phonetic": "/ha:m/",
+    "phonetic": "/hɑːm/",
     "cnMeaning": "V. 损害；危害；伤害",
     "module": "Unit5"
   },
   "punishment": {
     "word": "punishment",
-    "phonetic": "/'pAnjmant/",
+    "phonetic": "/ˈpʌnɪʃmənt/",
     "cnMeaning": "惩罚",
     "module": "Unit5"
   },
   "overfishing": {
     "word": "overfishing",
-    "phonetic": "/，ouva'fufup/",
+    "phonetic": "/ˌəʊvəˈfɪʃɪŋ/",
     "cnMeaning": "过度",
     "module": "Unit5"
   },
   "greenhouse": {
     "word": "greenhouse",
-    "phonetic": "/'gri:nhaus/",
+    "phonetic": "/ˈɡriːnhaʊs/",
     "cnMeaning": "温室，",
     "module": "Unit5"
   },
   "gas": {
     "word": "gas",
-    "phonetic": "/gas/",
+    "phonetic": "/ɡæs/",
     "cnMeaning": "气，气体",
     "module": "Unit5"
   },
   "control": {
     "word": "control",
-    "phonetic": "/kan'traul/",
+    "phonetic": "/kənˈtrəʊl/",
     "cnMeaning": "控制，限制",
     "module": "Unit5"
   },
   "rubbish": {
     "word": "rubbish",
-    "phonetic": "/'tAbuf/",
+    "phonetic": "/ˈrʌbɪʃ/",
     "cnMeaning": "垃圾，废弃物",
     "module": "Unit5"
   },
   "cartoonist": {
     "word": "cartoonist",
-    "phonetic": "/ka:/",
+    "phonetic": "/kɑːˈtuːnɪst/",
     "cnMeaning": "tu:nist/ n. 漫画家；",
     "module": "Unit5"
   },
   "logging": {
     "word": "logging",
-    "phonetic": "/'logu/",
+    "phonetic": "/ˈlɒɡɪŋ/",
     "cnMeaning": "伐木",
     "module": "Unit5"
   },
   "alarm": {
     "word": "alarm",
-    "phonetic": "/'la:m/",
+    "phonetic": "/əˈlɑːm/",
     "cnMeaning": "警报；警报器",
     "module": "Unit5"
   },
   "foreigner": {
     "word": "foreigner",
-    "phonetic": "/'forana/",
+    "phonetic": "/ˈfɒrənə/",
     "cnMeaning": "外国人",
     "module": "Unit5"
   },
   "logo": {
     "word": "logo",
-    "phonetic": "/'laugau/",
+    "phonetic": "/ˈləʊɡəʊ/",
     "cnMeaning": "标识，标志，徽标",
     "module": "Unit5"
   },
   "endangered": {
     "word": "endangered",
-    "phonetic": "/m'de mdsod/",
+    "phonetic": "/ɪnˈdeɪndʒəd/",
     "cnMeaning": "濒危",
     "module": "Unit5"
   },
   "vulnerable": {
     "word": "vulnerable",
-    "phonetic": "/'vAlnerabal/",
+    "phonetic": "/ˈvʌlnərəbl/",
     "cnMeaning": "脆弱的；",
     "module": "Unit5"
   },
   "worldwide": {
     "word": "worldwide",
-    "phonetic": "/，ws:ld'ward/",
+    "phonetic": "/ˌwɜːldˈwaɪd/",
     "cnMeaning": "世界",
     "module": "Unit5"
   },
   "protection": {
     "word": "protection",
-    "phonetic": "/pre'tekfan/",
+    "phonetic": "/prəˈtekʃn/",
     "cnMeaning": "保护",
     "module": "Unit5"
   },
   "environmental": {
     "word": "environmental",
-    "phonetic": "/in,vauren 'ment/",
+    "phonetic": "/ɪnˌvaɪrənˈmentl/",
     "cnMeaning": "/",
     "module": "Unit5"
   },
   "population": {
     "word": "population",
-    "phonetic": "/，popjs'lefon/",
+    "phonetic": "/ˌpɒpjuˈleɪʃn/",
     "cnMeaning": "人口；",
     "module": "Unit5"
   },
   "cheap": {
     "word": "cheap",
-    "phonetic": "/tfip/",
+    "phonetic": "/tʃiːp/",
     "cnMeaning": "便宜的，廉价的",
     "module": "Unit6"
   },
   "toothbrush": {
     "word": "toothbrush",
-    "phonetic": "/'tu:0brAJ/",
+    "phonetic": "/ˈtuːθbrʌʃ/",
     "cnMeaning": "牙刷",
     "module": "Unit6"
   },
   "glove": {
     "word": "glove",
-    "phonetic": "/glav/",
+    "phonetic": "/ɡlʌv/",
     "cnMeaning": "手套",
     "module": "Unit6"
   },
   "silently": {
     "word": "silently",
-    "phonetic": "/'satlontli/",
+    "phonetic": "/ˈsaɪləntli/",
     "cnMeaning": "默不作声地；",
     "module": "Unit6"
   },
   "former": {
     "word": "former",
-    "phonetic": "/'fo:ma/",
+    "phonetic": "/ˈfɔːmə/",
     "cnMeaning": "以前的，从",
     "module": "Unit6"
   },
   "tie": {
     "word": "tie",
-    "phonetic": "/ta/",
+    "phonetic": "/taɪ/",
     "cnMeaning": "系，扎，拴，捆",
     "module": "Unit6"
   },
   "bin": {
     "word": "bin",
-    "phonetic": "/bm/",
+    "phonetic": "/bɪn/",
     "cnMeaning": "垃圾箱，垃圾桶",
     "module": "Unit6"
   },
   "average": {
     "word": "average",
-    "phonetic": "/'zvardg/",
+    "phonetic": "/ˈævərɪdʒ/",
     "cnMeaning": "平均数",
     "module": "Unit6"
   },
   "tiny": {
     "word": "tiny",
-    "phonetic": "/'tamni/",
+    "phonetic": "/ˈtaɪni/",
     "cnMeaning": "极小的",
     "module": "Unit6"
   },
   "nowhere": {
     "word": "nowhere",
-    "phonetic": "/'nauwee/",
+    "phonetic": "/ˈnəʊweə/",
     "cnMeaning": "什么地方",
     "module": "Unit6"
   },
   "plastic-free": {
     "word": "plastic-free",
-    "phonetic": "/'pleestik fri:/",
+    "phonetic": "/ˈplæstɪk friː/",
     "cnMeaning": "ad）. 无塑",
     "module": "Unit6"
   },
   "highlight": {
     "word": "highlight",
-    "phonetic": "/'harlant/",
+    "phonetic": "/ˈhaɪlaɪt/",
     "cnMeaning": "突出，强调",
     "module": "Unit6"
   },
   "formation": {
     "word": "formation",
-    "phonetic": "/fo：'merjon/",
+    "phonetic": "/fɔːˈmeɪʃn/",
     "cnMeaning": "构成，",
     "module": "Unit6"
   },
   "pollute": {
     "word": "pollute",
-    "phonetic": "/pe'lu:t/",
+    "phonetic": "/pəˈluːt/",
     "cnMeaning": "污染",
     "module": "Unit6"
   },
   "electronic": {
     "word": "electronic",
-    "phonetic": "/，eluk'tronik/",
+    "phonetic": "/ɪˌlekˈtrɒnɪk/",
     "cnMeaning": "电子的，",
     "module": "Unit6"
   },
   "fog": {
     "word": "fog",
-    "phonetic": "/fog/",
+    "phonetic": "/fɒɡ/",
     "cnMeaning": "雾",
     "module": "Unit6"
   },
   "industry": {
     "word": "industry",
-    "phonetic": "/'mdsstri/",
+    "phonetic": "/ˈɪndəstri/",
     "cnMeaning": "工业，制造业",
     "module": "Unit6"
   },
   "capital": {
     "word": "capital",
-    "phonetic": "/'kaepotl/",
+    "phonetic": "/ˈkæpɪtl/",
     "cnMeaning": "首都",
     "module": "Unit6"
   },
   "coal": {
     "word": "coal",
-    "phonetic": "/kaul/",
+    "phonetic": "/kəʊl/",
     "cnMeaning": "煤",
     "module": "Unit6"
   },
   "worst": {
     "word": "worst",
-    "phonetic": "/w3:st/",
+    "phonetic": "/wɜːst/",
     "cnMeaning": "最坏的；最差的",
     "module": "Unit6"
   },
   "negative": {
     "word": "negative",
-    "phonetic": "/'negatrv/",
+    "phonetic": "/ˈneɡətɪv/",
     "cnMeaning": "ad）.有害的；",
     "module": "Unit6"
   },
   "furthermore": {
     "word": "furthermore",
-    "phonetic": "/，fs:0e'mo:/",
+    "phonetic": "/ˌfɜːðəˈmɔː/",
     "cnMeaning": "此外；",
     "module": "Unit6"
   },
   "recycle": {
     "word": "recycle",
-    "phonetic": "/，ri：' satkal/",
+    "phonetic": "/ˌriːˈsaɪkl/",
     "cnMeaning": "再利用，回收",
     "module": "Unit6"
   },
   "upcycle": {
     "word": "upcycle",
-    "phonetic": "/'Ap,salkal/",
+    "phonetic": "/ˈʌpsaɪkl/",
     "cnMeaning": "升级改造",
     "module": "Unit6"
   },
   "loudly": {
     "word": "loudly",
-    "phonetic": "/laudli/",
+    "phonetic": "/ˈlaʊdli/",
     "cnMeaning": "晌亮地，大声地",
     "module": "Unit6"
   },
   "village": {
     "word": "village",
-    "phonetic": "/'virds/",
+    "phonetic": "/ˈvɪlɪdʒ/",
     "cnMeaning": "乡村，村庄",
     "module": "Unit6"
   },
   "noisy": {
     "word": "noisy",
-    "phonetic": "/'norzi/",
+    "phonetic": "/ˈnɔɪzi/",
     "cnMeaning": "喧闹的；吵闹的",
     "module": "Unit6"
   },
   "reporter": {
     "word": "reporter",
-    "phonetic": "/r'po:ta/",
+    "phonetic": "/rɪˈpɔːtə/",
     "cnMeaning": "记者",
     "module": "Unit6"
   },
   "depth": {
     "word": "depth",
-    "phonetic": "/depe/",
+    "phonetic": "/depθ/",
     "cnMeaning": "深，深度",
     "module": "Unit6"
   },
   "weight": {
     "word": "weight",
-    "phonetic": "/weit/",
+    "phonetic": "/weɪt/",
     "cnMeaning": "重物",
     "module": "Unit6"
   },
   "businessman": {
     "word": "businessman",
-    "phonetic": "/'brznasmon/",
+    "phonetic": "/ˈbɪznəsmæn/",
     "cnMeaning": "商人；",
     "module": "Unit6"
   },
   "truck": {
     "word": "truck",
-    "phonetic": "/trAk/",
+    "phonetic": "/trʌk/",
     "cnMeaning": "货车，卡车",
     "module": "Unit6"
   },
   "industrial": {
     "word": "industrial",
-    "phonetic": "/in 'dAstriaV/",
+    "phonetic": "/ɪnˈdʌstriəl/",
     "cnMeaning": "工业的",
     "module": "Unit6"
   },
   "litter": {
     "word": "litter",
-    "phonetic": "/'hta/",
+    "phonetic": "/ˈlɪtə/",
     "cnMeaning": "垃圾，废弃物",
     "module": "Unit6"
   },
   "peace": {
     "word": "peace",
-    "phonetic": "/pi:s/",
+    "phonetic": "/piːs/",
     "cnMeaning": "和平；平静，安宁",
     "module": "Unit6"
   },
   "business": {
     "word": "business",
-    "phonetic": "/'brznas/",
+    "phonetic": "/ˈbɪznəs/",
     "cnMeaning": "商业",
     "module": "Unit6"
   },
   "eagle": {
     "word": "eagle",
-    "phonetic": "",
+    "phonetic": "/ˈiːɡl/",
     "cnMeaning": "鹰",
     "module": "Unit1",
     "key": true,
@@ -1267,7 +1255,7 @@
   },
   "lie": {
     "word": "lie",
-    "phonetic": "",
+    "phonetic": "/laɪ/",
     "cnMeaning": "躺；说谎",
     "module": "Unit1",
     "key": true,
@@ -1285,7 +1273,7 @@
   },
   "old-fashioned": {
     "word": "old-fashioned",
-    "phonetic": "",
+    "phonetic": "/ˌəʊld ˈfæʃnd/",
     "cnMeaning": "老式的，过时的",
     "module": "Unit1",
     "key": true,
@@ -1301,7 +1289,7 @@
   },
   "puppet": {
     "word": "puppet",
-    "phonetic": "/'pAprt/",
+    "phonetic": "/ˈpʌpɪt/",
     "cnMeaning": "（牵线）木偶；",
     "module": "Unit1",
     "key": false,
@@ -1312,7 +1300,7 @@
   },
   "puppetry": {
     "word": "puppetry",
-    "phonetic": "/'pApatri/",
+    "phonetic": "/ˈpʌpɪtri/",
     "cnMeaning": "木偶表演艺术",
     "module": "Unit1",
     "key": false,
@@ -1323,7 +1311,7 @@
   },
   "edge": {
     "word": "edge",
-    "phonetic": "/eds/",
+    "phonetic": "/edʒ/",
     "cnMeaning": "边缘",
     "module": "Unit1",
     "key": false,
@@ -1334,7 +1322,7 @@
   },
   "volunteer": {
     "word": "volunteer",
-    "phonetic": "/，volon'tra/",
+    "phonetic": "/ˌvɒlənˈtɪə/",
     "cnMeaning": "志愿者",
     "module": "Unit1",
     "key": false,
@@ -1345,7 +1333,7 @@
   },
   "scarecrow": {
     "word": "scarecrow",
-    "phonetic": "/'skeokru/",
+    "phonetic": "/ˈskeəkrəʊ/",
     "cnMeaning": "稻草人",
     "module": "Unit1",
     "key": false,
@@ -1356,7 +1344,7 @@
   },
   "educator": {
     "word": "educator",
-    "phonetic": "/'edjukerta/",
+    "phonetic": "/ˈedʒukeɪtə/",
     "cnMeaning": "教育家",
     "module": "Unit1",
     "key": false,
@@ -1367,7 +1355,7 @@
   },
   "inspire": {
     "word": "inspire",
-    "phonetic": "/m'spars/",
+    "phonetic": "/ɪnˈspaɪə/",
     "cnMeaning": "鼓舞，激励",
     "module": "Unit1",
     "key": false,
@@ -1378,7 +1366,7 @@
   },
   "intelligent": {
     "word": "intelligent",
-    "phonetic": "/m 'teladgont/",
+    "phonetic": "/ɪnˈtelɪdʒənt/",
     "cnMeaning": "有智",
     "module": "Unit1",
     "key": false,
@@ -1389,7 +1377,7 @@
   },
   "burst": {
     "word": "burst",
-    "phonetic": "/b3:st/",
+    "phonetic": "/bɜːst/",
     "cnMeaning": "冲，闯；（使）爆裂",
     "module": "Unit1",
     "key": false,
@@ -1400,7 +1388,7 @@
   },
   "scaled": {
     "word": "scaled",
-    "phonetic": "/skerld/",
+    "phonetic": "/skeɪld/",
     "cnMeaning": "有鳞的",
     "module": "Unit1",
     "key": false,
@@ -1411,7 +1399,7 @@
   },
   "claw": {
     "word": "claw",
-    "phonetic": "/klo:/",
+    "phonetic": "/klɔː/",
     "cnMeaning": "爪",
     "module": "Unit1",
     "key": false,
@@ -1422,7 +1410,7 @@
   },
   "roar": {
     "word": "roar",
-    "phonetic": "/ro:/",
+    "phonetic": "/rɔː/",
     "cnMeaning": "吼叫，呼啸",
     "module": "Unit1",
     "key": false,
@@ -1433,7 +1421,7 @@
   },
   "valley": {
     "word": "valley",
-    "phonetic": "/'vaeli/",
+    "phonetic": "/ˈvæli/",
     "cnMeaning": "谷；山谷",
     "module": "Unit1",
     "key": false,
@@ -1444,7 +1432,7 @@
   },
   "dust": {
     "word": "dust",
-    "phonetic": "/dast/",
+    "phonetic": "/dʌst/",
     "cnMeaning": "灰尘，尘埃",
     "module": "Unit1",
     "key": false,
@@ -1455,7 +1443,7 @@
   },
   "tender": {
     "word": "tender",
-    "phonetic": "/'tenda/",
+    "phonetic": "/ˈtendə/",
     "cnMeaning": "娇嫩的，幼嫩",
     "module": "Unit1",
     "key": false,
@@ -1466,7 +1454,7 @@
   },
   "vast": {
     "word": "vast",
-    "phonetic": "/vast/",
+    "phonetic": "/vɑːst/",
     "cnMeaning": "广大无边的，极大的13",
     "module": "Unit1",
     "key": false,
@@ -1477,7 +1465,7 @@
   },
   "grand": {
     "word": "grand",
-    "phonetic": "/graend/",
+    "phonetic": "/ɡrænd/",
     "cnMeaning": "宏伟的，壮丽的",
     "module": "Unit1",
     "key": false,
@@ -1485,5 +1473,17 @@
     "pos": "adj.",
     "extraExample": "They held a grand celebration for the festival.",
     "extraCn": "他们为节日举行了盛大的庆祝活动。"
+  },
+  "burning": {
+    "word": "burning",
+    "phonetic": "/ˈbɜːnɪŋ/",
+    "cnMeaning": "火热的；灼",
+    "module": "Unit4"
+  },
+  "silk": {
+    "word": "silk",
+    "phonetic": "/sɪlk/",
+    "cnMeaning": "丝绸",
+    "module": "Unit3"
   }
 }
