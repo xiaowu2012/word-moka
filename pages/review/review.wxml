@@ -23,12 +23,19 @@
     <!-- 顶部信息 -->
     <view class="quiz-header">
       <view class="quiz-left">
-        <text class="quiz-progress">通过 {{passingWords}}/{{totalWordCount}}</text>
-        <text class="quiz-status" wx:if="{{queueSize > 0}}">队列 {{reviewQueue.length}} 个</text>
+        <text class="quiz-progress">已掌握 {{passingWords}}/{{totalWordCount}}</text>
       </view>
       <view class="quiz-right">
-        <text class="quiz-word-status" wx:if="{{currentCorrect > 0}}">✅ 已对 {{currentCorrect}}/{{3}}</text>
+        <text class="quiz-word-status">
+          <text wx:if="{{currentCorrect > 0}}">✅ {{currentCorrect}}/{{3}}  </text>
+          <text wx:if="{{gapSize > 0}}">间隔 {{gapSize}}词</text>
+        </text>
       </view>
+    </view>
+
+    <!-- 队列信息 -->
+    <view class="queue-info">
+      <text>队列 {{reviewQueue.length}} 词 · 间隔 {{gapSize}}词</text>
     </view>
 
     <!-- 题目卡片 -->
