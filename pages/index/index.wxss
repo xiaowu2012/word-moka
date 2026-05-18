@@ -98,22 +98,11 @@
 }
 
 .detail-section .book-intro {
-  border-left: none;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  box-shadow: 0 4rpx 16rpx rgba(102, 126, 234, 0.25);
   margin-bottom: 28rpx;
 }
 
 .detail-section .entry-cards {
   padding: 0;
-}
-
-.detail-section .intro-name {
-  color: #fff;
-}
-
-.detail-section .intro-meta {
-  color: rgba(255, 255, 255, 0.85);
 }
 
 /* ========== 三入口卡片 ========== */
