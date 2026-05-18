@@ -75,7 +75,7 @@
           <text class="entry-icon">📝</text>
           <view class="entry-info">
             <text class="entry-title">学习全部单词</text>
-            <text class="entry-desc">全书{{currentBook.wordCount}}个单词浏览</text>
+            <text class="entry-desc">全书{{currentBook.wordCount}}个单词学习</text>
           </view>
         </view>
         <text class="entry-arrow">›</text>
