@@ -61,7 +61,7 @@ Page({
       const schedule = p.schedule || {}
       let count = 0
       for (const [key, s] of Object.entries(schedule)) {
-        if (!mastered.includes(key) && s.dueDate <= today && s.stage >= 1) {
+        if (!mastered.includes(key) && s.dueDate <= today && s.stage >= 0) {
           count++
         }
       }
