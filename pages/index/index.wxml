@@ -103,11 +103,7 @@
     <view class="popup-card">
       <text class="popup-icon">📚</text>
       <text class="popup-title">复习提醒</text>
-      <text class="popup-body">
-        根据学习曲线，今日有
-        <text class="popup-count">{{reminderDueCount}}</text>
-        个单词需要复现
-      </text>
+      <text class="popup-body">根据学习曲线，今日有 <text class="popup-count">{{reminderDueCount}}</text> 个单词需要复习</text>
       <view class="popup-actions">
         <view class="popup-btn btn-primary" bindtap="onReminderReview">立刻复习</view>
         <view class="popup-btn btn-secondary" bindtap="onReminderLater">稍等一会</view>
