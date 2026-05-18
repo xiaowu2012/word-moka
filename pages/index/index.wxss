@@ -16,13 +16,13 @@
   border-radius: 20rpx; padding: 32rpx;
 }
 .book-intro.disabled {
-  background: #f0f0f0;
-  border: 2rpx dashed #ccc;
+  background: linear-gradient(135deg, #fef6e8, #fef0d8);
+  border: 2rpx dashed #e8c88a;
   opacity: 1;
 }
-.book-intro.disabled .intro-cover { opacity: 0.4; }
-.book-intro.disabled .intro-name { color: #999; font-weight: 400; }
-.book-intro.disabled .intro-meta { color: #bbb; }
+.book-intro.disabled .intro-cover { opacity: 0.6; }
+.book-intro.disabled .intro-name { color: #c49a4a; font-weight: 400; }
+.book-intro.disabled .intro-meta { color: #d4b06a; }
 .book-list .book-intro:active { opacity: 0.85; }
 .book-intro.disabled:active { opacity: 1; }
 .intro-cover { font-size: 72rpx; margin-right: 24rpx; }
