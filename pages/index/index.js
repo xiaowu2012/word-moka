@@ -8,7 +8,11 @@ Page({
     unitMode: 'read',       // 'read' | 'word'
     currentBook: {},
     availableUnitsStr: '',
-    dueCount: 0
+    dueCount: 0,
+
+    // 复习提醒弹框
+    showReviewReminder: false,
+    reminderDueCount: 0
   },
 
   onLoad() {
@@ -62,7 +66,36 @@ Page({
         }
       }
       this.setData({ dueCount: count })
+
+      // 选了教材后再检查复习提醒
+      if (this.data.currentBook.id) {
+        this.checkReviewReminder(count, today)
+      }
     }).catch(() => {})
+  },
+
+  checkReviewReminder(dueCount, today) {
+    if (dueCount === 0) return
+
+    // 今天是否已点过"稍等一会"
+    const postponed = wx.getStorageSync('reviewPostponeDate')
+    if (postponed === today) return
+
+    this.setData({
+      showReviewReminder: true,
+      reminderDueCount: dueCount
+    })
+  },
+
+  onReminderReview() {
+    this.setData({ showReviewReminder: false })
+    wx.navigateTo({ url: '/pages/review/review' })
+  },
+
+  onReminderLater() {
+    const today = new Date().toISOString().slice(0, 10)
+    wx.setStorageSync('reviewPostponeDate', today)
+    this.setData({ showReviewReminder: false })
   },
 
   onTapBook(e) {
@@ -72,6 +105,10 @@ Page({
       pageState: 'detail',
       currentBook: book
     })
+
+    // 选了教材后检查复习提醒
+    const today = new Date().toISOString().slice(0, 10)
+    this.checkReviewReminder(this.data.dueCount, today)
   },
 
   onBack() {

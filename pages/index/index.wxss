@@ -65,3 +65,94 @@
 .badge-ready { background: #E8F8E8; color: #27AE60; }
 .badge-word { background: #FFF5E6; color: #E67E22; }
 .badge-coming { background: #F0F0F0; color: #95A5A6; }
+
+/* ========== 复习提醒弹框 ========== */
+.popup-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 0.2s ease;
+}
+
+.popup-card {
+  background: #fff;
+  border-radius: 28rpx;
+  padding: 50rpx 60rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 10rpx 40rpx rgba(0, 0, 0, 0.15);
+  animation: popIn 0.3s ease;
+  min-width: 520rpx;
+  max-width: 620rpx;
+}
+
+.popup-icon {
+  font-size: 72rpx;
+  margin-bottom: 12rpx;
+}
+
+.popup-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #2C3E50;
+  margin-bottom: 16rpx;
+}
+
+.popup-body {
+  font-size: 28rpx;
+  color: #666;
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 32rpx;
+}
+
+.popup-count {
+  font-size: 40rpx;
+  font-weight: 800;
+  color: #5B8DEF;
+}
+
+.popup-actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.popup-btn {
+  width: 100%;
+  text-align: center;
+  padding: 24rpx 0;
+  border-radius: 40rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.popup-btn:active {
+  opacity: 0.85;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #5B8DEF, #7C6FF7);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: #f5f5f5;
+  color: #999;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
