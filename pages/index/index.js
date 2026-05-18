@@ -68,17 +68,17 @@ Page({
       this.setData({ dueCount: count })
 
       if (showReminder) {
-        this.checkReviewReminder(count, today)
+        this.checkReviewReminder(count)
       }
     }).catch(() => {})
   },
 
-  checkReviewReminder(dueCount, today) {
+  checkReviewReminder(dueCount) {
     if (dueCount === 0) return
 
-    // 今天是否已点过"稍等一会"
-    const postponed = wx.getStorageSync('reviewPostponeDate')
-    if (postponed === today) return
+    // 5分钟内是否点过"稍等一会"
+    const postponed = wx.getStorageSync('reviewPostponeTime')
+    if (postponed && Date.now() - postponed < 5 * 60 * 1000) return
 
     this.setData({
       showReviewReminder: true,
@@ -92,8 +92,7 @@ Page({
   },
 
   onReminderLater() {
-    const today = new Date().toISOString().slice(0, 10)
-    wx.setStorageSync('reviewPostponeDate', today)
+    wx.setStorageSync('reviewPostponeTime', Date.now())
     this.setData({ showReviewReminder: false })
   },
 
