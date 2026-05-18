@@ -2,47 +2,71 @@ const app = getApp()
 
 const INTERVALS = [1, 3, 7, 14, 30]
 const MAX_STAGE = 5
-const PASS_CORRECT = 3  // 连续答对几题才算通过
+const PASS_CORRECT = 3  // 连续答对几次才算通过
+
+// 每词通过时的鼓励文案（轮换）
+const MASTER_MESSAGES = [
+  '🎉 拿下！{word} 已掌握',
+  '⚡ 漂亮！{word} 过关了',
+  '🌟 稳！{word} 记住了',
+  '💪 可以啊，{word} 通过',
+  '✨ 不错！{word} 已收入囊中',
+  '🎯 精准！{word} 搞定',
+]
+
+// 里程碑
+const MILESTONES = {
+  1: { icon: '🎉', text: '第一个掌握！好的开始！' },
+  5: { icon: '🔥', text: '连过5个！状态不错' },
+  10: { icon: '⭐', text: '10个词稳了！厉害了' },
+}
 
 Page({
   data: {
-    // 状态
-    phase: 'loading',    // loading | empty | quiz | complete | feedback
-    reviewWords: [],
-    wordIndex: 0,
-    wordStatus: {},      // { key: { consecutiveCorrect, totalQuestions, wrongCount } }
+    phase: 'loading',    // loading | empty | quiz | masterCelebration | complete
 
-    // 当前题目
-    questionType: 0,     // 1-听选词 2-看选义 3-义选词 4-听选义
+    // 队列
+    reviewQueue: [],     // [ {key, correct, stage, wordData}, ... ]
+    queueSize: 0,
+    currentIndex: 0,     // 当前在处理 queue 中的第几个
     currentWord: '',
+    currentKey: '',
     currentPhonetic: '',
     currentMeaning: '',
-    options: [],         // [{key, label}]
+    currentCorrect: 0,
+    currentStage: 0,
+
+    // 题目
+    questionType: 0,
+    options: [],
     correctKey: '',
     selectedKey: '',
     answered: false,
     isCorrect: false,
+    feedback: '',
 
-    // 反馈状态
-    feedback: '',         // 'correct' | 'wrong' | ''
-    sessionProgress: '',  // '1/3 正确' | '答错，重新开始'
-    sessionBar: 0,        // 0-100
-    sessionCorrectCount: 0,  // 当前词连续答对数
+    // 进度
+    progressCount: 0,     // 已通过数
+    totalWordCount: 0,    // 总词数（不含已掌握的）
 
-    // 统计
+    // 答题统计
     totalAnswered: 0,
-    correctCount: 0,
-    wrongCount: 0,
+    correctAnswerCount: 0,
+    wrongAnswerCount: 0,
     passingWords: 0,
-    failingWords: 0,
-    currentModule: '',
+    finalTimes: [],
+
+    // 弹窗
+    showMasterPopup: false,
+    masterMessage: '',
+    masterIcon: '🎉',
 
     // 完成
     completed: false,
     streakCount: 0,
     isNewStreak: false,
-    totalToday: 0,
-    audioCtx: null
+
+    audioCtx: null,
   },
 
   onLoad() {
@@ -51,15 +75,19 @@ Page({
   },
 
   onUnload() {
+    // 保存所有通过但未写回云端的词
+    this.flushSavedWords()
     if (this.data.audioCtx) {
       this.data.audioCtx.destroy()
     }
   },
 
+  // ===== 初始化 =====
+
   prepareReview() {
     const words = app.globalData.words
     if (!words || Object.keys(words).length === 0) {
-      this.setData({ phase: 'empty', loading: false })
+      this.setData({ phase: 'empty' })
       return
     }
 
@@ -77,17 +105,13 @@ Page({
       for (const [key, s] of Object.entries(schedule)) {
         if (!mastered.includes(key) && s.dueDate <= today && s.stage >= 0) {
           if (words[key]) {
-            dueWords.push({
-              key,
-              word: words[key],
-              stage: s.stage
-            })
+            dueWords.push({ key, word: words[key], stage: s.stage })
           }
         }
       }
 
       if (dueWords.length === 0) {
-        this.setData({ phase: 'empty', loading: false })
+        this.setData({ phase: 'empty' })
         return
       }
 
@@ -97,32 +121,33 @@ Page({
         [dueWords[i], dueWords[j]] = [dueWords[j], dueWords[i]]
       }
 
-      this.wordKeys = dueWords.map(w => w.key)
       this.wordCache = {}
       dueWords.forEach(w => { this.wordCache[w.key] = w })
 
-      // 初始化每个词的状态
-      const wordStatus = {}
-      dueWords.forEach(w => {
-        wordStatus[w.key] = {
-          consecutiveCorrect: 0,
-          totalAnswered: 0,
-          wrongCount: 0,
-          passed: false
-        }
-      })
+      // 构建队列，每个元素记录正确答案计数
+      const queue = dueWords.map(w => ({
+        key: w.key,
+        correct: 0,
+        stage: w.stage,
+        mastered: false,
+        _saved: false
+      }))
 
       this.setData({
-        reviewWords: dueWords,
-        wordStatus,
-        wordIndex: 0,
-        totalToday: dueWords.length,
+        reviewQueue: queue,
+        queueSize: queue.length,
+        totalWordCount: queue.length,
+        progressCount: 0,
+        currentIndex: 0,
         phase: 'quiz',
-        completed: false
+        completed: false,
+        totalAnswered: 0,
+        correctAnswerCount: 0,
+        wrongAnswerCount: 0,
+        passingWords: 0
       })
 
-      // 开始第一个词的题
-      this.nextWord()
+      this.startCurrentWord()
     }).catch(() => {
       this.setData({ phase: 'empty' })
     })
@@ -135,12 +160,10 @@ Page({
     const candidates = []
     for (const [k, v] of Object.entries(words)) {
       if (k === wordKey) continue
-      // 优先同module，如果没有足够的再从全部里取
       if (v.module === wordData.module) {
         candidates.push({ key: k, word: v })
       }
     }
-    // 同module不够，从全部补
     if (candidates.length < count) {
       for (const [k, v] of Object.entries(words)) {
         if (k === wordKey || v.module === wordData.module) continue
@@ -148,8 +171,6 @@ Page({
         candidates.push({ key: k, word: v })
       }
     }
-
-    // 打乱取前count个
     for (let i = candidates.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [candidates[i], candidates[j]] = [candidates[j], candidates[i]]
@@ -158,51 +179,32 @@ Page({
   },
 
   generateQuestion(wordKey, wordData) {
-    // 确定可用题型
     const types = wordData.pronounceFile ? [1, 2, 3, 4] : [2, 3]
-    // 从该词session的历史题型中排除已出过的，避免重复
-    const ws = this.data.wordStatus[wordKey]
-    const usedTypes = ws._usedTypes || []
-    const available = types.filter(t => !usedTypes.includes(t))
-    // 如果都用过了，重置（说明该词题多，但3题一般不会用完4个题型）
-    const typePool = available.length > 0 ? available : types
-    const type = typePool[Math.floor(Math.random() * typePool.length)]
-
-    // 更新已用题型
-    ws._usedTypes = [...(ws._usedTypes || []), type]
+    const type = types[Math.floor(Math.random() * types.length)]
 
     const distractors = this.getDistractors(wordKey, wordData)
-    const distractorKeys = distractors.map(d => d.key)
-
-    // 构建选项
     let options = []
-    let correctLabel = ''
-    let correctKey = wordKey
 
     switch (type) {
-      case 1: // 听音选词
-        correctLabel = wordData.word
+      case 1:
         options = this.shuffleOptions([
           { key: wordKey, label: wordData.word },
           ...distractors.map(d => ({ key: d.key, label: d.word.word }))
         ])
         break
-      case 2: // 看词选义
-        correctLabel = wordData.cnMeaning
+      case 2:
         options = this.shuffleOptions([
           { key: wordKey, label: wordData.cnMeaning },
           ...distractors.map(d => ({ key: d.key, label: d.word.cnMeaning }))
         ])
         break
-      case 3: // 看义选词
-        correctLabel = wordData.word
+      case 3:
         options = this.shuffleOptions([
           { key: wordKey, label: wordData.word },
           ...distractors.map(d => ({ key: d.key, label: d.word.word }))
         ])
         break
-      case 4: // 听音选义
-        correctLabel = wordData.cnMeaning
+      case 4:
         options = this.shuffleOptions([
           { key: wordKey, label: wordData.cnMeaning },
           ...distractors.map(d => ({ key: d.key, label: d.word.cnMeaning }))
@@ -210,7 +212,7 @@ Page({
         break
     }
 
-    return { type, correctKey, correctLabel, options, distractors }
+    return { type, correctKey: wordKey, options }
   },
 
   shuffleOptions(arr) {
@@ -221,54 +223,44 @@ Page({
     return arr
   },
 
-  // ===== 流程控制 =====
+  // ===== 出题 =====
 
-  nextWord() {
-    const { wordIndex, reviewWords, wordStatus } = this.data
-    if (wordIndex >= reviewWords.length) {
+  startCurrentWord() {
+    const { reviewQueue, currentIndex } = this.data
+    if (currentIndex >= reviewQueue.length) {
+      // 队列为空，但可能还有未通过的词（在队尾循环中）
       this.showCompletion()
       return
     }
 
-    const wordInfo = reviewWords[wordIndex]
-    const key = wordInfo.key
-    const wordData = wordInfo.word
+    const entry = reviewQueue[currentIndex]
+    const cache = this.wordCache[entry.key]
+    if (!cache) {
+      this.nextWord()
+      return
+    }
 
-    // 重置词状态
-    wordStatus[key]._usedTypes = []
-    wordStatus[key].consecutiveCorrect = 0
-
-    this.setData({
-      wordStatus,
-      currentModule: wordData.module || '',
-      sessionCorrectCount: 0,
-      sessionProgress: '',
-      sessionBar: 0
-    })
-
-    this.showNextQuestion(key)
-  },
-
-  showNextQuestion(wordKey) {
-    const wordInfo = this.wordCache[wordKey]
-    const wordData = wordInfo.word
-
-    const question = this.generateQuestion(wordKey, wordData)
+    const wordData = cache.word
+    const question = this.generateQuestion(entry.key, wordData)
 
     this.setData({
-      questionType: question.type,
       currentWord: wordData.word,
+      currentKey: entry.key,
       currentPhonetic: wordData.phonetic,
       currentMeaning: wordData.cnMeaning,
+      currentCorrect: entry.correct,
+      currentStage: entry.stage,
+      questionType: question.type,
       options: question.options,
       correctKey: question.correctKey,
       selectedKey: '',
       answered: false,
       isCorrect: false,
-      feedback: ''
+      feedback: '',
+      currentModule: wordData.module || ''
     })
 
-    // 如果是听音题型(1/4)，自动放音
+    // 听音题自动播放
     if ((question.type === 1 || question.type === 4) && wordData.pronounceFile) {
       this.playAudio(wordData.pronounceFile)
     }
@@ -283,12 +275,12 @@ Page({
   },
 
   onPlaySound() {
-    const { currentWord, questionType, reviewWords, wordIndex } = this.data
-    const wordInfo = reviewWords[wordIndex]
-    if (!wordInfo) return
-    const pronounceFile = wordInfo.word.pronounceFile
-    if (pronounceFile) {
-      this.playAudio(pronounceFile)
+    const { reviewQueue, currentIndex } = this.data
+    const entry = reviewQueue[currentIndex]
+    if (!entry) return
+    const cache = this.wordCache[entry.key]
+    if (cache && cache.word.pronounceFile) {
+      this.playAudio(cache.word.pronounceFile)
     } else {
       wx.showToast({ title: '暂无音频', icon: 'none' })
     }
@@ -308,86 +300,142 @@ Page({
       isCorrect
     })
 
+    this.setData({
+      totalAnswered: this.data.totalAnswered + 1
+    })
+
     if (isCorrect) {
+      this.setData({ correctAnswerCount: this.data.correctAnswerCount + 1 })
       this.onCorrect()
     } else {
+      this.setData({ wrongAnswerCount: this.data.wrongAnswerCount + 1 })
       this.onWrong()
     }
   },
 
   onCorrect() {
-    const { wordIndex, reviewWords, wordStatus } = this.data
-    const info = reviewWords[wordIndex]
-    const key = info.key
+    const { reviewQueue, currentIndex } = this.data
+    const entry = reviewQueue[currentIndex]
+    if (!entry) return
 
-    wordStatus[key].consecutiveCorrect++
-    wordStatus[key].totalAnswered++
-
-    const correct = wordStatus[key].consecutiveCorrect
-    const passed = correct >= PASS_CORRECT
+    entry.correct = (entry.correct || 0) + 1
+    const passed = entry.correct >= PASS_CORRECT
 
     this.setData({
-      wordStatus,
-      feedback: 'correct',
-      sessionCorrectCount: correct,
-      sessionProgress: passed ? '🎉 通过！' : `✅ ${correct}/${PASS_CORRECT}`,
-      sessionBar: Math.round((correct / PASS_CORRECT) * 100)
+      reviewQueue,
+      feedback: 'correct'
     })
 
     if (passed) {
-      // 标记通过，推进间隔
-      wordStatus[key].passed = true
-      this.saveProgress(key, info.stage, true)
-      setTimeout(() => this.afterFeedback(), 800)
+      this.onWordMastered(entry)
     } else {
-      setTimeout(() => this.afterFeedback(), 600)
+      // 答对但未满3次 → 移到队尾
+      this.moveToEnd(entry)
+      setTimeout(() => this.afterFeedback(), 500)
     }
   },
 
   onWrong() {
-    const { wordIndex, reviewWords, wordStatus } = this.data
-    const info = reviewWords[wordIndex]
-    const key = info.key
+    const { reviewQueue, currentIndex } = this.data
+    const entry = reviewQueue[currentIndex]
+    if (!entry) return
 
-    wordStatus[key].consecutiveCorrect = 0
-    wordStatus[key].totalAnswered++
-    wordStatus[key].wrongCount++
-
+    entry.correct = 0  // 归零
     this.setData({
-      wordStatus,
-      feedback: 'wrong',
-      sessionCorrectCount: 0,
-      sessionProgress: '🔄 答错了，再来一次',
-      sessionBar: 0
+      reviewQueue,
+      feedback: 'wrong'
     })
 
-    setTimeout(() => this.afterFeedback(), 1000)
+    // 答错 → 移到队尾
+    this.moveToEnd(entry)
+    setTimeout(() => this.afterFeedback(), 700)
   },
 
-  afterFeedback() {
-    const { wordIndex, reviewWords, wordStatus } = this.data
-    const info = reviewWords[wordIndex]
-    const key = info.key
-    const ws = wordStatus[key]
+  // ===== 队列操作 =====
 
-    if (ws.passed) {
-      // 进入下一个词
-      this.setData({ wordIndex: wordIndex + 1 })
-      this.nextWord()
+  moveToEnd(entry) {
+    const { reviewQueue, currentIndex } = this.data
+    // 从当前位置移除
+    reviewQueue.splice(currentIndex, 1)
+    // 追加到末尾
+    reviewQueue.push(entry)
+    
+    // 如果移除的是最后一个元素，currentIndex 指向的已是末尾之后
+    // 下一轮自动回到队首
+    if (currentIndex >= reviewQueue.length) {
+      this.setData({ reviewQueue, currentIndex: 0 })
     } else {
-      // 继续出同词下一题
-      this.showNextQuestion(key)
+      this.setData({ reviewQueue })
     }
   },
 
-  // ===== 进度保存 =====
+  // ===== 通过 → 弹窗庆祝 =====
 
-  saveProgress(key, currentStage, passed) {
+  onWordMastered(entry) {
+    const cache = this.wordCache[entry.key]
+    const wordName = cache ? cache.word.word : entry.key
+
+    // 构建鼓励文案（轮换）
+    const msgIndex = this.data.passingWords % MASTER_MESSAGES.length
+    const message = MASTER_MESSAGES[msgIndex].replace('{word}', wordName)
+
+    const newProgress = this.data.progressCount + 1
+    this.setData({
+      passingWords: newProgress,
+      progressCount: newProgress,
+      showMasterPopup: true,
+      masterMessage: message,
+      masterIcon: '🎉'
+    })
+
+    // 检查里程碑
+    if (MILESTONES[newProgress]) {
+      // 有里程碑的话，弹窗显示里程碑文案
+      this.setData({
+        masterMessage: `${MILESTONES[newProgress].icon} ${MILESTONES[newProgress].text}`,
+        masterIcon: MILESTONES[newProgress].icon
+      })
+    }
+
+    // 标记已掌握
+    entry.mastered = true
+
+    // 保存进度到云端
+    this.saveWordProgress(entry.key, entry.stage, true)
+
+    // 从队列移除
+    const { reviewQueue, currentIndex } = this.data
+    reviewQueue.splice(currentIndex, 1)
+
+    this.setData({ reviewQueue })
+
+    // 1.5 秒后关闭弹窗，继续下一题
+    setTimeout(() => {
+      this.setData({ showMasterPopup: false })
+      this.afterFeedback()
+    }, 1500)
+  },
+
+  afterFeedback() {
+    const { reviewQueue, currentIndex } = this.data
+    
+    if (reviewQueue.length === 0) {
+      this.showCompletion()
+      return
+    }
+
+    // currentIndex 已被 moveToEnd 调整好
+    // 直接出下一题
+    this.startCurrentWord()
+  },
+
+  // ===== 云端保存 =====
+
+  saveWordProgress(key, currentStage, passed) {
     if (passed) {
-      // 通过：推进间隔
-      let newStage = (currentStage || 0) + 1
+      const newStage = (currentStage || 0) + 1
       if (newStage >= MAX_STAGE) {
-        // 掌握
+        // 最终掌握
         wx.cloud.callFunction({
           name: 'updateProgress',
           data: { field: 'mastered', key, add: true }
@@ -410,25 +458,21 @@ Page({
           }
         }).catch(() => {})
       }
-    } else {
-      // 未通过：重置到上一阶段（或保持当前stage减间隔）
-      let newStage = Math.max(0, (currentStage || 0) - 1)
-      const interval = INTERVALS[newStage] || 1
-      const due = new Date()
-      due.setDate(due.getDate() + interval)
-      wx.cloud.callFunction({
-        name: 'updateProgress',
-        data: {
-          field: 'schedule',
-          key,
-          add: true,
-          value: { stage: newStage, dueDate: due.toISOString().slice(0, 10) }
-        }
-      }).catch(() => {})
     }
   },
 
-  // ===== 完成 =====
+  flushSavedWords() {
+    // 离开页面时，保存本轮所有已通过但未写回云端的
+    const { reviewQueue } = this.data
+    for (const entry of reviewQueue) {
+      if (entry.mastered && !entry._saved) {
+        entry._saved = true
+        this.saveWordProgress(entry.key, entry.stage, true)
+      }
+    }
+  },
+
+  // ===== 完成页 =====
 
   showCompletion() {
     const today = new Date().toISOString().slice(0, 10)
@@ -450,57 +494,32 @@ Page({
     wx.setStorageSync('lastStudyDate', today)
     wx.setStorageSync('streakCount', streak)
 
-    // 统计
-    const { wordStatus } = this.data
-    let passed = 0, failed = 0, wrongTotal = 0
-    for (const ws of Object.values(wordStatus)) {
-      if (ws.passed) passed++
-      else if (ws.totalAnswered > 0) failed++
-      if (ws.wrongCount > 0) wrongTotal += ws.wrongCount
-    }
-
     this.setData({
       completed: true,
       phase: 'complete',
-      passingWords: passed,
-      failingWords: failed,
-      totalAnswered: Object.values(wordStatus).reduce((s, ws) => s + ws.totalAnswered, 0),
-      wrongCount: wrongTotal,
-      correctCount: Object.values(wordStatus).reduce((s, ws) => s + ws.totalAnswered - ws.wrongCount, 0),
       streakCount: streak,
-      isNewStreak
+      isNewStreak,
+      finalTimes: this.data.passingWords
     })
-  },
 
-  onUnload() {
-    // 保存当前词的进度（无论是否通过）
-    const { wordIndex, reviewWords, wordStatus } = this.data
-    if (wordIndex < reviewWords.length) {
-      const info = reviewWords[wordIndex]
-      const ws = wordStatus[info.key]
-      if (ws && ws.totalAnswered > 0 && !ws.passed && !ws._saved) {
-        ws._saved = true
-        // 未通过：后退一档
-        this.saveProgress(info.key, info.stage, false)
-      }
-    }
-
-    // 保存前面所有经过的词中未保存的
-    for (let i = 0; i < wordIndex; i++) {
-      const info = reviewWords[i]
-      const ws = wordStatus[info.key]
-      if (ws && ws.totalAnswered > 0 && ws.passed && !ws._saved) {
-        ws._saved = true
-        this.saveProgress(info.key, info.stage, true)
-      }
-    }
-
-    if (this.data.audioCtx) {
-      this.data.audioCtx.destroy()
+    // 全部通过时显示撒花 + 大弹窗
+    if (this.data.passingWords >= this.data.totalWordCount) {
+      this.setData({
+        showMasterPopup: true,
+        masterMessage: '🎊 全部通关！太棒了！🎊',
+        masterIcon: '🏆'
+      })
+      setTimeout(() => {
+        this.setData({ showMasterPopup: false })
+      }, 2500)
     }
   },
 
   onGoHome() {
+    this.flushSavedWords()
+    if (this.data.audioCtx) {
+      this.data.audioCtx.destroy()
+    }
     wx.navigateBack()
   }
 })

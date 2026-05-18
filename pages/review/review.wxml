@@ -1,8 +1,8 @@
-<!-- 复习模式 - 选择题型 -->
+<!-- 复习模式 - 每词单题循环 -->
 <view class="container">
   <!-- 进度条 -->
   <view class="progress-bar">
-    <view class="progress-fill" style="width: {{reviewWords.length > 0 ? (wordIndex / reviewWords.length * 100) : 0}}%"></view>
+    <view class="progress-fill" style="width: {{totalWordCount > 0 ? (passingWords / totalWordCount * 100) : 0}}%"></view>
   </view>
 
   <!-- 加载中 -->
@@ -22,22 +22,22 @@
   <view class="quiz-view" wx:elif="{{phase === 'quiz'}}">
     <!-- 顶部信息 -->
     <view class="quiz-header">
-      <text class="quiz-progress">{{wordIndex + 1}} / {{reviewWords.length}}</text>
-      <text class="quiz-stats">答对 {{sessionCorrectCount}}/{{3}}</text>
+      <view class="quiz-left">
+        <text class="quiz-progress">通过 {{passingWords}}/{{totalWordCount}}</text>
+        <text class="quiz-status" wx:if="{{queueSize > 0}}">队列 {{reviewQueue.length}} 个</text>
+      </view>
+      <view class="quiz-right">
+        <text class="quiz-word-status" wx:if="{{currentCorrect > 0}}">✅ 已对 {{currentCorrect}}/{{3}}</text>
+      </view>
     </view>
 
-    <!-- 进度条(当前词) -->
-    <view class="session-bar">
-      <view class="session-fill" style="width: {{sessionBar}}%"></view>
-    </view>
-
-    <!-- 题目区域 -->
+    <!-- 题目卡片 -->
     <view class="question-card">
       <!-- 题型1: 听音选词 -->
       <block wx:if="{{questionType === 1}}">
         <view class="audio-area">
           <view class="play-btn-lg" bindtap="onPlaySound">🔊</view>
-          <text class="question-label">听发音，选择对应的单词</text>
+          <text class="question-label">请听发音，选择对应的单词</text>
         </view>
       </block>
 
@@ -45,7 +45,7 @@
       <block wx:if="{{questionType === 2}}">
         <view class="word-area">
           <text class="word-display">{{currentWord}}</text>
-          <text class="word-phonetic">{{currentPhonetic}}</text>
+          <text class="word-phonetic" wx:if="{{currentPhonetic}}">{{currentPhonetic}}</text>
           <text class="question-label">选择正确的中文释义</text>
         </view>
       </block>
@@ -62,7 +62,7 @@
       <block wx:if="{{questionType === 4}}">
         <view class="audio-area">
           <view class="play-btn-lg" bindtap="onPlaySound">🔊</view>
-          <text class="question-label">听发音，选择对应的中文释义</text>
+          <text class="question-label">请听发音，选择对应的中文释义</text>
         </view>
       </block>
     </view>
@@ -70,7 +70,7 @@
     <!-- 模块标签 -->
     <text class="module-tag" wx:if="{{currentModule}}">{{currentModule}}</text>
 
-    <!-- 选项按钮 -->
+    <!-- 选项 -->
     <view class="options-list">
       <view
         wx:for="{{options}}"
@@ -90,27 +90,50 @@
     </view>
 
     <!-- 答题反馈 -->
-    <view class="feedback-bar" wx:if="{{feedback === 'correct'}}">
-      <text class="feedback-text correct-text">{{sessionProgress}}</text>
+    <view class="feedback-row" wx:if="{{feedback === 'correct'}}">
+      <text class="feedback-text correct-text">✅ 正确！</text>
     </view>
-    <view class="feedback-bar" wx:elif="{{feedback === 'wrong'}}">
-      <text class="feedback-text wrong-text">{{sessionProgress}}</text>
+    <view class="feedback-row" wx:elif="{{feedback === 'wrong'}}">
+      <text class="feedback-text wrong-text">❌ 答错了，继续加油</text>
     </view>
   </view>
 
-  <!-- 复习完成 -->
+  <!-- ===== 掌握弹窗 ===== -->
+  <view class="popup-overlay" wx:if="{{showMasterPopup}}">
+    <view class="popup-content">
+      <text class="popup-icon">{{masterIcon}}</text>
+      <text class="popup-text">{{masterMessage}}</text>
+      <view class="popup-bar">
+        <view class="popup-bar-fill" style="width: {{totalWordCount > 0 ? (passingWords / totalWordCount * 100) : 0}}%"></view>
+      </view>
+      <text class="popup-progress">{{passingWords}} / {{totalWordCount}}</text>
+    </view>
+  </view>
+
+  <!-- ===== 复习完成 ===== -->
   <view class="complete-view" wx:elif="{{phase === 'complete'}}">
-    <text class="complete-icon">🎉</text>
+    <!-- 撒花粒子 -->
+    <view class="confetti-container">
+      <view class="confetti confetti-1">🎉</view>
+      <view class="confetti confetti-2">✨</view>
+      <view class="confetti confetti-3">🎊</view>
+      <view class="confetti confetti-4">⭐</view>
+      <view class="confetti confetti-5">🌟</view>
+      <view class="confetti confetti-6">💫</view>
+    </view>
+
+    <text class="complete-icon" wx:if="{{passingWords >= totalWordCount}}">🏆</text>
+    <text class="complete-icon" wx:else>🎉</text>
     <text class="complete-title">复习完成！</text>
-    <text class="complete-sub">共复习 {{reviewWords.length}} 个单词</text>
+    <text class="complete-sub">共复习 {{totalWordCount}} 个单词</text>
 
     <view class="result-stats">
       <view class="stat-item">
         <text class="stat-num pass-num">{{passingWords}}</text>
-        <text class="stat-label">通过</text>
+        <text class="stat-label">已掌握</text>
       </view>
       <view class="stat-item">
-        <text class="stat-num fail-num">{{failingWords}}</text>
+        <text class="stat-num que-num">{{totalWordCount - passingWords}}</text>
         <text class="stat-label">未通过</text>
       </view>
       <view class="stat-item">
@@ -118,7 +141,7 @@
         <text class="stat-label">答题数</text>
       </view>
       <view class="stat-item">
-        <text class="stat-num acc-num">{{totalAnswered > 0 ? Math.round(correctCount / totalAnswered * 100) : 0}}%</text>
+        <text class="stat-num acc-num">{{totalAnswered > 0 ? Math.round(correctAnswerCount / totalAnswered * 100) : 0}}%</text>
         <text class="stat-label">正确率</text>
       </view>
     </view>
