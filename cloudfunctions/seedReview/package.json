@@ -1,0 +1,9 @@
+{
+  "name": "seedReview",
+  "version": "1.0.0",
+  "description": "seed test review words",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}
