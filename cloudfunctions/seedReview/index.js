@@ -1,16 +1,18 @@
 /**
  * 种子数据 - 添加测试复习单词
  * 部署后在开发者工具中调用：云开发 → 云函数 → seedReview → 测试
+ * 测试参数：{ "openid": "ogzZm3YV8adEJgUhV4zIswvMk1qQ" }
  */
 const cloud = require('wx-server-sdk')
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV })
 const db = cloud.database()
 
 exports.main = async (event) => {
-  const { OPENID } = cloud.getWXContext()
+  // 优先用传入的 openid，否则用调用者的 openid
+  const OPENID = event.openid || cloud.getWXContext().OPENID
   const today = new Date().toISOString().slice(0, 10)
 
-  // 10个测试词
+  // 10个测试词：5个stage 0 + 5个stage 1
   const testWords = [
     'lady', 'gentleman', 'performer', 'finger', 'teenager',
     'unless', 'performance', 'blood', 'perform', 'viewer'
@@ -44,7 +46,7 @@ exports.main = async (event) => {
       })
     }
 
-    return { success: true, words: testWords, today }
+    return { success: true, openid: OPENID, words: testWords, today }
   } catch (err) {
     return { success: false, error: err.message }
   }
