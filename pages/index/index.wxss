@@ -15,7 +15,12 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 20rpx; padding: 32rpx;
 }
+.book-intro.disabled {
+  background: #e8e8e8;
+  opacity: 0.55;
+}
 .book-list .book-intro:active { opacity: 0.85; }
+.book-intro.disabled:active { opacity: 0.55; }
 .intro-cover { font-size: 72rpx; margin-right: 24rpx; }
 .intro-info { flex: 1; }
 .intro-name { font-size: 34rpx; font-weight: 700; color: #fff; display: block; }

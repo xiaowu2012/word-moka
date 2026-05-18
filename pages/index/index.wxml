@@ -5,8 +5,8 @@
     <image class="header-img" src="/images/home-banner.jpg" mode="widthFix"></image>
     <view class="section-title">选择课本</view>
     <view class="book-list">
-      <view class="book-intro" wx:for="{{textbooks}}" wx:key="id"
-            bindtap="onTapBook" data-id="{{item.id}}">
+      <view class="book-intro {{item.available ? '' : 'disabled'}}" wx:for="{{textbooks}}" wx:key="id"
+            bindtap="{{item.available ? 'onTapBook' : ''}}" data-id="{{item.id}}">
         <text class="intro-cover">{{item.cover}}</text>
         <view class="intro-info">
           <text class="intro-name">{{item.name}}</text>
