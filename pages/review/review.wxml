@@ -103,6 +103,9 @@
     <view class="feedback-row" wx:elif="{{feedback === 'wrong'}}">
       <text class="feedback-text wrong-text">❌ 答错了，继续加油</text>
     </view>
+    <view class="feedback-row" wx:elif="{{feedback === 'skip'}}">
+      <text class="feedback-text skip-text">⏭️ 错3次了，先跳过，下次再来</text>
+    </view>
   </view>
 
   <!-- ===== 掌握弹窗 ===== -->

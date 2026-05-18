@@ -258,6 +258,10 @@
   color: #E74C3C;
 }
 
+.skip-text {
+  color: #E67E22;
+}
+
 /* ===== 掌握弹窗 ===== */
 .popup-overlay {
   position: fixed;

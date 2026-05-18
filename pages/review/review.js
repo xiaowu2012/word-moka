@@ -118,8 +118,10 @@ Page({
       const queue = dueWords.map(w => ({
         key: w.key,
         correct: 0,
+        wrongCount: 0,
         stage: w.stage,
         mastered: false,
+        skipped: false,
         _saved: false
       }))
 
@@ -318,10 +320,41 @@ Page({
     if (!entry) return
 
     entry.correct = 0
+    entry.wrongCount = (entry.wrongCount || 0) + 1
     this.setData({ reviewQueue, feedback: 'wrong' })
 
-    this.moveToGap(entry)
-    setTimeout(() => this.afterFeedback(), 700)
+    if (entry.wrongCount >= 3) {
+      // 累计错3次 → 跳过
+      this.skipWord(entry)
+    } else {
+      this.moveToGap(entry)
+      setTimeout(() => this.afterFeedback(), 700)
+    }
+  },
+
+  skipWord(entry) {
+    // 从队列移除，stage后退一档
+    const { reviewQueue, currentIndex } = this.data
+    reviewQueue.splice(currentIndex, 1)
+    entry.skipped = true
+
+    // 保存进度（后退一档）
+    const newStage = Math.max(0, (entry.stage || 0) - 1)
+    const interval = INTERVALS[newStage] || 1
+    const due = new Date(); due.setDate(due.getDate() + interval)
+    wx.cloud.callFunction({
+      name: 'updateProgress',
+      data: { field: 'schedule', key: entry.key, add: true, value: { stage: newStage, dueDate: due.toISOString().slice(0, 10) } }
+    }).catch(() => {})
+    entry._saved = true
+
+    if (currentIndex >= reviewQueue.length) {
+      this.setData({ reviewQueue, currentIndex: 0, feedback: 'skip' })
+    } else {
+      this.setData({ reviewQueue, feedback: 'skip' })
+    }
+
+    setTimeout(() => this.afterFeedback(), 800)
   },
 
   // ========== 关键：间隔插入 ==========
@@ -445,7 +478,8 @@ Page({
   saveAllProgress() {
     const { reviewQueue } = this.data
     for (const entry of reviewQueue) {
-      if (entry.mastered && !entry._saved) {
+      if (entry._saved) continue
+      if (entry.mastered) {
         entry._saved = true
         this.saveWordProgress(entry.key, entry.stage, true)
       }
