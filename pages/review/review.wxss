@@ -112,12 +112,26 @@
 }
 
 /* 题目标签（左上角） */
+.card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+  flex-shrink: 0;
+}
+
 .q-label {
   font-size: 28rpx;
   color: #888;
   text-align: left;
-  margin-bottom: 16rpx;
-  flex-shrink: 0;
+}
+
+.q-round {
+  font-size: 22rpx;
+  color: #aaa;
+  background: #f5f5f5;
+  padding: 2rpx 14rpx;
+  border-radius: 10rpx;
 }
 
 /* 卡片主体内容（居中） */
