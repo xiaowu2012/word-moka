@@ -1,4 +1,4 @@
-{
+const words = {
   "lady": {
     "word": "lady",
     "phonetic": "/ˈleɪdi/",
@@ -1487,3 +1487,5 @@
     "module": "Unit3"
   }
 }
+
+module.exports = words
