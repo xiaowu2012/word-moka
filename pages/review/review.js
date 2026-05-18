@@ -64,16 +64,21 @@ Page({
     isNewStreak: false,
 
     audioCtx: null,
+    effectCtx: null,
   },
 
   onLoad() {
-    this.setData({ audioCtx: wx.createInnerAudioContext() })
+    this.setData({ 
+      audioCtx: wx.createInnerAudioContext(),
+      effectCtx: wx.createInnerAudioContext()
+    })
     this.prepareReview()
   },
 
   onUnload() {
     this.saveAllProgress()
     if (this.data.audioCtx) this.data.audioCtx.destroy()
+    if (this.data.effectCtx) this.data.effectCtx.destroy()
   },
 
   // ========== 初始化 ==========
@@ -263,6 +268,14 @@ Page({
     audioCtx.play()
   },
 
+  playEffect(name) {
+    const { effectCtx } = this.data
+    if (!effectCtx) return
+    effectCtx.stop()
+    effectCtx.src = `audio/effect/${name}.mp3`
+    effectCtx.play()
+  },
+
   onPlaySound() {
     const { reviewQueue, currentIndex } = this.data
     const entry = reviewQueue[currentIndex]
@@ -305,6 +318,7 @@ Page({
     const passed = entry.correct >= PASS_CORRECT
 
     this.setData({ reviewQueue, feedback: 'correct' })
+    this.playEffect('correct')
 
     if (passed) {
       this.onWordMastered(entry)
@@ -322,6 +336,7 @@ Page({
     entry.correct = 0
     entry.wrongCount = (entry.wrongCount || 0) + 1
     this.setData({ reviewQueue, feedback: 'wrong' })
+    this.playEffect('wrong')
 
     // 自动播放正确发音
     const cache = this.wordCache[entry.key]
@@ -538,6 +553,7 @@ Page({
   onGoHome() {
     this.saveAllProgress()
     if (this.data.audioCtx) this.data.audioCtx.destroy()
+    if (this.data.effectCtx) this.data.effectCtx.destroy()
     wx.navigateBack()
   }
 })

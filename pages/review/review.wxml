@@ -83,12 +83,12 @@
         wx:for="{{options}}"
         wx:key="key"
         class="option-btn
-          {{answered && key === correctKey ? 'option-correct' : ''}}
-          {{answered && key === selectedKey && !isCorrect ? 'option-wrong' : ''}}
-          {{!answered ? 'option-default' : ''}}"
+          {{answered && key === correctKey ? 'opt-correct' : ''}}
+          {{answered && key === selectedKey && !isCorrect ? 'opt-wrong' : ''}}
+          {{!answered ? 'opt-default' : ''}}"
         bindtap="onSelectOption"
         data-key="{{item.key}}"
-        hover-class="{{answered ? '' : 'option-hover'}}"
+        hover-class="{{answered ? '' : 'opt-hover'}}"
       >
         <text class="option-text">{{item.label}}</text>
         <text class="option-mark" wx:if="{{answered && key === correctKey}}">✓</text>

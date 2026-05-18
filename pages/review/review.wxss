@@ -196,39 +196,40 @@
 
 .option-btn {
   width: 100%;
-  padding: 28rpx 32rpx;
+  padding: 32rpx 36rpx;
   border-radius: 16rpx;
-  font-size: 30rpx;
+  font-size: 34rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   border: 2rpx solid transparent;
 }
 
-.option-default {
-  background: #fff;
-  border-color: #e8e8e8;
+.opt-default {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: #e0e0e0;
   color: #2C3E50;
+  backdrop-filter: blur(4rpx);
 }
 
-.option-hover {
-  background: #F5F7FF;
+.opt-hover {
+  background: rgba(91, 141, 239, 0.08);
   border-color: #5B8DEF;
 }
 
-.option-correct {
-  background: #E8F8E8;
+.opt-correct {
+  background: #27AE60;
   border-color: #27AE60;
-  color: #27AE60;
-  font-weight: 600;
+  color: #fff;
+  font-weight: 700;
 }
 
-.option-wrong {
-  background: #FFF0F0;
-  border-color: #E74C3C;
-  color: #E74C3C;
-  font-weight: 600;
+.opt-wrong {
+  background: #E67E22;
+  border-color: #E67E22;
+  color: #fff;
+  font-weight: 700;
 }
 
 .option-text {
@@ -237,8 +238,8 @@
 }
 
 .option-mark {
-  font-size: 32rpx;
-  margin-left: 12rpx;
+  font-size: 36rpx;
+  margin-left: 16rpx;
   flex-shrink: 0;
 }
 
@@ -259,7 +260,7 @@
 }
 
 .wrong-text {
-  color: #E74C3C;
+  color: #E67E22;
 }
 
 .skip-text {
