@@ -100,11 +100,20 @@
     <view class="feedback-row" wx:if="{{feedback === 'correct'}}">
       <text class="feedback-text correct-text">✅ 正确！</text>
     </view>
-    <view class="feedback-row" wx:elif="{{feedback === 'wrong'}}">
-      <text class="feedback-text wrong-text">❌ 答错了，继续加油</text>
-    </view>
-    <view class="feedback-row" wx:elif="{{feedback === 'skip'}}">
-      <text class="feedback-text skip-text">⏭️ 错3次了，先跳过，下次再来</text>
+
+    <!-- 答错 → 正确答案卡片 -->
+    <view class="correction-card" wx:if="{{feedback === 'wrong' || feedback === 'skip'}}">
+      <view class="correction-header">
+        <text class="correction-label wrong-text">❌ 答错了</text>
+        <text class="correction-label skip-text" wx:if="{{feedback === 'skip'}}">⏭️ 已跳过</text>
+      </view>
+      <view class="correction-word-row">
+        <text class="correction-word">{{currentWord}}</text>
+        <text class="play-btn-sm" bindtap="onPlaySound">🔊</text>
+      </view>
+      <text class="correction-phonetic" wx:if="{{currentPhonetic}}">{{currentPhonetic}}</text>
+      <text class="correction-meaning">{{currentMeaning}}</text>
+      <text class="correction-hint">记住它，马上再来！💪</text>
     </view>
   </view>
 

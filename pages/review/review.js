@@ -323,12 +323,17 @@ Page({
     entry.wrongCount = (entry.wrongCount || 0) + 1
     this.setData({ reviewQueue, feedback: 'wrong' })
 
+    // 自动播放正确发音
+    const cache = this.wordCache[entry.key]
+    if (cache && cache.word.pronounceFile) {
+      this.playAudio(cache.word.pronounceFile)
+    }
+
     if (entry.wrongCount >= 3) {
-      // 累计错3次 → 跳过
       this.skipWord(entry)
     } else {
       this.moveToGap(entry)
-      setTimeout(() => this.afterFeedback(), 700)
+      setTimeout(() => this.afterFeedback(), 2500)
     }
   },
 
@@ -348,13 +353,19 @@ Page({
     }).catch(() => {})
     entry._saved = true
 
+    // 自动播放正确发音
+    const cache = this.wordCache[entry.key]
+    if (cache && cache.word.pronounceFile) {
+      this.playAudio(cache.word.pronounceFile)
+    }
+
     if (currentIndex >= reviewQueue.length) {
       this.setData({ reviewQueue, currentIndex: 0, feedback: 'skip' })
     } else {
       this.setData({ reviewQueue, feedback: 'skip' })
     }
 
-    setTimeout(() => this.afterFeedback(), 800)
+    setTimeout(() => this.afterFeedback(), 2500)
   },
 
   // ========== 关键：间隔插入 ==========
