@@ -59,10 +59,11 @@ Page({
       const p = res.result || {}
       const mastered = p.mastered || []
       const schedule = p.schedule || {}
+      const words = app.globalData.words || {}
       let count = 0
       for (const [key, s] of Object.entries(schedule)) {
         if (!mastered.includes(key) && s.dueDate <= today && s.stage >= 0) {
-          count++
+          if (words[key]) count++
         }
       }
       this.setData({ dueCount: count })
