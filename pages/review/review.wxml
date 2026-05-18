@@ -75,17 +75,10 @@
 
     <!-- 选项 -->
     <view class="options-list">
-      <view
-        wx:for="{{options}}"
-        wx:key="key"
-        class="option-btn
-          {{answered && key === correctKey ? 'opt-correct' : ''}}
-          {{answered && key === selectedKey && !isCorrect ? 'opt-wrong' : ''}}
-          {{!answered ? 'opt-default' : ''}}"
-        bindtap="onSelectOption"
-        data-key="{{item.key}}"
-        hover-class="{{answered ? '' : 'opt-hover'}}"
-      >
+      <view wx:for="{{options}}" wx:key="key"
+        class="option-btn {{answered && key === correctKey ? 'opt-correct' : ''}} {{answered && key === selectedKey && !isCorrect ? 'opt-wrong' : ''}} {{!answered ? 'opt-default' : ''}}"
+        bindtap="onSelectOption" data-key="{{item.key}}"
+        hover-class="{{answered ? '' : 'opt-hover'}}">
         <text class="option-text">{{item.label}}</text>
         <text class="option-mark" wx:if="{{answered && key === correctKey}}">✓</text>
         <text class="option-mark" wx:if="{{answered && key === selectedKey && !isCorrect}}">✗</text>
