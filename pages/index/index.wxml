@@ -22,6 +22,7 @@
     <image class="header-img" src="/images/home-banner.jpg" mode="widthFix"></image>
     <view class="back-btn" bindtap="onBack"><text>‹ 返回</text></view>
 
+    <view class="detail-section">
     <!-- 教材简介 -->
     <view class="book-intro">
       <text class="intro-cover">{{currentBook.cover}}</text>
@@ -79,6 +80,7 @@
         </view>
         <text class="entry-arrow">›</text>
       </view>
+    </view>
     </view>
   </block>
 
