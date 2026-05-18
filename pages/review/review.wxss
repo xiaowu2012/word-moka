@@ -106,18 +106,28 @@
   border-radius: 24rpx;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.08);
-  padding: 50rpx 40rpx;
+  padding: 32rpx 40rpx 40rpx;
   margin-bottom: 12rpx;
 }
 
-/* 听音题型 */
-.audio-area {
+/* 题目标签（左上角） */
+.q-label {
+  font-size: 24rpx;
+  color: #aaa;
+  text-align: left;
+  margin-bottom: 20rpx;
+  flex-shrink: 0;
+}
+
+/* 卡片主体内容（居中） */
+.card-body {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  min-height: 200rpx;
 }
 
 .play-btn-lg {
@@ -129,16 +139,10 @@
   font-size: 60rpx;
   background: #F0F4FF;
   border-radius: 50%;
-  margin-bottom: 24rpx;
 }
 
 .play-btn-lg:active {
   background: #E0E8FF;
-}
-
-/* 看词题型 */
-.word-area {
-  text-align: center;
 }
 
 .word-display {
