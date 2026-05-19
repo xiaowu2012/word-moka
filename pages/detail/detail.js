@@ -103,7 +103,9 @@ Page({
     })
 
     if (isBrowse) {
-      // 翻页时自动播放单词发音
+      // 提前预加载音频源，避免云存储加载延迟
+      this.preloadWordAudio(wordKey)
+      // 翻页时自动播放单词发音（200ms后音频已缓冲）
       setTimeout(() => this.onPlayWord(), 200)
       // 翻页时自动标记已学（加入记忆队列）
       setTimeout(() => this.autoAddToSchedule(wordKey), 500)
@@ -138,6 +140,23 @@ Page({
     }).catch(() => {})
   },
 
+  // 预加载单词音频源（设src但不播放，让音频开始缓冲）
+  preloadWordAudio(wordKey) {
+    const audioCtx = this.data.audioCtx
+    if (!audioCtx) return
+    const card = app.globalData.words[wordKey]
+    if (!card) return
+    let src
+    if (card.pronounceFile) {
+      src = card.pronounceFile
+    } else if (wordKey.startsWith('r4_')) {
+      src = `${CLOUD_BASE}/audio/r4/${wordKey}.mp3`
+    }
+    if (src) {
+      audioCtx.src = src
+    }
+  },
+
   onPlayWord() {
     this.playAudio('word')
   },
@@ -154,18 +173,26 @@ Page({
     const { audioCtx, key, word } = this.data
     if (!audioCtx) return
 
-    audioCtx.stop()
     this.setData({ playing: type })
 
-    // 单词音频优先使用 pronounceFile 字段
+    // 构建目标音频URL
+    let targetSrc
     if (type === 'word' && word.pronounceFile) {
-      audioCtx.src = word.pronounceFile
+      targetSrc = word.pronounceFile
     } else if (key.startsWith('r4_')) {
-      // 人教4上单词：音频在 audio/r4/ 目录下
-      audioCtx.src = key.startsWith('r4_') ? `${CLOUD_BASE}/audio/r4/${key}.mp3` : `/audio/r4/${key}.mp3`
+      targetSrc = `${CLOUD_BASE}/audio/r4/${key}.mp3`
     } else {
-      audioCtx.src = `/audio/${key}_${type}.mp3`
+      targetSrc = `/audio/${key}_${type}.mp3`
     }
+
+    // 如果src已预加载且相同，直接play（避免stop打断缓冲）
+    if (audioCtx.src === targetSrc) {
+      audioCtx.play()
+      return
+    }
+
+    audioCtx.stop()
+    audioCtx.src = targetSrc
     audioCtx.play()
 
     audioCtx.onEnded(() => {
