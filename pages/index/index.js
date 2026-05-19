@@ -73,14 +73,16 @@ Page({
 
       const textbooksWithReview = textbooks.map(book => {
         const config = TEXTBOOK_CONFIG[book.id]
-        const prefix = config ? config.wordPrefix : ''
         let reviewCount = 0
 
-        for (const [key, s] of Object.entries(schedule)) {
-          if (mastered.includes(key)) continue
-          if (s.dueDate > today || s.stage < 0) continue
-          if (prefix && !key.startsWith(prefix)) continue
-          if (words[key]) reviewCount++
+        if (config) {
+          const prefix = config.wordPrefix
+          for (const [key, s] of Object.entries(schedule)) {
+            if (mastered.includes(key)) continue
+            if (s.dueDate > today || s.stage < 0) continue
+            if (prefix && !key.startsWith(prefix)) continue
+            if (words[key]) reviewCount++
+          }
         }
 
         return { ...book, reviewCount }
