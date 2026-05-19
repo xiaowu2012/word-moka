@@ -1,5 +1,8 @@
 const app = getApp()
 
+// 微信云存储文件ID基础路径（上传到云存储后资源ID部分可能变化，如不对请替换）
+const CLOUD_BASE = 'cloud://cloudbase-d2gs4fpbhca51e19f.636c-cloudbase-d2gs4fpbhca51e19f-1433289257'
+
 const STAR_MAP = { 5: '★★★★★', 4: '★★★★☆', 3: '★★★☆☆', 2: '★★☆☆☆', 1: '★☆☆☆☆' }
 const FREQ_LABEL = { 5: '极高频', 4: '高频', 3: '中等', 2: '低频', 1: '极少' }
 
@@ -83,7 +86,7 @@ Page({
     this.setData({
       key: wordKey,
       word: card,
-      imageSrc: wordKey.startsWith('r4_') ? `/images/r4/${wordKey}.jpg` : `/images/${wordKey}_card.jpg`,
+      imageSrc: wordKey.startsWith('r4_') ? `${CLOUD_BASE}/images/r4/${wordKey}.jpg` : `/images/${wordKey}_card.jpg`,
       fromContinue: fromContinue || false,
       isBrowse: isBrowse || false,
       showTranslation: true,
@@ -159,7 +162,7 @@ Page({
       audioCtx.src = word.pronounceFile
     } else if (key.startsWith('r4_')) {
       // 人教4上单词：音频在 audio/r4/ 目录下
-      audioCtx.src = `/audio/r4/${key}.mp3`
+      audioCtx.src = key.startsWith('r4_') ? `${CLOUD_BASE}/audio/r4/${key}.mp3` : `/audio/r4/${key}.mp3`
     } else {
       audioCtx.src = `/audio/${key}_${type}.mp3`
     }
