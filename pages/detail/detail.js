@@ -34,11 +34,18 @@ Page({
     const fromContinue = options.from === 'continue'
     const isBrowse = options.mode === 'browse'
     const unitFilter = options.unit || ''
+    const textbookFilter = options.textbook || ''
 
     const words = app.globalData.words
 
-    // 如果有 unit 过滤，只显示该单元的单词
+    // 按教材过滤
     let wordKeyList = Object.keys(words)
+    if (textbookFilter === 'r4-2024q') {
+      wordKeyList = wordKeyList.filter(k => k.startsWith('r4_'))
+    } else if (textbookFilter === '9a-2026q') {
+      wordKeyList = wordKeyList.filter(k => !k.startsWith('r4_') && !k.startsWith('8b_'))
+    }
+    // 如果有 unit 过滤，进一步缩小范围
     if (unitFilter) {
       wordKeyList = wordKeyList.filter(k => words[k] && words[k].module === unitFilter)
     }
