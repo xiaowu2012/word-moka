@@ -9,7 +9,7 @@
       <view class="word-header">
         <view class="word-row">
           <text class="word-text">{{word.word}}</text>
-          <text class="play-btn" bindtap="onPlayWord">🔊</text>
+          <text class="play-btn" catchtap="onPlayWord">🔊</text>
         </view>
         <view class="word-meta-row">
           <text class="word-phonetic">{{word.phonetic}}</text>
