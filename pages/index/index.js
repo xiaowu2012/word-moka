@@ -51,9 +51,9 @@ Page({
     const words = app.globalData.words || {}
 
     const textbooks = [
+      { id: 'r4-2024q', name: '人教版2024版 四（上）', cover: '📗', wordCount: 110, available: true, hasTextReading: false },
       { id: '9a-2026q', name: '外研版2026秋季版 九（上）', cover: '📘', wordCount: 189, available: true, hasTextReading: true },
-      { id: '8b-2026c', name: '外研版2026春季版 八（下）', cover: '📙', wordCount: 0, available: false, hasTextReading: false },
-      { id: 'r4-2024q', name: '人教版2024版 四（上）', cover: '📗', wordCount: 110, available: true, hasTextReading: false }
+      { id: '8b-2026c', name: '外研版2026春季版 八（下）', cover: '📙', wordCount: 0, available: false, hasTextReading: false }
     ]
 
     this.setData({ textbooks })

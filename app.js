@@ -23,6 +23,15 @@ App({
     ],
     textbooks: [
       {
+        id: 'r4-2024q',
+        name: '人教版2024版 四（上）',
+        subtitle: '',
+        units: ['Unit 1', 'Unit 2', 'Unit 3', 'Unit 4', 'Unit 5', 'Unit 6'],
+        wordCount: 110,
+        available: true,
+        cover: '📗'
+      },
+      {
         id: '9a-2026q',
         name: '外研版2026秋季版 九（上）',
         subtitle: '',
@@ -40,15 +49,6 @@ App({
         available: false,
         comingSoon: true,
         cover: '📙'
-      },
-      {
-        id: 'r4-2024q',
-        name: '人教版2024版 四（上）',
-        subtitle: '',
-        units: ['Unit 1', 'Unit 2', 'Unit 3', 'Unit 4', 'Unit 5', 'Unit 6'],
-        wordCount: 110,
-        available: true,
-        cover: '📗'
       }
     ],
     userProgress: {}
