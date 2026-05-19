@@ -14,7 +14,41 @@
   font-size: 32rpx;
   font-weight: 700;
   color: #2C3E50;
+}
+
+.section-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 40rpx 28rpx 24rpx;
+}
+
+.review-badge {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  background: #FFF3E6;
+  border-radius: 30rpx;
+  padding: 8rpx 20rpx;
+}
+
+.review-icon {
+  font-size: 26rpx;
+}
+
+.review-text {
+  font-size: 26rpx;
+  color: #E67E22;
+  font-weight: 600;
+}
+
+.review-count {
+  font-size: 22rpx;
+  color: #fff;
+  background: #E74C3C;
+  border-radius: 20rpx;
+  padding: 2rpx 14rpx;
+  font-weight: 600;
 }
 
 /* ========== 返回按钮 ========== */
