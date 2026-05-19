@@ -103,12 +103,18 @@ Page({
     })
 
     if (isBrowse) {
-      // 提前预加载音频源，避免云存储加载延迟
+      // 提前预加载当前音频源，避免云存储加载延迟
       this.preloadWordAudio(wordKey)
       // 翻页时自动播放单词发音（200ms后音频已缓冲）
       setTimeout(() => this.onPlayWord(), 200)
       // 翻页时自动标记已学（加入记忆队列）
       setTimeout(() => this.autoAddToSchedule(wordKey), 500)
+      // 预加载下一张卡片的音频（翻页更丝滑）
+      const nextIdx = index + 1
+      if (nextIdx < this.wordKeyList.length) {
+        const nextKey = this.wordKeyList[nextIdx]
+        this.preloadNextAudio(nextKey)
+      }
     }
   },
 
@@ -155,6 +161,31 @@ Page({
     if (src) {
       audioCtx.src = src
     }
+  },
+
+  // 预加载下一张卡片的音频（独立audioCtx，不干扰当前播放）
+  preloadNextAudio(nextKey) {
+    const card = app.globalData.words[nextKey]
+    if (!card) return
+    let src
+    if (card.pronounceFile) {
+      src = card.pronounceFile
+    } else if (nextKey.startsWith('r4_')) {
+      src = `${CLOUD_BASE}/audio/r4/${nextKey}.mp3`
+    }
+    if (!src) return
+    const preloader = wx.createInnerAudioContext()
+    preloader.src = src
+    preloader.volume = 0
+    preloader.play()
+    // 缓冲后自动清理
+    preloader.onCanplay(() => {
+      preloader.stop()
+      preloader.destroy()
+    })
+    preloader.onError(() => {
+      preloader.destroy()
+    })
   },
 
   onPlayWord() {
