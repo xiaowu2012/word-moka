@@ -3,4 +3,6 @@ audio_new/
 node_modules/
 .DS_Store
 audio/*.mp3
+audio/r4/
+images/r4/
 audio/text/*.mp3
