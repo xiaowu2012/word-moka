@@ -83,7 +83,7 @@ Page({
     this.setData({
       key: wordKey,
       word: card,
-      imageSrc: wordKey.startsWith('r4_') ? `/images/r4/${wordKey}.png` : `/images/${wordKey}_card.jpg`,
+      imageSrc: wordKey.startsWith('r4_') ? `/images/r4/${wordKey}.jpg` : `/images/${wordKey}_card.jpg`,
       fromContinue: fromContinue || false,
       isBrowse: isBrowse || false,
       showTranslation: true,
