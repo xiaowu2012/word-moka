@@ -1,5 +1,37 @@
 const app = getApp()
 
+// Textbook config: id → { units, unitNames, wordPrefix, hasTextReading }
+const TEXTBOOK_CONFIG = {
+  '9a-2026q': {
+    units: ['Unit1', 'Unit2', 'Unit3', 'Unit4', 'Unit5', 'Unit6'],
+    names: {
+      Unit1: 'Unit 1 · Teenagers today',
+      Unit2: 'Unit 2 · On the money',
+      Unit3: 'Unit 3 · Putting the pieces together',
+      Unit4: 'Unit 4 · Past passing by',
+      Unit5: 'Unit 5 · A fine balance',
+      Unit6: 'Unit 6 · Live green'
+    },
+    icons: { Unit1: '🎭', Unit2: '💰', Unit3: '🧩', Unit4: '⏳', Unit5: '⚖️', Unit6: '🌿' },
+    wordPrefix: '',       // no prefix = all keys
+    hasTextReading: true
+  },
+  'r4-2024q': {
+    units: ['Unit 1', 'Unit 2', 'Unit 3', 'Unit 4', 'Unit 5', 'Unit 6'],
+    names: {
+      'Unit 1': 'Unit 1 · Helping at home',
+      'Unit 2': 'Unit 2 · My friend',
+      'Unit 3': 'Unit 3 · Places',
+      'Unit 4': 'Unit 4 · Jobs',
+      'Unit 5': 'Unit 5 · Weather',
+      'Unit 6': 'Unit 6 · Clothes & seasons'
+    },
+    icons: { 'Unit 1': '🏠', 'Unit 2': '👫', 'Unit 3': '📍', 'Unit 4': '👨‍🚒', 'Unit 5': '🌤️', 'Unit 6': '👕' },
+    wordPrefix: 'r4_',
+    hasTextReading: false
+  }
+}
+
 Page({
   data: {
     textbooks: [],
@@ -16,39 +48,45 @@ Page({
   },
 
   onLoad() {
-    // 计算每个单元的单词数
     const words = app.globalData.words || {}
-    const unitCounts = {}
-    for (const [key, card] of Object.entries(words)) {
-      const mod = card.module
-      unitCounts[mod] = (unitCounts[mod] || 0) + 1
-    }
 
-    const units = [
-      { id: 'Unit1', name: 'Unit 1 · Teenagers today', icon: '🎭', available: true, wordCount: unitCounts.Unit1 || 0 },
-      { id: 'Unit2', name: 'Unit 2 · On the money', icon: '💰', available: false, wordCount: unitCounts.Unit2 || 0 },
-      { id: 'Unit3', name: 'Unit 3 · Putting the pieces together', icon: '🧩', available: false, wordCount: unitCounts.Unit3 || 0 },
-      { id: 'Unit4', name: 'Unit 4 · Past passing by', icon: '⏳', available: false, wordCount: unitCounts.Unit4 || 0 },
-      { id: 'Unit5', name: 'Unit 5 · A fine balance', icon: '⚖️', available: false, wordCount: unitCounts.Unit5 || 0 },
-      { id: 'Unit6', name: 'Unit 6 · Live green', icon: '🌿', available: false, wordCount: unitCounts.Unit6 || 0 }
+    const textbooks = [
+      { id: '9a-2026q', name: '外研版2026秋季版 九（上）', cover: '📘', wordCount: 189, available: true, hasTextReading: true },
+      { id: '8b-2026c', name: '外研版2026春季版 八（下）', cover: '📙', wordCount: 0, available: false, hasTextReading: false },
+      { id: 'r4-2024q', name: '人教版2024版 四（上）', cover: '📗', wordCount: 110, available: true, hasTextReading: false }
     ]
 
-    const availableUnits = units.filter(u => u.available).map(u => u.name.split(' · ')[0])
-
-    this.setData({
-      textbooks: [
-        { id: '9a-2026q', name: '外研版2026秋季版 九（上）', cover: '📘', wordCount: 189, available: true },
-        { id: '8b-2026c', name: '外研版2026春季版 八（下）', cover: '📙', wordCount: 0, available: false }
-      ],
-      units,
-      availableUnitsStr: availableUnits.join('、')
-    })
+    this.setData({ textbooks })
 
     this.loadDueCount()
   },
 
   onShow() {
     this.loadDueCount()
+  },
+
+  // 获取某个教材的单元列表
+  getUnitsForBook(bookId) {
+    const config = TEXTBOOK_CONFIG[bookId]
+    if (!config) return []
+
+    const words = app.globalData.words || {}
+    const prefix = config.wordPrefix
+    const unitCounts = {}
+
+    for (const [key, card] of Object.entries(words)) {
+      if (prefix && !key.startsWith(prefix)) continue
+      const mod = card.module
+      unitCounts[mod] = (unitCounts[mod] || 0) + 1
+    }
+
+    return config.units.map(unitId => ({
+      id: unitId,
+      name: config.names[unitId] || unitId,
+      icon: config.icons[unitId] || '📄',
+      available: true,
+      wordCount: unitCounts[unitId] || 0
+    }))
   },
 
   loadDueCount(showReminder) {
@@ -77,7 +115,6 @@ Page({
   checkReviewReminder(dueCount) {
     if (dueCount === 0) return
 
-    // 5分钟内是否点过"稍等一会"
     const postponed = wx.getStorageSync('reviewPostponeTime')
     if (postponed && Date.now() - postponed < 5 * 60 * 1000) return
 
@@ -100,12 +137,14 @@ Page({
   onTapBook(e) {
     const bookId = e.currentTarget.dataset.id
     const book = this.data.textbooks.find(t => t.id === bookId) || {}
+    const units = this.getUnitsForBook(bookId)
+
     this.setData({
       pageState: 'detail',
-      currentBook: book
+      currentBook: book,
+      units
     })
 
-    // 选了教材后重新加载待复习数 + 检查提醒
     this.loadDueCount(true)
   },
 
@@ -135,29 +174,42 @@ Page({
 
   onAllWords() {
     const words = app.globalData.words
-    const firstKey = Object.keys(words)[0]
+    const config = TEXTBOOK_CONFIG[this.data.currentBook.id]
+    const prefix = config ? config.wordPrefix : ''
+
+    // Find first word of this textbook
+    const firstKey = prefix
+      ? Object.keys(words).find(k => k.startsWith(prefix))
+      : Object.keys(words).find(k => !k.startsWith('r4_') && !k.startsWith('8b_'))
+
     if (firstKey) {
-      wx.navigateTo({ url: `/pages/detail/detail?wordKey=${firstKey}&mode=browse` })
+      wx.navigateTo({ url: `/pages/detail/detail?wordKey=${firstKey}&mode=browse&textbook=${this.data.currentBook.id}` })
     }
   },
 
   onTapUnit(e) {
     const id = e.currentTarget.dataset.id
-    if (this.data.unitMode === 'read') {
+    const config = TEXTBOOK_CONFIG[this.data.currentBook.id]
+    const prefix = config ? config.wordPrefix : ''
+
+    if (this.data.unitMode === 'read' && config.hasTextReading) {
       wx.navigateTo({ url: `/pages/text/text?unit=${id}` })
     } else {
-      // 按单元学单词 → 直接跳到第一张卡片（跟浏览模式一样，只显示该单元的词）
+      // 按单元学单词 → 找到该单元第一个词
       const words = app.globalData.words
-      const firstKey = Object.keys(words).find(k => words[k].module === id)
+      const firstKey = Object.keys(words).find(k => {
+        if (prefix && !k.startsWith(prefix)) return false
+        return words[k].module === id
+      })
       if (firstKey) {
-        wx.navigateTo({ url: `/pages/detail/detail?wordKey=${firstKey}&mode=browse&unit=${id}` })
+        wx.navigateTo({ url: `/pages/detail/detail?wordKey=${firstKey}&mode=browse&unit=${id}&textbook=${this.data.currentBook.id}` })
       }
     }
   },
 
   onShareAppMessage() {
     return {
-      title: '单词魔卡 - 初中英语单词学习',
+      title: '单词魔卡 - 英语单词学习',
       path: '/pages/index/index',
     }
   }

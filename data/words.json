@@ -1485,5 +1485,775 @@
     "phonetic": "/sɪlk/",
     "cnMeaning": "丝绸",
     "module": "Unit3"
+  },
+  "r4_PE": {
+    "word": "PE",
+    "phonetic": "/ˌpiː ˈiː/",
+    "cnMeaning": "体育（课）",
+    "module": "Unit 1",
+    "origin": "人教版四年级上册"
+  },
+  "r4_job": {
+    "word": "job",
+    "phonetic": "/d͡ʒɒb/",
+    "cnMeaning": "工作；职业",
+    "module": "Unit 1",
+    "origin": "人教版四年级上册"
+  },
+  "r4_doctor": {
+    "word": "doctor",
+    "phonetic": "/ˈdɒktə/",
+    "cnMeaning": "医生",
+    "module": "Unit 1",
+    "origin": "人教版四年级上册"
+  },
+  "r4_farmer": {
+    "word": "farmer",
+    "phonetic": "/fɑːmə/",
+    "cnMeaning": "农场主；农民",
+    "module": "Unit 1",
+    "origin": "人教版四年级上册"
+  },
+  "r4_nurse": {
+    "word": "nurse",
+    "phonetic": "/nɜːs/",
+    "cnMeaning": "护士",
+    "module": "Unit 1",
+    "origin": "人教版四年级上册"
+  },
+  "r4_office_worker": {
+    "word": "office worker",
+    "phonetic": "/ˈɒfɪs ˈwɜːkə/",
+    "cnMeaning": "公司职员",
+    "module": "Unit 1",
+    "origin": "人教版四年级上册"
+  },
+  "r4_factory_worker": {
+    "word": "factory worker",
+    "phonetic": "/ˈfæktri ˈwɜːkə/",
+    "cnMeaning": "工厂工人",
+    "module": "Unit 1",
+    "origin": "人教版四年级上册"
+  },
+  "r4_busy": {
+    "word": "busy",
+    "phonetic": "/ˈbɪzi/",
+    "cnMeaning": "忙碌的",
+    "module": "Unit 1",
+    "origin": "人教版四年级上册"
+  },
+  "r4_tired": {
+    "word": "tired",
+    "phonetic": "/ˈtaɪəd/",
+    "cnMeaning": "疲倦的",
+    "module": "Unit 1",
+    "origin": "人教版四年级上册"
+  },
+  "r4_chore": {
+    "word": "chore",
+    "phonetic": "/tʃɔː(r)/",
+    "cnMeaning": "家庭杂务",
+    "module": "Unit 1",
+    "origin": "人教版四年级上册"
+  },
+  "r4_cook-unit1": {
+    "word": "cook",
+    "phonetic": "/kʊk/",
+    "cnMeaning": "烹饪；煮",
+    "module": "Unit 1",
+    "origin": "人教版四年级上册"
+  },
+  "r4_clean": {
+    "word": "clean",
+    "phonetic": "/kliːn/",
+    "cnMeaning": "打扫；干净的",
+    "module": "Unit 1",
+    "origin": "人教版四年级上册"
+  },
+  "r4_room": {
+    "word": "room",
+    "phonetic": "/ruːm/",
+    "cnMeaning": "房间",
+    "module": "Unit 1",
+    "origin": "人教版四年级上册"
+  },
+  "r4_look_after": {
+    "word": "look after",
+    "phonetic": "/lʊk ˈɑːftə/",
+    "cnMeaning": "照顾",
+    "module": "Unit 1",
+    "origin": "人教版四年级上册"
+  },
+  "r4_sweep": {
+    "word": "sweep",
+    "phonetic": "/swiːp/",
+    "cnMeaning": "扫",
+    "module": "Unit 1",
+    "origin": "人教版四年级上册"
+  },
+  "r4_floor": {
+    "word": "floor",
+    "phonetic": "/flɔː(r)/",
+    "cnMeaning": "地板；地面",
+    "module": "Unit 1",
+    "origin": "人教版四年级上册"
+  },
+  "r4_together": {
+    "word": "together",
+    "phonetic": "/təˈɡeðə(r)/",
+    "cnMeaning": "在一起；共同",
+    "module": "Unit 1",
+    "origin": "人教版四年级上册"
+  },
+  "r4_people": {
+    "word": "people",
+    "phonetic": "/ˈpiːpl/",
+    "cnMeaning": "人；人们",
+    "module": "Unit 1",
+    "origin": "人教版四年级上册"
+  },
+  "r4_child": {
+    "word": "child",
+    "phonetic": "/tʃaɪld/",
+    "cnMeaning": "儿童；小孩",
+    "module": "Unit 1",
+    "origin": "人教版四年级上册"
+  },
+  "r4_his": {
+    "word": "his",
+    "phonetic": "/ˈhɪz/",
+    "cnMeaning": "他的",
+    "module": "Unit 2",
+    "origin": "人教版四年级上册"
+  },
+  "r4_strong": {
+    "word": "strong",
+    "phonetic": "/strɒŋ/",
+    "cnMeaning": "强壮的",
+    "module": "Unit 2",
+    "origin": "人教版四年级上册"
+  },
+  "r4_hair": {
+    "word": "hair",
+    "phonetic": "/heə(r)/",
+    "cnMeaning": "头发",
+    "module": "Unit 2",
+    "origin": "人教版四年级上册"
+  },
+  "r4_also": {
+    "word": "also",
+    "phonetic": "/ˈɔːlsəʊ/",
+    "cnMeaning": "也",
+    "module": "Unit 2",
+    "origin": "人教版四年级上册"
+  },
+  "r4_kind": {
+    "word": "kind",
+    "phonetic": "/kaɪnd/",
+    "cnMeaning": "友好的",
+    "module": "Unit 2",
+    "origin": "人教版四年级上册"
+  },
+  "r4_quiet": {
+    "word": "quiet",
+    "phonetic": "/ˈkwaɪət/",
+    "cnMeaning": "文静的",
+    "module": "Unit 2",
+    "origin": "人教版四年级上册"
+  },
+  "r4_best": {
+    "word": "best",
+    "phonetic": "/best/",
+    "cnMeaning": "最好的",
+    "module": "Unit 2",
+    "origin": "人教版四年级上册"
+  },
+  "r4_read": {
+    "word": "read",
+    "phonetic": "/riːd/",
+    "cnMeaning": "阅读",
+    "module": "Unit 2",
+    "origin": "人教版四年级上册"
+  },
+  "r4_chinese": {
+    "word": "Chinese",
+    "phonetic": "/ˌtʃaɪˈniːz/",
+    "cnMeaning": "中文；中国人；中国的",
+    "module": "Unit 2",
+    "origin": "人教版四年级上册"
+  },
+  "r4_play": {
+    "word": "play",
+    "phonetic": "/pleɪ/",
+    "cnMeaning": "玩耍",
+    "module": "Unit 2",
+    "origin": "人教版四年级上册"
+  },
+  "r4_game": {
+    "word": "game",
+    "phonetic": "/ɡeɪm/",
+    "cnMeaning": "游戏",
+    "module": "Unit 2",
+    "origin": "人教版四年级上册"
+  },
+  "r4_football": {
+    "word": "football",
+    "phonetic": "/ˈfʊtbɔːl/",
+    "cnMeaning": "足球运动",
+    "module": "Unit 2",
+    "origin": "人教版四年级上册"
+  },
+  "r4_basketball": {
+    "word": "basketball",
+    "phonetic": "/ˈbɑːskɪtbɔːl/",
+    "cnMeaning": "篮球运动",
+    "module": "Unit 2",
+    "origin": "人教版四年级上册"
+  },
+  "r4_always": {
+    "word": "always",
+    "phonetic": "/ˈɔːlweɪz/",
+    "cnMeaning": "总是",
+    "module": "Unit 2",
+    "origin": "人教版四年级上册"
+  },
+  "r4_afternoon": {
+    "word": "afternoon",
+    "phonetic": "/ˌɑːftəˈnuːn/",
+    "cnMeaning": "下午",
+    "module": "Unit 3",
+    "origin": "人教版四年级上册"
+  },
+  "r4_there": {
+    "word": "there",
+    "phonetic": "/ðeə(r)/",
+    "cnMeaning": "（表示存在或发生）在那里",
+    "module": "Unit 3",
+    "origin": "人教版四年级上册"
+  },
+  "r4_playground": {
+    "word": "playground",
+    "phonetic": "/ˈpleɪɡraʊnd/",
+    "cnMeaning": "游乐场；操场",
+    "module": "Unit 3",
+    "origin": "人教版四年级上册"
+  },
+  "r4_park": {
+    "word": "park",
+    "phonetic": "/pɑːk/",
+    "cnMeaning": "公园",
+    "module": "Unit 3",
+    "origin": "人教版四年级上册"
+  },
+  "r4_over": {
+    "word": "over",
+    "phonetic": "/ˈəʊvə(r)/",
+    "cnMeaning": "在……的远端（或对面）",
+    "module": "Unit 3",
+    "origin": "人教版四年级上册"
+  },
+  "r4_hospital": {
+    "word": "hospital",
+    "phonetic": "/ˈhɒspɪtl/",
+    "cnMeaning": "医院",
+    "module": "Unit 3",
+    "origin": "人教版四年级上册"
+  },
+  "r4_shop": {
+    "word": "shop",
+    "phonetic": "/ʃɒp/",
+    "cnMeaning": "商店",
+    "module": "Unit 3",
+    "origin": "人教版四年级上册"
+  },
+  "r4_toilet": {
+    "word": "toilet",
+    "phonetic": "/ˈtɔɪlət/",
+    "cnMeaning": "厕所；卫生间",
+    "module": "Unit 3",
+    "origin": "人教版四年级上册"
+  },
+  "r4_bus_stop": {
+    "word": "bus stop",
+    "phonetic": "/bʌs stɒp/",
+    "cnMeaning": "公共汽车站",
+    "module": "Unit 3",
+    "origin": "人教版四年级上册"
+  },
+  "r4_library": {
+    "word": "library",
+    "phonetic": "/ˈlaɪbrəri/",
+    "cnMeaning": "图书馆",
+    "module": "Unit 3",
+    "origin": "人教版四年级上册"
+  },
+  "r4_sport": {
+    "word": "sport",
+    "phonetic": "/spɔːt/",
+    "cnMeaning": "体育运动",
+    "module": "Unit 3",
+    "origin": "人教版四年级上册"
+  },
+  "r4_walk": {
+    "word": "walk",
+    "phonetic": "/wɔːk/",
+    "cnMeaning": "散步；行走",
+    "module": "Unit 3",
+    "origin": "人教版四年级上册"
+  },
+  "r4_community": {
+    "word": "community",
+    "phonetic": "/kəˈmjuːnəti/",
+    "cnMeaning": "社区",
+    "module": "Unit 3",
+    "origin": "人教版四年级上册"
+  },
+  "r4_favourite": {
+    "word": "favourite",
+    "phonetic": "/ˈfeɪvərɪt/",
+    "cnMeaning": "最喜欢的",
+    "module": "Unit 3",
+    "origin": "人教版四年级上册"
+  },
+  "r4_place": {
+    "word": "place",
+    "phonetic": "/pleɪs/",
+    "cnMeaning": "地方；场所",
+    "module": "Unit 3",
+    "origin": "人教版四年级上册"
+  },
+  "r4_photo": {
+    "word": "photo",
+    "phonetic": "/ˈfəʊtəʊ/",
+    "cnMeaning": "照片",
+    "module": "Unit 3",
+    "origin": "人教版四年级上册"
+  },
+  "r4_story": {
+    "word": "story",
+    "phonetic": "/ˈstɔːri/",
+    "cnMeaning": "故事",
+    "module": "Unit 3",
+    "origin": "人教版四年级上册"
+  },
+  "r4_buy": {
+    "word": "buy",
+    "phonetic": "/baɪ/",
+    "cnMeaning": "购买",
+    "module": "Unit 3",
+    "origin": "人教版四年级上册"
+  },
+  "r4_firefighter": {
+    "word": "firefighter",
+    "phonetic": "/ˈfaɪəfaɪtə(r)/",
+    "cnMeaning": "消防队员",
+    "module": "Unit 4",
+    "origin": "人教版四年级上册"
+  },
+  "r4_why": {
+    "word": "why",
+    "phonetic": "/waɪ/",
+    "cnMeaning": "为什么",
+    "module": "Unit 4",
+    "origin": "人教版四年级上册"
+  },
+  "r4_driver": {
+    "word": "driver",
+    "phonetic": "/ˈdraɪvə(r)/",
+    "cnMeaning": "司机",
+    "module": "Unit 4",
+    "origin": "人教版四年级上册"
+  },
+  "r4_cleaner": {
+    "word": "cleaner",
+    "phonetic": "/ˈkliːnə(r)/",
+    "cnMeaning": "清洁工",
+    "module": "Unit 4",
+    "origin": "人教版四年级上册"
+  },
+  "r4_cook-unit4": {
+    "word": "cook",
+    "phonetic": "/kʊk/",
+    "cnMeaning": "厨师",
+    "module": "Unit 4",
+    "origin": "人教版四年级上册"
+  },
+  "r4_delivery_worker": {
+    "word": "delivery worker",
+    "phonetic": "/dɪˈlɪvəri ˈwɜːkə/",
+    "cnMeaning": "快递员",
+    "module": "Unit 4",
+    "origin": "人教版四年级上册"
+  },
+  "r4_police_officer": {
+    "word": "police officer",
+    "phonetic": "/pəˈliːs ˈɒfɪsə/",
+    "cnMeaning": "警察；警员",
+    "module": "Unit 4",
+    "origin": "人教版四年级上册"
+  },
+  "r4_a_lot_of": {
+    "word": "a lot of",
+    "phonetic": "/ə lɒt əv/",
+    "cnMeaning": "大量；许多",
+    "module": "Unit 4",
+    "origin": "人教版四年级上册"
+  },
+  "r4_now": {
+    "word": "now",
+    "phonetic": "/naʊ/",
+    "cnMeaning": "现在",
+    "module": "Unit 4",
+    "origin": "人教版四年级上册"
+  },
+  "r4_make_the_bed": {
+    "word": "make the bed",
+    "phonetic": "/meɪk ðə bed/",
+    "cnMeaning": "铺床",
+    "module": "Unit 4",
+    "origin": "人教版四年级上册"
+  },
+  "r4_old": {
+    "word": "old",
+    "phonetic": "/əʊld/",
+    "cnMeaning": "过去的；年纪大的；老的",
+    "module": "Unit 4",
+    "origin": "人教版四年级上册"
+  },
+  "r4_tell": {
+    "word": "tell",
+    "phonetic": "/tel/",
+    "cnMeaning": "讲述；告诉",
+    "module": "Unit 4",
+    "origin": "人教版四年级上册"
+  },
+  "r4_everyone": {
+    "word": "everyone",
+    "phonetic": "/ˈevriwʌn/",
+    "cnMeaning": "每人",
+    "module": "Unit 4",
+    "origin": "人教版四年级上册"
+  },
+  "r4_ms": {
+    "word": "Ms",
+    "phonetic": "/mɪz/",
+    "cnMeaning": "女士",
+    "module": "Unit 4",
+    "origin": "人教版四年级上册"
+  },
+  "r4_speak": {
+    "word": "speak",
+    "phonetic": "/spiːk/",
+    "cnMeaning": "说话；发言",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_weather": {
+    "word": "weather",
+    "phonetic": "/ˈweðə(r)/",
+    "cnMeaning": "天气",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_sunny": {
+    "word": "sunny",
+    "phonetic": "/ˈsʌni/",
+    "cnMeaning": "阳光充足的",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_hot": {
+    "word": "hot",
+    "phonetic": "/hɒt/",
+    "cnMeaning": "热的",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_bad": {
+    "word": "bad",
+    "phonetic": "/bæd/",
+    "cnMeaning": "令人不快的；坏的",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_cold": {
+    "word": "cold",
+    "phonetic": "/kəʊld/",
+    "cnMeaning": "冷的",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_windy": {
+    "word": "windy",
+    "phonetic": "/ˈwɪndi/",
+    "cnMeaning": "多风的",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_cloudy": {
+    "word": "cloudy",
+    "phonetic": "/ˈklaʊdi/",
+    "cnMeaning": "多云的",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_rainy": {
+    "word": "rainy",
+    "phonetic": "/ˈreɪni/",
+    "cnMeaning": "阴雨的",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_snowy": {
+    "word": "snowy",
+    "phonetic": "/ˈsnəʊi/",
+    "cnMeaning": "多雪的",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_cool": {
+    "word": "cool",
+    "phonetic": "/kuːl/",
+    "cnMeaning": "凉爽的",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_warm": {
+    "word": "warm",
+    "phonetic": "/wɔːm/",
+    "cnMeaning": "温暖的",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_tomorrow": {
+    "word": "tomorrow",
+    "phonetic": "/təˈmɒrəʊ/",
+    "cnMeaning": "在明天",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_rain": {
+    "word": "rain",
+    "phonetic": "/reɪn/",
+    "cnMeaning": "下雨；雨",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_closed": {
+    "word": "closed",
+    "phonetic": "/kləʊzd/",
+    "cnMeaning": "关闭的",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_film": {
+    "word": "film",
+    "phonetic": "/fɪlm/",
+    "cnMeaning": "电影",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_idea": {
+    "word": "idea",
+    "phonetic": "/aɪˈdɪə/",
+    "cnMeaning": "想法；主意",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_fly": {
+    "word": "fly",
+    "phonetic": "/flaɪ/",
+    "cnMeaning": "操纵（飞行器等）；飞",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_kite": {
+    "word": "kite",
+    "phonetic": "/kaɪt/",
+    "cnMeaning": "风筝",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_snowman": {
+    "word": "snowman",
+    "phonetic": "/ˈsnəʊmæn/",
+    "cnMeaning": "雪人",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_fun": {
+    "word": "fun",
+    "phonetic": "/fʌn/",
+    "cnMeaning": "享乐；乐趣",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_their": {
+    "word": "their",
+    "phonetic": "/ðeə(r)/",
+    "cnMeaning": "他们的；她们的；它们的",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_swim": {
+    "word": "swim",
+    "phonetic": "/swɪm/",
+    "cnMeaning": "游泳",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_sydney": {
+    "word": "Sydney",
+    "phonetic": "/ˈsɪdni/",
+    "cnMeaning": "悉尼",
+    "module": "Unit 5",
+    "origin": "人教版四年级上册"
+  },
+  "r4_whose": {
+    "word": "whose",
+    "phonetic": "/huːz/",
+    "cnMeaning": "谁的",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
+  },
+  "r4_sweater": {
+    "word": "sweater",
+    "phonetic": "/ˈswetə(r)/",
+    "cnMeaning": "毛衣",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
+  },
+  "r4_sock": {
+    "word": "sock",
+    "phonetic": "/sɒk/",
+    "cnMeaning": "短袜",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
+  },
+  "r4_mine": {
+    "word": "mine",
+    "phonetic": "/maɪn/",
+    "cnMeaning": "我的",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
+  },
+  "r4_wear": {
+    "word": "wear",
+    "phonetic": "/weə(r)/",
+    "cnMeaning": "穿；戴",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
+  },
+  "r4_shirt": {
+    "word": "shirt",
+    "phonetic": "/ʃɜːt/",
+    "cnMeaning": "衬衫",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
+  },
+  "r4_coat": {
+    "word": "coat",
+    "phonetic": "/kəʊt/",
+    "cnMeaning": "大衣；外套",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
+  },
+  "r4_dress": {
+    "word": "dress",
+    "phonetic": "/dres/",
+    "cnMeaning": "连衣裙",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
+  },
+  "r4_which": {
+    "word": "which",
+    "phonetic": "/wɪtʃ/",
+    "cnMeaning": "哪一个；哪一些",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
+  },
+  "r4_season": {
+    "word": "season",
+    "phonetic": "/ˈsiːzn/",
+    "cnMeaning": "季节",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
+  },
+  "r4_winter": {
+    "word": "winter",
+    "phonetic": "/ˈwɪntə(r)/",
+    "cnMeaning": "冬天",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
+  },
+  "r4_snow": {
+    "word": "snow",
+    "phonetic": "/snəʊ/",
+    "cnMeaning": "下雪；雪",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
+  },
+  "r4_get_together": {
+    "word": "get together",
+    "phonetic": "/ɡet təˈɡeðə/",
+    "cnMeaning": "聚会",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
+  },
+  "r4_spring": {
+    "word": "spring",
+    "phonetic": "/sprɪŋ/",
+    "cnMeaning": "春天",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
+  },
+  "r4_summer": {
+    "word": "summer",
+    "phonetic": "/ˈsʌmə(r)/",
+    "cnMeaning": "夏天",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
+  },
+  "r4_autumn": {
+    "word": "autumn",
+    "phonetic": "/ˈɔːtəm/",
+    "cnMeaning": "秋天",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
+  },
+  "r4_t_shirt": {
+    "word": "T-shirt",
+    "phonetic": "/ˈtiː ʃɜːt/",
+    "cnMeaning": "T恤衫",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
+  },
+  "r4_fall": {
+    "word": "fall",
+    "phonetic": "/fɔːl/",
+    "cnMeaning": "落下",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
+  },
+  "r4_leaf": {
+    "word": "leaf",
+    "phonetic": "/liːf/",
+    "cnMeaning": "叶子",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
+  },
+  "r4_glove": {
+    "word": "glove",
+    "phonetic": "/ɡlʌv/",
+    "cnMeaning": "手套",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
+  },
+  "r4_then": {
+    "word": "then",
+    "phonetic": "/ðen/",
+    "cnMeaning": "然后；那时",
+    "module": "Unit 6",
+    "origin": "人教版四年级上册"
   }
 }

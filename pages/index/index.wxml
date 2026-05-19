@@ -34,7 +34,7 @@
 
     <!-- 三入口卡片 -->
     <view class="entry-cards">
-      <view class="entry-card" bindtap="onReadText">
+      <view class="entry-card" wx:if="{{currentBook.hasTextReading}}" bindtap="onReadText">
         <view class="entry-left">
           <text class="entry-icon">📖</text>
           <view class="entry-info">
