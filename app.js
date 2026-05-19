@@ -43,12 +43,8 @@ App({
       {
         id: '8b-2026c',
         name: '外研版2026春季版 八（下）',
-        subtitle: '',
-        units: [],
-        wordCount: 0,
-        available: false,
-        comingSoon: true,
-        cover: '📙'
+        cover: '📙',
+        available: false
       }
     ],
     userProgress: {}
