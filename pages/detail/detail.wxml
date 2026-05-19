@@ -14,6 +14,7 @@
         <view class="word-meta-row">
           <text class="word-phonetic">{{word.phonetic}}</text>
           <text class="word-pos" wx:if="{{word.pos}}">{{word.pos}}</text>
+          <text class="key-badge" wx:if="{{word.key}}">重点</text>
         </view>
         <view class="word-stars">
           <text class="stars">{{stars}}</text>

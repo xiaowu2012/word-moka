@@ -1494,7 +1494,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "We have PE class on Monday morning.",
     "extraCn": "我们周一早上有体育课。",
-    "tip": "PE 是 physical education 的缩写，首字母通常大写。"
+    "tip": "PE 是 physical education 的缩写，首字母通常大写。",
+    "key": false,
+    "importance": 2
   },
   "r4_job": {
     "word": "job",
@@ -1504,7 +1506,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "What job does your father do?",
     "extraCn": "你爸爸做什么工作？",
-    "tip": "job 是可数名词，可以说 a job / many jobs。"
+    "tip": "job 是可数名词，可以说 a job / many jobs。",
+    "key": false,
+    "importance": 2
   },
   "r4_doctor": {
     "word": "doctor",
@@ -1514,7 +1518,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "The doctor helps sick people get well.",
     "extraCn": "医生帮助生病的人恢复健康。",
-    "tip": "doctor 可缩写为 Dr.，如 Dr. Li。"
+    "tip": "doctor 可缩写为 Dr.，如 Dr. Li。",
+    "key": true,
+    "importance": 4
   },
   "r4_farmer": {
     "word": "farmer",
@@ -1524,7 +1530,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "The farmer grows rice and vegetables.",
     "extraCn": "那位农民种植水稻和蔬菜。",
-    "tip": "farmer 由 farm（农场）加 -er 构成，表示“农场主/农民”。"
+    "tip": "farmer 由 farm（农场）加 -er 构成，表示“农场主/农民”。",
+    "key": true,
+    "importance": 4
   },
   "r4_nurse": {
     "word": "nurse",
@@ -1534,7 +1542,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "The nurse gives medicine to the sick children.",
     "extraCn": "护士给生病的孩子发药。",
-    "tip": "nurse 是名词，动词是 nurse（护理），注意发音。"
+    "tip": "nurse 是名词，动词是 nurse（护理），注意发音。",
+    "key": true,
+    "importance": 4
   },
   "r4_office_worker": {
     "word": "office worker",
@@ -1544,7 +1554,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "An office worker sits at a desk and uses a computer.",
     "extraCn": "公司职员坐在办公桌前使用电脑。",
-    "tip": "office worker 是复合名词，复数在 worker 后加 -s。"
+    "tip": "office worker 是复合名词，复数在 worker 后加 -s。",
+    "key": true,
+    "importance": 4
   },
   "r4_factory_worker": {
     "word": "factory worker",
@@ -1554,7 +1566,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "My uncle is a factory worker. He makes toys.",
     "extraCn": "我叔叔是一名工厂工人。他制作玩具。",
-    "tip": "这是一个复合词，factory 和 worker 之间用空格。"
+    "tip": "这是一个复合词，factory 和 worker 之间用空格。",
+    "key": true,
+    "importance": 4
   },
   "r4_busy": {
     "word": "busy",
@@ -1564,7 +1578,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "My mom is busy cooking dinner in the kitchen.",
     "extraCn": "我妈妈正在厨房忙着做晚饭。",
-    "tip": "busy 后面常接 doing sth，表示“忙着做某事”。"
+    "tip": "busy 后面常接 doing sth，表示“忙着做某事”。",
+    "key": false,
+    "importance": 2
   },
   "r4_tired": {
     "word": "tired",
@@ -1574,7 +1590,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "After running, I feel very tired.",
     "extraCn": "跑步之后，我觉得很累。",
-    "tip": "tired 是形容词，常用 feel tired 或 be tired。"
+    "tip": "tired 是形容词，常用 feel tired 或 be tired。",
+    "key": false,
+    "importance": 2
   },
   "r4_chore": {
     "word": "chore",
@@ -1584,7 +1602,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Doing the dishes is my daily chore.",
     "extraCn": "洗碗是我每天的家务。",
-    "tip": "chore 常用复数 chores，表示各种家务杂事。"
+    "tip": "chore 常用复数 chores，表示各种家务杂事。",
+    "key": false,
+    "importance": 2
   },
   "r4_cook-unit1": {
     "word": "cook",
@@ -1594,7 +1614,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Dad can cook delicious noodles.",
     "extraCn": "爸爸会煮美味的面条。",
-    "tip": "cook 作动词是“烹饪”，作名词是“厨师”。"
+    "tip": "cook 作动词是“烹饪”，作名词是“厨师”。",
+    "key": true,
+    "importance": 4
   },
   "r4_clean": {
     "word": "clean",
@@ -1604,7 +1626,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I clean my room every Saturday.",
     "extraCn": "我每周六打扫我的房间。",
-    "tip": "clean 既是动词（打扫）也是形容词（干净的）。"
+    "tip": "clean 既是动词（打扫）也是形容词（干净的）。",
+    "key": false,
+    "importance": 2
   },
   "r4_room": {
     "word": "room",
@@ -1614,7 +1638,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "This is my room. It is small but clean.",
     "extraCn": "这是我的房间。它很小但很干净。",
-    "tip": "room 还可表示“空间”，如 There is no room.（没空间了。）"
+    "tip": "room 还可表示“空间”，如 There is no room.（没空间了。）",
+    "key": false,
+    "importance": 2
   },
   "r4_look_after": {
     "word": "look after",
@@ -1624,7 +1650,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I look after my little brother when Mom is out.",
     "extraCn": "妈妈外出时我照顾我的小弟弟。",
-    "tip": "look after = take care of，后面接人/物。"
+    "tip": "look after = take care of，后面接人/物。",
+    "key": false,
+    "importance": 2
   },
   "r4_sweep": {
     "word": "sweep",
@@ -1634,7 +1662,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I sweep the floor with a broom.",
     "extraCn": "我用扫帚扫地。",
-    "tip": "sweep 的过去式是 swept，不规则变化。"
+    "tip": "sweep 的过去式是 swept，不规则变化。",
+    "key": true,
+    "importance": 4
   },
   "r4_floor": {
     "word": "floor",
@@ -1644,7 +1674,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Please don't throw paper on the floor.",
     "extraCn": "请不要把纸扔在地板上。",
-    "tip": "floor 也可表示“楼层”，如 first floor（一楼）。"
+    "tip": "floor 也可表示“楼层”，如 first floor（一楼）。",
+    "key": true,
+    "importance": 4
   },
   "r4_together": {
     "word": "together",
@@ -1654,7 +1686,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "We sing songs together in music class.",
     "extraCn": "我们在音乐课上一起唱歌。",
-    "tip": "together 是副词，常放在动词后面。"
+    "tip": "together 是副词，常放在动词后面。",
+    "key": false,
+    "importance": 2
   },
   "r4_people": {
     "word": "people",
@@ -1664,7 +1698,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "There are many people in the park on Sunday.",
     "extraCn": "周日公园里有很多人。",
-    "tip": "people 本身是复数，不用加 -s，不能说 a people。"
+    "tip": "people 本身是复数，不用加 -s，不能说 a people。",
+    "key": false,
+    "importance": 2
   },
   "r4_child": {
     "word": "child",
@@ -1674,7 +1710,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "The child is playing with a toy car.",
     "extraCn": "那个小孩正在玩玩具车。",
-    "tip": "复数形式是 children，不规则变化，要牢记。"
+    "tip": "复数形式是 children，不规则变化，要牢记。",
+    "key": false,
+    "importance": 2
   },
   "r4_his": {
     "word": "his",
@@ -1684,7 +1722,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "This is his pencil case.",
     "extraCn": "这是他的铅笔盒。",
-    "tip": "his 是物主代词，后面必须跟名词。注意与 he's（他是）区分。"
+    "tip": "his 是物主代词，后面必须跟名词。注意与 he's（他是）区分。",
+    "key": false,
+    "importance": 2
   },
   "r4_strong": {
     "word": "strong",
@@ -1694,7 +1734,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "My dad is strong and can lift heavy boxes.",
     "extraCn": "我爸爸很强壮，能举起重箱子。",
-    "tip": "strong 是形容词，反义词是 weak（虚弱的）。比较级是 stronger，最高级是 strongest。"
+    "tip": "strong 是形容词，反义词是 weak（虚弱的）。比较级是 stronger，最高级是 strongest。",
+    "key": true,
+    "importance": 4
   },
   "r4_hair": {
     "word": "hair",
@@ -1704,7 +1746,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "She has long black hair.",
     "extraCn": "她有一头长长的黑发。",
-    "tip": "hair 通常为不可数名词，不用 a/an。但指‘几根头发’时可数，如 a few gray hairs。"
+    "tip": "hair 通常为不可数名词，不用 a/an。但指‘几根头发’时可数，如 a few gray hairs。",
+    "key": true,
+    "importance": 4
   },
   "r4_also": {
     "word": "also",
@@ -1714,7 +1758,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I like apples, and I also like bananas.",
     "extraCn": "我喜欢苹果，我也喜欢香蕉。",
-    "tip": "also 常放在句中，在动词前、be动词或情态动词后。不要与 too 混淆，too 通常放句末。"
+    "tip": "also 常放在句中，在动词前、be动词或情态动词后。不要与 too 混淆，too 通常放句末。",
+    "key": false,
+    "importance": 2
   },
   "r4_kind": {
     "word": "kind",
@@ -1724,7 +1770,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "The teacher is very kind to us.",
     "extraCn": "老师对我们非常友好。",
-    "tip": "kind 是形容词，常用 be kind to sb（对某人友好）。也可作名词表示‘种类’（a kind of）。"
+    "tip": "kind 是形容词，常用 be kind to sb（对某人友好）。也可作名词表示‘种类’（a kind of）。",
+    "key": true,
+    "importance": 4
   },
   "r4_quiet": {
     "word": "quiet",
@@ -1734,7 +1782,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Please be quiet in the library.",
     "extraCn": "在图书馆里请保持安静。",
-    "tip": "quiet 是形容词，反义词是 noisy（吵闹的）。注意拼写：quiet 不是 quite（相当）。"
+    "tip": "quiet 是形容词，反义词是 noisy（吵闹的）。注意拼写：quiet 不是 quite（相当）。",
+    "key": true,
+    "importance": 4
   },
   "r4_best": {
     "word": "best",
@@ -1744,7 +1794,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "My best friend is Tom.",
     "extraCn": "我最好的朋友是汤姆。",
-    "tip": "best 是 good 的最高级，前面常加 the 或 my/your 等物主代词。"
+    "tip": "best 是 good 的最高级，前面常加 the 或 my/your 等物主代词。",
+    "key": false,
+    "importance": 2
   },
   "r4_read": {
     "word": "read",
@@ -1754,7 +1806,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I like to read storybooks before bed.",
     "extraCn": "我喜欢在睡觉前读故事书。",
-    "tip": "read 是不规则动词，过去式/过去分词仍是 read，但发音不同。现在读 /riːd/，过去读 /red/。"
+    "tip": "read 是不规则动词，过去式/过去分词仍是 read，但发音不同。现在读 /riːd/，过去读 /red/。",
+    "key": true,
+    "importance": 4
   },
   "r4_chinese": {
     "word": "Chinese",
@@ -1764,7 +1818,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I can speak Chinese and English.",
     "extraCn": "我会说中文和英语。",
-    "tip": "Chinese 首字母大写，表示‘中文’或‘中国人’；作形容词时也大写，如 Chinese food。"
+    "tip": "Chinese 首字母大写，表示‘中文’或‘中国人’；作形容词时也大写，如 Chinese food。",
+    "key": true,
+    "importance": 4
   },
   "r4_play": {
     "word": "play",
@@ -1774,7 +1830,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Let's play hide-and-seek together.",
     "extraCn": "我们一起玩捉迷藏吧。",
-    "tip": "play 后接球类运动不加 the（play football），接乐器要加 the（play the piano）。"
+    "tip": "play 后接球类运动不加 the（play football），接乐器要加 the（play the piano）。",
+    "key": true,
+    "importance": 4
   },
   "r4_game": {
     "word": "game",
@@ -1784,7 +1842,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "We play a fun game in class today.",
     "extraCn": "今天我们课堂上玩了一个有趣的游戏。",
-    "tip": "game 是可数名词，复数加 -s。注意与 play 搭配：play a game / play games。"
+    "tip": "game 是可数名词，复数加 -s。注意与 play 搭配：play a game / play games。",
+    "key": true,
+    "importance": 4
   },
   "r4_football": {
     "word": "football",
@@ -1794,7 +1854,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "The boys like to play football in the park.",
     "extraCn": "男孩子们喜欢在公园里踢足球。",
-    "tip": "football 是复合词（foot + ball），play football 中不加 the。"
+    "tip": "football 是复合词（foot + ball），play football 中不加 the。",
+    "key": true,
+    "importance": 4
   },
   "r4_basketball": {
     "word": "basketball",
@@ -1804,7 +1866,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "We play basketball in the playground after school.",
     "extraCn": "放学后我们在操场上打篮球。",
-    "tip": "basketball 是复合词（basket + ball），注意拼写。play basketball 中不加 the。"
+    "tip": "basketball 是复合词（basket + ball），注意拼写。play basketball 中不加 the。",
+    "key": false,
+    "importance": 2
   },
   "r4_always": {
     "word": "always",
@@ -1814,7 +1878,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "She always brushes her teeth before bed.",
     "extraCn": "她总是在睡觉前刷牙。",
-    "tip": "always 是频率副词，放在 be 动词或情态动词后、实义动词前。"
+    "tip": "always 是频率副词，放在 be 动词或情态动词后、实义动词前。",
+    "key": false,
+    "importance": 2
   },
   "r4_afternoon": {
     "word": "afternoon",
@@ -1824,7 +1890,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I play football in the afternoon.",
     "extraCn": "我下午踢足球。",
-    "tip": "注意 afternoon 是下午（12:00到18:00），前面常用介词 in。"
+    "tip": "注意 afternoon 是下午（12:00到18:00），前面常用介词 in。",
+    "key": false,
+    "importance": 2
   },
   "r4_there": {
     "word": "there",
@@ -1834,7 +1902,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "There is a cat under the table.",
     "extraCn": "桌子下面有一只猫。",
-    "tip": "there 常和 be 动词连用表示“有”，注意 there is 和 there are 的区别。"
+    "tip": "there 常和 be 动词连用表示“有”，注意 there is 和 there are 的区别。",
+    "key": false,
+    "importance": 2
   },
   "r4_playground": {
     "word": "playground",
@@ -1844,7 +1914,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Children play on the playground after class.",
     "extraCn": "孩子们下课后在操场上玩。",
-    "tip": "playground 是一个词，由 play 和 ground 组成。常用 on the playground。"
+    "tip": "playground 是一个词，由 play 和 ground 组成。常用 on the playground。",
+    "key": true,
+    "importance": 4
   },
   "r4_park": {
     "word": "park",
@@ -1854,7 +1926,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "We fly kites in the park on Sunday.",
     "extraCn": "我们星期天在公园里放风筝。",
-    "tip": "park 既是名词“公园”，也是动词“停车”，注意语境。"
+    "tip": "park 既是名词“公园”，也是动词“停车”，注意语境。",
+    "key": true,
+    "importance": 4
   },
   "r4_over": {
     "word": "over",
@@ -1864,7 +1938,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "The school is over the bridge.",
     "extraCn": "学校在桥的对面。",
-    "tip": "over 表示“在……对面”或“在……上方”，注意区分 over 和 above。"
+    "tip": "over 表示“在……对面”或“在……上方”，注意区分 over 和 above。",
+    "key": false,
+    "importance": 2
   },
   "r4_hospital": {
     "word": "hospital",
@@ -1874,7 +1950,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "My mother works in a hospital.",
     "extraCn": "我妈妈在一家医院工作。",
-    "tip": "hospital 前常用 at 或 in，如 at the hospital。"
+    "tip": "hospital 前常用 at 或 in，如 at the hospital。",
+    "key": true,
+    "importance": 4
   },
   "r4_shop": {
     "word": "shop",
@@ -1884,7 +1962,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I go to the shop to buy milk.",
     "extraCn": "我去商店买牛奶。",
-    "tip": "shop 是英式英语，美式英语常用 store。注意区分。"
+    "tip": "shop 是英式英语，美式英语常用 store。注意区分。",
+    "key": true,
+    "importance": 4
   },
   "r4_toilet": {
     "word": "toilet",
@@ -1894,7 +1974,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I need to go to the toilet.",
     "extraCn": "我需要去卫生间。",
-    "tip": "toilet 是英式英语，美式英语常用 bathroom 或 restroom。"
+    "tip": "toilet 是英式英语，美式英语常用 bathroom 或 restroom。",
+    "key": true,
+    "importance": 4
   },
   "r4_bus_stop": {
     "word": "bus stop",
@@ -1904,7 +1986,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "We wait at the bus stop every morning.",
     "extraCn": "我们每天早上在公共汽车站等车。",
-    "tip": "bus stop 是两个词，中间有空格。记住：stop 既是“站”也是“停止”。"
+    "tip": "bus stop 是两个词，中间有空格。记住：stop 既是“站”也是“停止”。",
+    "key": true,
+    "importance": 4
   },
   "r4_library": {
     "word": "library",
@@ -1914,7 +1998,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I read books in the library.",
     "extraCn": "我在图书馆看书。",
-    "tip": "library 的复数形式是 libraries，变 y 为 i 加 es。"
+    "tip": "library 的复数形式是 libraries，变 y 为 i 加 es。",
+    "key": false,
+    "importance": 2
   },
   "r4_sport": {
     "word": "sport",
@@ -1924,7 +2010,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "My favourite sport is swimming.",
     "extraCn": "我最喜欢的运动是游泳。",
-    "tip": "sport 是可数名词，表示“体育运动”，复数 sports。"
+    "tip": "sport 是可数名词，表示“体育运动”，复数 sports。",
+    "key": true,
+    "importance": 4
   },
   "r4_walk": {
     "word": "walk",
@@ -1934,7 +2022,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "We walk to school every day.",
     "extraCn": "我们每天步行去学校。",
-    "tip": "walk 既是动词“走路”，也是名词“散步”，如 go for a walk。"
+    "tip": "walk 既是动词“走路”，也是名词“散步”，如 go for a walk。",
+    "key": true,
+    "importance": 4
   },
   "r4_community": {
     "word": "community",
@@ -1944,7 +2034,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "There is a big park in our community.",
     "extraCn": "我们社区里有一个大公园。",
-    "tip": "community 指一群人居住的区域，常和 in 连用。"
+    "tip": "community 指一群人居住的区域，常和 in 连用。",
+    "key": false,
+    "importance": 2
   },
   "r4_favourite": {
     "word": "favourite",
@@ -1954,7 +2046,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "My favourite colour is blue.",
     "extraCn": "我最喜欢的颜色是蓝色。",
-    "tip": "favourite 是英式拼写，美式拼写为 favorite。注意拼写差异。"
+    "tip": "favourite 是英式拼写，美式拼写为 favorite。注意拼写差异。",
+    "key": false,
+    "importance": 2
   },
   "r4_place": {
     "word": "place",
@@ -1964,7 +2058,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "This is a nice place for a picnic.",
     "extraCn": "这是一个野餐的好地方。",
-    "tip": "place 是可数名词，可以说 a place 或 many places。"
+    "tip": "place 是可数名词，可以说 a place 或 many places。",
+    "key": false,
+    "importance": 2
   },
   "r4_photo": {
     "word": "photo",
@@ -1974,7 +2070,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I take a photo of my dog.",
     "extraCn": "我给我的狗拍了一张照片。",
-    "tip": "photo 是 photograph 的缩写，复数形式是 photos，不是 photoes。"
+    "tip": "photo 是 photograph 的缩写，复数形式是 photos，不是 photoes。",
+    "key": false,
+    "importance": 2
   },
   "r4_story": {
     "word": "story",
@@ -1984,7 +2082,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Grandma tells me a story every night.",
     "extraCn": "奶奶每天晚上给我讲一个故事。",
-    "tip": "story 的复数形式是 stories，变 y 为 i 加 es。"
+    "tip": "story 的复数形式是 stories，变 y 为 i 加 es。",
+    "key": false,
+    "importance": 2
   },
   "r4_buy": {
     "word": "buy",
@@ -1994,7 +2094,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I want to buy a new book.",
     "extraCn": "我想买一本新书。",
-    "tip": "buy 的过去式是 bought，不规则变化，需要特别记忆。"
+    "tip": "buy 的过去式是 bought，不规则变化，需要特别记忆。",
+    "key": false,
+    "importance": 2
   },
   "r4_firefighter": {
     "word": "firefighter",
@@ -2004,7 +2106,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "The firefighter helps people in danger.",
     "extraCn": "消防员帮助处于危险中的人们。",
-    "tip": "firefighter 由 fire（火）+ fighter（战士）组成，也可以说 fireman。"
+    "tip": "firefighter 由 fire（火）+ fighter（战士）组成，也可以说 fireman。",
+    "key": false,
+    "importance": 2
   },
   "r4_why": {
     "word": "why",
@@ -2014,7 +2118,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Why are you late for school today?",
     "extraCn": "你今天为什么上学迟到了？",
-    "tip": "why 用来提问原因，答句常用 because（因为）。"
+    "tip": "why 用来提问原因，答句常用 because（因为）。",
+    "key": false,
+    "importance": 2
   },
   "r4_driver": {
     "word": "driver",
@@ -2024,7 +2130,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "The bus driver drives us to school.",
     "extraCn": "公交车司机开车送我们去学校。",
-    "tip": "driver 由 drive（驾驶）+ r（人）构成，注意动词 drive 的过去式是 drove。"
+    "tip": "driver 由 drive（驾驶）+ r（人）构成，注意动词 drive 的过去式是 drove。",
+    "key": true,
+    "importance": 4
   },
   "r4_cleaner": {
     "word": "cleaner",
@@ -2034,7 +2142,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "The cleaner cleans our school every morning.",
     "extraCn": "清洁工每天早上打扫我们的学校。",
-    "tip": "cleaner 由 clean（打扫）+ er（人）构成，表示“清洁工”。"
+    "tip": "cleaner 由 clean（打扫）+ er（人）构成，表示“清洁工”。",
+    "key": true,
+    "importance": 4
   },
   "r4_cook-unit4": {
     "word": "cook",
@@ -2044,7 +2154,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "My uncle is a cook in a big restaurant.",
     "extraCn": "我叔叔在一家大餐厅当厨师。",
-    "tip": "cook 作名词是“厨师”，作动词是“烹饪”，注意不要和 cooker（厨具）混淆。"
+    "tip": "cook 作名词是“厨师”，作动词是“烹饪”，注意不要和 cooker（厨具）混淆。",
+    "key": true,
+    "importance": 4
   },
   "r4_delivery_worker": {
     "word": "delivery worker",
@@ -2054,7 +2166,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "The delivery worker brings food to my home.",
     "extraCn": "快递员把食物送到我家。",
-    "tip": "delivery worker 是“快递员”，也可以说 delivery man / delivery person。"
+    "tip": "delivery worker 是“快递员”，也可以说 delivery man / delivery person。",
+    "key": true,
+    "importance": 4
   },
   "r4_police_officer": {
     "word": "police officer",
@@ -2064,7 +2178,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "The police officer helps us cross the road.",
     "extraCn": "警察帮助我们过马路。",
-    "tip": "police officer 是“警察”的正式说法，也可以说 policeman / policewoman。"
+    "tip": "police officer 是“警察”的正式说法，也可以说 policeman / policewoman。",
+    "key": true,
+    "importance": 4
   },
   "r4_a_lot_of": {
     "word": "a lot of",
@@ -2074,7 +2190,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I have a lot of toys in my room.",
     "extraCn": "我的房间里有很多玩具。",
-    "tip": "a lot of 后面可以接可数名词复数（如 toys）或不可数名词（如 water）。"
+    "tip": "a lot of 后面可以接可数名词复数（如 toys）或不可数名词（如 water）。",
+    "key": false,
+    "importance": 2
   },
   "r4_now": {
     "word": "now",
@@ -2084,7 +2202,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Now we are having an English class.",
     "extraCn": "现在我们正在上英语课。",
-    "tip": "now 常用于现在进行时（be + doing），表示“此刻正在做某事”。"
+    "tip": "now 常用于现在进行时（be + doing），表示“此刻正在做某事”。",
+    "key": false,
+    "importance": 2
   },
   "r4_make_the_bed": {
     "word": "make the bed",
@@ -2094,7 +2214,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I make the bed after I get up.",
     "extraCn": "我起床后铺床。",
-    "tip": "make the bed 是固定短语，注意 bed 前要加 the，不要漏掉。"
+    "tip": "make the bed 是固定短语，注意 bed 前要加 the，不要漏掉。",
+    "key": false,
+    "importance": 2
   },
   "r4_old": {
     "word": "old",
@@ -2104,7 +2226,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "My grandpa is old, but he is very strong.",
     "extraCn": "我爷爷年纪大了，但他很强壮。",
-    "tip": "old 的反义词是 young（年轻的）或 new（新的），注意不同语境含义不同。"
+    "tip": "old 的反义词是 young（年轻的）或 new（新的），注意不同语境含义不同。",
+    "key": true,
+    "importance": 4
   },
   "r4_tell": {
     "word": "tell",
@@ -2114,7 +2238,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Please tell me a story before bed.",
     "extraCn": "请在睡前给我讲个故事。",
-    "tip": "tell 后面常接双宾语，如 tell sb sth（告诉某人某事）。"
+    "tip": "tell 后面常接双宾语，如 tell sb sth（告诉某人某事）。",
+    "key": true,
+    "importance": 4
   },
   "r4_everyone": {
     "word": "everyone",
@@ -2124,7 +2250,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Everyone in my class likes playing games.",
     "extraCn": "我们班每个人都喜欢玩游戏。",
-    "tip": "everyone 是单数，后面动词要用第三人称单数形式，如 likes。"
+    "tip": "everyone 是单数，后面动词要用第三人称单数形式，如 likes。",
+    "key": false,
+    "importance": 2
   },
   "r4_ms": {
     "word": "Ms",
@@ -2134,7 +2262,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Ms Li is our new English teacher.",
     "extraCn": "李女士是我们的新英语老师。",
-    "tip": "Ms 用于婚姻状况不明的女性，读音 /mɪz/，后面接姓氏。"
+    "tip": "Ms 用于婚姻状况不明的女性，读音 /mɪz/，后面接姓氏。",
+    "key": false,
+    "importance": 2
   },
   "r4_speak": {
     "word": "speak",
@@ -2144,7 +2274,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Please speak slowly, I can not hear you.",
     "extraCn": "请说慢一点，我听不清。",
-    "tip": "speak 的过去式是 spoke，后面常接语言，如 speak English。"
+    "tip": "speak 的过去式是 spoke，后面常接语言，如 speak English。",
+    "key": false,
+    "importance": 2
   },
   "r4_weather": {
     "word": "weather",
@@ -2154,7 +2286,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "The weather is nice today. Let us play outside.",
     "extraCn": "今天天气很好。我们出去玩吧。",
-    "tip": "weather 是不可数名词，不能说 a weather，要说 the weather。"
+    "tip": "weather 是不可数名词，不能说 a weather，要说 the weather。",
+    "key": false,
+    "importance": 2
   },
   "r4_sunny": {
     "word": "sunny",
@@ -2164,7 +2298,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "It is sunny and warm. Let us go to the beach.",
     "extraCn": "天气晴朗又温暖。我们去海滩吧。",
-    "tip": "sunny 由 sun 加 -y 变成，注意双写 n：sun + n + y。"
+    "tip": "sunny 由 sun 加 -y 变成，注意双写 n：sun + n + y。",
+    "key": true,
+    "importance": 4
   },
   "r4_hot": {
     "word": "hot",
@@ -2174,7 +2310,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "It is very hot in summer, so I drink lots of water.",
     "extraCn": "夏天很热，所以我喝很多水。",
-    "tip": "hot 的比较级是 hotter，最高级是 hottest，注意双写 t。"
+    "tip": "hot 的比较级是 hotter，最高级是 hottest，注意双写 t。",
+    "key": true,
+    "importance": 4
   },
   "r4_bad": {
     "word": "bad",
@@ -2184,7 +2322,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "The weather is bad today, so we stay at home.",
     "extraCn": "今天天气不好，所以我们待在家里。",
-    "tip": "bad 的比较级是 worse，最高级是 worst，注意不规则变化。"
+    "tip": "bad 的比较级是 worse，最高级是 worst，注意不规则变化。",
+    "key": false,
+    "importance": 2
   },
   "r4_cold": {
     "word": "cold",
@@ -2194,7 +2334,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Please put on your coat. It is cold outside.",
     "extraCn": "请穿上外套。外面很冷。",
-    "tip": "cold 可形容天气，也可形容食物或饮料，如 cold water。"
+    "tip": "cold 可形容天气，也可形容食物或饮料，如 cold water。",
+    "key": true,
+    "importance": 4
   },
   "r4_windy": {
     "word": "windy",
@@ -2204,7 +2346,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "It is windy, so we can fly kites.",
     "extraCn": "有风，所以我们可以放风筝。",
-    "tip": "windy 由 wind 加 -y 变成，注意 wind 是名词，windy 是形容词。"
+    "tip": "windy 由 wind 加 -y 变成，注意 wind 是名词，windy 是形容词。",
+    "key": true,
+    "importance": 4
   },
   "r4_cloudy": {
     "word": "cloudy",
@@ -2214,7 +2358,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "It is cloudy, but it does not rain.",
     "extraCn": "天气多云，但没有下雨。",
-    "tip": "cloudy 由名词 cloud（云）加 -y 变成形容词，类似 sunny, windy。"
+    "tip": "cloudy 由名词 cloud（云）加 -y 变成形容词，类似 sunny, windy。",
+    "key": true,
+    "importance": 4
   },
   "r4_rainy": {
     "word": "rainy",
@@ -2224,7 +2370,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I like to read books on rainy days.",
     "extraCn": "下雨天我喜欢看书。",
-    "tip": "rainy 由 rain 加 -y 变成形容词，注意拼写：rain + y = rainy。"
+    "tip": "rainy 由 rain 加 -y 变成形容词，注意拼写：rain + y = rainy。",
+    "key": true,
+    "importance": 4
   },
   "r4_snowy": {
     "word": "snowy",
@@ -2234,7 +2382,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "It is snowy today, so we can make snowballs.",
     "extraCn": "今天下雪了，所以我们可以做雪球。",
-    "tip": "snowy 是形容词，描述天气多雪，如 a snowy day。"
+    "tip": "snowy 是形容词，描述天气多雪，如 a snowy day。",
+    "key": true,
+    "importance": 4
   },
   "r4_cool": {
     "word": "cool",
@@ -2244,7 +2394,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "It is cool in autumn, and we can go hiking.",
     "extraCn": "秋天很凉爽，我们可以去远足。",
-    "tip": "cool 除了“凉爽的”，口语中还常表示“酷的、棒的”。"
+    "tip": "cool 除了“凉爽的”，口语中还常表示“酷的、棒的”。",
+    "key": true,
+    "importance": 4
   },
   "r4_warm": {
     "word": "warm",
@@ -2254,7 +2406,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "The sun makes us feel warm.",
     "extraCn": "太阳让我们感到温暖。",
-    "tip": "warm 的反义词是 cool（凉爽的），注意不要和 worm（虫子）混淆。"
+    "tip": "warm 的反义词是 cool（凉爽的），注意不要和 worm（虫子）混淆。",
+    "key": true,
+    "importance": 4
   },
   "r4_tomorrow": {
     "word": "tomorrow",
@@ -2264,7 +2418,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Tomorrow is my birthday. I am very happy.",
     "extraCn": "明天是我的生日。我非常开心。",
-    "tip": "tomorrow 可作名词或副词，如 tomorrow morning（明天早上）。"
+    "tip": "tomorrow 可作名词或副词，如 tomorrow morning（明天早上）。",
+    "key": false,
+    "importance": 2
   },
   "r4_rain": {
     "word": "rain",
@@ -2274,7 +2430,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "We can not play outside because of the rain.",
     "extraCn": "因为下雨，我们不能在外面玩。",
-    "tip": "rain 可作名词（雨）或动词（下雨），如 It rains heavily。"
+    "tip": "rain 可作名词（雨）或动词（下雨），如 It rains heavily。",
+    "key": false,
+    "importance": 2
   },
   "r4_closed": {
     "word": "closed",
@@ -2284,7 +2442,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "The shop is closed on Sundays.",
     "extraCn": "这家商店星期天关门。",
-    "tip": "closed 是形容词，表示“关闭的”；动词 close 的过去式也是 closed。"
+    "tip": "closed 是形容词，表示“关闭的”；动词 close 的过去式也是 closed。",
+    "key": false,
+    "importance": 2
   },
   "r4_film": {
     "word": "film",
@@ -2294,7 +2454,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "We watch a funny film together.",
     "extraCn": "我们一起看了一部有趣的电影。",
-    "tip": "film 和 movie 意思相同，film 更常用于英式英语。"
+    "tip": "film 和 movie 意思相同，film 更常用于英式英语。",
+    "key": true,
+    "importance": 4
   },
   "r4_idea": {
     "word": "idea",
@@ -2304,7 +2466,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I have a good idea for the party.",
     "extraCn": "我有一个关于派对的好主意。",
-    "tip": "idea 是可数名词，可以说 an idea 或 some ideas。"
+    "tip": "idea 是可数名词，可以说 an idea 或 some ideas。",
+    "key": false,
+    "importance": 2
   },
   "r4_fly": {
     "word": "fly",
@@ -2314,7 +2478,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I can fly my kite in the park.",
     "extraCn": "我可以在公园里放风筝。",
-    "tip": "fly 作动词时，过去式是 flew，注意不要和名词“苍蝇”混淆。"
+    "tip": "fly 作动词时，过去式是 flew，注意不要和名词“苍蝇”混淆。",
+    "key": true,
+    "importance": 4
   },
   "r4_kite": {
     "word": "kite",
@@ -2324,7 +2490,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "The boy runs fast to make his kite fly high.",
     "extraCn": "男孩跑得很快，让他的风筝飞得高高的。",
-    "tip": "kite 是单数，复数加 -s 变成 kites。"
+    "tip": "kite 是单数，复数加 -s 变成 kites。",
+    "key": true,
+    "importance": 4
   },
   "r4_snowman": {
     "word": "snowman",
@@ -2334,7 +2502,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "We make a snowman with a carrot nose.",
     "extraCn": "我们做了一个胡萝卜鼻子的雪人。",
-    "tip": "snowman 的复数是 snowmen，注意 man 变成 men。"
+    "tip": "snowman 的复数是 snowmen，注意 man 变成 men。",
+    "key": true,
+    "importance": 4
   },
   "r4_fun": {
     "word": "fun",
@@ -2344,7 +2514,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Playing games with friends is fun.",
     "extraCn": "和朋友一起玩游戏很有趣。",
-    "tip": "fun 是名词或形容词，没有比较级。不要说 funner，要说 more fun。"
+    "tip": "fun 是名词或形容词，没有比较级。不要说 funner，要说 more fun。",
+    "key": false,
+    "importance": 2
   },
   "r4_their": {
     "word": "their",
@@ -2354,7 +2526,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "The children put their books on the desk.",
     "extraCn": "孩子们把他们的书放在桌子上。",
-    "tip": "their 是形容词性物主代词，后面必须接名词，如 their toys。"
+    "tip": "their 是形容词性物主代词，后面必须接名词，如 their toys。",
+    "key": false,
+    "importance": 2
   },
   "r4_swim": {
     "word": "swim",
@@ -2364,7 +2538,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I can swim in the pool every summer.",
     "extraCn": "每年夏天我都能在游泳池里游泳。",
-    "tip": "swim 的现在分词是 swimming，注意双写 m。"
+    "tip": "swim 的现在分词是 swimming，注意双写 m。",
+    "key": false,
+    "importance": 2
   },
   "r4_sydney": {
     "word": "Sydney",
@@ -2374,7 +2550,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Sydney is a big city in Australia.",
     "extraCn": "悉尼是澳大利亚的一个大城市。",
-    "tip": "Sydney 是专有名词，首字母必须大写。"
+    "tip": "Sydney 是专有名词，首字母必须大写。",
+    "key": false,
+    "importance": 2
   },
   "r4_whose": {
     "word": "whose",
@@ -2384,7 +2562,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Whose bag is this? It is mine.",
     "extraCn": "这是谁的包？是我的。",
-    "tip": "whose 是疑问代词，询问所属。回答用物主代词 my, mine 等。"
+    "tip": "whose 是疑问代词，询问所属。回答用物主代词 my, mine 等。",
+    "key": false,
+    "importance": 2
   },
   "r4_sweater": {
     "word": "sweater",
@@ -2394,7 +2574,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "My grandma made me a warm sweater.",
     "extraCn": "我奶奶给我织了一件暖和的毛衣。",
-    "tip": "sweater 是可数名词，复数加 -s。注意 ea 发 /e/ 音。"
+    "tip": "sweater 是可数名词，复数加 -s。注意 ea 发 /e/ 音。",
+    "key": true,
+    "importance": 4
   },
   "r4_sock": {
     "word": "sock",
@@ -2404,7 +2586,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I put on my socks before shoes.",
     "extraCn": "我在穿鞋之前穿上袜子。",
-    "tip": "sock 常用复数 socks，因为袜子是成对穿的。"
+    "tip": "sock 常用复数 socks，因为袜子是成对穿的。",
+    "key": true,
+    "importance": 4
   },
   "r4_mine": {
     "word": "mine",
@@ -2414,7 +2598,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "This book is mine, not yours.",
     "extraCn": "这本书是我的，不是你的。",
-    "tip": "mine 是名词性物主代词，后面不加名词。对比：my book = mine。"
+    "tip": "mine 是名词性物主代词，后面不加名词。对比：my book = mine。",
+    "key": false,
+    "importance": 2
   },
   "r4_wear": {
     "word": "wear",
@@ -2424,7 +2610,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I wear a hat on sunny days.",
     "extraCn": "晴天我戴帽子。",
-    "tip": "wear 表示“穿着/戴着”的状态，put on 表示动作。"
+    "tip": "wear 表示“穿着/戴着”的状态，put on 表示动作。",
+    "key": false,
+    "importance": 2
   },
   "r4_shirt": {
     "word": "shirt",
@@ -2434,7 +2622,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "He wears a white shirt to school.",
     "extraCn": "他穿一件白衬衫去上学。",
-    "tip": "shirt 指男士衬衫，女士衬衫常用 blouse。"
+    "tip": "shirt 指男士衬衫，女士衬衫常用 blouse。",
+    "key": true,
+    "importance": 4
   },
   "r4_coat": {
     "word": "coat",
@@ -2444,7 +2634,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Put on your coat, it is cold outside.",
     "extraCn": "穿上你的外套，外面很冷。",
-    "tip": "coat 是可数名词，复数加 -s。常用短语：put on / take off a coat。"
+    "tip": "coat 是可数名词，复数加 -s。常用短语：put on / take off a coat。",
+    "key": true,
+    "importance": 4
   },
   "r4_dress": {
     "word": "dress",
@@ -2454,7 +2646,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "She wears a pink dress to the party.",
     "extraCn": "她穿了一条粉色的连衣裙去聚会。",
-    "tip": "dress 作名词指连衣裙，作动词表示“穿衣服”。注意区分 dress 和 skirt（短裙）。"
+    "tip": "dress 作名词指连衣裙，作动词表示“穿衣服”。注意区分 dress 和 skirt（短裙）。",
+    "key": true,
+    "importance": 4
   },
   "r4_which": {
     "word": "which",
@@ -2464,7 +2658,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Which color do you like, red or blue?",
     "extraCn": "你喜欢哪个颜色，红色还是蓝色？",
-    "tip": "which 用于有限选择的情况，what 用于无范围选择。"
+    "tip": "which 用于有限选择的情况，what 用于无范围选择。",
+    "key": false,
+    "importance": 2
   },
   "r4_season": {
     "word": "season",
@@ -2474,7 +2670,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "There are four seasons in a year.",
     "extraCn": "一年有四个季节。",
-    "tip": "season 是可数名词，四个季节：spring, summer, autumn/fall, winter。"
+    "tip": "season 是可数名词，四个季节：spring, summer, autumn/fall, winter。",
+    "key": false,
+    "importance": 2
   },
   "r4_winter": {
     "word": "winter",
@@ -2484,7 +2682,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "We make snowmen in winter.",
     "extraCn": "冬天我们堆雪人。",
-    "tip": "winter 前用 in，如 in winter。注意 w 不发音。"
+    "tip": "winter 前用 in，如 in winter。注意 w 不发音。",
+    "key": true,
+    "importance": 4
   },
   "r4_snow": {
     "word": "snow",
@@ -2494,7 +2694,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "It snows a lot in winter.",
     "extraCn": "冬天经常下雪。",
-    "tip": "snow 作动词时第三人称单数加 -s：snows。作名词不可数。"
+    "tip": "snow 作动词时第三人称单数加 -s：snows。作名词不可数。",
+    "key": false,
+    "importance": 2
   },
   "r4_get_together": {
     "word": "get together",
@@ -2504,7 +2706,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "We get together with friends on Sunday.",
     "extraCn": "我们在星期天和朋友们聚会。",
-    "tip": "get together 是动词短语，中间可加代词：get them together。"
+    "tip": "get together 是动词短语，中间可加代词：get them together。",
+    "key": false,
+    "importance": 2
   },
   "r4_spring": {
     "word": "spring",
@@ -2514,7 +2718,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "Flowers bloom in spring.",
     "extraCn": "春天花儿开放。",
-    "tip": "spring 作“春天”时，前面通常不加 the。也可作动词“跳”。"
+    "tip": "spring 作“春天”时，前面通常不加 the。也可作动词“跳”。",
+    "key": true,
+    "importance": 4
   },
   "r4_summer": {
     "word": "summer",
@@ -2524,7 +2730,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I like to swim in summer.",
     "extraCn": "我喜欢在夏天游泳。",
-    "tip": "summer 前常用 in，如 in summer。注意大写首字母。"
+    "tip": "summer 前常用 in，如 in summer。注意大写首字母。",
+    "key": true,
+    "importance": 4
   },
   "r4_autumn": {
     "word": "autumn",
@@ -2534,7 +2742,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I like to pick up red leaves in autumn.",
     "extraCn": "我喜欢在秋天捡红色的叶子。",
-    "tip": "autumn 和 fall 都表示秋天，fall 多用于美式英语。"
+    "tip": "autumn 和 fall 都表示秋天，fall 多用于美式英语。",
+    "key": true,
+    "importance": 4
   },
   "r4_t_shirt": {
     "word": "T-shirt",
@@ -2544,7 +2754,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "He wears a blue T-shirt on hot days.",
     "extraCn": "他在热天穿一件蓝色T恤衫。",
-    "tip": "T-shirt 中的 T 要大写，中间有连字符。也可写为 tee。"
+    "tip": "T-shirt 中的 T 要大写，中间有连字符。也可写为 tee。",
+    "key": false,
+    "importance": 2
   },
   "r4_fall": {
     "word": "fall",
@@ -2554,7 +2766,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "The apple falls from the tree.",
     "extraCn": "苹果从树上掉下来。",
-    "tip": "fall 作动词时，过去式是 fell。也可作名词表示“秋天”（美式英语）。"
+    "tip": "fall 作动词时，过去式是 fell。也可作名词表示“秋天”（美式英语）。",
+    "key": false,
+    "importance": 2
   },
   "r4_leaf": {
     "word": "leaf",
@@ -2564,7 +2778,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "The leaf turns yellow in autumn.",
     "extraCn": "叶子在秋天变黄。",
-    "tip": "leaf 的复数是 leaves，把 f 变成 ves。"
+    "tip": "leaf 的复数是 leaves，把 f 变成 ves。",
+    "key": false,
+    "importance": 2
   },
   "r4_glove": {
     "word": "glove",
@@ -2574,7 +2790,9 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "I wear gloves in winter to keep my hands warm.",
     "extraCn": "冬天我戴手套让手暖和。",
-    "tip": "glove 常用复数 gloves，因为手套是一双。"
+    "tip": "glove 常用复数 gloves，因为手套是一双。",
+    "key": false,
+    "importance": 2
   },
   "r4_then": {
     "word": "then",
@@ -2584,6 +2802,8 @@ module.exports = {
     "origin": "人教版四年级上册",
     "extraExample": "First eat lunch, then do your homework.",
     "extraCn": "先吃午饭，然后做你的作业。",
-    "tip": "then 表示时间顺序，常和 first, next 连用。"
+    "tip": "then 表示时间顺序，常和 first, next 连用。",
+    "key": false,
+    "importance": 2
   }
 }

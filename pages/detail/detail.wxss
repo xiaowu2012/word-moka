@@ -125,6 +125,15 @@
   border-radius: 8rpx;
 }
 
+.key-badge {
+  font-size: 22rpx;
+  color: #E67E22;
+  background: #FFF3E6;
+  padding: 2rpx 12rpx;
+  border-radius: 8rpx;
+  font-weight: bold;
+}
+
 .word-stars {
   display: flex;
   align-items: center;
