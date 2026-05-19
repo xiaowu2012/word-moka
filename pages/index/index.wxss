@@ -14,41 +14,29 @@
   font-size: 32rpx;
   font-weight: 700;
   color: #2C3E50;
-}
-
-.section-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 40rpx 28rpx 24rpx;
 }
 
-.review-badge {
+/* 教材信息行（单词数 + 待复习数） */
+.intro-meta-row {
   display: flex;
   align-items: center;
-  gap: 10rpx;
-  background: #FFF3E6;
-  border-radius: 36rpx;
-  padding: 10rpx 24rpx;
+  gap: 16rpx;
+  margin-top: 6rpx;
 }
 
-.review-icon {
-  font-size: 30rpx;
+.intro-meta {
+  font-size: 24rpx;
+  color: #95A5A6;
 }
 
-.review-text {
-  font-size: 30rpx;
-  color: #E67E22;
-  font-weight: 600;
-}
-
-.review-count {
-  font-size: 22rpx;
-  color: #fff;
-  background: #E74C3C;
-  border-radius: 20rpx;
+.book-review-count {
+  font-size: 24rpx;
+  color: #E74C3C;
+  font-weight: 700;
+  background: #FFF0F0;
   padding: 2rpx 14rpx;
-  font-weight: 600;
+  border-radius: 16rpx;
 }
 
 /* ========== 返回按钮 ========== */
@@ -99,6 +87,10 @@
   color: #d0d0d0;
 }
 
+.book-intro.disabled .intro-meta-row {
+  opacity: 0.4;
+}
+
 .book-intro.disabled:active {
   opacity: 1;
 }
@@ -119,12 +111,7 @@
   display: block;
 }
 
-.intro-meta {
-  font-size: 24rpx;
-  color: #95A5A6;
-  display: block;
-  margin-top: 6rpx;
-}
+
 
 /* 教材详情页的卡片（蓝色背景） */
 .detail-section {

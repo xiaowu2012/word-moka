@@ -1,6 +1,5 @@
 const app = getApp()
 
-// Textbook config: id → { units, unitNames, wordPrefix, hasTextReading }
 const TEXTBOOK_CONFIG = {
   '9a-2026q': {
     units: ['Unit1', 'Unit2', 'Unit3', 'Unit4', 'Unit5', 'Unit6'],
@@ -13,7 +12,7 @@ const TEXTBOOK_CONFIG = {
       Unit6: 'Unit 6 · Live green'
     },
     icons: { Unit1: '🎭', Unit2: '💰', Unit3: '🧩', Unit4: '⏳', Unit5: '⚖️', Unit6: '🌿' },
-    wordPrefix: '',       // no prefix = all keys
+    wordPrefix: '',
     hasTextReading: true
   },
   'r4-2024q': {
@@ -36,18 +35,27 @@ Page({
   data: {
     textbooks: [],
     units: [],
-    pageState: 'books',    // 'books' | 'detail' | 'units'
-    unitMode: 'read',       // 'read' | 'word'
+    pageState: 'books',
+    unitMode: 'read',
     currentBook: {},
     availableUnitsStr: '',
-    dueCount: 0,
 
-    // 复习提醒弹框
+    // 复习提醒弹框（以课本为粒度）
     showReviewReminder: false,
-    reminderDueCount: 0
+    reminderDueCount: 0,
+    reminderBookId: ''
   },
 
   onLoad() {
+    this.refreshTextbooks()
+  },
+
+  onShow() {
+    this.refreshTextbooks()
+  },
+
+  // 加载教材列表（含各书待复习数）
+  refreshTextbooks() {
     const words = app.globalData.words || {}
 
     const textbooks = [
@@ -56,16 +64,34 @@ Page({
       { id: '8b-2026c', name: '外研版2026春季版 八（下）', cover: '📙', wordCount: 0, available: false, hasTextReading: false }
     ]
 
-    this.setData({ textbooks })
+    // 加载进度，计算每本书的待复习数
+    wx.cloud.callFunction({ name: 'getProgress' }).then(res => {
+      const p = res.result || {}
+      const mastered = p.mastered || []
+      const schedule = p.schedule || {}
+      const today = new Date().toISOString().slice(0, 10)
 
-    this.loadDueCount()
+      const textbooksWithReview = textbooks.map(book => {
+        const config = TEXTBOOK_CONFIG[book.id]
+        const prefix = config ? config.wordPrefix : ''
+        let reviewCount = 0
+
+        for (const [key, s] of Object.entries(schedule)) {
+          if (mastered.includes(key)) continue
+          if (s.dueDate > today || s.stage < 0) continue
+          if (prefix && !key.startsWith(prefix)) continue
+          if (words[key]) reviewCount++
+        }
+
+        return { ...book, reviewCount }
+      })
+
+      this.setData({ textbooks: textbooksWithReview })
+    }).catch(() => {
+      this.setData({ textbooks })
+    })
   },
 
-  onShow() {
-    this.loadDueCount()
-  },
-
-  // 获取某个教材的单元列表
   getUnitsForBook(bookId) {
     const config = TEXTBOOK_CONFIG[bookId]
     if (!config) return []
@@ -89,38 +115,21 @@ Page({
     }))
   },
 
-  loadDueCount(showReminder) {
-    const today = new Date().toISOString().slice(0, 10)
-    wx.cloud.callFunction({
-      name: 'getProgress'
-    }).then(res => {
-      const p = res.result || {}
-      const mastered = p.mastered || []
-      const schedule = p.schedule || {}
-      const words = app.globalData.words || {}
-      let count = 0
-      for (const [key, s] of Object.entries(schedule)) {
-        if (!mastered.includes(key) && s.dueDate <= today && s.stage >= 0) {
-          if (words[key]) count++
-        }
-      }
-      this.setData({ dueCount: count })
+  // ---- 复习弹框（以课本为粒度） ----
 
-      if (showReminder) {
-        this.checkReviewReminder(count)
-      }
-    }).catch(() => {})
-  },
+  checkReviewForBook(bookId) {
+    const book = this.data.textbooks.find(t => t.id === bookId)
+    if (!book || !book.reviewCount || book.reviewCount === 0) return
 
-  checkReviewReminder(dueCount) {
-    if (dueCount === 0) return
-
-    const postponed = wx.getStorageSync('reviewPostponeTime')
-    if (postponed && Date.now() - postponed < 5 * 60 * 1000) return
+    // 2分钟内是否点过"稍等一会"（按书本独立key）
+    const key = `reviewPostpone_${bookId}`
+    const postponed = wx.getStorageSync(key)
+    if (postponed && Date.now() - postponed < 2 * 60 * 1000) return
 
     this.setData({
       showReviewReminder: true,
-      reminderDueCount: dueCount
+      reminderDueCount: book.reviewCount,
+      reminderBookId: bookId
     })
   },
 
@@ -130,8 +139,12 @@ Page({
   },
 
   onReminderLater() {
-    wx.setStorageSync('reviewPostponeTime', Date.now())
-    this.setData({ showReviewReminder: false })
+    const key = `reviewPostpone_${this.data.reminderBookId}`
+    wx.setStorageSync(key, Date.now())
+    this.setData({
+      showReviewReminder: false,
+      reminderBookId: ''
+    })
   },
 
   onTapBook(e) {
@@ -145,7 +158,8 @@ Page({
       units
     })
 
-    this.loadDueCount(true)
+    // 进入书本时弹复习提醒
+    this.checkReviewForBook(bookId)
   },
 
   onBack() {
@@ -177,7 +191,6 @@ Page({
     const config = TEXTBOOK_CONFIG[this.data.currentBook.id]
     const prefix = config ? config.wordPrefix : ''
 
-    // Find first word of this textbook
     const firstKey = prefix
       ? Object.keys(words).find(k => k.startsWith(prefix))
       : Object.keys(words).find(k => !k.startsWith('r4_') && !k.startsWith('8b_'))
@@ -195,7 +208,6 @@ Page({
     if (this.data.unitMode === 'read' && config.hasTextReading) {
       wx.navigateTo({ url: `/pages/text/text?unit=${id}` })
     } else {
-      // 按单元学单词 → 找到该单元第一个词
       const words = app.globalData.words
       const firstKey = Object.keys(words).find(k => {
         if (prefix && !k.startsWith(prefix)) return false
