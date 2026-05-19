@@ -1,4 +1,4 @@
-const words = {
+module.exports = {
   "lady": {
     "word": "lady",
     "phonetic": "/ˈleɪdi/",
@@ -484,7 +484,7 @@ const words = {
   "penny": {
     "word": "penny",
     "phonetic": "/ˈpeni/",
-    "cnMeaning": "（美国、加拿大的）",
+    "cnMeaning": "（美国、加拿大的）一分钱硬币",
     "module": "Unit2"
   },
   "exception": {
@@ -634,7 +634,7 @@ const words = {
   "besides": {
     "word": "besides",
     "phonetic": "/bɪˈsaɪdz/",
-    "cnMeaning": "除•之外",
+    "cnMeaning": "除……之外",
     "module": "Unit3"
   },
   "version": {
@@ -748,7 +748,7 @@ const words = {
   "unchanging": {
     "word": "unchanging",
     "phonetic": "/ʌnˈtʃeɪndʒɪŋ/",
-    "cnMeaning": "不",
+    "cnMeaning": "不变的",
     "module": "Unit4"
   },
   "entry": {
@@ -832,7 +832,7 @@ const words = {
   "socialist": {
     "word": "socialist",
     "phonetic": "/ˈsəʊʃəlɪst/",
-    "cnMeaning": "社会主",
+    "cnMeaning": "社会主义的",
     "module": "Unit4"
   },
   "drop": {
@@ -850,7 +850,7 @@ const words = {
   "ecosystem": {
     "word": "ecosystem",
     "phonetic": "/ˈiːkəʊsɪstəm/",
-    "cnMeaning": "生态",
+    "cnMeaning": "生态系统",
     "module": "Unit5"
   },
   "balance": {
@@ -928,7 +928,7 @@ const words = {
   "overfishing": {
     "word": "overfishing",
     "phonetic": "/ˌəʊvəˈfɪʃɪŋ/",
-    "cnMeaning": "过度",
+    "cnMeaning": "过度捕捞",
     "module": "Unit5"
   },
   "greenhouse": {
@@ -1000,7 +1000,7 @@ const words = {
   "worldwide": {
     "word": "worldwide",
     "phonetic": "/ˌwɜːldˈwaɪd/",
-    "cnMeaning": "世界",
+    "cnMeaning": "全世界地",
     "module": "Unit5"
   },
   "protection": {
@@ -1012,7 +1012,7 @@ const words = {
   "environmental": {
     "word": "environmental",
     "phonetic": "/ɪnˌvaɪrənˈmentl/",
-    "cnMeaning": "/",
+    "cnMeaning": "环境的",
     "module": "Unit5"
   },
   "population": {
@@ -1078,7 +1078,7 @@ const words = {
   "nowhere": {
     "word": "nowhere",
     "phonetic": "/ˈnəʊweə/",
-    "cnMeaning": "什么地方",
+    "cnMeaning": "什么地方都不，无处",
     "module": "Unit6"
   },
   "plastic-free": {
@@ -1367,7 +1367,7 @@ const words = {
   "intelligent": {
     "word": "intelligent",
     "phonetic": "/ɪnˈtelɪdʒənt/",
-    "cnMeaning": "有智",
+    "cnMeaning": "有智慧的；聪明的",
     "module": "Unit1",
     "key": false,
     "pronounceFile": "audio/word_pronounce/unit1_word_31.mp3",
@@ -1487,5 +1487,3 @@ const words = {
     "module": "Unit3"
   }
 }
-
-module.exports = words
