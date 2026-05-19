@@ -174,7 +174,7 @@ Page({
   },
 
   onTapCard() {
-    this.setData({ showTranslation: !this.data.showTranslation })
+    this.onNextWord()
   },
 
   autoAddToSchedule(key) {
