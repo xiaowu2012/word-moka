@@ -86,7 +86,7 @@ Page({
       imageSrc: wordKey.startsWith('r4_') ? `/images/r4/${wordKey}.png` : `/images/${wordKey}_card.jpg`,
       fromContinue: fromContinue || false,
       isBrowse: isBrowse || false,
-      showTranslation: false,
+      showTranslation: true,
       browseIndex: index,
       browseTotal: this.wordKeyList.length,
       stars: STAR_MAP[card.examFrequency] || '★★★☆☆',
@@ -228,6 +228,14 @@ Page({
     }
   },
 
+  playPageFlip() {
+    const ctx = wx.createInnerAudioContext()
+    ctx.src = '/audio/pageflip.mp3'
+    ctx.volume = 0.5
+    ctx.play()
+    ctx.onEnded(() => ctx.destroy())
+  },
+
   onPrevWord() {
     if (this.wordKeyList.length === 0) return
     const idx = this.data.browseIndex - 1
@@ -236,6 +244,7 @@ Page({
       return
     }
     const key = this.wordKeyList[idx]
+    this.playPageFlip()
     this.loadWord(key, idx, false, true)
   },
 
@@ -247,6 +256,7 @@ Page({
       return
     }
     const key = this.wordKeyList[idx]
+    this.playPageFlip()
     this.loadWord(key, idx, false, true)
   },
 
