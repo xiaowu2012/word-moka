@@ -51,7 +51,7 @@
 
       <!-- 来源 -->
       <view class="source-bar">
-        <text>{{word.module}} · 外研版2026秋季版 九（上）</text>
+        <text>{{word.module}} · {{word.origin || '外研版2026秋季版 九（上）'}}</text>
       </view>
     </view>
   </view>
