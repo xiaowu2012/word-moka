@@ -157,6 +157,9 @@ Page({
     // 单词音频优先使用 pronounceFile 字段
     if (type === 'word' && word.pronounceFile) {
       audioCtx.src = word.pronounceFile
+    } else if (key.startsWith('r4_')) {
+      // 人教4上单词：音频在 audio/r4/ 目录下
+      audioCtx.src = `/audio/r4/${key}.mp3`
     } else {
       audioCtx.src = `/audio/${key}_${type}.mp3`
     }
