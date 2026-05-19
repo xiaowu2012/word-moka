@@ -32,9 +32,9 @@
 
 .book-review-count {
   font-size: 24rpx;
-  color: #E74C3C;
+  color: #E67E22;
   font-weight: 700;
-  background: #FFF0F0;
+  background: #FFF3E6;
   padding: 2rpx 14rpx;
   border-radius: 16rpx;
 }
