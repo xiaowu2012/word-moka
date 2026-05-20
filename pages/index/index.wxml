@@ -92,15 +92,23 @@
     </view>
   </block>
 
-  <!-- ===== 复习提醒弹框 ===== -->
+  <!-- ===== 复习提醒弹框（多教材汇总） ===== -->
   <view class="popup-overlay" wx:if="{{showReviewReminder}}">
     <view class="popup-card">
       <text class="popup-icon">📚</text>
       <text class="popup-title">复习提醒</text>
-      <text class="popup-body">根据学习曲线，今日有 <text class="popup-count">{{reminderDueCount}}</text> 个单词需要复习</text>
+      <text class="popup-body">有 <text class="popup-count">{{reminderBooks.length}}</text> 本教材的单词需要复习</text>
+      <view class="popup-book-list">
+        <view class="popup-book-item" wx:for="{{reminderBooks}}" wx:key="id"
+              data-id="{{item.id}}" bindtap="onReminderReview">
+          <text class="popup-book-cover">{{item.cover}}</text>
+          <text class="popup-book-name">{{item.name}}</text>
+          <text class="popup-book-count">{{item.reviewCount}}个词</text>
+          <text class="popup-book-arrow">›</text>
+        </view>
+      </view>
       <view class="popup-actions">
-        <view class="popup-btn btn-primary" bindtap="onReminderReview">立刻复习</view>
-        <view class="popup-btn btn-secondary" bindtap="onReminderLater">稍等一会</view>
+        <view class="popup-btn btn-secondary" bindtap="onReminderSkipAll">今天算了</view>
       </view>
     </view>
   </view>

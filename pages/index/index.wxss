@@ -300,13 +300,56 @@
   color: #666;
   text-align: center;
   line-height: 1.6;
-  margin-bottom: 32rpx;
+  margin-bottom: 20rpx;
 }
 
 .popup-count {
   font-size: 40rpx;
   font-weight: 800;
   color: #5B8DEF;
+}
+
+/* ===== 弹窗内的教材列表 ===== */
+.popup-book-list {
+  width: 100%;
+  margin-bottom: 24rpx;
+}
+
+.popup-book-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 16rpx;
+  border-radius: 14rpx;
+  margin-bottom: 8rpx;
+  background: #F7F9FC;
+}
+
+.popup-book-item:active {
+  background: #EDF0F6;
+}
+
+.popup-book-cover {
+  font-size: 40rpx;
+  margin-right: 16rpx;
+}
+
+.popup-book-name {
+  flex: 1;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #2C3E50;
+}
+
+.popup-book-count {
+  font-size: 26rpx;
+  font-weight: 700;
+  color: #E67E22;
+  margin-right: 12rpx;
+}
+
+.popup-book-arrow {
+  font-size: 32rpx;
+  color: #BDC3C7;
 }
 
 .popup-actions {

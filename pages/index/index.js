@@ -1,5 +1,14 @@
 const app = getApp()
 
+// 获取本地日期（YYYY-MM-DD），避免 .toISOString() 的 UTC 时区问题
+function getLocalDate(d) {
+  const date = d || new Date()
+  const y = date.getFullYear()
+  const m = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  return `${y}-${m}-${day}`
+}
+
 const TEXTBOOK_CONFIG = {
   '9a-2026q': {
     units: ['Unit1', 'Unit2', 'Unit3', 'Unit4', 'Unit5', 'Unit6'],
@@ -40,10 +49,9 @@ Page({
     currentBook: {},
     availableUnitsStr: '',
 
-    // 复习提醒弹框（以课本为粒度）
+    // 复习提醒弹框（汇总多教材）
     showReviewReminder: false,
-    reminderDueCount: 0,
-    reminderBookId: ''
+    reminderBooks: []
   },
 
   onLoad() {
@@ -51,11 +59,14 @@ Page({
   },
 
   onShow() {
-    this.refreshTextbooks()
+    this.refreshTextbooks().then(() => {
+      this.checkReviewAll()
+    })
   },
 
   // 加载教材列表（含各书待复习数）
   refreshTextbooks() {
+    const self = this
     const words = app.globalData.words || {}
 
     const textbooks = [
@@ -65,11 +76,11 @@ Page({
     ]
 
     // 加载进度，计算每本书的待复习数
-    wx.cloud.callFunction({ name: 'getProgress' }).then(res => {
+    return wx.cloud.callFunction({ name: 'getProgress' }).then(res => {
       const p = res.result || {}
       const mastered = p.mastered || []
       const schedule = p.schedule || {}
-      const today = new Date().toISOString().slice(0, 10)
+      const today = getLocalDate()
 
       const textbooksWithReview = textbooks.map(book => {
         const config = TEXTBOOK_CONFIG[book.id]
@@ -88,9 +99,9 @@ Page({
         return { ...book, reviewCount }
       })
 
-      this.setData({ textbooks: textbooksWithReview })
+      self.setData({ textbooks: textbooksWithReview })
     }).catch(() => {
-      this.setData({ textbooks })
+      self.setData({ textbooks })
     })
   },
 
@@ -117,36 +128,36 @@ Page({
     }))
   },
 
-  // ---- 复习弹框（以课本为粒度） ----
+  // ---- 复习提醒弹框（汇总多教材） ----
 
-  checkReviewForBook(bookId) {
-    const book = this.data.textbooks.find(t => t.id === bookId)
-    if (!book || !book.reviewCount || book.reviewCount === 0) return
+  checkReviewAll() {
+    // 今天点过"今天算了"就不再弹
+    const skipDate = wx.getStorageSync('reviewSkipAll')
+    if (skipDate === getLocalDate()) return
 
-    // 2分钟内是否点过"稍等一会"（按书本独立key）
-    const key = `reviewPostpone_${bookId}`
-    const postponed = wx.getStorageSync(key)
-    if (postponed && Date.now() - postponed < 2 * 60 * 1000) return
+    const dueBooks = this.data.textbooks.filter(b => b.reviewCount > 0)
+    if (dueBooks.length === 0) return
 
     this.setData({
       showReviewReminder: true,
-      reminderDueCount: book.reviewCount,
-      reminderBookId: bookId
+      reminderBooks: dueBooks.map(b => ({
+        id: b.id,
+        name: b.name,
+        cover: b.cover,
+        reviewCount: b.reviewCount
+      }))
     })
   },
 
-  onReminderReview() {
+  onReminderReview(e) {
+    const bookId = e.currentTarget.dataset.id
     this.setData({ showReviewReminder: false })
-    wx.navigateTo({ url: '/pages/review/review' })
+    wx.navigateTo({ url: `/pages/review/review?textbook=${bookId}` })
   },
 
-  onReminderLater() {
-    const key = `reviewPostpone_${this.data.reminderBookId}`
-    wx.setStorageSync(key, Date.now())
-    this.setData({
-      showReviewReminder: false,
-      reminderBookId: ''
-    })
+  onReminderSkipAll() {
+    wx.setStorageSync('reviewSkipAll', getLocalDate())
+    this.setData({ showReviewReminder: false })
   },
 
   onTapBook(e) {
@@ -160,8 +171,8 @@ Page({
       units
     })
 
-    // 进入书本时弹复习提醒
-    this.checkReviewForBook(bookId)
+    // 进入书本时也检查复习提醒
+    this.checkReviewAll()
   },
 
   onBack() {

@@ -21,8 +21,25 @@ const MILESTONES = {
   20: { icon: '💎', text: '20个词！太强了！' },
 }
 
+// 教材→词前缀映射（用于按教材筛选复习）
+const TEXTBOOK_PREFIX = {
+  'r4-2024q': 'r4_',
+  '9a-2026q': '',
+  '8b-2026c': '8b_'
+}
+
+// 获取本地日期（YYYY-MM-DD），避免 .toISOString() 的 UTC 时区问题
+function getLocalDate(d) {
+  const date = d || new Date()
+  const y = date.getFullYear()
+  const m = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  return `${y}-${m}-${day}`
+}
+
 Page({
   data: {
+    textbook: '',          // 传了则只复习该教材的词
     phase: 'loading',      // loading | empty | quiz | complete
 
     // 队列
@@ -68,8 +85,10 @@ Page({
     effectCtx: null,
   },
 
-  onLoad() {
+  onLoad(options) {
+    const textbook = options.textbook || ''
     this.setData({ 
+      textbook,
       audioCtx: wx.createInnerAudioContext(),
       effectCtx: wx.createInnerAudioContext()
     })
@@ -91,7 +110,8 @@ Page({
       return
     }
 
-    const today = new Date().toISOString().slice(0, 10)
+    const today = getLocalDate()
+    const prefix = TEXTBOOK_PREFIX[this.data.textbook] ?? null
 
     wx.cloud.callFunction({ name: 'getProgress' }).then(res => {
       const p = res.result || {}
@@ -102,6 +122,15 @@ Page({
       for (const [key, s] of Object.entries(schedule)) {
         if (!mastered.includes(key) && s.dueDate <= today && s.stage >= 0) {
           if (words[key]) {
+            // 按教材过滤
+            if (prefix === '') {
+              // 无前缀教材（如九上）→ 不匹配任何前缀的词
+              if (key.startsWith('r4_') || key.startsWith('8b_')) continue
+            } else if (prefix !== null) {
+              // 有前缀教材（如人教四上 r4_）→ 只匹配该前缀
+              if (!key.startsWith(prefix)) continue
+            }
+            // prefix === null → 不过滤，显示所有
             dueWords.push({ key, word: words[key], stage: s.stage })
           }
         }
@@ -366,7 +395,7 @@ Page({
     const due = new Date(); due.setDate(due.getDate() + interval)
     wx.cloud.callFunction({
       name: 'updateProgress',
-      data: { field: 'schedule', key: entry.key, add: true, value: { stage: newStage, dueDate: due.toISOString().slice(0, 10) } }
+      data: { field: 'schedule', key: entry.key, add: true, value: { stage: newStage, dueDate: getLocalDate(due) } }
     }).catch(() => {})
     entry._saved = true
 
@@ -497,7 +526,7 @@ Page({
         const due = new Date(); due.setDate(due.getDate() + interval)
         wx.cloud.callFunction({
           name: 'updateProgress',
-          data: { field: 'schedule', key, add: true, value: { stage: newStage, dueDate: due.toISOString().slice(0, 10) } }
+          data: { field: 'schedule', key, add: true, value: { stage: newStage, dueDate: getLocalDate(due) } }
         }).catch(() => {})
       }
     }
@@ -517,7 +546,7 @@ Page({
   // ========== 完成页 ==========
 
   showCompletion() {
-    const today = new Date().toISOString().slice(0, 10)
+    const today = getLocalDate()
     const lastStudy = wx.getStorageSync('lastStudyDate') || ''
     let streak = 1, isNewStreak = true
 
@@ -526,7 +555,7 @@ Page({
       isNewStreak = false
     } else {
       const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1)
-      if (lastStudy === yesterday.toISOString().slice(0, 10)) {
+      if (lastStudy === getLocalDate(yesterday)) {
         streak = (wx.getStorageSync('streakCount') || 1) + 1
       }
     }

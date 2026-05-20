@@ -6,6 +6,15 @@ const CLOUD_BASE = 'cloud://cloudbase-d2gs4fpbhca51e19f.636c-cloudbase-d2gs4fpbh
 const STAR_MAP = { 5: '★★★★★', 4: '★★★★☆', 3: '★★★☆☆', 2: '★★☆☆☆', 1: '★☆☆☆☆' }
 const FREQ_LABEL = { 5: '极高频', 4: '高频', 3: '中等', 2: '低频', 1: '极少' }
 
+// 获取本地日期（YYYY-MM-DD），避免 .toISOString() 的 UTC 时区问题
+function getLocalDate(d) {
+  const date = d || new Date()
+  const y = date.getFullYear()
+  const m = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  return `${y}-${m}-${day}`
+}
+
 Page({
   data: {
     word: {},
@@ -133,7 +142,7 @@ Page({
 
   loadProgress() {
     const dailyGoal = wx.getStorageSync('dailyGoal') || 5
-    const today = new Date().toISOString().slice(0, 10)
+    const today = getLocalDate()
 
     wx.cloud.callFunction({
       name: 'getProgress'
@@ -143,7 +152,7 @@ Page({
       let todayLearned = 0
       const schedule = p.schedule || {}
       for (const s of Object.values(schedule)) {
-        if (s.stage === 0) todayLearned++
+        if (s.stage === 0 && s.dueDate === today) todayLearned++
       }
 
       this.setData({
@@ -246,7 +255,7 @@ Page({
   },
 
   autoAddToSchedule(key) {
-    const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10)
+    const tomorrow = getLocalDate(new Date(Date.now() + 86400000))
 
     wx.cloud.callFunction({
       name: 'getProgress'
@@ -330,7 +339,7 @@ Page({
 
   onGoNext() {
     const words = app.globalData.words
-    const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10)
+    const tomorrow = getLocalDate(new Date(Date.now() + 86400000))
 
     wx.cloud.callFunction({
       name: 'getProgress'
