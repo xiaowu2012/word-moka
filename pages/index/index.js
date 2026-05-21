@@ -196,7 +196,8 @@ Page({
   },
 
   onReview() {
-    wx.navigateTo({ url: '/pages/review/review' })
+    const bookId = this.data.currentBook.id
+    wx.navigateTo({ url: `/pages/review/review?textbook=${bookId}` })
   },
 
   onAllWords() {

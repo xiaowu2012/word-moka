@@ -72,6 +72,18 @@
         </view>
         <text class="entry-arrow">›</text>
       </view>
+
+      <view class="entry-card" bindtap="onReview">
+        <view class="entry-left">
+          <text class="entry-icon">🔄</text>
+          <view class="entry-info">
+            <text class="entry-title">复习</text>
+            <text class="entry-desc" wx:if="{{currentBook.reviewCount > 0}}">{{currentBook.reviewCount}}个单词需要复习</text>
+            <text class="entry-desc" wx:else>暂无待复习单词</text>
+          </view>
+        </view>
+        <text class="entry-arrow">›</text>
+      </view>
     </view>
     </view>
   </block>
