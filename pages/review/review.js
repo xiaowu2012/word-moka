@@ -310,8 +310,6 @@ Page({
       if (audioCtx) audioCtx.play()
     }
 
-    // 预加载间隔后下一个词的音频（gapSize个词后，独立audioCtx，不干扰当前播放）
-    this.preloadNextReviewAudio()
   },
 
   preloadReviewAudio() {
@@ -328,28 +326,20 @@ Page({
     }
   },
 
-  preloadNextReviewAudio() {
-    const { reviewQueue, currentIndex, gapSize } = this.data
-    // gap插入位置 = currentIndex + gapSize 的词，间隔后下一个遇到的语音题
-    const nextIdx = Math.min(currentIndex + gapSize, reviewQueue.length - 1)
-    if (nextIdx >= reviewQueue.length) return
-    const nextEntry = reviewQueue[nextIdx]
-    if (!nextEntry) return
-    const cache = this.wordCache[nextEntry.key]
+  // 在答题反馈阶段提前加载下一个词的音频到主audioCtx
+  preloadNextWordAudio() {
+    const { reviewQueue, currentIndex, audioCtx } = this.data
+    if (!audioCtx) return
+    if (currentIndex >= reviewQueue.length) return
+    const entry = reviewQueue[currentIndex]
+    if (!entry) return
+    const cache = this.wordCache[entry.key]
     if (!cache) return
-    const src = getWordAudioSrc(nextEntry.key, cache.word)
-    if (!src) return
-    const preloader = wx.createInnerAudioContext()
-    preloader.src = src
-    preloader.volume = 0
-    preloader.play()
-    preloader.onCanplay(() => {
-      preloader.stop()
-      preloader.destroy()
-    })
-    preloader.onError(() => {
-      preloader.destroy()
-    })
+    const src = getWordAudioSrc(entry.key, cache.word)
+    if (src && audioCtx.src !== src) {
+      audioCtx.stop()
+      audioCtx.src = src
+    }
   },
 
   advanceIndex() {
@@ -433,7 +423,10 @@ Page({
       this.onWordMastered(entry)
     } else {
       this.moveToGap(entry)
-      setTimeout(() => this.afterFeedback(), 500)
+      setTimeout(() => {
+        this.preloadNextWordAudio()
+        this.afterFeedback()
+      }, 500)
     }
   },
 
@@ -458,7 +451,10 @@ Page({
       this.skipWord(entry)
     } else {
       this.moveToGap(entry)
-      setTimeout(() => this.afterFeedback(), 2500)
+      setTimeout(() => {
+        this.preloadNextWordAudio()
+        this.afterFeedback()
+      }, 2500)
     }
   },
 
@@ -491,7 +487,10 @@ Page({
       this.setData({ reviewQueue, feedback: 'skip' })
     }
 
-    setTimeout(() => this.afterFeedback(), 2500)
+    setTimeout(() => {
+      this.preloadNextWordAudio()
+      this.afterFeedback()
+    }, 2500)
   },
 
   // ========== 关键：间隔插入 ==========
@@ -565,6 +564,7 @@ Page({
 
     setTimeout(() => {
       this.setData({ showMasterPopup: false })
+      this.preloadNextWordAudio()
       this.afterFeedback()
     }, 1500)
   },
