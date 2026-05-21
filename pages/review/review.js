@@ -118,7 +118,6 @@ Page({
       const mastered = p.mastered || []
       const schedule = p.schedule || {}
 
-      const totalScheduled = Object.keys(schedule).length
       let dueWords = []
       for (const [key, s] of Object.entries(schedule)) {
         if (!mastered.includes(key) && s.dueDate <= today && s.stage >= 0) {
@@ -135,12 +134,6 @@ Page({
             dueWords.push({ key, word: words[key], stage: s.stage })
           }
         }
-      }
-
-      console.log('[复习诊断] 教材:', this.data.textbook, '前缀:', prefix,
-        '计划总数:', totalScheduled, '到期:', dueWords.length, '今天:', today)
-      if (dueWords.length > 0) {
-        console.log('[复习诊断] 到期词:', dueWords.map(w => w.key).join(', '))
       }
 
       if (dueWords.length === 0) {
