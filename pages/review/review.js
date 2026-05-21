@@ -309,6 +309,9 @@ Page({
       const { audioCtx } = this.data
       if (audioCtx) audioCtx.play()
     }
+
+    // 预加载下一个词的音频（独立audioCtx，不干扰当前播放）
+    this.preloadNextReviewAudio()
   },
 
   preloadReviewAudio() {
@@ -323,6 +326,29 @@ Page({
       audioCtx.stop()
       audioCtx.src = src
     }
+  },
+
+  preloadNextReviewAudio() {
+    const { reviewQueue, currentIndex } = this.data
+    const nextIdx = currentIndex + 1
+    if (nextIdx >= reviewQueue.length) return
+    const nextEntry = reviewQueue[nextIdx]
+    if (!nextEntry) return
+    const cache = this.wordCache[nextEntry.key]
+    if (!cache) return
+    const src = getWordAudioSrc(nextEntry.key, cache.word)
+    if (!src) return
+    const preloader = wx.createInnerAudioContext()
+    preloader.src = src
+    preloader.volume = 0
+    preloader.play()
+    preloader.onCanplay(() => {
+      preloader.stop()
+      preloader.destroy()
+    })
+    preloader.onError(() => {
+      preloader.destroy()
+    })
   },
 
   advanceIndex() {
@@ -632,6 +658,14 @@ Page({
       })
       setTimeout(() => { this.setData({ showMasterPopup: false }) }, 2500)
     }
+  },
+
+  onGoLearn() {
+    // 去学新单词（跳到当前教材的第一个未学词）
+    this.saveAllProgress()
+    if (this.data.audioCtx) this.data.audioCtx.destroy()
+    if (this.data.effectCtx) this.data.effectCtx.destroy()
+    wx.redirectTo({ url: `/pages/index/index` })
   },
 
   onGoHome() {
