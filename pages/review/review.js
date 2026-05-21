@@ -205,7 +205,8 @@ Page({
   },
 
   generateQuestion(wordKey, wordData) {
-    const types = wordData.pronounceFile ? [1, 2, 3, 4] : [2, 3]
+    const hasAudio = !!getWordAudioSrc(wordKey, wordData)
+    const types = hasAudio ? [1, 2, 3, 4] : [2, 3]
     const type = types[Math.floor(Math.random() * types.length)]
 
     const distractors = this.getDistractors(wordKey, wordData)
@@ -286,8 +287,9 @@ Page({
       feedback: ''
     })
 
-    if ((question.type === 1 || question.type === 4) && wordData.pronounceFile) {
-      this.playAudio(wordData.pronounceFile)
+    if (question.type === 1 || question.type === 4) {
+      const src = getWordAudioSrc(entry.key, wordData)
+      if (src) this.playAudio(src)
     }
   },
 
@@ -312,8 +314,9 @@ Page({
     const entry = reviewQueue[currentIndex]
     if (!entry) return
     const cache = this.wordCache[entry.key]
-    if (cache && cache.word.pronounceFile) {
-      this.playAudio(cache.word.pronounceFile)
+    const src = cache ? getWordAudioSrc(entry.key, cache.word) : ''
+    if (src) {
+      this.playAudio(src)
     } else {
       wx.showToast({ title: '暂无音频', icon: 'none' })
     }
@@ -371,8 +374,9 @@ Page({
 
     // 自动播放正确发音
     const cache = this.wordCache[entry.key]
-    if (cache && cache.word.pronounceFile) {
-      this.playAudio(cache.word.pronounceFile)
+    const src = cache ? getWordAudioSrc(entry.key, cache.word) : ''
+    if (src) {
+      this.playAudio(src)
     }
 
     if (entry.wrongCount >= 3) {
@@ -401,8 +405,9 @@ Page({
 
     // 自动播放正确发音
     const cache = this.wordCache[entry.key]
-    if (cache && cache.word.pronounceFile) {
-      this.playAudio(cache.word.pronounceFile)
+    const src = cache ? getWordAudioSrc(entry.key, cache.word) : ''
+    if (src) {
+      this.playAudio(src)
     }
 
     if (currentIndex >= reviewQueue.length) {
