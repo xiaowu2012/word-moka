@@ -325,15 +325,11 @@ Page({
     }
   },
 
-  // 播放当前词音频（onCanplay兜底确保播放）
+  // 播放当前词音频
   playCurrentAudio() {
     const { audioCtx } = this.data
     if (!audioCtx) return
-    // onCanplay确保即使音频正在缓冲，加载完也会自动播放
-    audioCtx.onCanplay(() => {
-      audioCtx.play()
-    })
-    // 直接play：如果已缓冲则秒播；如果正在缓冲，onCanplay兜底
+    // play()会自动等待缓冲完成，不需要onCanplay
     audioCtx.play()
   },
 
@@ -367,15 +363,12 @@ Page({
   playAudio(src) {
     const { audioCtx } = this.data
     if (!audioCtx || !src) return
-    // src已匹配（已被preload缓存），直接播放
     if (audioCtx.src === src) {
       audioCtx.play()
       return
     }
     audioCtx.stop()
     audioCtx.src = src
-    // onCanplay兜底，确保始终能播放
-    audioCtx.onCanplay(() => audioCtx.play())
     audioCtx.play()
   },
 
