@@ -58,16 +58,16 @@
 
   <!-- 底部：浏览模式导航 -->
   <view class="browse-bar" wx:if="{{isBrowse}}">
-    <view class="browse-prev {{browseIndex > 0 ? '' : 'browse-disabled'}}" bindtap="onPrevWord">
-      ‹ 上一个
+    <view class="browse-prev {{browseIndex > 0 || hasPrevUnit ? '' : 'browse-disabled'}}" bindtap="onPrevWord">
+      {{hasPrevUnit ? '‹ 上一单元' : '‹ 上一个'}}
     </view>
     <view class="browse-progress">
       <text class="browse-num">{{browseIndex + 1}}</text>
       <text class="browse-divider">/</text>
       <text class="browse-total">{{browseTotal}}</text>
     </view>
-    <view class="browse-next {{browseIndex < browseTotal - 1 ? '' : 'browse-disabled'}}" bindtap="onNextWord">
-      下一个 ›
+    <view class="browse-next {{browseIndex < browseTotal - 1 || hasNextUnit ? '' : 'browse-disabled'}}" bindtap="onNextWord">
+      {{hasNextUnit ? '下一单元 ›' : '下一个 ›'}}
     </view>
   </view>
 

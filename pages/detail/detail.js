@@ -3,6 +3,11 @@ const app = getApp()
 // 微信云存储文件ID基础路径（上传到云存储后资源ID部分可能变化，如不对请替换）
 const CLOUD_BASE = 'cloud://cloudbase-d2gs4fpbhca51e19f.636c-cloudbase-d2gs4fpbhca51e19f-1433289257'
 
+const UNIT_LIST = {
+  'r4-2024q': ['Unit 1', 'Unit 2', 'Unit 3', 'Unit 4', 'Unit 5', 'Unit 6'],
+  '9a-2026q': ['Unit1', 'Unit2', 'Unit3', 'Unit4', 'Unit5', 'Unit6']
+}
+
 const STAR_MAP = { 5: '★★★★★', 4: '★★★★☆', 3: '★★★☆☆', 2: '★★☆☆☆', 1: '★☆☆☆☆' }
 const FREQ_LABEL = { 5: '极高频', 4: '高频', 3: '中等', 2: '低频', 1: '极少' }
 
@@ -24,6 +29,8 @@ Page({
     showTranslation: false,
     browseIndex: 0,
     browseTotal: 0,
+    hasPrevUnit: false,
+    hasNextUnit: false,
     stars: '',
     freqLabel: '',
     example: null,
@@ -99,6 +106,17 @@ Page({
 
     const isR4 = wordKey.startsWith('r4_')
 
+    // 计算是否有上一单元/下一单元
+    let hasPrevUnit = false, hasNextUnit = false
+    if (this.unitFilter && this.textbookFilter) {
+      const units = UNIT_LIST[this.textbookFilter]
+      if (units) {
+        const unitIdx = units.indexOf(this.unitFilter)
+        hasPrevUnit = unitIdx > 0 && index === 0
+        hasNextUnit = unitIdx >= 0 && unitIdx < units.length - 1 && index >= this.wordKeyList.length - 1
+      }
+    }
+
     this.setData({
       key: wordKey,
       word: card,
@@ -107,6 +125,8 @@ Page({
       showTranslation: true,
       browseIndex: index,
       browseTotal: this.wordKeyList.length,
+      hasPrevUnit,
+      hasNextUnit,
       stars: STAR_MAP[card.examFrequency] || '★★★☆☆',
       freqLabel: FREQ_LABEL[card.examFrequency] || '',
       example,
@@ -374,6 +394,10 @@ Page({
     if (this.wordKeyList.length === 0) return
     const idx = this.data.browseIndex - 1
     if (idx < 0) {
+      if (this.data.hasPrevUnit) {
+        this.goToPrevUnit()
+        return
+      }
       wx.showToast({ title: '已经是第一个了', icon: 'none' })
       return
     }
@@ -382,16 +406,64 @@ Page({
     this.loadWord(key, idx, false, true)
   },
 
+  goToPrevUnit() {
+    const units = UNIT_LIST[this.textbookFilter]
+    if (!units) return
+    const curIdx = units.indexOf(this.unitFilter)
+    if (curIdx <= 0) return
+    const prevUnit = units[curIdx - 1]
+    const words = app.globalData.words
+    const keys = Object.keys(words).filter(k => {
+      if (this.textbookFilter === 'r4-2024q' && !k.startsWith('r4_')) return false
+      if (this.textbookFilter === '9a-2026q' && (k.startsWith('r4_') || k.startsWith('8b_'))) return false
+      return words[k].module === prevUnit
+    }).sort()
+    if (keys.length === 0) {
+      wx.showToast({ title: '上一单元暂无单词', icon: 'none' })
+      return
+    }
+    const lastKey = keys[keys.length - 1]
+    wx.redirectTo({
+      url: `/pages/detail/detail?wordKey=${lastKey}&mode=browse&textbook=${this.textbookFilter}&unit=${prevUnit}`
+    })
+  },
+
   onNextWord() {
     if (this.wordKeyList.length === 0) return
     const idx = this.data.browseIndex + 1
     if (idx >= this.wordKeyList.length) {
+      // 有下一单元 → 自动跳转
+      if (this.data.hasNextUnit) {
+        this.goToNextUnit()
+        return
+      }
       wx.showToast({ title: '浏览完毕 🎉', icon: 'none' })
       return
     }
     const key = this.wordKeyList[idx]
     this.playPageFlip()
     this.loadWord(key, idx, false, true)
+  },
+
+  goToNextUnit() {
+    const units = UNIT_LIST[this.textbookFilter]
+    if (!units) return
+    const curIdx = units.indexOf(this.unitFilter)
+    if (curIdx < 0 || curIdx >= units.length - 1) return
+    const nextUnit = units[curIdx + 1]
+    const words = app.globalData.words
+    const keys = Object.keys(words).filter(k => {
+      if (this.textbookFilter === 'r4-2024q' && !k.startsWith('r4_')) return false
+      if (this.textbookFilter === '9a-2026q' && (k.startsWith('r4_') || k.startsWith('8b_'))) return false
+      return words[k].module === nextUnit
+    }).sort()
+    if (keys.length === 0) {
+      wx.showToast({ title: '下一单元暂无单词', icon: 'none' })
+      return
+    }
+    wx.redirectTo({
+      url: `/pages/detail/detail?wordKey=${keys[0]}&mode=browse&textbook=${this.textbookFilter}&unit=${nextUnit}`
+    })
   },
 
 
