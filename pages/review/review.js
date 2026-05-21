@@ -5,6 +5,14 @@ const MAX_STAGE = 5
 const PASS_CORRECT = 3
 const MIN_GAP = 5  // 两题之间的最小间隔词数
 
+const CLOUD_BASE = 'cloud://cloudbase-d2gs4fpbhca51e19f.636c-cloudbase-d2gs4fpbhca51e19f-1433289257'
+
+function getWordAudioSrc(wordKey, wordData) {
+  if (wordData.pronounceFile) return wordData.pronounceFile
+  if (wordKey.startsWith('r4_')) return `${CLOUD_BASE}/audio/r4/${wordKey}.mp3`
+  return ''
+}
+
 const MASTER_MESSAGES = [
   '🎉 拿下！{word} 已掌握',
   '⚡ 漂亮！{word} 过关了',
