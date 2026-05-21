@@ -59,6 +59,9 @@ Page({
       wordKeyList = wordKeyList.filter(k => words[k] && words[k].module === unitFilter)
     }
 
+    // 确保卡片图片缓存目录存在
+    this.ensureCacheDir()
+
     let targetKey = wordKey
     let targetIndex = 0
 
@@ -99,10 +102,12 @@ Page({
       exampleCn = card.exampleCn || ''
     }
 
+    const isR4 = wordKey.startsWith('r4_')
+
     this.setData({
       key: wordKey,
       word: card,
-      imageSrc: wordKey.startsWith('r4_') ? `${CLOUD_BASE}/images/r4/${wordKey}.jpg` : `/images/${wordKey}_card.jpg`,
+      imageSrc: isR4 ? this.getCachedImageSrcSync(wordKey) : `/images/${wordKey}_card.jpg`,
       fromContinue: fromContinue || false,
       isBrowse: isBrowse || false,
       showTranslation: true,
@@ -117,6 +122,11 @@ Page({
       tip: card.tip || '',
       playing: ''
     })
+
+    // 云存储图片异步缓存到本地
+    if (isR4) {
+      this.downloadAndCacheImage(wordKey)
+    }
 
     if (isBrowse) {
       // 提前预加载当前音频源，避免云存储加载延迟
@@ -278,8 +288,85 @@ Page({
     }).catch(() => {})
   },
 
+  // ===== 云存储图片本地缓存 =====
+
+  // 缓存目录
+  get cardImgDir() {
+    return `${wx.env.USER_DATA_PATH}/card_images`
+  },
+
+  get cardImgFs() {
+    return wx.getFileSystemManager()
+  },
+
+  ensureCacheDir() {
+    try {
+      this.cardImgFs.accessSync(this.cardImgDir)
+    } catch (e) {
+      try {
+        this.cardImgFs.mkdirSync(this.cardImgDir, true)
+      } catch (e2) {}
+    }
+  },
+
+  // 同步检查本地是否有缓存，有则返回本地路径，无则返回云路径
+  getCachedImageSrcSync(wordKey) {
+    const localPath = `${this.cardImgDir}/${wordKey}.jpg`
+    try {
+      this.cardImgFs.accessSync(localPath)
+      return localPath
+    } catch (e) {
+      return `${CLOUD_BASE}/images/r4/${wordKey}.jpg`
+    }
+  },
+
+  // 从云存储下载并缓存到本地
+  downloadAndCacheImage(wordKey) {
+    const localPath = `${this.cardImgDir}/${wordKey}.jpg`
+    const cloudPath = `${CLOUD_BASE}/images/r4/${wordKey}.jpg`
+
+    // 已有缓存就不重复下载
+    try {
+      this.cardImgFs.accessSync(localPath)
+      return
+    } catch (e) {}
+
+    wx.cloud.downloadFile({
+      fileID: cloudPath,
+      success: res => {
+        try {
+          this.cardImgFs.copyFileSync(res.tempFilePath, localPath)
+        } catch (e) {
+          // copyFile 失败时尝试旧版 saveFile 方式
+          try {
+            const savedPath = this.cardImgFs.saveFileSync(res.tempFilePath)
+            this.cardImgFs.copyFileSync(savedPath, localPath)
+          } catch (e2) {}
+        }
+        // 下载完成后如果当前卡片没换，切到本地路径
+        if (this.data.key === wordKey) {
+          this.setData({ imageSrc: localPath })
+        }
+      },
+      fail: () => {
+        // 下载失败没关系，cloud URL 在同步阶段已经设上了
+      }
+    })
+  },
+
   onImageError() {
-    this.setData({ imageSrc: '' })
+    const { key } = this.data
+    if (!key) return
+
+    if (key.startsWith('r4_')) {
+      // 可能是缓存文件被系统清理了，删掉标记后重新下载
+      const localPath = `${this.cardImgDir}/${key}.jpg`
+      try { this.cardImgFs.unlinkSync(localPath) } catch (e) {}
+      this.setData({ imageSrc: `${CLOUD_BASE}/images/r4/${key}.jpg` })
+      this.downloadAndCacheImage(key)
+    } else {
+      this.setData({ imageSrc: '' })
+    }
   },
 
   // ===== 滑动翻页 =====
