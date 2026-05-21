@@ -108,9 +108,9 @@
           bindtap="{{item.available ? 'onTapUnit' : ''}}" data-id="{{item.id}}">
       <view class="unit-row">
         <text class="unit-name">{{item.icon}} {{item.name}}</text>
-        <text class="unit-badge {{item.available ? (unitMode === 'read' ? 'badge-ready' : 'badge-word') : 'badge-coming'}}">
+        <view class="unit-badge {{item.available ? (unitMode === 'read' ? 'badge-ready' : 'badge-word') : 'badge-coming'}}">
           {{item.available ? (unitMode === 'read' ? '已上线' : (item.wordCount + '个单词')) : '即将上线'}}
-        </text>
+        </view>
       </view>
     </view>
   </block>
