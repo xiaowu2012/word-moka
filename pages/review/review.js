@@ -301,12 +301,11 @@ Page({
       feedback: ''
     })
 
-    // 跟卡片详情一样的模式：先设src缓冲，再延迟播放
+    // 设src开始缓冲，然后直接播放，play()会自动等缓冲完成
     this.preloadReviewAudio()
 
     if (question.type === 1 || question.type === 4) {
-      // 和detail.js一样，设src后等200ms让音频加载完再播
-      setTimeout(() => this.playCurrentAudio(), 200)
+      this.playCurrentAudio()
     }
 
   },
