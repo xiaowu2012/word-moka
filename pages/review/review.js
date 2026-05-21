@@ -97,8 +97,8 @@ Page({
 
   onUnload() {
     this.saveAllProgress()
-    if (this.data.audioCtx) this.data.audioCtx.destroy()
-    if (this.data.effectCtx) this.data.effectCtx.destroy()
+    try { if (this.data.audioCtx) this.data.audioCtx.destroy() } catch (e) {}
+    try { if (this.data.effectCtx) this.data.effectCtx.destroy() } catch (e) {}
   },
 
   // ========== 初始化 ==========

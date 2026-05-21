@@ -145,9 +145,7 @@ Page({
   },
 
   onUnload() {
-    if (this.data.audioCtx) {
-      this.data.audioCtx.destroy()
-    }
+    try { if (this.data.audioCtx) this.data.audioCtx.destroy() } catch (e) {}
   },
 
   loadProgress() {
