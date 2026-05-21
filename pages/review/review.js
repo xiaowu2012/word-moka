@@ -301,13 +301,12 @@ Page({
       feedback: ''
     })
 
-    // 预加载当前词的音频（设src让音频开始缓冲，播放时零延迟）
+    // 预加载当前词的音频（设src让音频开始缓冲）
     this.preloadReviewAudio()
 
     if (question.type === 1 || question.type === 4) {
-      // src已经在上一步preload时设了，直接播放
-      const { audioCtx } = this.data
-      if (audioCtx) audioCtx.play()
+      // src已设，playCurrentAudio用onCanplay兜底确保播放
+      this.playCurrentAudio()
     }
 
   },
@@ -324,6 +323,18 @@ Page({
       audioCtx.stop()
       audioCtx.src = src
     }
+  },
+
+  // 播放当前词音频（onCanplay兜底确保播放）
+  playCurrentAudio() {
+    const { audioCtx } = this.data
+    if (!audioCtx) return
+    // onCanplay确保即使音频正在缓冲，加载完也会自动播放
+    audioCtx.onCanplay(() => {
+      audioCtx.play()
+    })
+    // 直接play：如果已缓冲则秒播；如果正在缓冲，onCanplay兜底
+    audioCtx.play()
   },
 
   // 在答题反馈阶段提前加载下一个词的音频到主audioCtx
@@ -363,6 +374,8 @@ Page({
     }
     audioCtx.stop()
     audioCtx.src = src
+    // onCanplay兜底，确保始终能播放
+    audioCtx.onCanplay(() => audioCtx.play())
     audioCtx.play()
   },
 
