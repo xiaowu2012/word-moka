@@ -128,8 +128,8 @@
 
 .q-round {
   font-size: 22rpx;
-  color: #aaa;
-  background: #f5f5f5;
+  color: #E67E22;
+  background: #FFF3E0;
   padding: 2rpx 14rpx;
   border-radius: 10rpx;
 }
