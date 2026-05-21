@@ -181,6 +181,9 @@ Page({
         wrongAnswerCount: 0
       })
 
+      // 先预加载第一个词的音频（提前缓冲，不管是什么题型）
+      this.preloadFirstReviewAudio()
+
       try {
         this.startCurrentWord()
       } catch (e) {
@@ -305,8 +308,9 @@ Page({
     this.preloadReviewAudio()
 
     if (question.type === 1 || question.type === 4) {
-      // src已设，playCurrentAudio用onCanplay兜底确保播放
       this.playCurrentAudio()
+      // 提前扫描下一个有音频的词，用独立context静音缓冲（不影响当前播放）
+      this.preloadNextAudioInQueue()
     }
 
   },
@@ -329,23 +333,90 @@ Page({
   playCurrentAudio() {
     const { audioCtx } = this.data
     if (!audioCtx) return
-    // play()会自动等待缓冲完成，不需要onCanplay
     audioCtx.play()
   },
 
-  // 在答题反馈阶段提前加载下一个词的音频到主audioCtx
-  preloadNextWordAudio() {
-    const { reviewQueue, currentIndex, audioCtx } = this.data
-    if (!audioCtx) return
-    if (currentIndex >= reviewQueue.length) return
-    const entry = reviewQueue[currentIndex]
+  // 预加载第一个词的音频到主audioCtx
+  preloadFirstReviewAudio() {
+    const { reviewQueue, audioCtx } = this.data
+    if (!audioCtx || reviewQueue.length === 0) return
+    const entry = reviewQueue[0]
     if (!entry) return
     const cache = this.wordCache[entry.key]
     if (!cache) return
     const src = getWordAudioSrc(entry.key, cache.word)
-    if (src && audioCtx.src !== src) {
-      audioCtx.stop()
+    if (src) {
       audioCtx.src = src
+    }
+  },
+
+  // 听音题出现时，用独立context提前扫描并缓冲队列中下一个有音频的词
+  preloadNextAudioInQueue() {
+    const { reviewQueue, currentIndex } = this.data
+    for (let i = currentIndex + 1; i < reviewQueue.length; i++) {
+      const entry = reviewQueue[i]
+      if (!entry) continue
+      const cache = this.wordCache[entry.key]
+      if (!cache) continue
+      const src = getWordAudioSrc(entry.key, cache.word)
+      if (!src) continue
+      const preloader = wx.createInnerAudioContext()
+      preloader.src = src
+      preloader.volume = 0
+      preloader.play()
+      preloader.onCanplay(() => { preloader.stop(); preloader.destroy() })
+      preloader.onError(() => preloader.destroy())
+      return
+    }
+    // 往后扫完了没有，尝试从开头扫
+    for (let i = 0; i < currentIndex; i++) {
+      const entry = reviewQueue[i]
+      if (!entry) continue
+      const cache = this.wordCache[entry.key]
+      if (!cache) continue
+      const src = getWordAudioSrc(entry.key, cache.word)
+      if (!src) continue
+      const preloader = wx.createInnerAudioContext()
+      preloader.src = src
+      preloader.volume = 0
+      preloader.play()
+      preloader.onCanplay(() => { preloader.stop(); preloader.destroy() })
+      preloader.onError(() => preloader.destroy())
+      return
+    }
+  },
+
+  // 在答题反馈阶段扫描队列，预加载下一个有音频的词的音频到主audioCtx
+  preloadNextWordAudio() {
+    const { reviewQueue, currentIndex, audioCtx } = this.data
+    if (!audioCtx) return
+    // 从currentIndex往后扫，找第一个有音频的词
+    for (let i = currentIndex; i < reviewQueue.length; i++) {
+      const entry = reviewQueue[i]
+      if (!entry) continue
+      const cache = this.wordCache[entry.key]
+      if (!cache) continue
+      const src = getWordAudioSrc(entry.key, cache.word)
+      if (!src) continue
+      if (audioCtx.src !== src) {
+        audioCtx.stop()
+        audioCtx.src = src
+      }
+      return  // 只预加载找到的第一个
+    }
+    // 如果队列往后扫完了还没找到，尝试回到开头找
+    for (let i = 0; i < currentIndex; i++) {
+      const entry = reviewQueue[i]
+      if (!entry) continue
+      const cache = this.wordCache[entry.key]
+      if (!cache) continue
+      const src = getWordAudioSrc(entry.key, cache.word)
+      if (!src) continue
+      if (audioCtx.src !== src) {
+        audioCtx.stop()
+        audioCtx.src = src
+      }
+      return
     }
   },
 
