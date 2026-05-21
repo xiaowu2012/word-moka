@@ -293,6 +293,17 @@ Page({
     }
   },
 
+  advanceIndex() {
+    const { reviewQueue, currentIndex } = this.data
+    const nextIdx = currentIndex + 1
+    if (nextIdx >= reviewQueue.length) {
+      this.showCompletion()
+    } else {
+      this.setData({ currentIndex: nextIdx })
+      this.startCurrentWord()
+    }
+  },
+
   playAudio(src) {
     const { audioCtx } = this.data
     if (!audioCtx || !src) return
