@@ -301,11 +301,15 @@ Page({
       feedback: ''
     })
 
-    // 设src开始缓冲，然后直接播放，play()会自动等缓冲完成
+    // 设src缓冲。如果是听音题：先直接play，再加setTimeout兜底（给云文件解析留时间）
     this.preloadReviewAudio()
 
     if (question.type === 1 || question.type === 4) {
-      this.playCurrentAudio()
+      const { audioCtx } = this.data
+      if (audioCtx) {
+        audioCtx.play()
+        setTimeout(() => audioCtx.play(), 250) // 兜底：云文件解析可能需要时间
+      }
     }
 
   },
@@ -325,13 +329,7 @@ Page({
     }
   },
 
-  playCurrentAudio() {
-    const { audioCtx } = this.data
-    if (!audioCtx) return
-    audioCtx.play()
-  },
-
-  // 答题反馈阶段：预加载下一个有音频的词到主audioCtx
+  // 答题反馈阶段：只设src（不stop），预加载下一个有音频的词到主audioCtx
   preloadNextWordAudio() {
     const { reviewQueue, currentIndex, audioCtx } = this.data
     if (!audioCtx) return
@@ -343,8 +341,7 @@ Page({
       const src = this.getCachedWordAudio(entry.key, cache.word)
       if (!src) continue
       if (audioCtx.src !== src) {
-        audioCtx.stop()
-        audioCtx.src = src
+        audioCtx.src = src  // 不stop！避免打断当前播放
       }
       return
     }
@@ -356,8 +353,7 @@ Page({
       const src = this.getCachedWordAudio(entry.key, cache.word)
       if (!src) continue
       if (audioCtx.src !== src) {
-        audioCtx.stop()
-        audioCtx.src = src
+        audioCtx.src = src  // 不stop！
       }
       return
     }
