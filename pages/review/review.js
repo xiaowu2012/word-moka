@@ -310,6 +310,7 @@ Page({
 
   },
 
+  // ===== 音频本地缓存 =====
   preloadReviewAudio() {
     const { reviewQueue, currentIndex, audioCtx } = this.data
     if (!audioCtx) return
@@ -317,7 +318,7 @@ Page({
     if (!entry) return
     const cache = this.wordCache[entry.key]
     if (!cache) return
-    const src = getWordAudioSrc(entry.key, cache.word)
+    const src = this.getCachedWordAudio(entry.key, cache.word)
     if (src && audioCtx.src !== src) {
       audioCtx.stop()
       audioCtx.src = src
@@ -330,31 +331,16 @@ Page({
     audioCtx.play()
   },
 
-  // 答题反馈阶段：预加载下一个有音频的词到主audioCtx（和detail.js的preloadNextAudio一样）
+  // 答题反馈阶段：预加载下一个有音频的词到主audioCtx
   preloadNextWordAudio() {
     const { reviewQueue, currentIndex, audioCtx } = this.data
     if (!audioCtx) return
-    // 从currentIndex往后扫，找第一个有音频的词
     for (let i = currentIndex; i < reviewQueue.length; i++) {
       const entry = reviewQueue[i]
       if (!entry) continue
       const cache = this.wordCache[entry.key]
       if (!cache) continue
-      const src = getWordAudioSrc(entry.key, cache.word)
-      if (!src) continue
-      if (audioCtx.src !== src) {
-        audioCtx.stop()
-        audioCtx.src = src
-      }
-      return  // 只预加载找到的第一个
-    }
-    // 如果队列往后扫完了还没找到，尝试回到开头找
-    for (let i = 0; i < currentIndex; i++) {
-      const entry = reviewQueue[i]
-      if (!entry) continue
-      const cache = this.wordCache[entry.key]
-      if (!cache) continue
-      const src = getWordAudioSrc(entry.key, cache.word)
+      const src = this.getCachedWordAudio(entry.key, cache.word)
       if (!src) continue
       if (audioCtx.src !== src) {
         audioCtx.stop()
@@ -362,6 +348,60 @@ Page({
       }
       return
     }
+    for (let i = 0; i < currentIndex; i++) {
+      const entry = reviewQueue[i]
+      if (!entry) continue
+      const cache = this.wordCache[entry.key]
+      if (!cache) continue
+      const src = this.getCachedWordAudio(entry.key, cache.word)
+      if (!src) continue
+      if (audioCtx.src !== src) {
+        audioCtx.stop()
+        audioCtx.src = src
+      }
+      return
+    }
+  },
+
+  getCachedWordAudio(wordKey, wordData) {
+    const rawSrc = getWordAudioSrc(wordKey, wordData)
+    if (!rawSrc || !rawSrc.startsWith('cloud://')) return rawSrc
+    const localPath = `${wx.env.USER_DATA_PATH}/card_audio/${wordKey}.mp3`
+    try {
+      wx.getFileSystemManager().accessSync(localPath)
+      return localPath
+    } catch (e) {
+      // 不在本地，异步下载
+      this.downloadAndCacheAudio(wordKey, rawSrc)
+      return rawSrc
+    }
+  },
+
+  downloadAndCacheAudio(wordKey, cloudSrc) {
+    const localPath = `${wx.env.USER_DATA_PATH}/card_audio/${wordKey}.mp3`
+    try {
+      wx.getFileSystemManager().accessSync(localPath)
+      return
+    } catch (e) {}
+    try {
+      wx.getFileSystemManager().accessSync(`${wx.env.USER_DATA_PATH}/card_audio`)
+    } catch (e) {
+      wx.getFileSystemManager().mkdirSync(`${wx.env.USER_DATA_PATH}/card_audio`, true)
+    }
+    wx.cloud.downloadFile({
+      fileID: cloudSrc,
+      success: res => {
+        try {
+          wx.getFileSystemManager().copyFileSync(res.tempFilePath, localPath)
+        } catch (e) {
+          try {
+            const savedPath = wx.getFileSystemManager().saveFileSync(res.tempFilePath)
+            wx.getFileSystemManager().copyFileSync(savedPath, localPath)
+          } catch (e2) {}
+        }
+      },
+      fail: () => {}
+    })
   },
 
   advanceIndex() {
@@ -400,7 +440,7 @@ Page({
     const entry = reviewQueue[currentIndex]
     if (!entry) return
     const cache = this.wordCache[entry.key]
-    const src = cache ? getWordAudioSrc(entry.key, cache.word) : ''
+    const src = cache ? this.getCachedWordAudio(entry.key, cache.word) : ''
     if (src) {
       this.playAudio(src)
     } else {
@@ -461,9 +501,9 @@ Page({
     this.setData({ reviewQueue, feedback: 'wrong' })
     this.playEffect('wrong')
 
-    // 自动播放正确发音
+    // 自动播放正确发音（优先本地缓存）
     const cache = this.wordCache[entry.key]
-    const src = cache ? getWordAudioSrc(entry.key, cache.word) : ''
+    const src = cache ? this.getCachedWordAudio(entry.key, cache.word) : ''
     if (src) {
       this.playAudio(src)
     }
@@ -495,9 +535,9 @@ Page({
     }).catch(() => {})
     entry._saved = true
 
-    // 自动播放正确发音
+    // 自动播放正确发音（优先本地缓存）
     const cache = this.wordCache[entry.key]
-    const src = cache ? getWordAudioSrc(entry.key, cache.word) : ''
+    const src = cache ? this.getCachedWordAudio(entry.key, cache.word) : ''
     if (src) {
       this.playAudio(src)
     }

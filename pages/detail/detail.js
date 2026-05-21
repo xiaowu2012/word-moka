@@ -162,18 +162,78 @@ Page({
     try { if (this.data.audioCtx) this.data.audioCtx.destroy() } catch (e) {}
   },
 
+  // ===== 音频本地缓存 =====
+
+  get audioCacheDir() {
+    return `${wx.env.USER_DATA_PATH}/card_audio`
+  },
+
+  ensureAudioCacheDir() {
+    try {
+      wx.getFileSystemManager().accessSync(this.audioCacheDir)
+    } catch (e) {
+      try {
+        wx.getFileSystemManager().mkdirSync(this.audioCacheDir, true)
+      } catch (e2) {}
+    }
+  },
+
+  // 同步检查本地是否有音频缓存
+  getCachedAudioSrc(wordKey) {
+    const localPath = `${this.audioCacheDir}/${wordKey}.mp3`
+    try {
+      wx.getFileSystemManager().accessSync(localPath)
+      return localPath
+    } catch (e) {
+      return ''
+    }
+  },
+
+  // 异步从云存储下载音频到本地
+  downloadAndCacheAudio(wordKey, cloudSrc) {
+    const localPath = `${this.audioCacheDir}/${wordKey}.mp3`
+    try {
+      wx.getFileSystemManager().accessSync(localPath)
+      return
+    } catch (e) {}
+
+    this.ensureAudioCacheDir()
+    wx.cloud.downloadFile({
+      fileID: cloudSrc,
+      success: res => {
+        try {
+          wx.getFileSystemManager().copyFileSync(res.tempFilePath, localPath)
+        } catch (e) {
+          try {
+            const savedPath = wx.getFileSystemManager().saveFileSync(res.tempFilePath)
+            wx.getFileSystemManager().copyFileSync(savedPath, localPath)
+          } catch (e2) {}
+        }
+      },
+      fail: () => {}
+    })
+  },
+
+  // 获取音频src（优先本地缓存）
+  getAudioSrc(wordKey, wordData) {
+    if (wordData && wordData.pronounceFile) return wordData.pronounceFile
+    if (!wordKey.startsWith('r4_')) return ''
+    const cloudSrc = `${CLOUD_BASE}/audio/r4/${wordKey}.mp3`
+    // 检查本地缓存
+    const cached = this.getCachedAudioSrc(wordKey)
+    if (cached) return cached
+    // 不在本地，异步下载
+    this.downloadAndCacheAudio(wordKey, cloudSrc)
+    return cloudSrc
+  },
+
   // 预加载单词音频源（设src但不播放，让音频开始缓冲）
   preloadWordAudio(wordKey) {
     const audioCtx = this.data.audioCtx
     if (!audioCtx) return
     const card = app.globalData.words[wordKey]
     if (!card) return
-    let src
-    if (card.pronounceFile) {
-      src = card.pronounceFile
-    } else if (wordKey.startsWith('r4_')) {
-      src = `${CLOUD_BASE}/audio/r4/${wordKey}.mp3`
-    }
+    const src = this.getAudioSrc(wordKey, card)
     if (src) {
       audioCtx.src = src
     }
@@ -183,12 +243,7 @@ Page({
   preloadNextAudio(nextKey) {
     const card = app.globalData.words[nextKey]
     if (!card) return
-    let src
-    if (card.pronounceFile) {
-      src = card.pronounceFile
-    } else if (nextKey.startsWith('r4_')) {
-      src = `${CLOUD_BASE}/audio/r4/${nextKey}.mp3`
-    }
+    const src = this.getAudioSrc(nextKey, card)
     if (!src) return
     const preloader = wx.createInnerAudioContext()
     preloader.src = src
@@ -222,15 +277,20 @@ Page({
 
     this.setData({ playing: type })
 
-    // 构建目标音频URL
+    // 构建目标音频URL（优先本地缓存）
     let targetSrc
-    if (type === 'word' && word.pronounceFile) {
-      targetSrc = word.pronounceFile
+    if (type === 'word') {
+      targetSrc = this.getAudioSrc(key, word)
     } else if (key.startsWith('r4_')) {
       targetSrc = `${CLOUD_BASE}/audio/r4/${key}.mp3`
+      const cached = this.getCachedAudioSrc(key)
+      if (cached) targetSrc = cached
+      this.downloadAndCacheAudio(key, `${CLOUD_BASE}/audio/r4/${key}.mp3`)
     } else {
       targetSrc = `/audio/${key}_${type}.mp3`
     }
+
+    if (!targetSrc) return
 
     // 如果src已预加载且相同，直接play（避免stop打断缓冲）
     if (audioCtx.src === targetSrc) {
