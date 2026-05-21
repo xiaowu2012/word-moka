@@ -301,9 +301,27 @@ Page({
       feedback: ''
     })
 
+    // 预加载当前词的音频（设src让音频开始缓冲，播放时零延迟）
+    this.preloadReviewAudio()
+
     if (question.type === 1 || question.type === 4) {
-      const src = getWordAudioSrc(entry.key, wordData)
-      if (src) this.playAudio(src)
+      // src已经在上一步preload时设了，直接播放
+      const { audioCtx } = this.data
+      if (audioCtx) audioCtx.play()
+    }
+  },
+
+  preloadReviewAudio() {
+    const { reviewQueue, currentIndex, audioCtx } = this.data
+    if (!audioCtx) return
+    const entry = reviewQueue[currentIndex]
+    if (!entry) return
+    const cache = this.wordCache[entry.key]
+    if (!cache) return
+    const src = getWordAudioSrc(entry.key, cache.word)
+    if (src && audioCtx.src !== src) {
+      audioCtx.stop()
+      audioCtx.src = src
     }
   },
 
@@ -321,6 +339,11 @@ Page({
   playAudio(src) {
     const { audioCtx } = this.data
     if (!audioCtx || !src) return
+    // src已匹配（已被preload缓存），直接播放
+    if (audioCtx.src === src) {
+      audioCtx.play()
+      return
+    }
     audioCtx.stop()
     audioCtx.src = src
     audioCtx.play()
