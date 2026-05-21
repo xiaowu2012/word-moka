@@ -403,7 +403,7 @@ Page({
     }
     const key = this.wordKeyList[idx]
     this.playPageFlip()
-    this.loadWord(key, idx, false, true)
+    this.loadWord(key, idx, true)
   },
 
   goToPrevUnit() {
@@ -442,7 +442,7 @@ Page({
     }
     const key = this.wordKeyList[idx]
     this.playPageFlip()
-    this.loadWord(key, idx, false, true)
+    this.loadWord(key, idx, true)
   },
 
   goToNextUnit() {
