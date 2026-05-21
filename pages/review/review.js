@@ -173,8 +173,14 @@ Page({
         wrongAnswerCount: 0
       })
 
-      this.startCurrentWord()
-    }).catch(() => {
+      try {
+        this.startCurrentWord()
+      } catch (e) {
+        console.error('[复习] startCurrentWord出错:', e, e.stack)
+        this.setData({ phase: 'empty' })
+      }
+    }).catch(e => {
+      console.error('[复习] prepareReview失败:', e)
       this.setData({ phase: 'empty' })
     })
   },
