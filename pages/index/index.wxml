@@ -11,7 +11,7 @@
         <view class="intro-info">
           <text class="intro-name">{{item.name}}</text>
           <view class="intro-meta-row">
-            <text class="intro-meta" wx:if="{{item.available}}">{{item.wordCount}}个单词 · {{item.unitCount}}个单元</text>
+            <text class="intro-meta" wx:if="{{item.available}}">{{item.unitCount}}个单元 · {{item.wordCount}}个单词</text>
             <text class="intro-meta" wx:else>即将上线</text>
             <text class="book-review-count" wx:if="{{item.reviewCount > 0}}">{{item.reviewCount}}个需要复习</text>
           </view>
@@ -32,7 +32,7 @@
       <view class="intro-info">
         <text class="intro-name">{{currentBook.name}}</text>
         <view class="intro-meta-row">
-          <text class="intro-meta">{{currentBook.wordCount}}个单词 · {{units.length}}个单元</text>
+          <text class="intro-meta">{{currentBook.unitCount}}个单元 · {{currentBook.wordCount}}个单词</text>
           <text class="book-review-count" wx:if="{{currentBook.reviewCount > 0}}">{{currentBook.reviewCount}}个需要复习</text>
         </view>
       </view>
