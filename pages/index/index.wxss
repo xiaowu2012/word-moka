@@ -230,17 +230,16 @@
   font-weight: 600;
   color: #2C3E50;
   flex: 1;
+  line-height: 1.4;
 }
 
 .unit-badge {
   font-size: 22rpx;
-  padding: 6rpx 18rpx;
-  border-radius: 20rpx;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1.2;
+  padding: 8rpx 20rpx;
+  border-radius: 22rpx;
+  line-height: 1;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .badge-ready {
