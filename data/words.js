@@ -1520,7 +1520,8 @@ module.exports = {
     "extraCn": "医生帮助生病的人恢复健康。",
     "tip": "doctor 可缩写为 Dr.，如 Dr. Li。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_farmer": {
     "word": "farmer",
@@ -1532,7 +1533,8 @@ module.exports = {
     "extraCn": "那位农民种植水稻和蔬菜。",
     "tip": "farmer 由 farm（农场）加 -er 构成，表示“农场主/农民”。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_nurse": {
     "word": "nurse",
@@ -1544,7 +1546,8 @@ module.exports = {
     "extraCn": "护士给生病的孩子发药。",
     "tip": "nurse 是名词，动词是 nurse（护理），注意发音。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_office_worker": {
     "word": "office worker",
@@ -1556,7 +1559,8 @@ module.exports = {
     "extraCn": "公司职员坐在办公桌前使用电脑。",
     "tip": "office worker 是复合名词，复数在 worker 后加 -s。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_factory_worker": {
     "word": "factory worker",
@@ -1568,7 +1572,8 @@ module.exports = {
     "extraCn": "我叔叔是一名工厂工人。他制作玩具。",
     "tip": "这是一个复合词，factory 和 worker 之间用空格。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_busy": {
     "word": "busy",
@@ -1616,7 +1621,8 @@ module.exports = {
     "extraCn": "爸爸会煮美味的面条。",
     "tip": "cook 作动词是“烹饪”，作名词是“厨师”。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_clean": {
     "word": "clean",
@@ -1664,7 +1670,8 @@ module.exports = {
     "extraCn": "我用扫帚扫地。",
     "tip": "sweep 的过去式是 swept，不规则变化。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_floor": {
     "word": "floor",
@@ -1676,7 +1683,8 @@ module.exports = {
     "extraCn": "请不要把纸扔在地板上。",
     "tip": "floor 也可表示“楼层”，如 first floor（一楼）。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_together": {
     "word": "together",
@@ -1736,7 +1744,8 @@ module.exports = {
     "extraCn": "我爸爸很强壮，能举起重箱子。",
     "tip": "strong 是形容词，反义词是 weak（虚弱的）。比较级是 stronger，最高级是 strongest。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_hair": {
     "word": "hair",
@@ -1748,7 +1757,8 @@ module.exports = {
     "extraCn": "她有一头长长的黑发。",
     "tip": "hair 通常为不可数名词，不用 a/an。但指‘几根头发’时可数，如 a few gray hairs。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_also": {
     "word": "also",
@@ -1772,7 +1782,8 @@ module.exports = {
     "extraCn": "老师对我们非常友好。",
     "tip": "kind 是形容词，常用 be kind to sb（对某人友好）。也可作名词表示‘种类’（a kind of）。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_quiet": {
     "word": "quiet",
@@ -1784,7 +1795,8 @@ module.exports = {
     "extraCn": "在图书馆里请保持安静。",
     "tip": "quiet 是形容词，反义词是 noisy（吵闹的）。注意拼写：quiet 不是 quite（相当）。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_best": {
     "word": "best",
@@ -1808,7 +1820,8 @@ module.exports = {
     "extraCn": "我喜欢在睡觉前读故事书。",
     "tip": "read 是不规则动词，过去式/过去分词仍是 read，但发音不同。现在读 /riːd/，过去读 /red/。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_chinese": {
     "word": "Chinese",
@@ -1820,7 +1833,8 @@ module.exports = {
     "extraCn": "我会说中文和英语。",
     "tip": "Chinese 首字母大写，表示‘中文’或‘中国人’；作形容词时也大写，如 Chinese food。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_play": {
     "word": "play",
@@ -1832,7 +1846,8 @@ module.exports = {
     "extraCn": "我们一起玩捉迷藏吧。",
     "tip": "play 后接球类运动不加 the（play football），接乐器要加 the（play the piano）。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_game": {
     "word": "game",
@@ -1844,7 +1859,8 @@ module.exports = {
     "extraCn": "今天我们课堂上玩了一个有趣的游戏。",
     "tip": "game 是可数名词，复数加 -s。注意与 play 搭配：play a game / play games。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_football": {
     "word": "football",
@@ -1856,7 +1872,8 @@ module.exports = {
     "extraCn": "男孩子们喜欢在公园里踢足球。",
     "tip": "football 是复合词（foot + ball），play football 中不加 the。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_basketball": {
     "word": "basketball",
@@ -1916,7 +1933,8 @@ module.exports = {
     "extraCn": "孩子们下课后在操场上玩。",
     "tip": "playground 是一个词，由 play 和 ground 组成。常用 on the playground。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_park": {
     "word": "park",
@@ -1928,7 +1946,8 @@ module.exports = {
     "extraCn": "我们星期天在公园里放风筝。",
     "tip": "park 既是名词“公园”，也是动词“停车”，注意语境。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_over": {
     "word": "over",
@@ -1952,7 +1971,8 @@ module.exports = {
     "extraCn": "我妈妈在一家医院工作。",
     "tip": "hospital 前常用 at 或 in，如 at the hospital。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_shop": {
     "word": "shop",
@@ -1964,7 +1984,8 @@ module.exports = {
     "extraCn": "我去商店买牛奶。",
     "tip": "shop 是英式英语，美式英语常用 store。注意区分。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_toilet": {
     "word": "toilet",
@@ -1976,7 +1997,8 @@ module.exports = {
     "extraCn": "我需要去卫生间。",
     "tip": "toilet 是英式英语，美式英语常用 bathroom 或 restroom。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_bus_stop": {
     "word": "bus stop",
@@ -1988,7 +2010,8 @@ module.exports = {
     "extraCn": "我们每天早上在公共汽车站等车。",
     "tip": "bus stop 是两个词，中间有空格。记住：stop 既是“站”也是“停止”。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_library": {
     "word": "library",
@@ -2012,7 +2035,8 @@ module.exports = {
     "extraCn": "我最喜欢的运动是游泳。",
     "tip": "sport 是可数名词，表示“体育运动”，复数 sports。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_walk": {
     "word": "walk",
@@ -2024,7 +2048,8 @@ module.exports = {
     "extraCn": "我们每天步行去学校。",
     "tip": "walk 既是动词“走路”，也是名词“散步”，如 go for a walk。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_community": {
     "word": "community",
@@ -2132,7 +2157,8 @@ module.exports = {
     "extraCn": "公交车司机开车送我们去学校。",
     "tip": "driver 由 drive（驾驶）+ r（人）构成，注意动词 drive 的过去式是 drove。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_cleaner": {
     "word": "cleaner",
@@ -2144,7 +2170,8 @@ module.exports = {
     "extraCn": "清洁工每天早上打扫我们的学校。",
     "tip": "cleaner 由 clean（打扫）+ er（人）构成，表示“清洁工”。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_cook-unit4": {
     "word": "cook",
@@ -2156,7 +2183,8 @@ module.exports = {
     "extraCn": "我叔叔在一家大餐厅当厨师。",
     "tip": "cook 作名词是“厨师”，作动词是“烹饪”，注意不要和 cooker（厨具）混淆。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_delivery_worker": {
     "word": "delivery worker",
@@ -2168,7 +2196,8 @@ module.exports = {
     "extraCn": "快递员把食物送到我家。",
     "tip": "delivery worker 是“快递员”，也可以说 delivery man / delivery person。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_police_officer": {
     "word": "police officer",
@@ -2180,7 +2209,8 @@ module.exports = {
     "extraCn": "警察帮助我们过马路。",
     "tip": "police officer 是“警察”的正式说法，也可以说 policeman / policewoman。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_a_lot_of": {
     "word": "a lot of",
@@ -2228,7 +2258,8 @@ module.exports = {
     "extraCn": "我爷爷年纪大了，但他很强壮。",
     "tip": "old 的反义词是 young（年轻的）或 new（新的），注意不同语境含义不同。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_tell": {
     "word": "tell",
@@ -2240,7 +2271,8 @@ module.exports = {
     "extraCn": "请在睡前给我讲个故事。",
     "tip": "tell 后面常接双宾语，如 tell sb sth（告诉某人某事）。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_everyone": {
     "word": "everyone",
@@ -2300,7 +2332,8 @@ module.exports = {
     "extraCn": "天气晴朗又温暖。我们去海滩吧。",
     "tip": "sunny 由 sun 加 -y 变成，注意双写 n：sun + n + y。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_hot": {
     "word": "hot",
@@ -2312,7 +2345,8 @@ module.exports = {
     "extraCn": "夏天很热，所以我喝很多水。",
     "tip": "hot 的比较级是 hotter，最高级是 hottest，注意双写 t。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_bad": {
     "word": "bad",
@@ -2336,7 +2370,8 @@ module.exports = {
     "extraCn": "请穿上外套。外面很冷。",
     "tip": "cold 可形容天气，也可形容食物或饮料，如 cold water。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_windy": {
     "word": "windy",
@@ -2348,7 +2383,8 @@ module.exports = {
     "extraCn": "有风，所以我们可以放风筝。",
     "tip": "windy 由 wind 加 -y 变成，注意 wind 是名词，windy 是形容词。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_cloudy": {
     "word": "cloudy",
@@ -2360,7 +2396,8 @@ module.exports = {
     "extraCn": "天气多云，但没有下雨。",
     "tip": "cloudy 由名词 cloud（云）加 -y 变成形容词，类似 sunny, windy。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_rainy": {
     "word": "rainy",
@@ -2372,7 +2409,8 @@ module.exports = {
     "extraCn": "下雨天我喜欢看书。",
     "tip": "rainy 由 rain 加 -y 变成形容词，注意拼写：rain + y = rainy。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_snowy": {
     "word": "snowy",
@@ -2384,7 +2422,8 @@ module.exports = {
     "extraCn": "今天下雪了，所以我们可以做雪球。",
     "tip": "snowy 是形容词，描述天气多雪，如 a snowy day。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_cool": {
     "word": "cool",
@@ -2396,7 +2435,8 @@ module.exports = {
     "extraCn": "秋天很凉爽，我们可以去远足。",
     "tip": "cool 除了“凉爽的”，口语中还常表示“酷的、棒的”。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_warm": {
     "word": "warm",
@@ -2408,7 +2448,8 @@ module.exports = {
     "extraCn": "太阳让我们感到温暖。",
     "tip": "warm 的反义词是 cool（凉爽的），注意不要和 worm（虫子）混淆。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_tomorrow": {
     "word": "tomorrow",
@@ -2456,7 +2497,8 @@ module.exports = {
     "extraCn": "我们一起看了一部有趣的电影。",
     "tip": "film 和 movie 意思相同，film 更常用于英式英语。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_idea": {
     "word": "idea",
@@ -2480,7 +2522,8 @@ module.exports = {
     "extraCn": "我可以在公园里放风筝。",
     "tip": "fly 作动词时，过去式是 flew，注意不要和名词“苍蝇”混淆。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_kite": {
     "word": "kite",
@@ -2492,7 +2535,8 @@ module.exports = {
     "extraCn": "男孩跑得很快，让他的风筝飞得高高的。",
     "tip": "kite 是单数，复数加 -s 变成 kites。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_snowman": {
     "word": "snowman",
@@ -2504,7 +2548,8 @@ module.exports = {
     "extraCn": "我们做了一个胡萝卜鼻子的雪人。",
     "tip": "snowman 的复数是 snowmen，注意 man 变成 men。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_fun": {
     "word": "fun",
@@ -2576,7 +2621,8 @@ module.exports = {
     "extraCn": "我奶奶给我织了一件暖和的毛衣。",
     "tip": "sweater 是可数名词，复数加 -s。注意 ea 发 /e/ 音。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_sock": {
     "word": "sock",
@@ -2588,7 +2634,8 @@ module.exports = {
     "extraCn": "我在穿鞋之前穿上袜子。",
     "tip": "sock 常用复数 socks，因为袜子是成对穿的。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_mine": {
     "word": "mine",
@@ -2624,7 +2671,8 @@ module.exports = {
     "extraCn": "他穿一件白衬衫去上学。",
     "tip": "shirt 指男士衬衫，女士衬衫常用 blouse。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_coat": {
     "word": "coat",
@@ -2636,7 +2684,8 @@ module.exports = {
     "extraCn": "穿上你的外套，外面很冷。",
     "tip": "coat 是可数名词，复数加 -s。常用短语：put on / take off a coat。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_dress": {
     "word": "dress",
@@ -2648,7 +2697,8 @@ module.exports = {
     "extraCn": "她穿了一条粉色的连衣裙去聚会。",
     "tip": "dress 作名词指连衣裙，作动词表示“穿衣服”。注意区分 dress 和 skirt（短裙）。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_which": {
     "word": "which",
@@ -2684,7 +2734,8 @@ module.exports = {
     "extraCn": "冬天我们堆雪人。",
     "tip": "winter 前用 in，如 in winter。注意 w 不发音。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_snow": {
     "word": "snow",
@@ -2720,7 +2771,8 @@ module.exports = {
     "extraCn": "春天花儿开放。",
     "tip": "spring 作“春天”时，前面通常不加 the。也可作动词“跳”。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_summer": {
     "word": "summer",
@@ -2732,7 +2784,8 @@ module.exports = {
     "extraCn": "我喜欢在夏天游泳。",
     "tip": "summer 前常用 in，如 in summer。注意大写首字母。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_autumn": {
     "word": "autumn",
@@ -2744,7 +2797,8 @@ module.exports = {
     "extraCn": "我喜欢在秋天捡红色的叶子。",
     "tip": "autumn 和 fall 都表示秋天，fall 多用于美式英语。",
     "key": true,
-    "importance": 4
+    "importance": 4,
+    "examFrequency": 5
   },
   "r4_t_shirt": {
     "word": "T-shirt",
@@ -2806,4 +2860,4 @@ module.exports = {
     "key": false,
     "importance": 2
   }
-}
+};
