@@ -20,7 +20,6 @@ Page({
     word: {},
     key: '',
     imageSrc: '',
-    fromContinue: false,
     isBrowse: false,
     showTranslation: false,
     browseIndex: 0,
@@ -33,30 +32,27 @@ Page({
     extraCn: '',
     tip: '',
     playing: '',
-    todayLearned: 0,
-    dailyGoal: 5,
     audioCtx: null
   },
 
   onLoad(options) {
     const wordKey = options.wordKey
-    const fromContinue = options.from === 'continue'
     const isBrowse = options.mode === 'browse'
-    const unitFilter = options.unit || ''
-    const textbookFilter = options.textbook || ''
+    this.textbookFilter = options.textbook || ''
+    this.unitFilter = options.unit || ''
 
     const words = app.globalData.words
 
     // 按教材过滤
     let wordKeyList = Object.keys(words)
-    if (textbookFilter === 'r4-2024q') {
+    if (this.textbookFilter === 'r4-2024q') {
       wordKeyList = wordKeyList.filter(k => k.startsWith('r4_'))
-    } else if (textbookFilter === '9a-2026q') {
+    } else if (this.textbookFilter === '9a-2026q') {
       wordKeyList = wordKeyList.filter(k => !k.startsWith('r4_') && !k.startsWith('8b_'))
     }
     // 如果有 unit 过滤，进一步缩小范围
-    if (unitFilter) {
-      wordKeyList = wordKeyList.filter(k => words[k] && words[k].module === unitFilter)
+    if (this.unitFilter) {
+      wordKeyList = wordKeyList.filter(k => words[k] && words[k].module === this.unitFilter)
     }
 
     // 确保卡片图片缓存目录存在
@@ -82,11 +78,10 @@ Page({
 
     this.wordKeyList = wordKeyList
     this.setData({ audioCtx: wx.createInnerAudioContext() })
-    this.loadWord(targetKey, targetIndex, fromContinue, isBrowse)
-    this.loadProgress()
+    this.loadWord(targetKey, targetIndex, isBrowse)
   },
 
-  loadWord(wordKey, index, fromContinue, isBrowse) {
+  loadWord(wordKey, index, isBrowse) {
     const words = app.globalData.words
     const card = words[wordKey]
     if (!card) return
@@ -108,7 +103,6 @@ Page({
       key: wordKey,
       word: card,
       imageSrc: isR4 ? this.getCachedImageSrcSync(wordKey) : `/images/${wordKey}_card.jpg`,
-      fromContinue: fromContinue || false,
       isBrowse: isBrowse || false,
       showTranslation: true,
       browseIndex: index,
@@ -146,28 +140,6 @@ Page({
 
   onUnload() {
     try { if (this.data.audioCtx) this.data.audioCtx.destroy() } catch (e) {}
-  },
-
-  loadProgress() {
-    const dailyGoal = wx.getStorageSync('dailyGoal') || 5
-    const today = getLocalDate()
-
-    wx.cloud.callFunction({
-      name: 'getProgress'
-    }).then(res => {
-      const p = res.result || {}
-
-      let todayLearned = 0
-      const schedule = p.schedule || {}
-      for (const s of Object.values(schedule)) {
-        if (s.stage === 0 && s.dueDate === today) todayLearned++
-      }
-
-      this.setData({
-        todayLearned,
-        dailyGoal
-      })
-    }).catch(() => {})
   },
 
   // 预加载单词音频源（设src但不播放，让音频开始缓冲）
@@ -422,39 +394,5 @@ Page({
     this.loadWord(key, idx, false, true)
   },
 
-  onGoNext() {
-    const words = app.globalData.words
-    const tomorrow = getLocalDate(new Date(Date.now() + 86400000))
 
-    wx.cloud.callFunction({
-      name: 'getProgress'
-    }).then(res => {
-      const p = res.result || {}
-      const mastered = p.mastered || []
-      const schedule = p.schedule || {}
-
-      for (const key of Object.keys(words)) {
-        if (!mastered.includes(key) && !schedule[key]) {
-          wx.cloud.callFunction({
-            name: 'updateProgress',
-            data: {
-              field: 'schedule',
-              key,
-              add: true,
-              value: { stage: 0, dueDate: tomorrow }
-            }
-          }).then(() => {
-            wx.redirectTo({
-              url: `/pages/detail/detail?wordKey=${key}&from=continue`
-            })
-          }).catch(() => {})
-          return
-        }
-      }
-
-      wx.showToast({ title: '全部学完啦 🎉', icon: 'none' })
-    }).catch(() => {
-      wx.showToast({ title: '加载失败', icon: 'none' })
-    })
-  }
 })

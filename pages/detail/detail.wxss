@@ -253,45 +253,6 @@
 
 /* ========== 学习模式底部栏 ========== */
 /* 底部固定按钮 */
-.next-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16rpx;
-  padding: 20rpx 24rpx;
-  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
-  background: #fff;
-  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.06);
-}
-
-.next-text {
-  flex: 1;
-  text-align: center;
-  background: linear-gradient(135deg, #5B8DEF, #7C6FF7);
-  color: #fff;
-  font-size: 30rpx;
-  font-weight: 600;
-  padding: 24rpx 0;
-  border-radius: 16rpx;
-}
-
-.next-text:active {
-  opacity: 0.85;
-}
-
-.next-progress {
-  font-size: 24rpx;
-  color: #5B8DEF;
-  background: #EEF3FF;
-  padding: 8rpx 16rpx;
-  border-radius: 12rpx;
-  white-space: nowrap;
-}
-
 /* 来源 */
 .source-bar {
   text-align: center;

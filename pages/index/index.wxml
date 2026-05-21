@@ -73,17 +73,6 @@
         <text class="entry-arrow">›</text>
       </view>
 
-      <view class="entry-card" bindtap="onContinueLearning">
-        <view class="entry-left">
-          <text class="entry-icon">🚀</text>
-          <view class="entry-info">
-            <text class="entry-title">继续学习</text>
-            <text class="entry-desc">继续学习下一个新单词</text>
-          </view>
-        </view>
-        <text class="entry-arrow">›</text>
-      </view>
-
       <view class="entry-card" bindtap="onReview">
         <view class="entry-left">
           <text class="entry-icon">🔄</text>

@@ -71,9 +71,5 @@
     </view>
   </view>
 
-  <!-- 底部：continue学习模式按钮 -->
-  <view class="next-bar" wx:if="{{fromContinue && !isBrowse}}" bindtap="onGoNext">
-    <text class="next-text">学习下一个 →</text>
-    <text class="next-progress">{{todayLearned}}/{{dailyGoal}}</text>
-  </view>
+
 </view>
