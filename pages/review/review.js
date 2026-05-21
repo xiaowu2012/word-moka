@@ -181,9 +181,6 @@ Page({
         wrongAnswerCount: 0
       })
 
-      // 先预加载第一个词的音频（提前缓冲，不管是什么题型）
-      this.preloadFirstReviewAudio()
-
       try {
         this.startCurrentWord()
       } catch (e) {
@@ -304,13 +301,12 @@ Page({
       feedback: ''
     })
 
-    // 预加载当前词的音频（设src让音频开始缓冲）
+    // 跟卡片详情一样的模式：先设src缓冲，再延迟播放
     this.preloadReviewAudio()
 
     if (question.type === 1 || question.type === 4) {
-      this.playCurrentAudio()
-      // 提前扫描下一个有音频的词，用独立context静音缓冲（不影响当前播放）
-      this.preloadNextAudioInQueue()
+      // 和detail.js一样，设src后等200ms让音频加载完再播
+      setTimeout(() => this.playCurrentAudio(), 200)
     }
 
   },
@@ -329,64 +325,13 @@ Page({
     }
   },
 
-  // 播放当前词音频
   playCurrentAudio() {
     const { audioCtx } = this.data
     if (!audioCtx) return
     audioCtx.play()
   },
 
-  // 预加载第一个词的音频到主audioCtx
-  preloadFirstReviewAudio() {
-    const { reviewQueue, audioCtx } = this.data
-    if (!audioCtx || reviewQueue.length === 0) return
-    const entry = reviewQueue[0]
-    if (!entry) return
-    const cache = this.wordCache[entry.key]
-    if (!cache) return
-    const src = getWordAudioSrc(entry.key, cache.word)
-    if (src) {
-      audioCtx.src = src
-    }
-  },
-
-  // 听音题出现时，用独立context提前扫描并缓冲队列中下一个有音频的词
-  preloadNextAudioInQueue() {
-    const { reviewQueue, currentIndex } = this.data
-    for (let i = currentIndex + 1; i < reviewQueue.length; i++) {
-      const entry = reviewQueue[i]
-      if (!entry) continue
-      const cache = this.wordCache[entry.key]
-      if (!cache) continue
-      const src = getWordAudioSrc(entry.key, cache.word)
-      if (!src) continue
-      const preloader = wx.createInnerAudioContext()
-      preloader.src = src
-      preloader.volume = 0
-      preloader.play()
-      preloader.onCanplay(() => { preloader.stop(); preloader.destroy() })
-      preloader.onError(() => preloader.destroy())
-      return
-    }
-    // 往后扫完了没有，尝试从开头扫
-    for (let i = 0; i < currentIndex; i++) {
-      const entry = reviewQueue[i]
-      if (!entry) continue
-      const cache = this.wordCache[entry.key]
-      if (!cache) continue
-      const src = getWordAudioSrc(entry.key, cache.word)
-      if (!src) continue
-      const preloader = wx.createInnerAudioContext()
-      preloader.src = src
-      preloader.volume = 0
-      preloader.play()
-      preloader.onCanplay(() => { preloader.stop(); preloader.destroy() })
-      preloader.onError(() => preloader.destroy())
-      return
-    }
-  },
-
-  // 在答题反馈阶段扫描队列，预加载下一个有音频的词的音频到主audioCtx
+  // 答题反馈阶段：预加载下一个有音频的词到主audioCtx（和detail.js的preloadNextAudio一样）
   preloadNextWordAudio() {
     const { reviewQueue, currentIndex, audioCtx } = this.data
     if (!audioCtx) return
