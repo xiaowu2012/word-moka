@@ -9,6 +9,50 @@ function getLocalDate(d) {
   return `${y}-${m}-${day}`
 }
 
+const CLOUD_BASE = 'cloud://cloudbase-d2gs4fpbhca51e19f.636c-cloudbase-d2gs4fpbhca51e19f-1433289257'
+
+function getWordAudioSrc(wordKey, wordData) {
+  if (wordData.pronounceFile) return wordData.pronounceFile
+  if (wordKey.startsWith('r4_')) return `${CLOUD_BASE}/audio/r4/${wordKey}.mp3`
+  return ''
+}
+
+// 预加载当前教材第一个到期复习词的音频（进入书本详情时触发）
+function preloadReviewAudio(bookId) {
+  const words = app.globalData.words
+  if (!words) return
+  const config = TEXTBOOK_CONFIG[bookId]
+  if (!config) return
+  const prefix = config.wordPrefix
+  const today = getLocalDate()
+
+  wx.cloud.callFunction({ name: 'getProgress' }).then(res => {
+    const p = res.result || {}
+    const mastered = p.mastered || []
+    const schedule = p.schedule || {}
+
+    const firstDue = Object.entries(schedule).find(([key, s]) => {
+      if (mastered.includes(key)) return false
+      if (s.dueDate > today || s.stage < 0) return false
+      if (prefix && !key.startsWith(prefix)) return false
+      const w = words[key]
+      return w && getWordAudioSrc(key, w)
+    })
+
+    if (firstDue) {
+      const [key] = firstDue
+      const src = getWordAudioSrc(key, words[key])
+      if (src) {
+        const ctx = wx.createInnerAudioContext()
+        ctx.src = src
+        ctx.volume = 0
+        ctx.play()
+        setTimeout(() => { ctx.stop(); ctx.destroy() }, 3000)
+      }
+    }
+  }).catch(() => {})
+}
+
 const TEXTBOOK_CONFIG = {
   '9a-2026q': {
     units: ['Unit1', 'Unit2', 'Unit3', 'Unit4', 'Unit5', 'Unit6'],
@@ -170,6 +214,9 @@ Page({
       currentBook: book,
       units
     })
+
+    // 进入书本时预加载第一个到期复习词的音频
+    preloadReviewAudio(bookId)
 
     // 进入书本时也检查复习提醒
     this.checkReviewAll()
